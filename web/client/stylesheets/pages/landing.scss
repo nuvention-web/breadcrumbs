@@ -1,0 +1,39 @@
+section#landing {
+  form {
+    position: absolute;
+    width: 550px;
+    top: 30%;
+    left: 50%;
+    .entry {
+      margin: 20px auto;
+      width: 75%;
+    }
+    h5 {
+      text-align: left;
+      margin-bottom: 4px;
+    }
+    @mixin text-input {
+      height: 35px;
+      margin: 0px auto 6px auto;
+      width: 100%;
+    }
+    input[type='text'], input[type='email'] {
+      @include text-input
+    }
+    input[type='submit'] {
+      height: 50px;
+      width: 70%;
+      margin: 25px auto 0px auto;
+      border-radius: 40px;
+      font-size: 20px;
+      font-weight: 800;
+      background-color: #3041C8;
+      color: white;
+      border: 1px solid #2B6EDF;
+    }
+    #messages {
+      color: red;
+      text-align: center;
+    }
+  }
+}

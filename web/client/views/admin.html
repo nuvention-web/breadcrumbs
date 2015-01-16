@@ -1,0 +1,10 @@
+<template name='admin'>
+  {{> loginButtons}}
+  <section id='admin'>
+    <div id='emails'>
+      {{#each emails}}
+        {{> email}}
+      {{/each}}
+    </div>
+  </section>
+</template>
