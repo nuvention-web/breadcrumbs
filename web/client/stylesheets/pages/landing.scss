@@ -1,9 +1,12 @@
 section#landing {
+  color: white;
+  background-size: cover;
+  background-image: url('/images/ladybug.jpg');
   form {
     position: absolute;
     width: 550px;
     top: 30%;
-    left: 50%;
+    left: 15%;
     .entry {
       margin: 20px auto;
       width: 75%;
@@ -13,6 +16,7 @@ section#landing {
       margin-bottom: 4px;
     }
     @mixin text-input {
+      color: black;
       height: 35px;
       margin: 0px auto 6px auto;
       width: 100%;
