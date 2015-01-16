@@ -1,9 +1,11 @@
-Technology choices:
- - Meteor (+ MongoDB)
- - Coffeescript
- - SCSS
- - Velocity + Mocha + Chai
+# Vita Web
 
-brief to-dos:
- - modularize form
- - design design design
+## Technology Choices:
+*Meteor (+ MongoDB)
+*Coffeescript
+*SCSS
+*Velocity + Mocha + Chai
+
+## Notes to Kevin:
+*modularize form
+*design design design
