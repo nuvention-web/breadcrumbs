@@ -6,6 +6,6 @@
  * SCSS
  * Velocity + Mocha + Chai
 
-## Notes to Kevin:
+#### Notes to Kevin:
  * modularize form
  * design design design
