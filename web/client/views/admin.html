@@ -1,6 +1,8 @@
 <template name='admin'>
-  {{> loginButtons}}
   <section id='admin'>
+    <div class='pull-right'>
+      {{> loginButtons}}
+    </div>
     <div id='emails'>
       {{#each emails}}
         {{> email}}
