@@ -3,7 +3,7 @@ Vita Web
 Currently living at [https://vita.meteor.com](https://vita.meteor.com). Or check out the [repository](https://github.com/nuvention-web/Just-Press-Play).
 
 ## Roles
- * Kevin: development & design
+ * Kevin: development and design
  * Penny: design, content strategy
  * Florent: content strategy
  * Nacho: product management
