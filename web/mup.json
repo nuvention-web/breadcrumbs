@@ -2,19 +2,19 @@
   // Server authentication info
   "servers": [
     {
-      "host": "hostname",
+      "host": "104.131.106.243",
       "username": "root",
-      "password": "password"
+      // "password": "password"
       // or pem file (ssh based authentication)
-      //"pem": "~/.ssh/id_rsa"
+      "pem": "~/.ssh/id_rsa"
     }
   ],
 
   // Install MongoDB in the server, does not destroy local MongoDB on future setup
-  "setupMongo": true,
+  "setupMongo": false,
 
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
-  "setupNode": true,
+  "setupNode": false,
 
   // WARNING: If nodeVersion omitted will setup 0.10.33 by default. Do not use v, only version number.
   "nodeVersion": "0.10.33",
@@ -23,14 +23,14 @@
   "setupPhantom": true,
 
   // Application name (No spaces)
-  "appName": "meteor",
+  "appName": "Vita",
 
   // Location of app (local directory)
-  "app": "/path/to/the/app",
+  "app": "~/Just-Press-Play/web",
 
   // Configure environment
   "env": {
-    "ROOT_URL": "http://myapp.com"
+    "ROOT_URL": "http://localhost"
   },
 
   // Meteor Up checks if the app comes online just after the deployment
