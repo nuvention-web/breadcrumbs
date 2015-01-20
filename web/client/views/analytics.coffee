@@ -1,7 +1,7 @@
 Template.analytics.rendered = ->
   if !window._gaq?
     window._gaq = []
-    _gaq.push(['_setAccount', 'UA-GTM-NG39SP-N'])
+    _gaq.push(['_setAccount', 'UA-58703434-1'])
     _gaq.push(['_trackPageview'])
  
     (->
