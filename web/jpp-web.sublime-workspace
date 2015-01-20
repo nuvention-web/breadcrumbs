@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"Ass",
+				"Assets	Assets.getText(assetPath, [asyncCallback])"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"find",
+				"findOne	Meteor: collection.findOne(selector, [options])"
+			],
+			[
+				"fin",
+				"find	Meteor: collection.find(selector, [options])"
+			],
+			[
 				"MEteor",
 				"Meteor.call	Meteor.call(name, param1, param2, ... [, asyncCallback])"
 			],
@@ -22,10 +54,6 @@
 			[
 				"Track",
 				"Tracker.autorun	Meteor: Tracker.autorun(runFunc)"
-			],
-			[
-				"find",
-				"findOne	Meteor: collection.findOne(selector, [options])"
 			],
 			[
 				"Mong",
@@ -54,10 +82,6 @@
 			[
 				"margin-",
 				"margin-right"
-			],
-			[
-				"margin",
-				"margin-left"
 			],
 			[
 				"inline",
@@ -106,10 +130,6 @@
 			[
 				"text-",
 				"text-align"
-			],
-			[
-				"font",
-				"font-size"
 			],
 			[
 				"thr",
@@ -415,13 +435,96 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "client/stylesheets/base/reset.scss",
+			"settings":
+			{
+				"buffer_size": 694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/views/landing.html",
+			"settings":
+			{
+				"buffer_size": 761,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/stylesheets/pages/admin.scss",
+			"settings":
+			{
+				"buffer_size": 531,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "section#landing {\n  color: white;\n  background-size: cover;\n  background-image: url('/images/ladybug.jpg');\n  form {\n    position: absolute;\n    width: 550px;\n    top: 30%;\n    left: 15%;\n    .entry {\n      margin: 20px auto;\n      width: 75%;\n    }\n    h5 {\n      text-align: left;\n      margin-bottom: 4px;\n    }\n    @mixin text-input {\n      color: black;\n      height: 35px;\n      margin: 0px auto 6px auto;\n      width: 100%;\n    }\n    input[type='text'], input[type='email'] {\n      @include text-input\n    }\n    input[type='submit'] {\n      height: 50px;\n      width: 70%;\n      margin: 25px auto 0px auto;\n      border-radius: 40px;\n      font-size: 20px;\n      font-weight: 800;\n      background-color: #3041C8;\n      color: white;\n      border: 1px solid #2B6EDF;\n    }\n    #messages {\n      color: red;\n      text-align: center;\n    }\n  }\n}\n",
+			"file": "client/stylesheets/pages/landing.scss",
+			"file_size": 851,
+			"file_write_time": 130659219950000000,
+			"settings":
+			{
+				"buffer_size": 852,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 997,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/User/Chrome.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 207.0,
 		"selected_items":
 		[
+			[
+				"folder",
+				"Project: Add Folder"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"new file",
+				"File: New File Relative to Current View"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"meteor call",
+				"Snippet: Meteor.call(name, param1, param2, ... [, asyncCallback])"
+			],
+			[
+				"mtr tem",
+				"Snippet: Meteor: Template.myTemplate.events(eventMap)"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
 			[
 				"sublime l",
 				"SublimeLinter: Previous Error"
@@ -433,14 +536,6 @@
 			[
 				"remove",
 				"Package Control: Remove Package"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"package insta",
-				"Package Control: Install Package"
 			],
 			[
 				"disabl",
@@ -457,10 +552,6 @@
 			[
 				"toggle",
 				"SublimeLinter: Toggle Linter"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"package",
@@ -481,14 +572,6 @@
 			[
 				"proje",
 				"Project: Edit"
-			],
-			[
-				"new file",
-				"File: New File Relative to Project Root"
-			],
-			[
-				"list",
-				"Package Control: List Packages"
 			],
 			[
 				"package inst",
@@ -537,10 +620,43 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/aspin/Just-Press-Play/web"
+		"/Users/aspin/Just-Press-Play/web",
+		"/Users/aspin/Just-Press-Play/web/client",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/base",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages",
+		"/Users/aspin/Just-Press-Play/web/client/views",
+		"/Users/aspin/Just-Press-Play/web/private"
 	],
 	"file_history":
 	[
+		"/Users/aspin/Just-Press-Play/web/README.md",
+		"/Users/aspin/Just-Press-Play/web/client/views/login.html",
+		"/Users/aspin/Just-Press-Play/web/client/views/thanks.html",
+		"/Users/aspin/Just-Press-Play/web/client/views/admin.html",
+		"/Users/aspin/Just-Press-Play/web/client/views/login.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages/thanks.scss",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages/admin.scss",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/base/reset.scss",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages/login.scss",
+		"/Users/aspin/Just-Press-Play/web/client/views/admin.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/views/email.html",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages/landing.scss",
+		"/Users/aspin/Just-Press-Play/web/server/fixtures.coffee",
+		"/Users/aspin/Just-Press-Play/web/private/admin",
+		"/Users/aspin/Just-Press-Play/web/client/views/landing.html",
+		"/Users/aspin/Just-Press-Play/web/client/views/landing.coffee",
+		"/Users/aspin/Just-Press-Play/web/lib/router.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/stylesheets/base.scss",
+		"/Users/aspin/Just-Press-Play/web/tests/mocha/client/landingPage.coffee",
+		"/Users/aspin/Just-Press-Play/web/server/methods.coffee",
+		"/Users/aspin/Just-Press-Play/web/tests/mocha/server/methods.coffee",
+		"/Users/aspin/Just-Press-Play/web/collections/interest.coffee",
+		"/Users/aspin/Just-Press-Play/web/jpp-web.sublime-project",
+		"/Users/aspin/Just-Press-Play/web/packages/tests-proxy/package.js",
+		"/Users/aspin/Just-Press-Play/web/collections/collections.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/index.html",
+		"/Users/aspin/Just-Press-Play/web/scss.json",
 		"/Users/aspin/speakamos/README.md",
 		"/Users/aspin/dump.rdb",
 		"/Users/aspin/speakamos/server/methods.js",
@@ -641,38 +757,11 @@
 		"/Users/aspin/eecs343/server/util.c",
 		"/Users/aspin/eecs343/server/Makefile",
 		"/Users/aspin/eecs343/server/seats.c",
-		"/Users/aspin/eecs343/server/testsuite/1.trace",
-		"/Users/aspin/eecs343/server/util.h",
-		"/Users/aspin/Sandbox/elevator/test.py",
-		"/Users/aspin/remote-paper-prototyper-web/server/publications.js",
-		"/Users/aspin/remote-paper-prototyper-web/public/deltalab.jpg",
-		"/Users/aspin/remote-paper-prototyper-web/server/ddp.js",
-		"/Users/aspin/eecs343/kma/kma_bud.c",
-		"/Users/aspin/eecs343/kma/DOC",
-		"/Users/aspin/eecs343/kma/kma_p2fl.c",
-		"/Users/aspin/eecs343/kma/kma_rm.c",
-		"/Users/aspin/eecs343/kma/Makefile",
-		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c",
-		"/Users/aspin/eecs343/kma/kma_page.c",
-		"/Users/aspin/eecs343/kma/testsuite/3.trace",
-		"/Users/aspin/eecs343/kma/testsuite/1.trace",
-		"/Users/aspin/eecs343/kma/kma_page.h",
-		"/Users/aspin/eecs343/kma/kma_dummy.c",
-		"/Users/aspin/Documents/Classes/Fall 2014/os/hw2.txt",
-		"/Users/aspin/remote-paper-prototyper-web/collections/sessions.js",
-		"/Users/aspin/remote-paper-prototyper-ios/Podfile",
-		"/Users/aspin/remote-paper-prototyper-web/lib/initialize.js",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/glass_stream.html",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/glass_stream.js",
-		"/Users/aspin/remote-paper-prototyper-web/client/index.js",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/paper_stream.html",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/paper_stream.js",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/stream.js",
-		"/Users/aspin/remote-paper-prototyper-web/client/views/stream.html"
+		"/Users/aspin/eecs343/server/testsuite/1.trace"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -687,6 +776,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"eee",
+			"*",
+			"- ",
+			" - ",
+			"aaaaaa",
+			"h5",
+			"h3",
+			"h5",
+			"span",
+			"span ",
+			"C9DFD5",
+			"AA9BD5",
+			"9CA7C8",
+			"landing",
+			"fullname",
+			"Email",
+			"text",
+			"admin1",
+			"h4",
+			"h3",
+			"<h",
+			"header",
+			"navbar",
+			"div",
+			"ADWyx4ZG7HnMLX3Tx",
+			"admin",
+			"ADWyx4ZG7HnMLX3Tx",
+			"landingPage",
+			"\n')",
+			"Landing",
+			"event",
+			"content",
+			"title",
 			"user",
 			"res",
 			"user",
@@ -781,40 +903,7 @@
 			"res",
 			"createSession",
 			"publisher",
-			"555555",
-			"color",
-			"player",
-			"call",
-			"jwplayer",
-			"load_details",
-			"event",
-			"300px",
-			"thread_pool",
-			"aquajet",
-			"request",
-			"desc_requests",
-			"append",
-			"floor",
-			"obj",
-			"new_block",
-			"ptr",
-			"remove_ma",
-			"remove_malloc_header",
-			"(int)",
-			" 8",
-			"8",
-			"FIRST_PAGE_BLOCK",
-			"FIRST_PAGE_BLOCK =",
-			"*((blockheaderT**) first_page->ptr)",
-			"first_page->ptr",
-			"ignored",
-			"first_page =",
-			"first_page",
-			"current_block",
-			"528",
-			"print_pages",
-			"first_page",
-			"print_pages"
+			"555555"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -833,8 +922,162 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "client/stylesheets/base/reset.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 122.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/views/landing.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 761,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								67,
+								67
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/stylesheets/pages/admin.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								40
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/stylesheets/pages/landing.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 852,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								852,
+								852
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 997,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								997,
+								997
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -888,6 +1131,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"admin.ht",
+				"client/views/admin.html"
+			],
 			[
 				"met",
 				"server/methods.js"
@@ -958,7 +1205,7 @@
 		[
 			[
 				"",
-				"~/Sublime Projects/rppt-web.sublime-project"
+				"~/Sublime Projects/kdbot.sublime-project"
 			]
 		],
 		"width": 380.0
