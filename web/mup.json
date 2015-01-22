@@ -11,7 +11,7 @@
   ],
 
   // Install MongoDB in the server, does not destroy local MongoDB on future setup
-  "setupMongo": false,
+  "setupMongo": true,
 
   // WARNING: Node.js is required! Only skip if you already have Node.js installed on server.
   "setupNode": false,
@@ -20,16 +20,17 @@
   "nodeVersion": "0.10.33",
 
   // Install PhantomJS in the server
-  "setupPhantom": true,
+  "setupPhantom": false,
 
   // Application name (No spaces)
   "appName": "Vita",
 
   // Location of app (local directory)
-  "app": "~/Just-Press-Play/web",
+  "app": "/Users/aspin/Just-Press-Play/web",
 
   // Configure environment
   "env": {
+    "PORT": "3000",
     "ROOT_URL": "http://localhost"
   },
 

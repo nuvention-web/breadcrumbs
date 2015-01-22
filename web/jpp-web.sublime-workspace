@@ -439,15 +439,23 @@
 			"file": "client/stylesheets/base/reset.scss",
 			"settings":
 			{
-				"buffer_size": 694,
+				"buffer_size": 722,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/views/landing.html",
+			"file": "client/views/analytics.html",
 			"settings":
 			{
-				"buffer_size": 761,
+				"buffer_size": 193,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mup.json",
+			"settings":
+			{
+				"buffer_size": 1073,
 				"line_ending": "Unix"
 			}
 		},
@@ -471,10 +479,26 @@
 			}
 		},
 		{
+			"file": "client/views/landing.html",
+			"settings":
+			{
+				"buffer_size": 779,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 997,
+				"buffer_size": 1020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/stylesheets/pages/login.scss",
+			"settings":
+			{
+				"buffer_size": 718,
 				"line_ending": "Unix"
 			}
 		}
@@ -626,10 +650,18 @@
 		"/Users/aspin/Just-Press-Play/web/client/stylesheets/base",
 		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages",
 		"/Users/aspin/Just-Press-Play/web/client/views",
-		"/Users/aspin/Just-Press-Play/web/private"
+		"/Users/aspin/Just-Press-Play/web/public",
+		"/Users/aspin/Just-Press-Play/web/public/images",
+		"/Users/aspin/Just-Press-Play/web/tests/mocha",
+		"/Users/aspin/Just-Press-Play/web/tests/mocha/client"
 	],
 	"file_history":
 	[
+		"/Users/aspin/Just-Press-Play/web/client/views/analytics.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/views/landing.coffee",
+		"/Users/aspin/Just-Press-Play/web/client/views/landing.html",
+		"/Users/aspin/Just-Press-Play/web/settings.json",
+		"/Users/aspin/Just-Press-Play/web/client/views/analytics.html",
 		"/Users/aspin/Just-Press-Play/web/README.md",
 		"/Users/aspin/Just-Press-Play/web/client/views/login.html",
 		"/Users/aspin/Just-Press-Play/web/client/views/thanks.html",
@@ -644,8 +676,6 @@
 		"/Users/aspin/Just-Press-Play/web/client/stylesheets/pages/landing.scss",
 		"/Users/aspin/Just-Press-Play/web/server/fixtures.coffee",
 		"/Users/aspin/Just-Press-Play/web/private/admin",
-		"/Users/aspin/Just-Press-Play/web/client/views/landing.html",
-		"/Users/aspin/Just-Press-Play/web/client/views/landing.coffee",
 		"/Users/aspin/Just-Press-Play/web/lib/router.coffee",
 		"/Users/aspin/Just-Press-Play/web/client/stylesheets/base.scss",
 		"/Users/aspin/Just-Press-Play/web/tests/mocha/client/landingPage.coffee",
@@ -754,10 +784,7 @@
 		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/task_setter.js",
 		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/alert.html",
 		"/Users/aspin/remote-paper-prototyper-web/collections/collections.js",
-		"/Users/aspin/eecs343/server/util.c",
-		"/Users/aspin/eecs343/server/Makefile",
-		"/Users/aspin/eecs343/server/seats.c",
-		"/Users/aspin/eecs343/server/testsuite/1.trace"
+		"/Users/aspin/eecs343/server/util.c"
 	],
 	"find":
 	{
@@ -776,6 +803,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"s",
+			"d",
+			"l",
+			"w",
+			"[",
+			"setup",
 			"eee",
 			"*",
 			"- ",
@@ -897,13 +930,7 @@
 			"rpn_eval",
 			"n",
 			"digit",
-			"x",
-			"exp",
-			"session",
-			"res",
-			"createSession",
-			"publisher",
-			"555555"
+			"x"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -922,7 +949,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -931,15 +958,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 694,
+						"buffer_size": 722,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								26,
+								26
 							]
 						],
 						"settings":
@@ -950,7 +977,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 122.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -958,25 +985,54 @@
 				},
 				{
 					"buffer": 1,
-					"file": "client/views/landing.html",
+					"file": "client/views/analytics.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 761,
+						"buffer_size": 193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								67,
-								67
+								181,
+								181
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "mup.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								851,
+								851
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -984,11 +1040,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "client/stylesheets/pages/admin.scss",
 					"semi_transient": false,
 					"settings":
@@ -1015,11 +1071,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "client/stylesheets/pages/landing.scss",
 					"semi_transient": false,
 					"settings":
@@ -1031,8 +1087,8 @@
 						"selection":
 						[
 							[
-								852,
-								852
+								86,
+								92
 							]
 						],
 						"settings":
@@ -1046,16 +1102,47 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
+					"file": "client/views/landing.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								41
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 997,
+						"buffer_size": 1020,
 						"regions":
 						{
 						},
@@ -1075,7 +1162,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "client/stylesheets/pages/login.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
