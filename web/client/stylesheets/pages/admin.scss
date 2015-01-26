@@ -1,0 +1,32 @@
+section#admin {
+  background-color: #eee;
+  .pull-right {
+    margin-right: 15%;
+  }
+  #emails {
+    margin: 50px auto;
+    width: 50%;
+  }
+  #email {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    line-height: 40px;
+    padding: 8px;
+    margin: 0 0 10px 0;
+
+    h3 {
+      line-height: 1.4;
+      font-size: 18px;
+      color: #08c;
+      margin: 0 0 0 5px;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      color: #aaa;
+    }
+  }
+}

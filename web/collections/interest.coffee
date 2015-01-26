@@ -1,0 +1,1 @@
+@Interest = new Mongo.Collection 'interest'
