@@ -26,11 +26,12 @@
   "appName": "Vita",
 
   // Location of app (local directory)
-  "app": "/Users/aspin/Just-Press-Play/web",
+  "app": "/Users/aspin/Vita/web",
 
   // Configure environment
   "env": {
     "PORT": "3000",
+    "UPSTART_UID": "aspin",
     "ROOT_URL": "http://localhost"
   },
 
