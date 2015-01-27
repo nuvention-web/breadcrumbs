@@ -4,7 +4,7 @@ Currently living at [https://vita.meteor.com](https://vita.meteor.com). Or check
 
 ## Roles
  * Kevin: development and design
- * Penny: design, content strategy
+ * Penny: design, content strategy, awesome journalist
  * Florent: content strategy
  * Nacho: product management
 
