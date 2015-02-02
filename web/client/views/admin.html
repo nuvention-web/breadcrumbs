@@ -1,9 +1,9 @@
 <template name='admin'>
-  <section id='admin'>
+  <section id='admin' class='list-view'>
     <div class='pull-right'>
       {{> loginButtons}}
     </div>
-    <div id='emails'>
+    <div id='emails' class='list'>
       {{#each emails}}
         {{> email}}
       {{/each}}

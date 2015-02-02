@@ -1,6 +1,6 @@
-Vita Web
+Breadcrumbs Web
 =========
-Currently living at [https://vita.meteor.com](https://vita.meteor.com). Or check out the [repository](https://github.com/nuvention-web/Just-Press-Play).
+Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.com). Or check out the [repository](https://github.com/nuvention-web/Just-Press-Play).
 
 ## Roles
  * Kevin: development and design
@@ -17,7 +17,7 @@ Currently living at [https://vita.meteor.com](https://vita.meteor.com). Or check
  * Testing: [Velocity + Mocha + Chai](http://velocity.meteor.com)
 
 ## Admin Interface
-To access the list of captured emails, navigate to our [admin portal](https://vita.meteor.com/login) and log in.
+To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in.
 
 #### Potential Features:
  * autocluster/buckets topics (when viewing, drag those two together)

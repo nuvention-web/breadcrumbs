@@ -10,9 +10,10 @@ insecure
 iron:router
 mizzao:bootstrap-3
 coffeescript
-mike:mocha
 accounts-password
 accounts-base
 accounts-ui-unstyled
 accounts-ui
-fourseven:scss@=0.9.6
+fourseven:scss@1.0.0
+mike:mocha
+underscore

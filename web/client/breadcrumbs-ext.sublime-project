@@ -1,9 +1,13 @@
 {
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": "/Users/aspin/Breadcrumbs/chrome-extension"
-		}
-	]
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "path": "/Users/aspin/Breadcrumbs/chrome-extension"
+    }
+  ],
+  "settings":
+  {
+      "tab_size": 2
+  },
 }

@@ -427,29 +427,34 @@
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/manifest.json",
 			"settings":
 			{
-				"buffer_size": 746,
+				"buffer_size": 903,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<!doctype html>\n<head>\n  <script type=\"text/javascript\" src=\"popup.js\"></script>\n</head>\n<style type=\"text/css\">\n	#mainPopup {\n		padding: 10px;\n		height: 200px;\n		width: 400px;\n		font-family: Helvetica, Ubuntu, Arial, sans-serif;\n	}\n	h1 {\n		font-size: 2em;\n	}\n</style>\n\n<div id=\"mainPopup\">\n<h1>Hello World!</h1>\n<p>Lorem ipsum etc.</p>\n</div>\n\n",
-			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
-			"file_size": 343,
-			"file_write_time": 130669517160000000,
+			"file": "/Users/aspin/Breadcrumbs/chrome-extension/README.md",
 			"settings":
 			{
-				"buffer_size": 345,
+				"buffer_size": 495,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "var path = \"http://\"\n\n\n//example of using a message handler from the inject scripts\nchrome.extension.onMessage.addListener(\n  function(request, sender, sendResponse) {\n  	chrome.pageAction.show(sender.tab.id);\n    sendResponse();\n  });\n\nconsole.log(\"Hello world!\");\n\nfunction post(params, method) {\n    method = method || \"post\"; // Set method to post by default if not specified.\n\n    // The rest of this code assumes you are not using a library.\n    // It can be made less wordy if you use one.\n    var form = document.createElement(\"form\");\n    form.setAttribute(\"method\", method);\n    form.setAttribute(\"action\", path);\n\n    for(var key in params) {\n        if(params.hasOwnProperty(key)) {\n            var hiddenField = document.createElement(\"input\");\n            hiddenField.setAttribute(\"type\", \"hidden\");\n            hiddenField.setAttribute(\"name\", key);\n            hiddenField.setAttribute(\"value\", params[key]);\n\n            form.appendChild(hiddenField);\n         }\n    }\n\n    document.body.appendChild(form);\n    form.submit();\n}",
+			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/cs.js",
+			"settings":
+			{
+				"buffer_size": 1649,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "// LOOK INTO CONTENT SCRIPTS\n\n// var path = \"http://breadcrumbs.meteor.com/datapost\";\nvar path = \"http://localhost:3000/datapost\";\n\n\n//example of using a message handler from the inject scripts\nchrome.webNavigation.onDOMContentLoaded.addListener(\n  function(details) {\n    console.log(details);\n    // post({hello: 'world'});\n  });\n\nfunction post(params) {\n  var xmlhttp = new XMLHttpRequest();\n  xmlhttp.open(\"POST\", path, true);\n\n  //Send the proper header information along with the request\n  xmlhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n  xmlhttp.setRequestHeader(\"Content-length\", params.length);\n  xmlhttp.setRequestHeader(\"Connection\", \"close\");\n\n  xmlhttp.onreadystatechange = function() {\n      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {\n          alert(xmlhttp.responseText);\n      }\n  };\n  xmlhttp.send(JSON.stringify(params));\n}\n\n",
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
-			"file_size": 446,
-			"file_write_time": 130669515260000000,
+			"file_size": 886,
+			"file_write_time": 130673662140000000,
 			"settings":
 			{
-				"buffer_size": 1044,
+				"buffer_size": 888,
 				"line_ending": "Unix"
 			}
 		}
@@ -589,11 +594,13 @@
 	[
 		"/Users/aspin/Breadcrumbs/chrome-extension",
 		"/Users/aspin/Breadcrumbs/chrome-extension/icons",
-		"/Users/aspin/Breadcrumbs/chrome-extension/js",
 		"/Users/aspin/Breadcrumbs/chrome-extension/src"
 	],
 	"file_history":
 	[
+		"/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
+		"/Users/aspin/Breadcrumbs/web/client/breadcrumbs-ext.sublime-project",
+		"/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
 		"/Users/aspin/Breadcrumbs/chrome-extension/src/bg/background.js",
 		"/Users/aspin/Breadcrumbs/chrome-extension/src/browser_action/browser_action.html",
 		"/Users/aspin/Breadcrumbs/web/jpp-web.sublime-project",
@@ -718,10 +725,7 @@
 		"/Users/aspin/eecs343/kma/kma_p2fl.c",
 		"/Users/aspin/eecs343/kma/kma_rm.c",
 		"/Users/aspin/eecs343/kma/Makefile",
-		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c",
-		"/Users/aspin/eecs343/kma/kma_page.c",
-		"/Users/aspin/eecs343/kma/testsuite/3.trace",
-		"/Users/aspin/eecs343/kma/testsuite/1.trace"
+		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c"
 	],
 	"find":
 	{
@@ -740,6 +744,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"params",
+			"Date",
+			"http",
+			"url",
+			"hello",
+			"callback",
 			"path",
 			"Vita",
 			"user",
@@ -861,13 +871,7 @@
 			"request",
 			"desc_requests",
 			"append",
-			"floor",
-			"obj",
-			"new_block",
-			"ptr",
-			"remove_ma",
-			"remove_malloc_header",
-			"(int)"
+			"floor"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -886,7 +890,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -895,15 +899,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 746,
+						"buffer_size": 903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								334,
-								334
+								672,
+								672
 							]
 						],
 						"settings":
@@ -922,26 +926,58 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 345,
+						"buffer_size": 495,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								345,
-								345
+								495,
+								495
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"open_with_edit": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/cs.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -951,32 +987,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1044,
+						"buffer_size": 888,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19,
-								19
+								888,
+								888
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
