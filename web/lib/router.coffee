@@ -16,3 +16,8 @@ Router.route('/login', ->
 Router.route('/thanks', ->
   this.render 'thanks')
 
+Router.route('/datapost', where: 'server')
+  .post(->
+    console.log '[POST]' + this.request.body
+    PageData.insert(this.request.body)
+    )

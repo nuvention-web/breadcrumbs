@@ -1,0 +1,1143 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Sessi",
+				"Session.set	Meteor: Session.set(key, value)"
+			],
+			[
+				"Meteor",
+				"Meteor.subscribe	Meteor.subscribe(name [, arg1, arg2, ... ] [, callbacks])"
+			],
+			[
+				"Meteo",
+				"Meteor.publish	Meteor.publish(name, fn)"
+			],
+			[
+				"MEteor",
+				"Meteor.call	Meteor.call(name, param1, param2, ... [, asyncCallback])"
+			],
+			[
+				"replac",
+				"replaceWith	.replaceWith()"
+			],
+			[
+				"clone",
+				"clone	.clone()"
+			],
+			[
+				"obser",
+				"observeChanges	Meteor: cursor.observeChanges(callbacks)"
+			],
+			[
+				"Track",
+				"Tracker.autorun	Meteor: Tracker.autorun(runFunc)"
+			],
+			[
+				"find",
+				"findOne	Meteor: collection.findOne(selector, [options])"
+			],
+			[
+				"Mong",
+				"Mongo.Collection	new Mongo.Collection(name, [options])"
+			],
+			[
+				"Mon",
+				"Mongo.Collection	new Mongo.Collection(name, [options])"
+			],
+			[
+				"openTok",
+				"openTokClient"
+			],
+			[
+				"prop",
+				"properties"
+			],
+			[
+				"div",
+				"div	<div>"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"hom",
+				"home_zones"
+			],
+			[
+				"zone",
+				"zone_at"
+			],
+			[
+				"backgourn",
+				"background-color"
+			],
+			[
+				"ope",
+				"operator"
+			],
+			[
+				"cs",
+				"css	.css() - single"
+			],
+			[
+				"fade",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"set",
+				"setTimeout(function, milliseconds);"
+			],
+			[
+				"fad",
+				"fadeIn	.fadeIn()"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"even",
+				"events	Meteor: Template.myTemplate.events(eventMap)"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"thr",
+				"threadpool"
+			],
+			[
+				"Ele",
+				"ElevatorTests"
+			],
+			[
+				"des",
+				"Descending"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"dire",
+				"direction"
+			],
+			[
+				"Dre",
+				"Direction"
+			],
+			[
+				"direc",
+				"Direction"
+			],
+			[
+				"REques",
+				"RequestLLTests"
+			],
+			[
+				"Reque",
+				"RequestsLL"
+			],
+			[
+				"enum",
+				"Enum"
+			],
+			[
+				"obse",
+				"observeChanges	Meteor: cursor.observeChanges(callbacks)"
+			],
+			[
+				"ob",
+				"observeChanges	Meteor: cursor.observeChanges(callbacks)"
+			],
+			[
+				"cur",
+				"current_free_block"
+			],
+			[
+				"first",
+				"first_block_header"
+			],
+			[
+				"firs",
+				"first_block_header"
+			],
+			[
+				"print",
+				"printf	printf …"
+			],
+			[
+				"kma_page",
+				"kma_page_t"
+			],
+			[
+				"curr",
+				"current_block"
+			],
+			[
+				"curre",
+				"current_free_block"
+			],
+			[
+				"fi",
+				"file-driven"
+			],
+			[
+				"allo",
+				"allocheaderT"
+			],
+			[
+				"pagehe",
+				"pageheaderT"
+			],
+			[
+				"pa",
+				"pageheaderT"
+			],
+			[
+				"PAGE",
+				"PAGESIZE"
+			],
+			[
+				"prev",
+				"prev_page"
+			],
+			[
+				"fir",
+				"first_page"
+			],
+			[
+				"free",
+				"free_page"
+			],
+			[
+				"Pa",
+				"PAGESIZE"
+			],
+			[
+				"get_",
+				"get_buddy"
+			],
+			[
+				"PA",
+				"PAGESIZE"
+			],
+			[
+				"page_he",
+				"page_header"
+			],
+			[
+				"pageh",
+				"page_header"
+			],
+			[
+				"new",
+				"new_alloc"
+			],
+			[
+				"new_",
+				"new_alloc"
+			],
+			[
+				"buf",
+				"buffer"
+			],
+			[
+				"get",
+				"get_required_buffer"
+			],
+			[
+				"page",
+				"pageheaderT"
+			],
+			[
+				"to",
+				"to_be_allocated"
+			],
+			[
+				"kma",
+				"kma_page_t"
+			],
+			[
+				"Current",
+				"current_buffer"
+			],
+			[
+				"split",
+				"split_buffer"
+			],
+			[
+				"alloc",
+				"allocheaderT"
+			],
+			[
+				"freeheaders",
+				"freeheadersL"
+			],
+			[
+				"km",
+				"kma_page_t"
+			],
+			[
+				"previous",
+				"previous"
+			],
+			[
+				"siz",
+				"size"
+			],
+			[
+				"curren",
+				"current_block"
+			],
+			[
+				"current",
+				"current_block"
+			],
+			[
+				"first_",
+				"first_free_block"
+			],
+			[
+				"kma_t",
+				"kma_page_t"
+			],
+			[
+				"preiou",
+				"previous_block"
+			],
+			[
+				"curent",
+				"current_block"
+			],
+			[
+				"previou",
+				"previous_block"
+			],
+			[
+				"nex",
+				"next_block"
+			],
+			[
+				"blok",
+				"blockheaderT"
+			],
+			[
+				"next",
+				"next_block"
+			],
+			[
+				"current_page",
+				"current_page_header"
+			],
+			[
+				"update",
+				"update_malloc_headers"
+			],
+			[
+				"block",
+				"blockheaderT"
+			],
+			[
+				"blcok",
+				"blockheaderT"
+			],
+			[
+				"size",
+				"sizeof"
+			],
+			[
+				"freeli",
+				"freelistL"
+			],
+			[
+				"resta",
+				"restaurants"
+			],
+			[
+				"sorted",
+				"sorted_votes"
+			],
+			[
+				"res",
+				"restaurants"
+			],
+			[
+				"fg",
+				"fg_pid"
+			],
+			[
+				"FindJobB",
+				"FindJobByPid"
+			],
+			[
+				"FindJob",
+				"FindJobByPid"
+			],
+			[
+				"cmd",
+				"cmdline"
+			],
+			[
+				"Def",
+				"define"
+			],
+			[
+				"release",
+				"ReleaseJob"
+			],
+			[
+				"rel",
+				"ReleaseJob"
+			],
+			[
+				"tra",
+				"trashtalk"
+			],
+			[
+				"com",
+				"compliment"
+			],
+			[
+				"Me",
+				"Meteor.Collection	new Meteor.Collection(name, [options])"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/aspin/Breadcrumbs/chrome-extension/manifest.json",
+			"settings":
+			{
+				"buffer_size": 746,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!doctype html>\n<head>\n  <script type=\"text/javascript\" src=\"popup.js\"></script>\n</head>\n<style type=\"text/css\">\n	#mainPopup {\n		padding: 10px;\n		height: 200px;\n		width: 400px;\n		font-family: Helvetica, Ubuntu, Arial, sans-serif;\n	}\n	h1 {\n		font-size: 2em;\n	}\n</style>\n\n<div id=\"mainPopup\">\n<h1>Hello World!</h1>\n<p>Lorem ipsum etc.</p>\n</div>\n\n",
+			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
+			"file_size": 343,
+			"file_write_time": 130669517160000000,
+			"settings":
+			{
+				"buffer_size": 345,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var path = \"http://\"\n\n\n//example of using a message handler from the inject scripts\nchrome.extension.onMessage.addListener(\n  function(request, sender, sendResponse) {\n  	chrome.pageAction.show(sender.tab.id);\n    sendResponse();\n  });\n\nconsole.log(\"Hello world!\");\n\nfunction post(params, method) {\n    method = method || \"post\"; // Set method to post by default if not specified.\n\n    // The rest of this code assumes you are not using a library.\n    // It can be made less wordy if you use one.\n    var form = document.createElement(\"form\");\n    form.setAttribute(\"method\", method);\n    form.setAttribute(\"action\", path);\n\n    for(var key in params) {\n        if(params.hasOwnProperty(key)) {\n            var hiddenField = document.createElement(\"input\");\n            hiddenField.setAttribute(\"type\", \"hidden\");\n            hiddenField.setAttribute(\"name\", key);\n            hiddenField.setAttribute(\"value\", params[key]);\n\n            form.appendChild(hiddenField);\n         }\n    }\n\n    document.body.appendChild(form);\n    form.submit();\n}",
+			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
+			"file_size": 446,
+			"file_write_time": 130669515260000000,
+			"settings":
+			{
+				"buffer_size": 1044,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/Chrome.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"new ",
+				"File: New File Relative to Current View"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"sublime l",
+				"SublimeLinter: Previous Error"
+			],
+			[
+				"linter",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"toggle",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"proje",
+				"Project: Edit"
+			],
+			[
+				"new file",
+				"File: New File Relative to Project Root"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"package re",
+				"Package Control: Remove Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"puny",
+				"Snippet: HTTP.put(url, [options], [asyncCallback])"
+			],
+			[
+				"INSTLAL",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 598.0,
+		"history":
+		[
+			"ls",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/aspin/Breadcrumbs/chrome-extension",
+		"/Users/aspin/Breadcrumbs/chrome-extension/icons",
+		"/Users/aspin/Breadcrumbs/chrome-extension/js",
+		"/Users/aspin/Breadcrumbs/chrome-extension/src"
+	],
+	"file_history":
+	[
+		"/Users/aspin/Breadcrumbs/chrome-extension/src/bg/background.js",
+		"/Users/aspin/Breadcrumbs/chrome-extension/src/browser_action/browser_action.html",
+		"/Users/aspin/Breadcrumbs/web/jpp-web.sublime-project",
+		"/Users/aspin/speakamos/lib/router.js",
+		"/Users/aspin/speakamos/client/views/select.html",
+		"/Users/aspin/speakamos/client/views/select.js",
+		"/Users/aspin/speakamos/client/views/chat.js",
+		"/Users/aspin/speakamos/server/methods.js",
+		"/Users/aspin/speakamos/client/stylesheets/base/reset.scss",
+		"/Users/aspin/speakamos/client/stylesheets/pages/select.scss",
+		"/Users/aspin/speakamos/README.md",
+		"/Users/aspin/speakamos/client/views/chat.html",
+		"/Users/aspin/speakamos/Timeline & Costs.md",
+		"/Users/aspin/speakamos/client/app.js",
+		"/Users/aspin/speakamos/TIMELINE",
+		"/Users/aspin/speakamos/collections/requests.js",
+		"/Users/aspin/speakamos/server/publications.js",
+		"/Users/aspin/speakamos/collections/sessions.js",
+		"/Users/aspin/dump.rdb",
+		"/Users/aspin/speakamos/client/stylesheets/style.css",
+		"/Users/aspin/speakamos/client/index.html",
+		"/Users/aspin/speakamos/server/lib/environment.js",
+		"/Users/aspin/speakamos/private/openTokSecret",
+		"/Users/aspin/speakamos/collections/collections.js",
+		"/Users/aspin/speakamos/server/fixtures.js",
+		"/Users/aspin/speakamos/.meteor/local/build/programs/server/node_modules/semver/Makefile",
+		"/Users/aspin/speakamos/.meteor/local/build/programs/server/npm/minifiers/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/Users/aspin/speakamos/public/resource",
+		"/Users/aspin/speakamos/speakamos.sublime-project",
+		"/Users/aspin/speakamos/.meteor/.finished-upgraders",
+		"/Users/aspin/speakamos/client/views/untitled.sublime-project",
+		"/Users/aspin/paintyraid/src/index.html",
+		"/Users/aspin/mkeda/client/styles.css",
+		"/Users/aspin/mkeda/client/main.js",
+		"/Users/aspin/mkeda/public/js/modernizr.js",
+		"/Users/aspin/mkeda/public/js/main.js",
+		"/Users/aspin/mkeda/mkeda.js",
+		"/Users/aspin/mkeda/mkeda.html",
+		"/Users/aspin/mkeda/mkeda.css",
+		"/Users/aspin/paintyraid/src/board.js",
+		"/Users/aspin/paintyraid/README.md",
+		"/Users/aspin/paintyraid/src/server/master.js",
+		"/Users/aspin/paintyraid/src/server/client_manager.js",
+		"/Users/aspin/paintyraid/src/settings.js",
+		"/Users/aspin/paintyraid/src/pieces.js",
+		"/Users/aspin/paintyraid/src/server/client.js",
+		"/Users/aspin/paintyraid/src/client/game.js",
+		"/Users/aspin/paintyraid/src/server/main.js",
+		"/Users/aspin/paintyraid/src/state.js",
+		"/Users/aspin/paintyraid/src/client/main.js",
+		"/Users/aspin/paintyraid/gulpfile.js",
+		"/Users/aspin/paintyraid/paintyraid.sublime-project",
+		"/Users/aspin/website/public/imgs/email.png",
+		"/Users/aspin/website/client/stylesheets/style.css",
+		"/Users/aspin/website/client/views/project_stack.html",
+		"/Users/aspin/website/client/views/project_stack.js",
+		"/Users/aspin/website/client/views/home.html",
+		"/Users/aspin/website/README.md",
+		"/Users/aspin/indiegogo/README",
+		"/Users/aspin/indiegogo/rpn/README",
+		"/Users/aspin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/aspin/remote-paper-prototyper-web/server/lib/secrets.js",
+		"/Users/aspin/remote-paper-prototyper-web/private/secret",
+		"/Users/aspin/remote-paper-prototyper-web/private/api_key",
+		"/Users/aspin/remote-paper-prototyper-web/server/lib/environment.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/glass_stream.html",
+		"/Users/aspin/remote-paper-prototyper-web/README.md",
+		"/Users/aspin/remote-paper-prototyper-web/server/fixtures.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/lib/opentok.min.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/cc.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/jsdoc/plugins/commentConvert.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/cordova-plugins",
+		"/Users/aspin/remote-paper-prototyper-web/private/secret.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/map.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/kexec/Makefile",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/glass_stream.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/task_setter.html",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/paper_stream.html",
+		"/Users/aspin/remote-paper-prototyper-web/packages/npm-container/.build.npm-container/unipackage.json",
+		"/Users/aspin/remote-paper-prototyper-web/client/stylesheets/style.css",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/paper_stream.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/index.html",
+		"/Users/aspin/remote-paper-prototyper-gdk/README.md",
+		"/Users/aspin/remote-paper-prototyper-web/packages/npm-container/.build.npm-container/npm/node_modules/opentok/test/session-test.js",
+		"/Users/aspin/remote-paper-prototyper-web/smart.json",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/source-map/test/source-map/test-api.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/cc.html",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/node-inspector/front-end/GoToLineDialog.js",
+		"/Users/aspin/remote-paper-prototyper-web/packages.json",
+		"/Users/aspin/remote-paper-prototyper-web/lib/router.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/source-map/build/suffix-source-map.jsm",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/jsdoc/node_modules/strip-json-comments/strip-json-comments.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/node-inspector/front-end/ScriptsSearchScope.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/browserstack-webdriver/test/stale_element_test.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/npm/mongo/node_modules/mongodb/examples/replSetServersQueries.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/map.html",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/packages/meteorhacks_async.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/.gitignore",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/.finished-upgraders",
+		"/Users/aspin/remote-paper-prototyper-web/smart.lock",
+		"/Users/aspin/remote-paper-prototyper-web/.gitignore",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/debug.html",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/node-inspector/lib/debugger.js",
+		"/Users/aspin/remote-paper-prototyper-web/.meteor/local/build/programs/server/node_modules/cordova/node_modules/cordova-lib/src/plugman/util/default-engines.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/debug.js",
+		"/Users/aspin/remote-paper-prototyper-web/server/methods.js",
+		"/Users/aspin/Documents/Classes/Fall 2014/os/hw3.txt",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/task_setter.js",
+		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/alert.html",
+		"/Users/aspin/remote-paper-prototyper-web/collections/collections.js",
+		"/Users/aspin/eecs343/server/util.c",
+		"/Users/aspin/eecs343/server/Makefile",
+		"/Users/aspin/eecs343/server/seats.c",
+		"/Users/aspin/eecs343/server/testsuite/1.trace",
+		"/Users/aspin/eecs343/server/util.h",
+		"/Users/aspin/Sandbox/elevator/test.py",
+		"/Users/aspin/remote-paper-prototyper-web/server/publications.js",
+		"/Users/aspin/remote-paper-prototyper-web/public/deltalab.jpg",
+		"/Users/aspin/remote-paper-prototyper-web/server/ddp.js",
+		"/Users/aspin/eecs343/kma/kma_bud.c",
+		"/Users/aspin/eecs343/kma/DOC",
+		"/Users/aspin/eecs343/kma/kma_p2fl.c",
+		"/Users/aspin/eecs343/kma/kma_rm.c",
+		"/Users/aspin/eecs343/kma/Makefile",
+		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c",
+		"/Users/aspin/eecs343/kma/kma_page.c",
+		"/Users/aspin/eecs343/kma/testsuite/3.trace",
+		"/Users/aspin/eecs343/kma/testsuite/1.trace"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"path",
+			"Vita",
+			"user",
+			"id",
+			"user",
+			"id",
+			"name",
+			"user",
+			"name",
+			"row",
+			"# ",
+			"#",
+			"user",
+			"english",
+			"user",
+			"res",
+			"user",
+			"var",
+			"creds",
+			"cred",
+			"=",
+			"username",
+			"cred",
+			"openTokClient",
+			"cred",
+			"createSession",
+			"connection",
+			"\"",
+			"(\"\");",
+			"();",
+			"name",
+			"create_session",
+			"SpeakDemo",
+			"<a href=\"#\">",
+			"VISIT",
+			"children",
+			"animate-",
+			"cd-secondary",
+			"padding",
+			".cd-secondary",
+			"<span></span><!-- icon -->",
+			"submit",
+			"span",
+			"submit",
+			"030d18",
+			"64c733",
+			"black",
+			"cd-placeholder-4",
+			"cd-placeholder-3",
+			"cd-placeholder-2",
+			"cd-placeholder-1",
+			"1",
+			"cd-placeholder-1",
+			"5px",
+			"18px",
+			"10",
+			"value",
+			"input",
+			"Raid",
+			"home_zones",
+			"zone",
+			"board",
+			"valid_square",
+			"if (zone_",
+			".color == color",
+			"));",
+			"(zone_west));",
+			"&& zone_",
+			"zone_west",
+			"(zone_west))",
+			"queue",
+			"require('./piece)",
+			"type",
+			"distance",
+			"settings",
+			"basic",
+			"onc",
+			"32",
+			"dc",
+			"navigation",
+			"wrapper",
+			"black",
+			"<span",
+			"span",
+			"4023C8",
+			"background-color",
+			"bottom:",
+			"$navigation",
+			"$title",
+			"padding",
+			"size",
+			"st-wrapper",
+			"cd-container",
+			"top",
+			"lPile",
+			"height",
+			"e7ae38",
+			"#fff",
+			"'",
+			"rpn_eval",
+			"n",
+			"digit",
+			"x",
+			"exp",
+			"session",
+			"res",
+			"createSession",
+			"publisher",
+			"555555",
+			"color",
+			"player",
+			"call",
+			"jwplayer",
+			"load_details",
+			"event",
+			"300px",
+			"thread_pool",
+			"aquajet",
+			"request",
+			"desc_requests",
+			"append",
+			"floor",
+			"obj",
+			"new_block",
+			"ptr",
+			"remove_ma",
+			"remove_malloc_header",
+			"(int)"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								334,
+								334
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								345,
+								345
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "breadcrumbs-ext.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"met",
+				"server/methods.js"
+			],
+			[
+				"chat.js",
+				"client/views/chat.js"
+			],
+			[
+				"un",
+				"client/views/untitled.sublime-project"
+			],
+			[
+				"chat",
+				"client/views/chat.html"
+			],
+			[
+				"inde",
+				"client/index.html"
+			],
+			[
+				"ccjs",
+				"client/views/cc.js"
+			],
+			[
+				"glasjs",
+				"client/views/streams/glass_stream.js"
+			],
+			[
+				"glas",
+				"client/views/streams/glass_stream.js"
+			],
+			[
+				"papjs",
+				"client/views/streams/paper_stream.js"
+			],
+			[
+				"",
+				"client/stylesheets/style.css"
+			],
+			[
+				"pap",
+				"client/views/streams/paper_stream.html"
+			],
+			[
+				"style",
+				"client/stylesheets/style.css"
+			],
+			[
+				"task",
+				"client/views/streams/task_setter.html"
+			],
+			[
+				"paper",
+				"client/views/streams/paper_stream.html"
+			],
+			[
+				"map.js",
+				"client/views/streams/map.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Breadcrumbs/web/breadcrumbs-web.sublime-project"
+			],
+			[
+				"speak",
+				"~/speakamos/speakamos.sublime-project"
+			],
+			[
+				"kd",
+				"~/Sublime Projects/kdbot.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Resolv",
+				"ResolveExternalCmd"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 191.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

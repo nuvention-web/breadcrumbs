@@ -7,7 +7,6 @@
 meteor-platform
 autopublish
 insecure
-fourseven:scss
 iron:router
 mizzao:bootstrap-3
 coffeescript
@@ -16,3 +15,4 @@ accounts-password
 accounts-base
 accounts-ui-unstyled
 accounts-ui
+fourseven:scss@=0.9.6
