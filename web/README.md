@@ -1,6 +1,6 @@
 Breadcrumbs Web
 =========
-Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.com). Or check out the [repository](https://github.com/nuvention-web/Just-Press-Play).
+Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.com). Or check out the [repository](https://github.com/nuvention-web/breadcrumbs).
 
 ## Roles
  * Kevin: development and design

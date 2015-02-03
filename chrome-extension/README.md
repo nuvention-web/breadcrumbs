@@ -1,6 +1,8 @@
 Breadcrumbs Extension
 =========
 
+THIS IS A LIST OF PERSONAL NOTES TO THE DEVELOPER AND SHOULD NOT BE PAID ATTENTION TO.
+
 ## Dev Notes
  * Look into a different implementation of everything, preferably not content scripting.
  * Many sites pop-up messages in the console indicate the XSS post request.
