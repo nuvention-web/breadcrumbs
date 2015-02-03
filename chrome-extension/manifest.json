@@ -1,5 +1,5 @@
 {
-  "name": "Vita",
+  "name": "Breadcrumbs",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "just push play",
@@ -12,24 +12,33 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "src/bg/background.js"
+      "src/popup.js"
     ],
     "persistent": true
   },
-  "options_page": "src/options/index.html",
+  "options_page": "src/options.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "browser action demo",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_popup": "src/popup.html"
   },
+  "content_scripts": [
+    {
+    "matches": ["<all_urls>"],
+    "js": ["js/jquery/jquery.js", "src/cs.js"]
+    }
+  ],
   "permissions": [
     "bookmarks",
     "clipboardRead",
     "contentSettings",
     "contextMenus",
+    "tabs",
+    "webNavigation",
+    "webRequest",
     "history",
     "geolocation",
-    "http://*/*",
-    "https://*/*"
+    "http://*/",
+    "https://*/"
   ]
 }

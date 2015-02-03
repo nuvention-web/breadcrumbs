@@ -15,5 +15,5 @@ accounts-base
 accounts-ui-unstyled
 accounts-ui
 fourseven:scss@1.0.0
-mike:mocha
 underscore
+mike:mocha

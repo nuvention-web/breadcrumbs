@@ -443,7 +443,7 @@
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/cs.js",
 			"settings":
 			{
-				"buffer_size": 1649,
+				"buffer_size": 1705,
 				"line_ending": "Unix"
 			}
 		},
@@ -890,7 +890,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -921,7 +921,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -951,7 +951,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -960,15 +960,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1649,
+						"buffer_size": 1705,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								402,
-								402
+								52,
+								52
 							]
 						],
 						"settings":
@@ -999,8 +999,8 @@
 						"selection":
 						[
 							[
-								888,
-								888
+								85,
+								30
 							]
 						],
 						"settings":
@@ -1014,7 +1014,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

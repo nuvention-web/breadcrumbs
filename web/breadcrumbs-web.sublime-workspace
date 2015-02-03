@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"find",
+				"find	Meteor: collection.find(selector, [options])"
+			],
+			[
 				"asser",
 				"assert.isDefined"
 			],
@@ -38,10 +42,6 @@
 			[
 				"Track",
 				"Tracker.autorun	Meteor: Tracker.autorun(runFunc)"
-			],
-			[
-				"find",
-				"findOne	Meteor: collection.findOne(selector, [options])"
 			],
 			[
 				"Mong",
@@ -428,18 +428,10 @@
 	"buffers":
 	[
 		{
-			"file": "client/index.html",
+			"file": "client/views/page.html",
 			"settings":
 			{
-				"buffer_size": 879,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/stylesheets/pages/landing.scss",
-			"settings":
-			{
-				"buffer_size": 883,
+				"buffer_size": 130,
 				"line_ending": "Unix"
 			}
 		},
@@ -447,31 +439,15 @@
 			"file": "lib/router.coffee",
 			"settings":
 			{
-				"buffer_size": 547,
+				"buffer_size": 792,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "collections/page_data.coffee",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 44,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/views/landing.html",
-			"settings":
-			{
-				"buffer_size": 786,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "tests/mocha/client/landingPage.coffee",
-			"settings":
-			{
-				"buffer_size": 1767,
+				"buffer_size": 1048,
 				"line_ending": "Unix"
 			}
 		}
@@ -619,16 +595,25 @@
 		"/Users/aspin/Breadcrumbs/web/lib",
 		"/Users/aspin/Breadcrumbs/web/packages",
 		"/Users/aspin/Breadcrumbs/web/private",
-		"/Users/aspin/Breadcrumbs/web/public",
-		"/Users/aspin/Breadcrumbs/web/tests",
-		"/Users/aspin/Breadcrumbs/web/tests/mocha",
-		"/Users/aspin/Breadcrumbs/web/tests/mocha/client",
-		"/Users/aspin/Breadcrumbs/web/tests/mocha/server"
+		"/Users/aspin/Breadcrumbs/web/public"
 	],
 	"file_history":
 	[
-		"/Users/aspin/Breadcrumbs/web/README.md",
+		"/Users/aspin/Breadcrumbs/web/client/views/history.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/history.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/base/list_view.scss",
+		"/Users/aspin/Breadcrumbs/web/client/views/page.html",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/pages/landing.scss",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/pages/admin.scss",
+		"/Users/aspin/Breadcrumbs/web/lib/router.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/views/email.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/admin.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/admin.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/index.html",
+		"/Users/aspin/Breadcrumbs/web/tests/mocha/client/landingPage.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/views/landing.html",
 		"/Users/aspin/Breadcrumbs/web/collections/page_data.coffee",
+		"/Users/aspin/Breadcrumbs/web/README.md",
 		"/Users/aspin/Breadcrumbs/web/jpp-web.sublime-project",
 		"/Users/aspin/speakamos/lib/router.js",
 		"/Users/aspin/speakamos/client/views/select.html",
@@ -741,20 +726,7 @@
 		"/Users/aspin/eecs343/server/Makefile",
 		"/Users/aspin/eecs343/server/seats.c",
 		"/Users/aspin/eecs343/server/testsuite/1.trace",
-		"/Users/aspin/eecs343/server/util.h",
-		"/Users/aspin/Sandbox/elevator/test.py",
-		"/Users/aspin/remote-paper-prototyper-web/server/publications.js",
-		"/Users/aspin/remote-paper-prototyper-web/public/deltalab.jpg",
-		"/Users/aspin/remote-paper-prototyper-web/server/ddp.js",
-		"/Users/aspin/eecs343/kma/kma_bud.c",
-		"/Users/aspin/eecs343/kma/DOC",
-		"/Users/aspin/eecs343/kma/kma_p2fl.c",
-		"/Users/aspin/eecs343/kma/kma_rm.c",
-		"/Users/aspin/eecs343/kma/Makefile",
-		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c",
-		"/Users/aspin/eecs343/kma/kma_page.c",
-		"/Users/aspin/eecs343/kma/testsuite/3.trace",
-		"/Users/aspin/eecs343/kma/testsuite/1.trace"
+		"/Users/aspin/eecs343/server/util.h"
 	],
 	"find":
 	{
@@ -773,6 +745,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"email",
+			"Interest",
+			"emails",
+			"admin",
+			"tempate",
 			"vita",
 			"\"",
 			"(",
@@ -895,12 +872,7 @@
 			"request",
 			"desc_requests",
 			"append",
-			"floor",
-			"obj",
-			"new_block",
-			"ptr",
-			"remove_ma",
-			"remove_malloc_header"
+			"floor"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -924,81 +896,48 @@
 			[
 				{
 					"buffer": 0,
-					"file": "client/index.html",
+					"file": "client/views/page.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 879,
+						"buffer_size": 130,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								52,
-								52
+								66,
+								66
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "client/stylesheets/pages/landing.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 883,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								135,
-								135
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "lib/router.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 547,
+						"buffer_size": 792,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								497,
-								497
+								20,
+								20
 							]
 						],
 						"settings":
@@ -1012,16 +951,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "collections/page_data.coffee",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "README.md",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 44,
+						"buffer_size": 1048,
 						"regions":
 						{
 						},
@@ -1035,75 +974,13 @@
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "client/views/landing.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 786,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								263,
-								263
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "tests/mocha/client/landingPage.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1767,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1273,
-								1273
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
