@@ -1,12 +1,21 @@
 Breadcrumbs Extension
 =========
 
-THIS IS A LIST OF PERSONAL NOTES TO THE DEVELOPER AND SHOULD NOT BE PAID ATTENTION TO.
+Last updated: 2/5/2015.
+
+Currently included fields:
+* title
+* url
+* previous page
+* start time
+* end time
+* favicon url
+
+BELOW ARE A LIST OF PERSONAL NOTES TO THE DEVELOPER AND SHOULD NOT BE PAID ATTENTION TO.
 
 ## Dev Notes
  * need to figure out how to authenticate the extension with login info
  * categories first view
-   * sort by recenct access first
    * see bostonglobe for info
 
 
