@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"find",
+				"find	Meteor: collection.find(selector, [options])"
+			],
+			[
+				"asser",
+				"assert.isDefined"
+			],
+			[
 				"Sessi",
 				"Session.set	Meteor: Session.set(key, value)"
 			],
@@ -34,10 +42,6 @@
 			[
 				"Track",
 				"Tracker.autorun	Meteor: Tracker.autorun(runFunc)"
-			],
-			[
-				"find",
-				"findOne	Meteor: collection.findOne(selector, [options])"
 			],
 			[
 				"Mong",
@@ -427,7 +431,7 @@
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/manifest.json",
 			"settings":
 			{
-				"buffer_size": 903,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -435,7 +439,7 @@
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/README.md",
 			"settings":
 			{
-				"buffer_size": 495,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,18 +447,15 @@
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/cs.js",
 			"settings":
 			{
-				"buffer_size": 1705,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "// LOOK INTO CONTENT SCRIPTS\n\n// var path = \"http://breadcrumbs.meteor.com/datapost\";\nvar path = \"http://localhost:3000/datapost\";\n\n\n//example of using a message handler from the inject scripts\nchrome.webNavigation.onDOMContentLoaded.addListener(\n  function(details) {\n    console.log(details);\n    // post({hello: 'world'});\n  });\n\nfunction post(params) {\n  var xmlhttp = new XMLHttpRequest();\n  xmlhttp.open(\"POST\", path, true);\n\n  //Send the proper header information along with the request\n  xmlhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n  xmlhttp.setRequestHeader(\"Content-length\", params.length);\n  xmlhttp.setRequestHeader(\"Connection\", \"close\");\n\n  xmlhttp.onreadystatechange = function() {\n      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {\n          alert(xmlhttp.responseText);\n      }\n  };\n  xmlhttp.send(JSON.stringify(params));\n}\n\n",
 			"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
-			"file_size": 886,
-			"file_write_time": 130673662140000000,
 			"settings":
 			{
-				"buffer_size": 888,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -462,12 +463,12 @@
 	"build_system": "Packages/User/Chrome.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 387.0,
 		"selected_items":
 		[
 			[
 				"new",
-				"File: New File Relative to Current View"
+				"File: New File Relative to Project Root"
 			],
 			[
 				"new ",
@@ -570,7 +571,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 467.0
 	},
 	"console":
 	{
@@ -590,19 +591,26 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/aspin/Breadcrumbs/chrome-extension",
-		"/Users/aspin/Breadcrumbs/chrome-extension/icons",
-		"/Users/aspin/Breadcrumbs/chrome-extension/src"
-	],
 	"file_history":
 	[
-		"/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
-		"/Users/aspin/Breadcrumbs/web/client/breadcrumbs-ext.sublime-project",
-		"/Users/aspin/Breadcrumbs/chrome-extension/src/popup.html",
-		"/Users/aspin/Breadcrumbs/chrome-extension/src/bg/background.js",
-		"/Users/aspin/Breadcrumbs/chrome-extension/src/browser_action/browser_action.html",
+		"/Users/aspin/remote-paper-prototyper-gdk/src/com/aspin/prototyper/CameraActivity.java",
+		"/Users/aspin/wildhunt/server/methods.js",
+		"/Users/aspin/Breadcrumbs/chrome-extension/breadcrumbs-ext.sublime-project",
+		"/Users/aspin/Breadcrumbs/web/client/views/history.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/history.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/base/list_view.scss",
+		"/Users/aspin/Breadcrumbs/web/client/views/page.html",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/pages/landing.scss",
+		"/Users/aspin/Breadcrumbs/web/client/stylesheets/pages/admin.scss",
+		"/Users/aspin/Breadcrumbs/web/lib/router.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/views/email.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/admin.html",
+		"/Users/aspin/Breadcrumbs/web/client/views/admin.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/index.html",
+		"/Users/aspin/Breadcrumbs/web/tests/mocha/client/landingPage.coffee",
+		"/Users/aspin/Breadcrumbs/web/client/views/landing.html",
+		"/Users/aspin/Breadcrumbs/web/collections/page_data.coffee",
+		"/Users/aspin/Breadcrumbs/web/README.md",
 		"/Users/aspin/Breadcrumbs/web/jpp-web.sublime-project",
 		"/Users/aspin/speakamos/lib/router.js",
 		"/Users/aspin/speakamos/client/views/select.html",
@@ -712,20 +720,7 @@
 		"/Users/aspin/remote-paper-prototyper-web/client/views/streams/alert.html",
 		"/Users/aspin/remote-paper-prototyper-web/collections/collections.js",
 		"/Users/aspin/eecs343/server/util.c",
-		"/Users/aspin/eecs343/server/Makefile",
-		"/Users/aspin/eecs343/server/seats.c",
-		"/Users/aspin/eecs343/server/testsuite/1.trace",
-		"/Users/aspin/eecs343/server/util.h",
-		"/Users/aspin/Sandbox/elevator/test.py",
-		"/Users/aspin/remote-paper-prototyper-web/server/publications.js",
-		"/Users/aspin/remote-paper-prototyper-web/public/deltalab.jpg",
-		"/Users/aspin/remote-paper-prototyper-web/server/ddp.js",
-		"/Users/aspin/eecs343/kma/kma_bud.c",
-		"/Users/aspin/eecs343/kma/DOC",
-		"/Users/aspin/eecs343/kma/kma_p2fl.c",
-		"/Users/aspin/eecs343/kma/kma_rm.c",
-		"/Users/aspin/eecs343/kma/Makefile",
-		"/Users/aspin/eecs343/kma/testsuite/kma_dummy.c"
+		"/Users/aspin/eecs343/server/Makefile"
 	],
 	"find":
 	{
@@ -744,14 +739,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"params",
-			"Date",
-			"http",
-			"url",
-			"hello",
-			"callback",
-			"path",
-			"Vita",
+			"\"",
+			"tab",
+			"formData",
+			"email",
+			"Interest",
+			"emails",
+			"admin",
+			"tempate",
+			"vita",
+			"\"",
+			"(",
 			"user",
 			"id",
 			"user",
@@ -868,10 +866,7 @@
 			"300px",
 			"thread_pool",
 			"aquajet",
-			"request",
-			"desc_requests",
-			"append",
-			"floor"
+			"request"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -890,7 +885,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -899,15 +894,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 903,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								672,
-								672
+								0,
+								0
 							]
 						],
 						"settings":
@@ -921,7 +916,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -930,28 +925,30 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 495,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								495,
-								495
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
 							"open_with_edit": true,
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -960,52 +957,21 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1705,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								52,
-								52
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
 							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								85,
-								30
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -1015,6 +981,37 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/aspin/Breadcrumbs/chrome-extension/src/popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1139,12 +1136,16 @@
 		"selected_items":
 		[
 			[
-				"",
-				"~/Breadcrumbs/web/breadcrumbs-web.sublime-project"
+				"ext",
+				"~/Breadcrumbs/web/client/breadcrumbs-ext.sublime-workspace"
 			],
 			[
-				"speak",
-				"~/speakamos/speakamos.sublime-project"
+				"",
+				"~/Breadcrumbs/web/client/breadcrumbs-ext.sublime-project"
+			],
+			[
+				"rp",
+				"~/Sublime Projects/rppt-web.sublime-project"
 			],
 			[
 				"kd",
