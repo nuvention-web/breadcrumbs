@@ -1,5 +1,5 @@
-// var path = "http://breadcrumbs.meteor.com/datapost";
-var path = "http://localhost:3000/datapost";
+var path = "http://breadcrumbs.meteor.com/datapost";
+// var path = "http://localhost:3000/datapost";
 var tabStore = {};
 
 chrome.tabs.onUpdated.addListener(
