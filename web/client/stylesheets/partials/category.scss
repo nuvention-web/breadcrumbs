@@ -1,0 +1,55 @@
+div.category {
+    margin: 20px auto;
+    width: 70%;
+    clear: both;
+
+    h2 {
+        border-bottom: 1px solid #dbdbdb;
+        font: bold 1.7em/1.1 "Benton Sans Bold", Arial, Helvetica, sans-serif;
+        margin-bottom: 0;
+    }
+
+    .tags {
+        position: absolute;
+    }
+
+    .content {
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+        .main {
+            float: left;
+            width: 49%;
+            .excerpt {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                img {
+                    float: left;
+                    width: 150px;
+                    height: 150px;
+                }
+                h4 {
+                    margin: 0;
+                    margin-left: 45%;
+                }
+                p {
+                    margin-left: 45%;
+                }
+            }
+        }
+
+        .aux {
+            clear: none;
+            float: right;
+            width: 49%;
+            ul {
+                list-style: none;
+            }
+            li {
+                border-bottom: 1px solid #DBDBDB;
+            }
+        }
+    }
+}

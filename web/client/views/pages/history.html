@@ -1,8 +1,9 @@
 <template name='history'>
   <section id='history' class='list-view'>
+    <h1 class='text-center'> {{category}} </h1>
     <div class='list'>
-      {{#each pages}}
-        {{> page}}
+      {{#each sites}}
+        {{> site}}
       {{/each}}
     </div>
   </section>

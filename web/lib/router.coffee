@@ -16,8 +16,16 @@ Router.route('/login', ->
 Router.route('/thanks', ->
   this.render 'thanks')
 
-Router.route('/history', ->
-  this.render 'history')
+Router.route('/history/:category', ->
+  this.render 'history', {
+    data: {
+      category: this.params.category
+    }
+  }
+)
+
+Router.route('/dashboard', ->
+  this.render 'dashboard')
 
 Router.route('/datapost', where: 'server')
   .post(->
