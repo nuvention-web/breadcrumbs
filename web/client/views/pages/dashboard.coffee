@@ -1,10 +1,11 @@
 Template.dashboard.helpers
     categories: () ->
         return [
-            { category: 'General' },
+            { category: 'General' }
             { category: 'Telehealth' },
             { category: 'Healthcare' },
             { category: 'Business' },
             { category: 'News' },
-            { category: 'Companies' }
+            { category: 'Companies' },
+            { category: 'Unclassified' }
         ]

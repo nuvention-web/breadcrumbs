@@ -1,6 +1,34 @@
+# ['Telehealth', 'Healthcare', 'Business', 'News', 'Companies', 'Other']
+
 chooseCategory = (entry) ->
-    categories = ['General', 'Telehealth', 'Healthcare', 'Business', 'News', 'Companies']
-    return categories[Math.floor(Math.random() * 6)]
+    keywords = ['Telehealth', 'Healthcare', 'Business']
+    for category in keywords
+        if entry.domain.indexOf(category) > -1
+            console.log category
+            return category
+        else
+            for page in entry.pages
+                if page.url.indexOf(category) > -1 or page.title.indexOf(category) > -1
+                    return category
+
+    news = ['journal', 'times', 'today', 'post', 'tribune', 'chronicle', 'news', 'inquirer', 'globe']
+    for key in news
+        if entry.domain.indexOf(key) > -1
+            return 'News'
+
+    general = ['google', 'reddit', 'facebook', 'evernote', 'yahoo', 'github']
+    for key in general
+        if entry.domain.indexOf(key) > -1
+            return 'General'
+
+    for page in entry.pages
+        if page.url.indexOf('career') > -1 or page.title.indexOf('career') > -1
+            return 'Companies'
+
+    return 'Unclassified'
+
+score = (entry) ->
+    return entry.end
 
 if Meteor.users.find().count() is 0
   admin = Assets.getText('admin').split(',')
@@ -25,6 +53,7 @@ if RefinedData.find().count() is 0
             entry.count = 1
             entry.pages = [page]
             entry.category = chooseCategory entry
+            entry.importance = score entry
 
             RefinedData.insert(entry)
         else

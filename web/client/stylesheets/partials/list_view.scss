@@ -21,7 +21,7 @@ section.list-view {
       display: inline;
     }
 
-    span {
+    .pull-right {
       font-weight: 400;
       font-size: 14px;
       color: #aaa;
@@ -30,5 +30,19 @@ section.list-view {
   .sub-item {
     line-height: 15px;
     margin: 6px;
+
+    .left {
+      width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .pull-right {
+      display: inline-block;      
+    }
+
+    
   }
 }

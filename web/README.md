@@ -26,3 +26,7 @@ To access the list of captured emails, navigate to our [admin portal](https://br
  * 'penny mode' flow chart of pages (every time we click a link)
  * omnipresent notepad to tag pages
  * mobile data tracker??
+
+#### Dev notes
+ * sort urls in sites list
+ * fix navbar related things...pretty ugly right now lol

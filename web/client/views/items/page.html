@@ -1,7 +1,9 @@
 <template name='page'>
   <div class='sub-item'>
-    {{title}} <br/>
-    {{url}}
-    <span class='pull-right'> Views: {{counts}} </span>
+    <div class='left'> 
+      {{title}} <br/>
+      <a href='{{url}}'>{{url}}</a>
+    </div>
+    <div class='pull-right'> Views: {{counts}} </div>
   </div>
 </template>
