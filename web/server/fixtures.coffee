@@ -1,34 +1,45 @@
 # ['Telehealth', 'Healthcare', 'Business', 'News', 'Companies', 'Other']
 
 chooseCategory = (entry) ->
-    keywords = ['Telehealth', 'Healthcare', 'Business']
-    for category in keywords
-        if entry.domain.indexOf(category) > -1
-            console.log category
-            return category
+    telehealth = ['health', 'hospital', 'medicine']
+    # healthcare = ['healthcare', 'health', 'hospital', 'medicine']
+    business = ['economy', 'stocks', 'business', 'bank', 'money']
+    news = ['journal', 'times', 'today', 'post', 'tribune', 'chronicle', 'news', 'inquirer', 'globe']
+    general = ['google', 'reddit', 'facebook', 'evernote', 'yahoo', 'github']
+    companies = ['career']
+
+    if checkFor(entry, telehealth)
+        return 'Telehealth'
+    # else if checkFor(entry, healthcare)
+    #     return 'Healthcare'
+    else if checkFor(entry, business)
+        return 'Business'
+    else if checkFor(entry, news)
+        return 'News'
+    else if checkFor(entry, general)
+        return 'General'
+    else if checkFor(entry, companies)
+        return 'Companies'
+    else
+        return 'Unclassified'
+
+checkFor = (entry, keywords) ->
+    for key in keywords
+        if entry.domain.toLowerCase().indexOf(key) > -1
+            console.log key
+            return true
         else
             for page in entry.pages
-                if page.url.indexOf(category) > -1 or page.title.indexOf(category) > -1
-                    return category
-
-    news = ['journal', 'times', 'today', 'post', 'tribune', 'chronicle', 'news', 'inquirer', 'globe']
-    for key in news
-        if entry.domain.indexOf(key) > -1
-            return 'News'
-
-    general = ['google', 'reddit', 'facebook', 'evernote', 'yahoo', 'github']
-    for key in general
-        if entry.domain.indexOf(key) > -1
-            return 'General'
-
-    for page in entry.pages
-        if page.url.indexOf('career') > -1 or page.title.indexOf('career') > -1
-            return 'Companies'
-
-    return 'Unclassified'
+                if page.url.toLowerCase().indexOf(key) > -1 or page.title.toLowerCase().indexOf(key) > -1
+                    return true
+    return false
 
 score = (entry) ->
-    return entry.end
+    maxTime = 0
+    for page in entry.pages
+        if page.end > maxTime
+            maxTime = page.end
+    return (maxTime / 8000000) + entry.count
 
 if Meteor.users.find().count() is 0
   admin = Assets.getText('admin').split(',')

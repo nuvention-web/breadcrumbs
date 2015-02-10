@@ -28,5 +28,6 @@ To access the list of captured emails, navigate to our [admin portal](https://br
  * mobile data tracker??
 
 #### Dev notes
- * sort urls in sites list
- * fix navbar related things...pretty ugly right now lol
+ * domain classificaiton to page classification
+ * sort pages on importance
+ * integrate header into page layout

@@ -1,3 +1,3 @@
 Template.history.helpers
   sites: () ->
-    return RefinedData.find {category: this.category}, {sort: {end: -1}}
+    return RefinedData.find {category: this.category}, {sort: {score: -1}}

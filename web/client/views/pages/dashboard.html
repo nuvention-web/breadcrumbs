@@ -1,5 +1,8 @@
 <template name='dashboard'>
-  {{#each categories}}
-    {{> category}}
-  {{/each}}
+  {{> navbar}}
+  <section id='dashboard'>
+    {{#each categories}}
+      {{> category}}
+    {{/each}}
+  </section>
 </template>

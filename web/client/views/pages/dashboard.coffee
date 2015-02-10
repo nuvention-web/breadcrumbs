@@ -3,7 +3,7 @@ Template.dashboard.helpers
         return [
             { category: 'General' }
             { category: 'Telehealth' },
-            { category: 'Healthcare' },
+            # { category: 'Healthcare' },
             { category: 'Business' },
             { category: 'News' },
             { category: 'Companies' },
