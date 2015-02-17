@@ -11,8 +11,10 @@ html * {
   box-sizing: border-box;
 }
 
-body {
-  padding-top: 100px;
+html, body {
+  height: 100%;
+  // padding-top: 100px;
+  background-color: #eee;
 }
 
 section {
@@ -20,7 +22,7 @@ section {
   // top: 0;
   // left: 0;
   // width: 100%;
-  padding-top: 30px;
+  padding-top: 100px;
   z-index: -1;
 }
 

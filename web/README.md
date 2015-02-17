@@ -31,3 +31,5 @@ To access the list of captured emails, navigate to our [admin portal](https://br
  * domain classificaiton to page classification
  * sort pages on importance
  * integrate header into page layout
+
+ * i don't like: algorithm, probabilities, predictive analytics

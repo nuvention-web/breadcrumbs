@@ -1,6 +1,6 @@
 # ['Telehealth', 'Healthcare', 'Business', 'News', 'Companies', 'Other']
 
-chooseCategory = (entry) ->
+@chooseCategory = (entry) ->
     telehealth = ['health', 'hospital', 'medicine']
     # healthcare = ['healthcare', 'health', 'hospital', 'medicine']
     business = ['economy', 'stocks', 'business', 'bank', 'money']
@@ -8,33 +8,33 @@ chooseCategory = (entry) ->
     general = ['google', 'reddit', 'facebook', 'evernote', 'yahoo', 'github']
     companies = ['career']
 
-    if checkFor(entry, telehealth)
+    if checkFor entry, telehealth
         return 'Telehealth'
-    # else if checkFor(entry, healthcare)
+    # else if checkFor entry, healthcare
     #     return 'Healthcare'
-    else if checkFor(entry, business)
+    else if checkFor entry, business
         return 'Business'
-    else if checkFor(entry, news)
+    else if checkFor entry, news
         return 'News'
-    else if checkFor(entry, general)
+    else if checkFor entry, general
         return 'General'
-    else if checkFor(entry, companies)
+    else if checkFor entry, companies
         return 'Companies'
     else
         return 'Unclassified'
 
-checkFor = (entry, keywords) ->
+@checkFor = (entry, keywords) ->
     for key in keywords
-        if entry.domain.toLowerCase().indexOf(key) > -1
+        if entry.domain.toLowerCase().indexOf key > -1
             console.log key
             return true
         else
             for page in entry.pages
-                if page.url.toLowerCase().indexOf(key) > -1 or page.title.toLowerCase().indexOf(key) > -1
+                if page.url.toLowerCase().indexOf key > -1 or page.title.toLowerCase().indexOf key > -1
                     return true
     return false
 
-score = (entry) ->
+@score = (entry) ->
     maxTime = 0
     for page in entry.pages
         if page.end > maxTime
