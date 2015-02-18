@@ -1,5 +1,6 @@
 section#download {
     padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
 
     .col-md-8 {
@@ -54,6 +55,10 @@ section#download {
         input[type='submit'] {
             line-height: 30px;
         }
+    }
+
+    ol {
+        text-align: left;
     }
 
 }
