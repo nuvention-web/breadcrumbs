@@ -21,3 +21,11 @@ Meteor.methods
                         count: page.counts
                     $push:
                         pages: page
+
+    makeUser: (user) ->
+        Accounts.createUser user
+
+    pingTest: (data) ->
+        console.log '[PING]'
+        console.log data
+        return '[PONG]'

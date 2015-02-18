@@ -24,13 +24,15 @@ Router.route('/history/:category', ->
   }
 )
 
+Router.route('/download', ->
+  this.render 'download')
+
 Router.route('/dashboard', ->
   this.render 'dashboard')
 
 Router.route('/datapost', where: 'server')
   .post(->
     view = this.request.body
-
     # parse full domain structure
     domain = ''
     bracketCount = 0

@@ -1,2 +1,10 @@
 web/private
 
+chrome-extension/node_modules
+chrome-extension/temp
+chrome-extension/.tmp
+chrome-extension/dist
+chrome-extension/.sass-cache
+chrome-extension/app/bower_components
+chrome-extension/test/bower_components
+chrome-extension/package

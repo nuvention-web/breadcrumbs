@@ -33,3 +33,6 @@ BELOW ARE A LIST OF PERSONAL NOTES TO THE DEVELOPER AND SHOULD NOT BE PAID ATTEN
   * user assistance
     * create own categories at first?
     * star?
+  * shopping mode + product comparison?
+  * generate a ton of tags that people drag into their own groups
+  * enter "x" mode!

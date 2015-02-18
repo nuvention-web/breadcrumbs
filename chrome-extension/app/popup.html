@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css styles/main.css -->
+        <link href="styles/main.css" rel="stylesheet">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <form id='login'>
+            <div class='text-input'>
+              <h4> Username: </h4>
+              <input type='text' name='username' required>
+            </div>
+            <div class='text-input'>
+              <h4> Password: </h4>
+              <input type='password' name='password' required>
+            </div>
+            <input class='btn btn-green' type='submit' value='login' required>
+        </form>
+        <div id='error'>
+            <h3> incorrect username or password </h3>
+        </div>
+        <div id='logout'>
+            <h3> You're now tracking data. </h3>
+            <div id='logout-btn' class='btn btn-green'> logout </div>
+        </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/popup.js -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/ddp.js/src/ddp.js"></script>
+        <script src="bower_components/q/q.js"></script>
+        <script src="bower_components/asteroid/dist/asteroid.chrome.js"></script>
+        <script src="scripts/popup.js"></script>
+
+        <!-- endbuild -->
+    </body>
+</html>
