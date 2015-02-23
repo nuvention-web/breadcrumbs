@@ -1,0 +1,12 @@
+<template name='admin'>
+  <section id='admin' class='list-view'>
+    <div class='pull-right'>
+      {{> loginButtons}}
+    </div>
+    <div id='emails' class='list'>
+      {{#each emails}}
+        {{> email}}
+      {{/each}}
+    </div>
+  </section>
+</template>

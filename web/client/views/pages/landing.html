@@ -1,0 +1,17 @@
+<template name='landing'>
+  {{> analytics}}
+  <section id='landing' class='container-fluid'>
+    <form>
+      <h1 class='text-center'> Search through your life. </h1>
+      <h2 class='text-center'> Breadcrumbs records everything you do so you'll never lose anything you've seen. </h2>
+      <div class='entry text-center'>
+        <h5> Name: </h5>
+        <input type='text' name='fullname' required>
+        <h5> Email: </h5>
+        <input type='email' name='email' required>
+        <input type='submit' name='interest' value='Sign up for updates!'>
+      </div>
+      <div id='messages' style='display: none'>Your email is already on our email list, but thanks again for your interest!</div>
+    </form>
+  </section>
+</template>

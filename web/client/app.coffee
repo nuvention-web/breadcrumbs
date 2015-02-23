@@ -1,0 +1,1 @@
+Meteor.subscribe 'refined_data', {user: Meteor.userId}

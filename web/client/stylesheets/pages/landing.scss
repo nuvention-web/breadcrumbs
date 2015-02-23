@@ -2,6 +2,9 @@ section#landing {
   color: white;
   background-size: cover;
   background-image: url('/images/ladybug.jpg');
+  h2 {
+    font-size: 28px;
+  }
   form {
     position: absolute;
     width: 550px;

@@ -16,3 +16,47 @@ Router.route('/login', ->
 Router.route('/thanks', ->
   this.render 'thanks')
 
+Router.route('/history/:category', ->
+  this.render 'history', {
+    data: {
+      category: this.params.category
+    }
+  }
+)
+
+Router.route('/download', ->
+  this.render 'download')
+
+Router.route('/dashboard', ->
+  this.render 'dashboard')
+
+Router.route('/datapost', where: 'server')
+  .post(->
+    view = this.request.body
+    # parse full domain structure
+    domain = ''
+    bracketCount = 0
+
+    for ch in view.url
+      if domain == 'www.'
+        domain = ''
+
+      if ch == '/'
+        bracketCount++
+      else if bracketCount == 2
+        domain += ch
+    view.domain = domain
+        
+    console.log "[POST] Request created."
+    console.log view
+    console.log "[POST] End."
+
+    id = PageData.findOne {url: view.url}
+    if id?
+      PageData.update id, {$inc: {counts: 1}}
+    else
+      view.counts = 1
+      PageData.insert view
+
+    return 1
+    )

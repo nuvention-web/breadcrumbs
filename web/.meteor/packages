@@ -7,12 +7,12 @@
 meteor-platform
 autopublish
 insecure
-fourseven:scss
 iron:router
 mizzao:bootstrap-3
 coffeescript
-mike:mocha
 accounts-password
 accounts-base
 accounts-ui-unstyled
 accounts-ui
+fourseven:scss@1.0.0
+underscore

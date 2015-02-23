@@ -23,6 +23,32 @@ MochaWeb?.testOnly ->
 
           chai.assert.notEqual $('#messages').css('display'), 'none' 
           done()
-          ), 100       
+          ), 100
 
 
+  describe 'Restful Data Post', ->
+    it 'should properly post data into a database', (done)->
+      id = post 'localhost', {name: 'tester_user', email: 'testemail@example.com'}
+      chai.assert.isNotNull PageData.findOne(id), 'Data was not inserted.'
+      done()
+
+
+
+post = (path, params) ->
+  method = 'post'
+
+  form = document.createElement 'form'
+  form.setAttribute 'method', method
+  form.setAttribute 'action', path
+
+  for key in params 
+    if params.hasOwnProperty key 
+      hiddenField = document.createElement 'input'
+      hiddenField.setAttribute 'type', 'hidden'
+      hiddenField.setAttribute 'name', key
+      hiddenField.setAttribute 'value', params[key]
+
+      form.appendChild hiddenField
+
+  document.body.appendChild form
+  form.submit()

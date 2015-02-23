@@ -1,0 +1,48 @@
+section.list-view {
+  background-color: #eee;
+  .list {
+    margin: 50px auto;
+    width: 50%;
+  }
+  .item {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    line-height: 40px;
+    padding: 8px 25px 8px 8px;
+    margin: 0 0 10px 0;
+
+    h3 {
+      line-height: 1.4;
+      font-size: 18px;
+      color: #08c;
+      margin: 0 0 0 5px;
+      display: inline;
+    }
+
+    .pull-right {
+      font-weight: 400;
+      font-size: 14px;
+      color: #aaa;
+    }
+  }
+  .sub-item {
+    line-height: 15px;
+    margin: 6px;
+
+    .left {
+      width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .pull-right {
+      display: inline-block;      
+    }
+
+    
+  }
+}

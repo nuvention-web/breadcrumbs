@@ -1,0 +1,64 @@
+section#download {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+
+    .col-md-8 {
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        padding: 15px;
+        h2 {
+            text-align: left;
+        }
+        .row {
+            margin: 10px 0 0 0;
+        }
+    }
+
+    .btn {
+        height: 40px;
+        // line-height: 40px;
+        width: 30%;
+        display: block;
+        margin: 20px auto 0 auto;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 800;
+        color: white;
+    }
+
+    .btn-blue {
+        background-color: #337ab7;
+        border: 1px solid #2e6da4;
+    }
+
+    .btn-green {
+
+        background-color: #5cb85c;
+        border: 1px solid #4cae4c;
+    }
+
+    form {
+        margin-top: 30px;
+        .text-input {
+            margin: 0px auto 6px auto;
+            width: 50%;
+            text-align: left;
+        }
+        @mixin text-input {
+            height: 35px;
+            width: 100%;
+        }
+        input[type='text'], input[type='password'] {
+            @include text-input
+        }
+        input[type='submit'] {
+            line-height: 30px;
+        }
+    }
+
+    ol {
+        text-align: left;
+    }
+
+}
