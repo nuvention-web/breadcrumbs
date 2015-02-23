@@ -58,6 +58,9 @@ Router.route('/datapost', where: 'server')
     domain = ''
     bracketCount = 0
 
+    if not view.uid?
+      return 1
+
     for ch in view.url
       if domain == 'www.'
         domain = ''
