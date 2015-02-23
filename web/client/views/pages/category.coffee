@@ -1,6 +1,6 @@
 Template.category.helpers
     headline: () ->
-        return (RefinedData.findOne {category: this.category}, {sort: {count: -1}}).pages[0]
+        return RefinedData.findOne {category: this.name}, {sort: {score: -1}}
 
     pages: () ->
-        return RefinedData.find {category: this.category}, {sort: {count: -1}, skip: 1, limit: 5}
+        return RefinedData.find {category: this.name}, {sort: {score: -1}, skip: 1, limit: 5}

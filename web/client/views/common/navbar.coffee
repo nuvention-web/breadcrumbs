@@ -8,7 +8,7 @@
 # //     });
 # // };
 
-Template.navbar.events
-    'click img': (e) ->
-        e.preventDefault()
-        Meteor.call 'refreshDB'
+# Template.navbar.events
+    # 'click img': (e) ->
+    #     e.preventDefault()
+    #     Meteor.call 'refreshDB'
