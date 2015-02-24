@@ -46,7 +46,7 @@ Router.route('/account/create', ->
 
 Router.route('/account/categories', ->
   this.render 'categories', {
-    name: 'cateogires'
+    name: 'categories'
     })
 
 #### DATA POST ROUTE BELOW ####

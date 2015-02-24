@@ -1,8 +1,23 @@
 <template name='categories'>
-  {{#each categories}}
-    {{name}}
-    {{#each keywords}}
-      {{this}}
-    {{/each}}
-  {{/each}}
+  {{> navbar}}
+  <section id='history' class='list-view'>
+    <h1 class='text-center'> Categories </h1>
+    <div class='list'>
+      {{#each categories}}
+        <div class='item'>
+          <h3> {{name}} </h3>
+          <span class='pull-right'>
+            {{#each keywords}}
+              {{this}}
+            {{/each}}
+          </span>
+          <div class='expandable'>
+            {{#each pages}}
+              {{> page}}
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
 </template>
