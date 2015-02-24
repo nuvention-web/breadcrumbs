@@ -74,16 +74,11 @@ Router.route('/datapost', where: 'server')
     console.log "[POST] Request created."
     console.log view
 
-    id = PageData.findOne {url: view.url}
-    if id?
-      PageData.update id, {$inc: {counts: 1}}
-    else
-      view.counts = 1
-      PageData.insert view
+    PageData.insert view
 
     view = refineView view
 
-    id2 = RefinedData.findOne {url: view.url}
+    id2 = RefinedData.findOne {url: view.url} # need to increment time spent
     if id2?
       RefinedData.update id, {$inc: {counts: 1}}
     else
