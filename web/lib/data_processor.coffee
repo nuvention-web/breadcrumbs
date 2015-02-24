@@ -23,4 +23,4 @@
     return false
 
 @score = (entry) ->
-    return (entry.end / 8000000) + entry.count
+    return entry.end
