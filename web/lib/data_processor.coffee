@@ -7,8 +7,8 @@
 	return view
 
 @chooseCategory = (entry, uid) ->
-    user = Meteor.users.findOne(uid, {reactive: false})
-    user.categories.sort (x, y) -> return x.priority - y.priority
+    user = Meteor.users.findOne uid, {reactive: false}
+    
     for category in user.categories
         if checkFor entry, category.keywords
             return category.name

@@ -25,6 +25,7 @@ section {
   height: 100%;
   padding-top: 80px;
   z-index: -1;
+  overflow: auto;
 }
 
 .login-buttons {
@@ -45,10 +46,14 @@ section {
   text-overflow: ellipsis;
 }
 
+.full-width {
+  width: 100%
+}
+
 .btn {
     height: 40px;
     // line-height: 40px;
-    width: 30%;
+    // width: 30%;
     display: block;
     margin: 20px auto 0 auto;
     border-radius: 10px;

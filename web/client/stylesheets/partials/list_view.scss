@@ -1,8 +1,9 @@
 section.list-view {
   background-color: #eee;
   .list {
-    margin: 50px auto;
-    width: 50%;
+    margin: 50px auto 10px auto;
+    width: 85%;
+    padding-left: 0px;
   }
   .item {
     width: 100%;
@@ -12,6 +13,7 @@ section.list-view {
     line-height: 40px;
     padding: 8px 25px 8px 8px;
     margin: 0 0 10px 0;
+    list-style-type: none;
 
     h3 {
       line-height: 1.4;
@@ -21,7 +23,7 @@ section.list-view {
       display: inline;
     }
 
-    .pull-right {
+    .tags {
       font-weight: 400;
       font-size: 14px;
       color: #aaa;
@@ -44,5 +46,24 @@ section.list-view {
     }
 
     
+  }
+  .item-adder {
+    width: 85%;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    .adder-add {
+      form {
+        input[type='text'] {
+          display: block;
+          width: 90%;
+          margin: 10px auto;
+        }
+      }
+      display: none;
+    }
+    button {
+      margin-right: 10px;
+    }
   }
 }

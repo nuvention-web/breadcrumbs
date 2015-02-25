@@ -1,11 +1,15 @@
 <template name='history'>
   {{> navbar}}
   <section id='history' class='list-view'>
-    <h1 class='text-center'> {{category}} </h1>
-    <div class='list'>
-      {{#each sites}}
-        {{> site}}
-      {{/each}}
+    <div class='container-fluid'>
+      <div class='col-md-8 col-md-offset-2'>
+        <h1 class='text-center'> {{category}} </h1>
+        <div class='list'>
+          {{#each sites}}
+            {{> site}}
+          {{/each}}
+        </div>
+      </div>
     </div>
   </section>
 </template>
