@@ -78,8 +78,8 @@ Router.route('/datapost', where: 'server')
 
     view = refineView view
 
-    id2 = RefinedData.findOne {url: view.url} # need to increment time spent
-    if id2?
+    id = RefinedData.findOne {url: view.url} # need to increment time spent
+    if id?
       RefinedData.update id, {$inc: {counts: 1}}
     else
       view.counts = 1
