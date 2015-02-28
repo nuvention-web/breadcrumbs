@@ -1,8 +1,11 @@
 <template name='dashboard'>
   {{> navbar}}
-  <section id='dashboard'>
-    {{#each categories}}
-      {{> category}}
-    {{/each}}
+  <section id='dashboard' class="container" >
+	  <div class="row">
+	  	    {{#each categories}}
+	      {{> category}}
+	    {{/each}}
+	  </div>
+
   </section>
 </template>
