@@ -5,47 +5,57 @@ div{
     border: 1px, black, solid;
 }
 
-category{
-  margin: 20px auto;
+.category{
+  margin: 5px;
   position: relative;
-  overflow: hidden; //did not solve my problem
+  overflow: hidden; 
   height: 232px;
-  width: 320 px;
-  background-color: #f9e6d6;
+  width: 319px;
 }
 
-.headTitle, .headUrl{  //did not solve my problem... at all
-    height: 20px;
+.headTitle{  //did not solve my problem... at all
+    height: 2em;
+    overflow: hidden;
+}
+
+ .headUrl{  //did not solve my problem... at all
+    height: 1em;
     overflow: hidden;
 }
 
 h2, h4, p{
   margin: 2% auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
   position: absolute;
 }
 
 h2{
-  top: 70px;
+  top: 50%;
   font-family: 'Poiret One', cursive;
 }
 
 h4{
-  top: 105px;
+  top: 65%;
   font-family: 'Roboto Slab', serif;
   font-weight: 800;
 }
 
 p{
-  top: 120px;
+  top: 75%;
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
+  line-height: 1em;
 }
 
 img{
-  height:150px;
+  height:100%;
   position: absolute;
+  margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .thumbnail{
@@ -58,6 +68,7 @@ img{
 .overlay{
   z-index: -2;
   width:100%;
+  height: auto;
 }
 
 // div.category {
