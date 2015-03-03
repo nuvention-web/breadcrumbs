@@ -22,8 +22,14 @@ section {
   // top: 0;
   // left: 0;
   // width: 100%;
-  padding-top: 100px;
+  height: 100%;
+  padding-top: 80px;
   z-index: -1;
+}
+
+.login-buttons {
+  float: right;
+  margin-right: 15%;
 }
 
 .expandable {
@@ -37,4 +43,26 @@ section {
 
 .ellipsis {
   text-overflow: ellipsis;
+}
+
+.btn {
+    height: 40px;
+    // line-height: 40px;
+    width: 30%;
+    display: block;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+}
+
+.btn-blue {
+    background-color: #337ab7;
+    border: 1px solid #2e6da4;
+}
+
+.btn-green {
+    background-color: #5cb85c;
+    border: 1px solid #4cae4c;
 }

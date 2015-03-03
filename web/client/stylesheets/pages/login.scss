@@ -1,7 +1,7 @@
 section#login {
   form {
     width: 550px;
-    margin: 15% auto 0 auto;
+    margin: 7% auto 0 auto;
     .entry {
       margin: 20px auto;
       width: 75%;
@@ -18,17 +18,17 @@ section#login {
     input[type='text'], input[type='password'] {
       @include text-input
     }
-    input[type='submit'] {
-      height: 50px;
-      width: 70%;
-      margin: 25px auto 0px auto;
-      border-radius: 40px;
-      font-size: 20px;
-      font-weight: 800;
-      background-color: #3041C8;
-      color: white;
-      border: 1px solid #2B6EDF;
-    }
+    // input[type='submit'] {
+    //   height: 50px;
+    //   width: 70%;
+    //   margin: 25px auto 0px auto;
+    //   border-radius: 40px;
+    //   font-size: 20px;
+    //   font-weight: 800;
+    //   background-color: #3041C8;
+    //   color: white;
+    //   border: 1px solid #2B6EDF;
+    // }
     #messages {
       color: red;
       text-align: center;

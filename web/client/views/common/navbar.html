@@ -1,9 +1,12 @@
 <template name='navbar'>
   <header class='active'>
     <nav>
-      <a href='#'>
+      <a href='/dashboard'>
         <img alt='Breadcrumbs' src='images/logo.png'>
       </a>
+      <div class='login-buttons'>
+        {{> loginButtons}}
+      </div>
     </nav>
   </header>
 </template>
