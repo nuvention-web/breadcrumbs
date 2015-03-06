@@ -1,16 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab:300,700,100,400);
 
-
-div{
-    border: 1px, black, solid;
-}
-
-.category{
+div.category {
+  border: 1px, black, solid;
   margin: 5px;
   position: relative;
   overflow: hidden;
   padding: 0; 
   height: 232px;
+<<<<<<< HEAD
   width: 319px;
 }
 
@@ -60,4 +57,85 @@ img{
   z-index: -2;
   width:100%;
   height: auto;
+=======
+  background-color: #f9e6d6;
+
+  .headTitle {  //did not solve my problem... at all
+      height: 2em;
+      overflow: hidden;
+  }
+
+  .headUrl {  //did not solve my problem... at all
+      height: 1em;
+      overflow: hidden;
+  }
+
+  h2, h4, p {
+    margin: 2% auto;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  h2 {
+    top: 50%;
+    font-family: 'Poiret One', cursive;
+  }
+
+  h4 {
+    top: 65%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+  }
+
+  p {
+    top: 75%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 100;
+    line-height: 1em;
+  }
+
+  img {
+    height:100%;
+    position: absolute;
+    margin: {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .thumbnail {
+    z-index: -10;
+    position: absolute;
+    top-left: 0;
+    text-align: center;
+  }
+
+  .overlay {
+    // z-index: -2;
+    width: 100%;
+    height: auto;
+  }
+
+  .iframe-wrapper {
+    width: 320px;
+    height: 150px;
+    overflow: hidden;
+  }
+  iframe {
+    width: 1600px;
+    height: 900px;
+    border: none;
+    pointer-events: none;
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+  }
+>>>>>>> origin/dev
 }

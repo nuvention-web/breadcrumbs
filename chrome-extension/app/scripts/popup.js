@@ -1,8 +1,8 @@
 'use strict';
 
 var id;
-var ceres = new Asteroid('breadcrumbs.meteor.com');
-// var ceres = new Asteroid('localhost:3000');
+// var ceres = new Asteroid('breadcrumbs.meteor.com');
+var ceres = new Asteroid('localhost:3000');
 
 // on start, check if authenticated
 chrome.storage.local.get('breadcrumbsID', function(items) {

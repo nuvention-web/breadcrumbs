@@ -2,6 +2,8 @@ Breadcrumbs Web
 =========
 Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.com). Or check out the [repository](https://github.com/nuvention-web/breadcrumbs).
 
+MAYBE BE BEST TO PORT THIS TO A CHROME EXTENSION PAGE.
+
 ## Roles
  * Kevin: development and design
  * Penny: design, content strategy, awesome journalist

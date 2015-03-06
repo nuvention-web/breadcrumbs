@@ -1,5 +1,5 @@
 Accounts.onCreateUser (options, user)->
-    user.categories = 
+    defaultCategories = 
         [
             {
                 name: 'Social Media'
@@ -17,5 +17,9 @@ Accounts.onCreateUser (options, user)->
                 priority: Number.POSITIVE_INFINITY
             }
         ]
+
+    for i in defaultCategories
+        Categories.insert {user: user._id, category: i}
+
 
     return user

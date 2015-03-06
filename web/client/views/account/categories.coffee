@@ -2,9 +2,14 @@
 
 Template.categories.helpers
     categories: () ->
-        return Meteor.users.findOne(Meteor.userId()).categories
-    lowestPriority: () ->
-        return Meteor.user().categories.length
+        return Categories.find {}, {sort: {priority: 1} }
+    sortOptions: () ->
+        return {
+            sortField: 'priority'
+            animation: 500
+        }
+    isCategory: (name) ->
+        return name != 'Uncategorized'
 
 Template.categories.events
     'click .adder-wait': (event) ->
@@ -12,9 +17,18 @@ Template.categories.events
         event.stopPropagation()
         toggleAdder()
     'click #cancel': (event) ->
+        event.preventDefault()
+        event.stopPropagation()
         toggleAdder()
-    'click #save': (event) ->
-        $('#save').attr('disabled','disabled');
+
+    'mouseenter .category': (event) ->
+        $(event.currentTarget.children[1]).slideToggle()
+
+    'mouseleave .category': (event) ->
+        $(event.currentTarget.children[1]).slideToggle()
+
+    'click .delete': (event) ->
+        Categories.remove this._id
 
     'submit form': (event) ->
         event.preventDefault()
@@ -31,44 +45,13 @@ Template.categories.events
         category =
             name: name
             keywords: tags
-            priority: Meteor.user().categories.length
+            priority: Categories.find().count() + 1
+            user: Meteor.userId()
 
-        Meteor.users.update Meteor.userId(), {$push: {categories: category}}
-        updateCategories()
+        Categories.insert category
         Meteor.call 'refreshDB', Meteor.userId()
         toggleAdder()
 
-Template.categories.rendered = () ->
-    updateCategories()
-
-    options =
-        animation: 200
-        onEnd: (event) ->
-            $('#save').removeAttr('disabled')
-            prev = event.oldIndex
-            curr = event.newIndex
-            categories = Meteor.user().categories
-            if curr < prev
-                for i in [curr..prev]
-                    categories[i].priority += 1
-                categories[prev].priority = curr
-            else if curr > prev
-                for i in [prev+1..curr+1]
-                    categories[i].priority -= 1
-                categories[prev].priority = curr
-
-            updateCategories(categories)
-                
-    sortable = Sortable.create $('.list')[0], options
-
 toggleAdder = ()->
-    $('.adder-wait').toggle()
-    $('.adder-add').toggle()
-
-updateCategories = (newCategories) ->
-    console.log Meteor.user()?.categories
-    if not newCategories?
-        newCategories = Meteor.user()?.categories
-    console.log newCategories
-    newCategories?.sort (x, y) -> return x.priority - y.priority # move this else where
-    Meteor.users.update Meteor.userId(), {$set: {categories: newCategories}}
+    $('.adder-wait').slideToggle()
+    $('.adder-add').slideToggle()

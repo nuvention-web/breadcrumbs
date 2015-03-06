@@ -1,6 +1,6 @@
 Template.dashboard.helpers
     categories: () ->
-        return Meteor.user().categories
+        return Categories.find()
 
 Template.dashboard.rendered = () ->
     # if not Meteor.user()
