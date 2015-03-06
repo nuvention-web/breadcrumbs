@@ -12,13 +12,14 @@ boilerplate-generator@1.0.2
 callback-hook@1.0.2
 check@1.0.4
 coffeescript@1.0.5
+dburles:mongo-collection-instances@0.2.6
 ddp@1.0.14
 deps@1.0.6
 ejson@1.0.5
 email@1.0.5
 fastclick@1.0.2
 follower-livedata@1.0.3
-fourseven:scss@1.0.0
+fourseven:scss@1.2.3
 geojson-utils@1.0.2
 html-tools@1.0.3
 htmljs@1.0.3
@@ -56,6 +57,7 @@ reactive-var@1.0.4
 reload@1.1.2
 retry@1.0.2
 routepolicy@1.0.4
+rubaxa:sortable@1.1.0
 service-configuration@1.0.3
 session@1.0.5
 sha@1.0.2

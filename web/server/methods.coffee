@@ -1,26 +1,22 @@
 Meteor.methods
-    # refreshDB: () ->
-    #     RefinedData.remove {}
-    #     pages = PageData.find()
-    #     pages.forEach (page) ->
-    #         if RefinedData.find(domain: page.domain).count() is 0
-    #             page.title = page.title || '[Title not found]'
-    #             page.favIcon = page.favIcon || 'http://www.acsu.buffalo.edu/~rslaine/imageNotFound.jpg'
+    refreshDB: (uid) -> # offload to client?
+        console.log 'Refreshing for ' + uid
+        user = Meteor.users.findOne uid, {reactive: false}
+        user.categories.sort (x, y) -> return x.priority - y.priority # move this else where
+        Meteor.users.update uid, {$set: {categories: user.categories}}
 
-    #             entry = {}
-    #             entry.domain = page.domain
-    #             entry.count = 1
-    #             entry.pages = [page]
-    #             entry.category = chooseCategory entry
-    #             entry.importance = score entry
+        RefinedData.remove {uid: uid}
+        pages = PageData.find {uid: uid}
+        pages.forEach (page) ->
 
-    #             RefinedData.insert(entry)
-    #         else
-    #             RefinedData.update domain: page.domain, 
-    #                 $inc: 
-    #                     count: page.counts
-    #                 $push:
-    #                     pages: page
+            view = refineView page
+
+            id = RefinedData.findOne {url: view.url}
+            if id?
+              RefinedData.update id, {$inc: {counts: 1}}
+            else
+              view.counts = 1
+              RefinedData.insert view
 
     makeUser: (user) ->
         Accounts.createUser user

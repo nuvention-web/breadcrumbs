@@ -1,35 +1,14 @@
 <template name='category'>
-  <div class='category'>
-    <a href="history/{{name}}">
-      <h2> {{name}} </h2>
-    </a>
-
-    <div class='tags'>
-      
-    </div>
-
-    <div class='content'>
-
-      <div class='main'>
-        <div class='excerpt'>
-          <a href='{{headline.url}}' target='_blank'>
-            <img src='{{headline.favIcon}}'/>
-            <h4> {{headline.title}} </h4>
-            <p>
-              {{headline.url}}
-            </p>
-          </a>
-        </div>
-      </div>
-
-      <div class='aux'>
-        <ul>
-          {{#each pages}}
-            <a href='http://{{domain}}'><li> {{domain}} </li></a>
-          {{/each}}
-        </ul>
-      </div>
-
-    </div>
+  <div class='category col-lg-3 col-md-3'>
+      <img class="overlay" src="/images/overlay.png">
+      <div class='iframe-wrapper'><iframe src='{{headline.url}}'></iframe></div>
+      <!-- <img class="thumbnail" src='{{headline.favIcon}}'/> -->
+      <a href="history/{{name}}">
+        <h2> {{name}} </h2>
+      </a>
+      <a href='{{headline.url}}' target='_blank'>
+        <div class="headTitle"><h4> {{headline.title}} </h4></div>
+        <div class="headUrl"><p>{{headline.url}}</p></div>
+      </a>
   </div>
 </template>

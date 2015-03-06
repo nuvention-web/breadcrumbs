@@ -1,55 +1,126 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab:300,700,100,400);
+
+
 div.category {
-    margin: 20px auto;
-    width: 70%;
-    clear: both;
+  border: 1px, black, solid;
+  margin: 20px 10px;
+  position: relative;
+  overflow: hidden; //did not solve my problem
+  height: 232px;
+  width: 320px;
+  background-color: #f9e6d6;
 
-    h2 {
-        border-bottom: 1px solid #dbdbdb;
-        font: bold 1.7em/1.1 "Benton Sans Bold", Arial, Helvetica, sans-serif;
-        margin-bottom: 0;
-    }
+  .headTitle, .headUrl {  //did not solve my problem... at all
+      height: 20px;
+      overflow: hidden;
+  }
 
-    .tags {
-        position: absolute;
-    }
+  h2, h4, p {
+    margin: 2% auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    z-index: 10;
+    white-space: nowrap;
+  }
 
-    .content {
-        margin: 0;
-        padding: 0;
-        border: 0;
+  h2 {
+    top: 70px;
+    font-family: 'Poiret One', cursive;
+  }
 
-        .main {
-            float: left;
-            width: 49%;
-            .excerpt {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-                img {
-                    float: left;
-                    width: 150px;
-                    height: 150px;
-                }
-                h4 {
-                    margin: 0;
-                    margin-left: 45%;
-                }
-                p {
-                    margin-left: 45%;
-                }
-            }
-        }
+  h4 {
+    top: 105px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+  }
 
-        .aux {
-            clear: none;
-            float: right;
-            width: 49%;
-            ul {
-                list-style: none;
-            }
-            li {
-                border-bottom: 1px solid #DBDBDB;
-            }
-        }
-    }
+  p {
+    top: 120px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 100;
+  }
+
+  img {
+    height: 150px;
+    position: absolute;
+  }
+
+  .thumbnail {
+    z-index: -10;
+    position: absolute;
+    top-left: 0;
+    text-align: center;
+  }
+
+  .overlay {
+    z-index: 5;
+    width: 100%;
+  }
+  .iframe-wrapper {
+    width: 320px;
+    height: 150px;
+    overflow: hidden;
+  }
+  iframe {
+    width: 1600px;
+    height: 900px;
+    border: none;
+    pointer-events: none;
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+  }
 }
+
+// div.category {
+//     margin: 20px auto;
+//     width: 70%;
+//     clear: both;
+//     position: relative;
+
+//     h2 {
+//         font: bold 1.7em/1.1 "Benton Sans Bold", Arial, Helvetica, sans-serif;
+//         margin-bottom: 0;
+//     }
+
+    
+//     .tags {
+//         position: absolute;
+//     }
+
+//     .content {
+        
+//         margin: 0;
+//         padding: 0;
+//         border: 0;
+
+//         .main {
+//             float: left;
+//             width: 49%;
+//             .excerpt {
+//                 text-overflow: ellipsis;
+//                 white-space: nowrap;
+//                 overflow: hidden;
+//                 img {
+
+//                     float: left;
+//                     width: 150px;
+//                     height: 150px;
+//                 }
+//                 h4 {
+
+//                     margin: 0;
+//                     margin-left: 45%;
+//                 }
+//                 p {
+//                     margin-left: 45%;
+//                 }
+//             }
+//         }
+
+//     }
+// }

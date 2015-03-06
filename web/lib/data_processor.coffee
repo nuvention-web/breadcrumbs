@@ -1,14 +1,17 @@
 @refineView = (view) ->
-	view.title = view.title || view.url
-	view.favIcon = view.favIcon || 'http://www.acsu.buffalo.edu/~rslaine/imageNotFound.jpg'
-	view.category = chooseCategory view, view.uid
-	view.score = score view
+    view.title = view.title || view.url
+    view.favIcon = view.favIcon
+    view.category = chooseCategory view, view.uid
+    view.score = score view
+    view.totalTime = view.end - view.start
+    view.count= 1
+    view.visits = [[view.start, view.end]]
 
-	return view
+    return view
 
 @chooseCategory = (entry, uid) ->
-    user = Meteor.users.findOne(uid, {reactive: false})
-    user.categories.sort (x, y) -> return x.priority - y.priority
+    user = Meteor.users.findOne uid, {reactive: false}
+    
     for category in user.categories
         if checkFor entry, category.keywords
             return category.name
@@ -17,10 +20,19 @@
 @checkFor = (entry, keywords) ->
     for key in keywords
         if (entry.domain.toLowerCase().indexOf(key) > -1) or 
-        	(entry.url.toLowerCase().indexOf(key) > -1) or
-        	(entry.title.toLowerCase().indexOf(key) > -1)
+        (entry.url.toLowerCase().indexOf(key) > -1) or 
+        (entry.title.toLowerCase().indexOf(key) > -1)
             return true
     return false
 
 @score = (entry) ->
     return entry.end
+
+invalidPatterns = [
+    "ftp://",
+    "file://",
+    "localhost:",
+]
+
+@invalidURL = (url) ->
+    return not _.every(invalidPatterns, (pattern) -> url.indexOf(pattern) == -1)
