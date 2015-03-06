@@ -10,9 +10,7 @@
     return view
 
 @chooseCategory = (entry, uid) ->
-    categories = Categories.find {user: uid}, {sort: {priority: 1}}
-    
-    for category in categories
+    Categories.find({user: uid}, {sort: {priority: 1}}).forEach (category) ->
         if checkFor entry, category.keywords
             return category.name
     return 'Uncategorized'
