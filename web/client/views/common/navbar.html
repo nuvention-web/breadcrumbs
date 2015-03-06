@@ -1,6 +1,29 @@
 <template name='navbar'>
   <header class='active'>
-    <nav>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-left navbar-brand">
+      <li>
+        <a class="navbar-brand" href="/dashboard"> 
+        <img alt="Brand" class="logo" src="images/logo.png">
+      </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, Penny! <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Change Password</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+
+<!-- OLD CODE    <nav>
       <a href='/dashboard'>
         <img alt='Breadcrumbs' src='images/logo.png'>
       </a>
@@ -8,6 +31,6 @@
       <img class='loginb' src="/images/label_02.png">
         {{> loginButtons}}
       </div>
-    </nav>
+    </nav> -->
   </header>
 </template>
