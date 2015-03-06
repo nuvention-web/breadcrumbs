@@ -1,49 +1,58 @@
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab:300,700,100,400);
 
-
 div.category {
   border: 1px, black, solid;
-  margin: 20px 10px;
+  margin: 5px;
   position: relative;
-  overflow: hidden; //did not solve my problem
+  overflow: hidden; 
   height: 232px;
-  width: 320px;
   background-color: #f9e6d6;
 
-  .headTitle, .headUrl {  //did not solve my problem... at all
-      height: 20px;
+  .headTitle {  //did not solve my problem... at all
+      height: 2em;
+      overflow: hidden;
+  }
+
+  .headUrl {  //did not solve my problem... at all
+      height: 1em;
       overflow: hidden;
   }
 
   h2, h4, p {
     margin: 2% auto;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
     position: absolute;
-    z-index: 10;
     white-space: nowrap;
   }
 
   h2 {
-    top: 70px;
+    top: 50%;
     font-family: 'Poiret One', cursive;
   }
 
   h4 {
-    top: 105px;
+    top: 65%;
     font-family: 'Roboto Slab', serif;
     font-weight: 800;
   }
 
   p {
-    top: 120px;
+    top: 75%;
     font-family: 'Roboto Slab', serif;
     font-weight: 100;
+    line-height: 1em;
   }
 
   img {
-    height: 150px;
+    height:100%;
     position: absolute;
+    margin: {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 
   .thumbnail {
@@ -54,9 +63,11 @@ div.category {
   }
 
   .overlay {
-    z-index: 5;
+    // z-index: -2;
     width: 100%;
+    height: auto;
   }
+
   .iframe-wrapper {
     width: 320px;
     height: 150px;
@@ -75,52 +86,3 @@ div.category {
     -webkit-transform-origin: 0 0;
   }
 }
-
-// div.category {
-//     margin: 20px auto;
-//     width: 70%;
-//     clear: both;
-//     position: relative;
-
-//     h2 {
-//         font: bold 1.7em/1.1 "Benton Sans Bold", Arial, Helvetica, sans-serif;
-//         margin-bottom: 0;
-//     }
-
-    
-//     .tags {
-//         position: absolute;
-//     }
-
-//     .content {
-        
-//         margin: 0;
-//         padding: 0;
-//         border: 0;
-
-//         .main {
-//             float: left;
-//             width: 49%;
-//             .excerpt {
-//                 text-overflow: ellipsis;
-//                 white-space: nowrap;
-//                 overflow: hidden;
-//                 img {
-
-//                     float: left;
-//                     width: 150px;
-//                     height: 150px;
-//                 }
-//                 h4 {
-
-//                     margin: 0;
-//                     margin-left: 45%;
-//                 }
-//                 p {
-//                     margin-left: 45%;
-//                 }
-//             }
-//         }
-
-//     }
-// }
