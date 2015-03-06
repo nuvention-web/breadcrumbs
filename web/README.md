@@ -4,6 +4,8 @@ Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.
 
 MAYBE BE BEST TO PORT THIS TO A CHROME EXTENSION PAGE.
 
+fix order of categories...
+
 ## Roles
  * Kevin: development and design
  * Penny: design, content strategy, awesome journalist
