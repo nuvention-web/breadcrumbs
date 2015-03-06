@@ -10,9 +10,9 @@
     return view
 
 @chooseCategory = (entry, uid) ->
-    user = Meteor.users.findOne uid, {reactive: false}
+    categories = Categories.find {user: uid}, {sort: {priority: 1}}
     
-    for category in user.categories
+    for category in categories
         if checkFor entry, category.keywords
             return category.name
     return 'Uncategorized'
