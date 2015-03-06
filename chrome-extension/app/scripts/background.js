@@ -1,7 +1,7 @@
 'use strict';
 
-// var domain = 'http://localhost:3000';
-var domain = 'http://breadcrumbs.meteor.com'
+var domain = 'http://localhost:3000';
+// var domain = 'http://breadcrumbs.meteor.com'
 var path = domain + '/datapost';
 var tabStore = {};
 
