@@ -1,11 +1,10 @@
 <template name='dashboard'>
-  {{> navbar}}
   <section id='dashboard' class="container" >
 	  <div class="row">
-	  	    {{#each categories}}
+	  	{{#each categories}}
 	      {{> category}}
+        <!-- {{category.name}} -->
 	    {{/each}}
 	  </div>
-
   </section>
 </template>

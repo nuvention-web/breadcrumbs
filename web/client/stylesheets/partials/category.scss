@@ -1,63 +1,79 @@
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab:300,700,100,400);
 
 
-div{
-    border: 1px, black, solid;
-}
-
-category{
-  margin: 20px auto;
+div.category {
+  border: 1px, black, solid;
+  margin: 20px 10px;
   position: relative;
   overflow: hidden; //did not solve my problem
   height: 232px;
-  width: 320 px;
+  width: 320px;
   background-color: #f9e6d6;
-}
 
-.headTitle, .headUrl{  //did not solve my problem... at all
-    height: 20px;
+  .headTitle, .headUrl {  //did not solve my problem... at all
+      height: 20px;
+      overflow: hidden;
+  }
+
+  h2, h4, p {
+    margin: 2% auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  h2 {
+    top: 70px;
+    font-family: 'Poiret One', cursive;
+  }
+
+  h4 {
+    top: 105px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+  }
+
+  p {
+    top: 120px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 100;
+  }
+
+  img {
+    height: 150px;
+    position: absolute;
+  }
+
+  .thumbnail {
+    z-index: -10;
+    position: absolute;
+    top-left: 0;
+    text-align: center;
+  }
+
+  .overlay {
+    z-index: 5;
+    width: 100%;
+  }
+  .iframe-wrapper {
+    width: 320px;
+    height: 150px;
     overflow: hidden;
-}
-
-h2, h4, p{
-  margin: 2% auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: absolute;
-}
-
-h2{
-  top: 70px;
-  font-family: 'Poiret One', cursive;
-}
-
-h4{
-  top: 105px;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 800;
-}
-
-p{
-  top: 120px;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 100;
-}
-
-img{
-  height:150px;
-  position: absolute;
-}
-
-.thumbnail{
-  z-index: -10;
-  position: absolute;
-  top-left: 0;
-  text-align: center;
-}
-
-.overlay{
-  z-index: -2;
-  width:100%;
+  }
+  iframe {
+    width: 1600px;
+    height: 900px;
+    border: none;
+    pointer-events: none;
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+  }
 }
 
 // div.category {
