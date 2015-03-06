@@ -3,11 +3,11 @@ Meteor.methods
         console.log 'Refreshing for ' + uid
 
         RefinedData.remove {uid: uid}
-        pages = PageData.find {uid: uid}
-        pages.forEach (page) ->
-
+        PageData.find({uid: uid}).forEach (page) ->
             view = refineView page
 
+            console.log view
+            
             id = RefinedData.findOne {url: view.url}
             if id?
               RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}}
