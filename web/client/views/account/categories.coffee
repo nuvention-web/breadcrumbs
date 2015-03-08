@@ -55,7 +55,7 @@ Template.categories.events
             user: Meteor.userId()
 
         Categories.insert category
-        Meteor.call 'refreshDB', Meteor.userId()
+        # Meteor.call 'refreshDB', Meteor.userId()
         toggleAdder()
 
 toggleAdder = ()->

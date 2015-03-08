@@ -4,7 +4,7 @@ Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.
 
 MAYBE BE BEST TO PORT THIS TO A CHROME EXTENSION PAGE.
 
-fix order of categories...
+
 
 ## Roles
  * Kevin: development and design
@@ -37,3 +37,11 @@ To access the list of captured emails, navigate to our [admin portal](https://br
  * integrate header into page layout
 
  * i don't like: algorithm, probabilities, predictive analytics
+
+#### Fix list
+ * search within a category
+ * get history display
+ * get navbar working
+ * more sophisticated rules
+    * google searches, viewing many emails
+ * indicate refresh status

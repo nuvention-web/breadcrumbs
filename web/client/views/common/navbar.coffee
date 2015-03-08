@@ -1,3 +1,7 @@
+Template.navbar.helpers
+    name: () ->
+        return Meteor.user().username
+
 # // Template.navbar.rendered = function () {
 # //     $(window).scroll(function() {
 # //         if ($('header').offset().top > 50) {
