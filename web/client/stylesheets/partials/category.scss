@@ -10,17 +10,18 @@ div.category {
   width: 319px;
   // background-color: #f9e6d6;
 
-  .headTitle {  //did not solve my problem... at all
+  .headTitle {  
       height: 2em;
       overflow: hidden;
   }
 
-  .headUrl {  //did not solve my problem... at all
+  .headUrl {  
       height: 1em;
       overflow: hidden;
   }
 
   h2, h4, p {
+    z-index: 10;
     margin: 2% auto;
     padding-left: 2%;
     padding-right: 2%;
@@ -65,7 +66,7 @@ div.category {
   }
 
   .overlay {
-    // z-index: -2;
+    z-index: 5;
     width: 100%;
     height: auto;
   }
