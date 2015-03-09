@@ -4,9 +4,11 @@ div.category {
   border: 1px, black, solid;
   margin: 5px;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
+  padding: 0; 
   height: 232px;
-  background-color: #f9e6d6;
+  width: 319px;
+  // background-color: #f9e6d6;
 
   .headTitle {  //did not solve my problem... at all
       height: 2em;

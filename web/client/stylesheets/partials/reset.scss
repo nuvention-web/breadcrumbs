@@ -13,15 +13,13 @@ html * {
 
 html, body {
   height: 100%;
+  max-height: 100%;
   // padding-top: 100px;
-  // background-color: #eee;
+  overflow: hidden;
+  background-color: #f9e6d6;
 }
 
 section {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
   height: 100%;
   padding-top: 80px;
   z-index: -1;
@@ -31,15 +29,6 @@ section {
 .login-buttons {
   float: right;
   margin-right: 15%;
-}
-
-.expandable {
-  background-color: #f5f5f5;
-  border: 1px solid rgb(227, 227, 227);
-  box-shadow: (0, 0, 0, 0.0470588) 0px 1px 1px 0px inset;
-  border-radius: 4px;
-  padding: 5px;
-  display: none;
 }
 
 .ellipsis {
@@ -70,4 +59,8 @@ section {
 .btn-green {
     background-color: #5cb85c;
     border: 1px solid #4cae4c;
+}
+
+.one-hundred-height {
+  height: 100%;
 }

@@ -18,12 +18,6 @@ Router.route('/admin', ->
   else
     Router.go '/login')
 
-# Router.route('/login', ->
-#   if Meteor.user()?.username is 'admin'
-#     Router.go '/admin'
-#   else
-#     this.render 'login')
-
 Router.route('/thanks', ->
   this.render 'thanks')
 
@@ -85,7 +79,7 @@ Router.route('/datapost', where: 'server')
     id = RefinedData.findOne {url: view.url, uid: view.uid} # need to increment time spent
     if id?
       console.log 'good'
-      RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}}
+      RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}, $set: {end: view.end, start: view.start}}
       if id.visits.length > 10
         RefinedData.update id, {$pop: {visits: -1}}
     else
