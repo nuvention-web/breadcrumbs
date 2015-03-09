@@ -1,8 +1,10 @@
 <template name='category'>
   <div class='category col-lg-3 col-md-3'>
       <img class="overlay" src="/images/overlay.png">
-      <div class='iframe-wrapper'><iframe src='{{headline.url}}' sandbox='allow-same-origin'></iframe></div>
-      <!-- <img class="thumbnail" src='{{headline.favIcon}}'/> -->
+      <div class='iframe-wrapper'>
+        <img class="thumbnail" src='/images/nopreview.png'/>
+        <iframe src='{{headline.url}}' sandbox='allow-same-origin'></iframe>
+      </div>
       <a href="history/{{name}}">
         <h2> {{name}} </h2>
       </a>
