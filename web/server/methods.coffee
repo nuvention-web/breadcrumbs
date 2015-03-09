@@ -10,12 +10,12 @@ Meteor.methods
             
             id = RefinedData.findOne {url: view.url}
             if id?
-              RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}, $set: {end: view.end}}
-              if id.visits.length > 10
-                RefinedData.update id, {$pop: {visits: -1}}
+                RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}, $set: {end: view.end, start: view.start}}
+                if id.visits.length > 10
+                    RefinedData.update id, {$pop: {visits: -1}}
             else
-              view.counts = 1
-              RefinedData.insert view
+                view.counts = 1
+                RefinedData.insert view
 
     makeUser: (user) ->
         Accounts.createUser user

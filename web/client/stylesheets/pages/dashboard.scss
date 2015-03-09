@@ -1,5 +1,18 @@
-
-// body{
-// 	// background-color: #eeeeee;
-// 	margin: 2%;
-// }
+section#dashboard {
+    .second {
+        .col-md-4 {
+            text-align: center;
+        }
+        margin: 5% auto;
+    }
+    .glyphicon-refresh {
+        font-size: 30px;
+        color: #AFAFAF;
+        cursor: pointer;
+    }
+    // .glyphicon-text {
+    //     line-height: 30px;
+    //     vertical-align: middle;
+    //     font-size: 20px;
+    // }
+}

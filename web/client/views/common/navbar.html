@@ -5,16 +5,18 @@
         <a class="navbar-brand" href="/dashboard"> 
           <img alt="Brand" class="logo" src="images/logo.png">
         </a>
-        <ul class="nav navbar-nav navbar-right">
+        {{#if currentUser}}
+          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {{name}}! <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Change Password</a></li>
+                <!-- <li><a href="#">Change Password</a></li> -->
                 <li><a href='/account/categories'>Edit Categories</a></li>
-                <li><a href="#">Logout</a></li>
+                <li id='logout'><a href="#">Logout</a></li>
               </ul>
             </li>
-          </ul>
+            </ul>
+        {{/if}}
       </div>
     </nav>
   </header>

@@ -1,0 +1,45 @@
+.star-site {
+    height: 66px;
+    padding: 8px 25px 8px 8px;
+    img {
+        margin: 8px;
+        height: 32px;
+        width: 32px;
+    }
+    .star-text {
+        height: 44px;
+        margin-top: 2%;
+        float: right;
+        display: inline-block;
+        width: 85%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    .url {
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+.site {
+    height: 33px;
+    span {
+        height: 12px;
+        line-height: 12px;
+        vertical-align: middle;
+    }
+    .title {
+        width: auto;
+        max-width: 60%;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .url {
+        font-size: 8px;
+    }
+}

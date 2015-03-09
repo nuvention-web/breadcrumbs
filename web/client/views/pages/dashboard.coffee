@@ -7,7 +7,7 @@ Template.dashboard.rendered = () ->
     #     Router.go '/login'
 
 Template.dashboard.events
-    'click button': (event) ->
+    'click .glyphicon-refresh': (event) ->
         event.preventDefault()
         event.stopPropagation()
 
