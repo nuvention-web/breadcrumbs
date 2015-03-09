@@ -1,5 +1,7 @@
 .star-site {
-    height: 66px;
+    // height: 66px;
+    max-height: 200px;
+    transition: height 400ms ease-out;
     padding: 8px 25px 8px 8px;
     img {
         margin: 8px;
@@ -15,12 +17,12 @@
         text-overflow: ellipsis;
         overflow: hidden;
     }
-    .title {
+    .domain {
         font-size: 16px;
         font-weight: 500;
         margin-bottom: 0px;
     }
-    .url {
+    .info {
         font-size: 10px;
         margin-bottom: 0px;
     }
@@ -41,5 +43,10 @@
     }
     .url {
         font-size: 8px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        white-space: nowrap;
+        max-width: 40%;
     }
 }

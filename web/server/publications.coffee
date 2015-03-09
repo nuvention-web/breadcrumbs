@@ -17,6 +17,12 @@ Meteor.publish 'categories', () ->
     else
         this.ready()
 
+Meteor.publish 'domains', () ->
+    if this.userId
+        return Domains.find {uid: this.userId}
+    else
+        this.ready()
+
 Meteor.users.allow
     update: (userId, doc, fields, modifier) ->
         return true

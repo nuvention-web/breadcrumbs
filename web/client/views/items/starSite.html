@@ -1,11 +1,22 @@
 <template name='starSite'>
   <div class='item star-site'>
-    <img src='{{favIconOr}}'/>
-    <a href='{{url}}'>
-      <div class='star-text'>
-        <p class='title'> {{title}} </p>
-        <p class='url'> {{url}} </p>
-      </div>
-    </a>
+    <div class='main'>
+      <img src='{{favIconOr}}'/>
+      <a href='{{url}}'>
+        <div class='star-text'>
+          <p class='domain'> {{domain}} </p>
+          <p class='info'> Visits: {{count}} </p>
+        </div>
+      </a>
+    </div>
+    <div class='expandable'>
+    {{#each getPages}}
+      <a href='{{url}}'>
+        <li>
+          {{title}}
+        </li>
+      </a>
+    {{/each}}
+    </div>
   </div>
 </template>
