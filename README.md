@@ -28,3 +28,5 @@ To access the admin interface, navigate to our [admin portal](https://breadcrumb
 * Web dashboard - available on http://breadcrumbs.meteor.com/dashboard
   * Log in to see your topic dashboard - WARNING: at this stage this is in concierge mode. Categories would need to be manually created for you by an admin and specific rules set for the application to bucket your pages into them. 
 
+##Troubleshooting
+* Contact Kevin Chen at kevinchen2016@u.northwestern.edu for technical assistance
