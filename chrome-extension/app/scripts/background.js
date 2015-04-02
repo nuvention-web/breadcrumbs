@@ -5,8 +5,6 @@ var domain = 'http://localhost:3000';
 var path = domain + '/datapost';
 var tabStore = {};
 
-console.log('hi from bg');
-
 function post(params) {
   console.log('ATTEMPTING POST');
   chrome.storage.local.get('breadcrumbsID', function(items) {
@@ -70,6 +68,11 @@ chrome.tabs.onUpdated.addListener(
     if (changeInfo.status === 'complete') {
       tabStore[tabID].previous.title = tab.title;
       tabStore[tabID].previous.favIcon = tab.favIconUrl;
+      chrome.tabs.sendRequest(tabID, {method: 'getHTML'}, function (res) {
+        console.log(res);
+        console.log(tabStore[tabID].url);
+        // htmlparser.parseComplete(res.data);
+      });
     }
   });
 
