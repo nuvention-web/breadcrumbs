@@ -17,12 +17,16 @@ Web commponent currently living at [https://breadcrumbs.meteor.com](https://brea
  * Testing: [Velocity + Mocha + Chai](http://velocity.meteor.com)
 
 ## Admin Interface
-To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in.
+To access the admin interface, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in.
 
-#### Potential Features:
- * autocluster/buckets topics (when viewing, drag those two together)
- * create clusters based on social media
- * social media sync + stream
- * 'penny mode' flow chart of pages (every time we click a link)
- * omnipresent notepad to tag pages
- * mobile data tracker??
+##User components and instructions
+* Chrome extension - available on http://breadcrumbs.meteor.com/download 
+  * Follow instructions on the page
+  * Remember to register before downloading!
+  * Once the extension is installed, remember to click on the icon on the top-right of your Chrome browser and login using your credentials
+  * From the moment you are logged in, Breadcrumbs will log all the pages you visit (excluding incognito-mode browsing)
+* Web dashboard - available on http://breadcrumbs.meteor.com/dashboard
+  * Log in to see your topic dashboard - WARNING: at this stage this is in concierge mode. Categories would need to be manually created for you by an admin and specific rules set for the application to bucket your pages into them. 
+
+##Troubleshooting
+* Contact Kevin Chen at kevinchen2016@u.northwestern.edu for technical assistance
