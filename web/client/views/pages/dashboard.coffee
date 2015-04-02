@@ -3,6 +3,7 @@ Template.dashboard.helpers
         return Categories.find({}, {sort: {priority: 1}})
 
 Template.dashboard.rendered = () ->
+    crumble.set '/dashboard'
     # if not Meteor.user()
     #     Router.go '/login'
 

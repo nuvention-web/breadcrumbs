@@ -1,13 +1,11 @@
+@crumble = new ReactiveVar ''
+@filter = new ReactiveVar ''
+
 Template.navbar.helpers
   category: () ->
-    if document.URL.indexOf('/history/') != -1
-      split = document.URL.split '/'
-      return '/' + unescape(split[split.length-1])
-    else
-      return ''
+    return crumble.get()
   name: () ->
     return Meteor.user().username
-
 
 Template.navbar.events
   'click #logout': (event) ->
@@ -15,3 +13,5 @@ Template.navbar.events
     event.stopPropagation()
 
     Meteor.logout()
+  'keyup .form-control': (event) ->
+    filter.set event.target.value

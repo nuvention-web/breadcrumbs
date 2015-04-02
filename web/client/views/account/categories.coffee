@@ -1,4 +1,6 @@
-## bind resort and save on exit
+Template.categories.rendered = () ->
+    crumble.set '/categories'
+
 
 Template.categories.helpers
     categories: () ->

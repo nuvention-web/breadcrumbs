@@ -1,14 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Roboto+Slab:300,700,100,400);
 
-.navbar {
-	background-color: #eeeeee;
-	border-bottom: none;
-}
+nav {
+    .navbar {
+        background-color: #eeeeee;
+        border-bottom: none;
+    }
 
-.logo {
-  height: 30px;
-}
+    .logo {
+      height: 30px;
+    }
 
-li {
-  font-family: 'Roboto Slab'
+    li {
+      font-family: 'Roboto Slab'
+    }
+ 
+    .navbar-form {
+        margin-left: 20%;
+    }    
 }

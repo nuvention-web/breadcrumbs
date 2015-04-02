@@ -43,5 +43,8 @@ To access the list of captured emails, navigate to our [admin portal](https://br
  * get history display
  * get navbar working
  * more sophisticated rules
+    * multiple category classification
+        * incorporate previous pages into classification
+    * ignore 'query' urls
     * google searches, viewing many emails
  * indicate refresh status
