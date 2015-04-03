@@ -66,11 +66,12 @@ chrome.tabs.onUpdated.addListener(
     }
     // second iteration of tab loaded
     if (changeInfo.status === 'complete') {
-      tabStore[tabID].previous.title = tab.title;
-      tabStore[tabID].previous.favIcon = tab.favIconUrl;
+      // tabStore[tabID].previous.title = tab.title;
+      // tabStore[tabID].previous.favIcon = tab.favIconUrl;
       chrome.tabs.sendRequest(tabID, {method: 'getHTML'}, function (res) {
+        console.log('HTML CONTENT HERE:');
         console.log(res);
-        console.log(tabStore[tabID].url);
+
         // htmlparser.parseComplete(res.data);
       });
     }

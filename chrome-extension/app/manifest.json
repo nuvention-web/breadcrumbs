@@ -10,8 +10,8 @@
     "default_locale": "en",
     "background": {
         "scripts": [
-            "bower_components/requirejs/require.js",
-            "bower_components/node-htmlparser/lib/htmlparser.js",
+            // "bower_components/requirejs/require.js",
+            // "bower_components/node-htmlparser/lib/htmlparser.js",
             "bower_components/jquery/dist/jquery.js",
             "scripts/chromereload.js",
             "scripts/background.js"
@@ -19,7 +19,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["http://*/", "https://*/"],
+            "matches": ["<all_urls>"],
             "js": ["scripts/content.js"]
         }
     ],
