@@ -74,6 +74,11 @@ Router.route('/datapost', where: 'server')
       }
     else
       item.most_recent_open = item.open
+      item.most_recent_close = item.close
+      item.total_time_open = item.close - item.open
+      delete item.open
+      delete item.close
+      Items.insert item
 
     console.log "[POST] End."
     return 1
