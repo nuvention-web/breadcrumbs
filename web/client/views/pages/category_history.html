@@ -1,11 +1,11 @@
-<template name='category'>
+<template name='category_history'>
   <div class='category col-lg-3 col-md-3'>
       <img class="overlay" src="/images/overlay.png">
       <div class='iframe-wrapper'>
         <img class="thumbnail" src='{{image items}}'/>
       </div>
-      <a href="history/{{_id}}">
-        <h2> {{name}} </h2>
+      <a href="{{name this}}">
+        <h2> {{name this}} </h2>
       </a>
       <a href='{{url items}}' target='_blank'>
         <div class="headUrl"><p>{{url items}}</p></div>

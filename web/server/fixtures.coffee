@@ -67,7 +67,8 @@ if Categories.find().count() is 0
     Categories.insert({
         name: "Wrist Watches",
         user: 0,
-        items: ["nw8w7TFyn4aS4fejM", "sJAJLyYC3uaSNAuQm", "h5FZJkefCtgCKhwxp"]
+        items1: ["nw8w7TFyn4aS4fejM", "sJAJLyYC3uaSNAuQm", "h5FZJkefCtgCKhwxp"],
+        items2: ["aMphQ29K8f22jPrW8", "GyFXCZEruvY8Tehto", "K6cHT83PAy9qHeF9h"]
     })
 
 if Meteor.users.find().count() is 0
