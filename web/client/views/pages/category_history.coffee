@@ -1,14 +1,19 @@
 Template.category_history.helpers
-    image: () ->
-        console.log(Items.findOne({_id: this}))
-    #     if Items.findOne({_id: this})?.image?
-    #         return Items.findOne({_id: this}).image
+    # image: () ->
+    #     console.log this
+    #     # console.log Items.findOne()
+    #     # console.log Items.findOne({_id: this})
+    #     return 1
+    # #     if Items.findOne({_id: this})?.image?
+    # #         return Items.findOne({_id: this}).image
     # url: () ->
-    #     if Items.findOne({_id: this})?.url?
-    #         return Items.findOne({_id: this}).url
+    #     return 3
+    # #     if Items.findOne({_id: this})?.url?
+    # #         return Items.findOne({_id: this}).url
     # name: () ->
-    #     if Items.findOne({_id: this})?.name?
-    #         return Items.findOne({_id: this}).name
+    #     return 2
+    # #     if Items.findOne({_id: this})?.name?
+    # #         return Items.findOne({_id: this}).name
 
 
 
