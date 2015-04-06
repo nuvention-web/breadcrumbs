@@ -9,7 +9,7 @@ Router.configure {
   layoutTemplate: 'layout'
 }
 
-Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
+# Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
 
 Router.route('/', { name: 'dashboard'} )
 
