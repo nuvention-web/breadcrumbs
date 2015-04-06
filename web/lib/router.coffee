@@ -24,16 +24,6 @@ Router.route('/thanks', ->
 
 Router.route('/history/:id', {name: 'history'} )
 
-#   ->
-
-#   this.render 'history', {
-#     name: 'history',
-#     data: {
-#       category: this.params.category
-#     }
-#   }
-# )
-
 Router.route('/download', ->
   this.render 'download')
 
