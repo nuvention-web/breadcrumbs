@@ -1,9 +1,16 @@
-Meteor.publish 'refined_data', () ->
-    if this.userId
-        return RefinedData.find {uid: this.userId}
-    else
-        this.ready()
-    
+Meteor.publish 'items', () ->
+    # if this.userId
+    #     return Items.find {user: this.userId}
+    # else
+    #     this.ready()
+    return Items.find()
+
+Meteor.publish 'categories', () ->
+    # if this.userId
+    #     return Categories.find {user: this.userId}
+    # else
+    #     this.ready()
+    return Categories.find()
 
 Meteor.publish 'allUserData', () ->
     if this.userId
@@ -11,17 +18,8 @@ Meteor.publish 'allUserData', () ->
     else
         this.ready()
 
-Meteor.publish 'categories', () ->
-    if this.userId
-        return Categories.find {user: this.userId}
-    else
-        this.ready()
 
-Meteor.publish 'domains', () ->
-    if this.userId
-        return Domains.find {uid: this.userId}
-    else
-        this.ready()
+
 
 Meteor.users.allow
     update: (userId, doc, fields, modifier) ->

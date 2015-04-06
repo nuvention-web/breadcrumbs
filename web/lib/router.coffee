@@ -1,16 +1,17 @@
 requireLogin = () ->
-  if not Meteor.user()
-    this.render 'login'
-  else
-    this.next()
+  # if not Meteor.user()
+  #   this.render 'login'
+  # else
+  #   this.next()
+  this.next()
     
 Router.configure {
   layoutTemplate: 'layout'
 }
+
 Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
 
-Router.route('/', ->
-  this.render 'landing')
+Router.route('/', { name: 'dashboard'} )
 
 Router.route('/admin', ->
   if Meteor.user()?.username is 'admin'
@@ -33,10 +34,10 @@ Router.route('/history/:category', ->
 Router.route('/download', ->
   this.render 'download')
 
-Router.route('/dashboard', ->
-  this.render 'dashboard', {
-    name: 'dashboard',
-    })
+# Router.route('/dashboard', ->
+#   this.render 'dashboard', {
+#     name: 'dashboard',
+#     })
 
 Router.route('/account/create', ->
   this.render('accountCreate'))

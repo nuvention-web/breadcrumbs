@@ -2,15 +2,13 @@
   <div class='category col-lg-3 col-md-3'>
       <img class="overlay" src="/images/overlay.png">
       <div class='iframe-wrapper'>
-        <img class="thumbnail" src='/images/nopreview.png'/>
-        <iframe src='{{headline.url}}' sandbox='allow-same-origin'></iframe>
+        <img class="thumbnail" src='{{image items}}'/>
       </div>
       <a href="history/{{name}}">
         <h2> {{name}} </h2>
       </a>
-      <a href='{{headline.url}}' target='_blank'>
-        <div class="headTitle"><h4> {{headline.title}} </h4></div>
-        <div class="headUrl"><p>{{headline.url}}</p></div>
+      <a href='{{url items}}' target='_blank'>
+        <div class="headUrl"><p>{{url items}}</p></div>
       </a>
   </div>
 </template>
