@@ -1,23 +1,38 @@
 <template name='categories'>
   {{> navbar}}
-  <section id='history' class='list-view'>
-    <h1 class='text-center'> Categories </h1>
-    <div class='list'>
-      {{#each categories}}
-        <div class='item'>
-          <h3> {{name}} </h3>
-          <span class='pull-right'>
-            {{#each keywords}}
-              {{this}}
-            {{/each}}
-          </span>
-          <div class='expandable'>
-            {{#each pages}}
-              {{> page}}
-            {{/each}}
+  <section id='categories' class='list-view'>
+    <div class='container-fluid'>
+      <div class='col-md-8 col-md-offset-2'>
+        <h1 class='text-center'> Categories </h1>
+        <ul class='list'>
+          {{#sortable items=categories options=sortOptions}}
+            <li class='item category'>
+              <h3> {{name}} </h3>
+              {{#if isCategory name}}
+                <span class='pull-right delete'> &times; </span>
+              {{/if}}
+              <span class='pull-right tags'>
+                {{#each keywords}}
+                  {{this}}
+                {{/each}}
+              </span>
+            </li>
+          {{/sortable}}
+        </ul>
+        <div class='item item-adder'>
+          <div class='adder-wait'>
+            <h3> + </h3>
+          </div>
+          <div class='adder-add'>
+            <form>
+              <input name='category' type='text' placeholder='Enter a new category name here'>
+              <input name='tags' type='text' placeholder='Enter tags relevant to this category'>
+              <input class='pull-right btn-bc btn-green' type='submit' value='create'>
+              <button class='pull-right btn-bc btn-blue' id='cancel'>cancel</button>
+            </form>
           </div>
         </div>
-      {{/each}}
+      </div>
     </div>
   </section>
 </template>

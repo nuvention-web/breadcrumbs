@@ -1,10 +1,10 @@
 <template name='site'>
-  <div class='item'>
-    <h3> {{domain}} </h3>
-    <span class='pull-right'> View Count: {{count}} </span>
-    <div class='expandable'>
-      {{url}} <br/>
-      {{uid}}
-    </div>
+  <div class='item site'>
+    <a href='{{url}}' target='_blank'>
+      <div class='text-wrapper'>
+        <span class='left title'>{{title}}</span>
+        <span class='url'>{{url}}</span>
+      </div>
+    </a>
   </div>
 </template>

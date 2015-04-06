@@ -4,6 +4,9 @@ requireLogin = () ->
   else
     this.next()
     
+Router.configure {
+  layoutTemplate: 'layout'
+}
 Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
 
 Router.route('/', ->
@@ -14,12 +17,6 @@ Router.route('/admin', ->
     this.render 'admin'
   else
     Router.go '/login')
-
-# Router.route('/login', ->
-#   if Meteor.user()?.username is 'admin'
-#     Router.go '/admin'
-#   else
-#     this.render 'login')
 
 Router.route('/thanks', ->
   this.render 'thanks')
@@ -46,7 +43,9 @@ Router.route('/account/create', ->
 
 Router.route('/account/categories', ->
   this.render 'categories', {
-    name: 'categories'
+    name: 'categories',
+    waitOn: ()->
+      return Meteor.user()
     })
 
 #### DATA POST ROUTE BELOW ####
@@ -54,11 +53,10 @@ Router.route('/account/categories', ->
 Router.route('/datapost', where: 'server')
   .post(->
     view = this.request.body
-    # parse full domain structure
     domain = ''
     bracketCount = 0
 
-    if not view.uid?
+    if not view.uid? or invalidURL view.url
       return 1
 
     for ch in view.url
@@ -78,11 +76,13 @@ Router.route('/datapost', where: 'server')
 
     view = refineView view
 
-    id = RefinedData.findOne {url: view.url} # need to increment time spent
+    id = RefinedData.findOne {url: view.url, uid: view.uid} # need to increment time spent
     if id?
-      RefinedData.update id, {$inc: {counts: 1}}
+      console.log 'good'
+      RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}, $set: {end: view.end, start: view.start}}
+      if id.visits.length > 10
+        RefinedData.update id, {$pop: {visits: -1}}
     else
-      view.counts = 1
       RefinedData.insert view
 
     console.log "[POST] End."

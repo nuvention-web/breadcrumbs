@@ -1,11 +1,26 @@
 <template name='history'>
-  {{> navbar}}
-  <section id='history' class='list-view'>
-    <h1 class='text-center'> {{category}} </h1>
-    <div class='list'>
-      {{#each sites}}
-        {{> site}}
-      {{/each}}
+  <section id='history'>
+    <div class='container-fluid one-hundred-height'>
+      <div  class='list-view one-hundred-height'>
+        <div class='row one-hundred-height'>
+          <div class='col-md-4 col-md-offset-2 one-hundred-height'>
+          <h4>Most Visited</h4>
+            <div class='list'>
+            {{#each starSites}}
+              {{> starSite}}
+            {{/each}}
+            </div>
+          </div>
+          <div class='col-md-5 one-hundred-height'>
+          <h4>Recent Visits</h4>
+            <div class='list'>
+              {{#each sites}}
+                {{> site}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>

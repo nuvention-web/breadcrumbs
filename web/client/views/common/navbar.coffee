@@ -1,14 +1,17 @@
-# // Template.navbar.rendered = function () {
-# //     $(window).scroll(function() {
-# //         if ($('header').offset().top > 50) {
-# //             $('header').addClass('header-active');
-# //         } else {
-# //             $('header').removeClass('header-active');
-# //         }
-# //     });
-# // };
+@crumble = new ReactiveVar ''
+@filter = new ReactiveVar ''
 
-# Template.navbar.events
-    # 'click img': (e) ->
-    #     e.preventDefault()
-    #     Meteor.call 'refreshDB'
+Template.navbar.helpers
+  category: () ->
+    return crumble.get()
+  name: () ->
+    return Meteor.user().username
+
+Template.navbar.events
+  'click #logout': (event) ->
+    event.preventDefault()
+    event.stopPropagation()
+
+    Meteor.logout()
+  'keyup .form-control': (event) ->
+    filter.set event.target.value
