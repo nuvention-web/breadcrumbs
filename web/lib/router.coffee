@@ -22,14 +22,17 @@ Router.route('/admin', ->
 Router.route('/thanks', ->
   this.render 'thanks')
 
-Router.route('/history/:category', ->
-  this.render 'history', {
-    name: 'history',
-    data: {
-      category: this.params.category
-    }
-  }
-)
+Router.route('/history/:id', {name: 'history'} )
+
+#   ->
+
+#   this.render 'history', {
+#     name: 'history',
+#     data: {
+#       category: this.params.category
+#     }
+#   }
+# )
 
 Router.route('/download', ->
   this.render 'download')
@@ -79,14 +82,8 @@ Router.route('/datapost', where: 'server')
           description: item.description,
         }
       }
-    id = RefinedData.findOne {url: view.url, uid: view.uid} # need to increment time spent
-    if id?
-      console.log 'good'
-      RefinedData.update id, {$inc: {count: 1, totalTime: view.totalTime}, $push: {visits: view.visits[0]}, $set: {end: view.end, start: view.start}}
-      if id.visits.length > 10
-        RefinedData.update id, {$pop: {visits: -1}}
     else
-      RefinedData.insert view
+      item.most_recent_open = item.open
 
     console.log "[POST] End."
     return 1
