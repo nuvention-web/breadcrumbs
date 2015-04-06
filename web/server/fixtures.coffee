@@ -3,7 +3,9 @@ if Items.find().count() is 0
         {
             name: "Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band",
             user: 0,
+            page_title: "Amazon.com: Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band: Watches",
             url: "http://www.amazon.com/gp/product/B007X0SU4I/ref=s9_al_gw_g241_i5?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=038V0Q7KYH9HECDKM60H&pf_rd_t=36701&pf_rd_p=2054015862&pf_rd_i=desktop",
+            site: "amazon.com",
             classification: ["Clothing", "Shoes & Jewelry", "Men", "Watches", "Wrist Watches"],
             features: [
                 "Dress watch in stainless steel featuring rose gold-tone markers, logo under 12 o'clock, and croco-embossed leather band",
@@ -16,6 +18,11 @@ if Items.find().count() is 0
             model: "606570",
             image: "http://ecx.images-amazon.com/images/I/8169jahjDqL._UY606_.jpg",
             price: 795,
+            most_recent_open: 1428287000,
+            most_recent_close: 1428287258,
+            total_time_open: 10000,
+            rating: 3.7,
+            reviews: "http://www.amazon.com/Movado-0606570-Circa-Stainless-Leather/product-reviews/B007X0SU4I/ref=cm_cr_dp_see_all_summary?ie=UTF8&showViewpoints=1&sortBy=byRankDescending"
         },
         {
             name: "Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band, Version 2",

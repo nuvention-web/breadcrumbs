@@ -42,41 +42,43 @@ Router.route('/download', ->
 Router.route('/account/create', ->
   this.render('accountCreate'))
 
-Router.route('/account/categories', ->
-  this.render 'categories', {
-    name: 'categories',
-    waitOn: ()->
-      return Meteor.user()
-    })
-
 #### DATA POST ROUTE BELOW ####
 
 Router.route('/datapost', where: 'server')
   .post(->
-    view = this.request.body
-    domain = ''
-    bracketCount = 0
-
-    if not view.uid? or invalidURL view.url
+    item = this.request.body
+    if not item.uid? or invalidURL item.url or not Meteor.users.findOne({_id: item.uid})
       return 1
 
-    for ch in view.url
-      if domain == 'www.'
-        domain = ''
+    site = ''
+    bracket_count = 0
+    for ch in item.url
+      if site == 'www.'
+        site = ''
 
       if ch == '/'
-        bracketCount++
-      else if bracketCount == 2
-        domain += ch
-    view.domain = domain
+        bracket_count++
+      else if bracket_count == 2
+        site += ch
+    item.site = site
         
     console.log "[POST] Request created."
-    console.log view
+    console.log item
 
-    PageData.insert view
-
-    view = refineView view
-
+    id = Items.findOne {main_image: item.main_image}
+    if id?
+      console.log 'Item already in database. Updating.'
+      Items.update id {
+        $inc: {total_time_open: item.close - item.open},
+        $set: {
+          most_recent_open: item.open,
+          most_recent_close: item.close,
+          price: item.price,
+          url: item.url,
+          rating: item.rating,
+          description: item.description,
+        }
+      }
     id = RefinedData.findOne {url: view.url, uid: view.uid} # need to increment time spent
     if id?
       console.log 'good'
