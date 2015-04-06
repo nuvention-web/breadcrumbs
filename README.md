@@ -4,8 +4,8 @@ Web commponent currently living at [https://breadcrumbs.meteor.com](https://brea
 
 ## Roles
  * Kevin: development and design
+ * Edward: development
  * Penny: design, content strategy
- * Florent: content strategy
  * Nacho: product management
 
 ## Technology Stack
@@ -29,4 +29,4 @@ To access the admin interface, navigate to our [admin portal](https://breadcrumb
   * Log in to see your topic dashboard - WARNING: at this stage this is in concierge mode. Categories would need to be manually created for you by an admin and specific rules set for the application to bucket your pages into them. 
 
 ##Troubleshooting
-* Contact Kevin Chen at kevinchen2016@u.northwestern.edu for technical assistance
+* Contact Kevin Chen or Edward Hu at kevinchen2016@u.northwestern.edu or edwardhu2016@u.northwestern.edu for technical assistance
