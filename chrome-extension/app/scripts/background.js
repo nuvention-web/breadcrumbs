@@ -6,15 +6,6 @@ var domain = 'http://localhost:3000';
 var path = domain + '/datapost';
 var tabStore = {};
 
-/* HTML PARSER SETUP */
-// console.log(Tautologistics.NodeHtmlParser);
-// var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
-//   if (error)
-//     console.log(error);
-//   else
-//     console.log(dom);
-// });
-
 /* CROSS-DOMAIN POST TO SERVER */
 function post(params) {
   console.log('ATTEMPTING POST');
@@ -57,32 +48,16 @@ chrome.tabs.onUpdated.addListener(
     if (tabStore[tabID] === undefined) {
       tabStore[tabID] = tab;
     }
+    // navigating to different url
     if (changeInfo.url !== undefined) {
       if (tabStore[tabID].previous) {
         tabStore[tabID].previous.close = new Date().getTime();
         post(tabStore[tabID].previous);
         delete tabStore[tabID].previous;
       }
-    //   var newPage = {};
-    //   newPage.url = changeInfo.url;
-    //   newPage.start = new Date().getTime();
-
-    //   if (tabStore[tabID].previous === undefined) {
-    //     newPage.from = '';
-    //     tabStore[tabID].previous = newPage;
-    //   }
-    //   else {
-    //     newPage.from = tabStore[tabID].previous.url;
-    //     tabStore[tabID].previous.end = newPage.start;
-    //     post(tabStore[tabID].previous);
-    //     tabStore[tabID].previous = newPage;
-    //   }
     }
     // second iteration of tab loaded
     if (changeInfo.status === 'complete' && tab.url.substring(0, 6) !== 'chrome') {
-      // tabStore[tabID].previous.title = tab.title;
-      // tabStore[tabID].previous.favIcon = tab.favIconUrl;
-
       var newPage = {};
       newPage.page_title = tab.title;
       newPage.favIcon = tab.favIconUrl;

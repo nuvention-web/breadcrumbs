@@ -43,17 +43,18 @@ Router.route('/datapost', where: 'server')
     if not item.uid? or invalidURL item.url or not Meteor.users.findOne({_id: item.uid})
       return 1
 
-    site = ''
-    bracket_count = 0
-    for ch in item.url
-      if site == 'www.'
-        site = ''
+    if item['description[]']?
+      item.description = item['description[]']
+      delete item['description[]']
 
-      if ch == '/'
-        bracket_count++
-      else if bracket_count == 2
-        site += ch
-    item.site = site
+    if item['web_taxonomy[]']?
+      item.web_taxonomy = item['web_taxonomy[]']
+      delete item['web_taxonomy[]']
+
+    item.most_recent_open = item.open
+    item.most_recent_close = item.close
+    delete item.open
+    delete item.close
         
     console.log "[POST] Request created."
     console.log item
@@ -61,23 +62,11 @@ Router.route('/datapost', where: 'server')
     id = Items.findOne {main_image: item.main_image}
     if id?
       console.log 'Item already in database. Updating.'
-      Items.update id {
-        $inc: {total_time_open: item.close - item.open},
-        $set: {
-          most_recent_open: item.open,
-          most_recent_close: item.close,
-          price: item.price,
-          url: item.url,
-          rating: item.rating,
-          description: item.description,
-        }
-      }
+      item.total_time_open = id.total_time_open + item.close - item.open
+      Items.update id, item
     else
-      item.most_recent_open = item.open
-      item.most_recent_close = item.close
+      console.log 'New item found. Inserting.'
       item.total_time_open = item.close - item.open
-      delete item.open
-      delete item.close
       Items.insert item
 
     console.log "[POST] End."

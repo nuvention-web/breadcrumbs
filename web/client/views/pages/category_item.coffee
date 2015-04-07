@@ -1,4 +1,4 @@
-Template.category.helpers
+Template.categoryItem.helpers
     image: (items) ->
         for item in items
             if Items.findOne({_id: item}).image?
