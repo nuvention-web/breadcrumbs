@@ -5,6 +5,11 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     debugger;
     var response = request.page;
 
+    //ignore function for ebay's title issue
+    $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+    };
+
     // AMAZON
     switch(request.page.site) {
       case 'amazon.com':
@@ -67,7 +72,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
       case 'ebay.com':
         // Ebay: Note that this is for individual items within eBay that are BUY IT NOW
-        var title = $("#itemTitle").text();
+        var title = $("#itemTitle").ignore('span').text();
         var price = $("#prcIsum").text();
         var brand = $(".itemAttr").find("h2[itemprop='brand']").text();
         var category = $("gh-cat option:selected").text();
