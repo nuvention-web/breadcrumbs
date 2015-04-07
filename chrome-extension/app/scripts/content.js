@@ -3,15 +3,15 @@
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
     debugger;
-    var response = {};
-    response.debug = [];
-    response.item = {};
+    var response = request.page;
 
     // AMAZON
-    switch(request.site) {
+    switch(request.page.site) {
       case 'amazon.com':
-        response.debug.push('Amazon.com detected.');
         var name = $('#productTitle').text();
+        if (!name) {
+            break;
+        }
         var brand = $('#brand').text();
         var price = $('#priceblock_ourprice').text();
         var main_image = $('#main-image-container').find('img').attr('src');
@@ -27,12 +27,12 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
           }
         }
         
-        response.item.name = name;
-        response.item.brand = brand;
-        response.item.price = price;
-        response.item.main_image = main_image;
-        response.item.rating = rating;
-        response.item.web_taxonomy = web_taxonomy;
+        response.name = name;
+        response.brand = brand;
+        response.price = price;
+        response.main_image = main_image;
+        response.rating = rating;
+        response.web_taxonomy = web_taxonomy;
 
         var details  = $('#descriptionAndDetails').find('.a-text-bold');
         for(i=0; i < details.length; i++) {
@@ -41,10 +41,10 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
           }
 
           if (details[i].innerText.toLowerCase().indexOf('asin') !== -1) {
-            response.item.asin = $(details[i]).next()[0].innerText;
+            response.asin = $(details[i]).next()[0].innerText;
           }
           else if (details[i].innerText.toLowerCase().indexOf('model number') !== -1) {
-            response.item.model = $(details[i]).next()[0].innerText;
+            response.model = $(details[i]).next()[0].innerText;
           }
         }
 
@@ -53,7 +53,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         for(i=0; i < description_node.length; i++) {
           description.push(description_node[i].innerText);
         }
-        response.item.description = description;
+        response.description = description;
 
         // var features_bullets = $('#feature-bullets').find('li');
         // var features = [];
@@ -62,7 +62,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         //   text = $(features_bullets[i]).children().text();
         //   features.push(text);
         // }
-        // response.item.features = features;
+        // response.features = features;
         break;
 
       case 'ebay.com':
@@ -91,18 +91,17 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         });
         var description = $("#desc_ifr").attr("src");
 
-        response.item.title = title;
-        response.item.price = price;
-        response.item.brand = brand;
-        response.item.web_taxonomy = web_taxonomy;
-        response.item.model = model;
-        response.item.main_image = main_image;
-        response.item.all_images = all_images;
-        response.item.description = description;
+        response.title = title;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
         break;
 
       default:
-        response.debug.push('No data tracked');
         break;
         
     }

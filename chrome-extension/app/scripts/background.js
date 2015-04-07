@@ -18,6 +18,7 @@ var tabStore = {};
 /* CROSS-DOMAIN POST TO SERVER */
 function post(params) {
   console.log('ATTEMPTING POST');
+  console.log(params);
   chrome.storage.local.get('breadcrumbsID', function(items) {
     if (items.breadcrumbsID && items.breadcrumbsID !== 0) {
       params.uid = items.breadcrumbsID;
@@ -53,32 +54,40 @@ function post(params) {
 
 chrome.tabs.onUpdated.addListener(
   function(tabID, changeInfo, tab) {
-    console.log(changeInfo.url);
     if (tabStore[tabID] === undefined) {
       tabStore[tabID] = tab;
     }
-    if (changeInfo.url !== undefined &&
-        changeInfo.url.substring(0, 6) !== 'chrome') {
-
-      var newPage = {};
-      newPage.url = changeInfo.url;
-      newPage.start = new Date().getTime();
-
-      if (tabStore[tabID].previous === undefined) {
-        newPage.from = '';
-        tabStore[tabID].previous = newPage;
-      }
-      else {
-        newPage.from = tabStore[tabID].previous.url;
-        tabStore[tabID].previous.end = newPage.start;
+    if (changeInfo.url !== undefined) {
+      if (tabStore[tabID].previous) {
+        tabStore[tabID].previous.close = new Date().getTime();
         post(tabStore[tabID].previous);
-        tabStore[tabID].previous = newPage;
+        delete tabStore[tabID].previous;
       }
+    //   var newPage = {};
+    //   newPage.url = changeInfo.url;
+    //   newPage.start = new Date().getTime();
+
+    //   if (tabStore[tabID].previous === undefined) {
+    //     newPage.from = '';
+    //     tabStore[tabID].previous = newPage;
+    //   }
+    //   else {
+    //     newPage.from = tabStore[tabID].previous.url;
+    //     tabStore[tabID].previous.end = newPage.start;
+    //     post(tabStore[tabID].previous);
+    //     tabStore[tabID].previous = newPage;
+    //   }
     }
     // second iteration of tab loaded
-    if (changeInfo.status === 'complete') {
+    if (changeInfo.status === 'complete' && tab.url.substring(0, 6) !== 'chrome') {
       // tabStore[tabID].previous.title = tab.title;
       // tabStore[tabID].previous.favIcon = tab.favIconUrl;
+
+      var newPage = {};
+      newPage.page_title = tab.title;
+      newPage.favIcon = tab.favIconUrl;
+      newPage.url = tab.url;
+      newPage.open = new Date().getTime();
 
       var site = '';
       var bracketCount = 0;
@@ -93,13 +102,12 @@ chrome.tabs.onUpdated.addListener(
           site += tab.url[ch];
         }
       }
-      console.log(site);
-      chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', site: site}, function (res) {
-        for(var i in res.debug) {
-          console.log(res.debug[i]);
+      newPage.site = site;
+
+      chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', page: newPage}, function (res) {
+        if (res && res.price) {
+          tabStore[tabID].previous = res;
         }
-        console.log(res.item);
-        // tab.item = res.item;
       });
     }
   });
