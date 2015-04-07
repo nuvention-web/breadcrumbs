@@ -1,3 +1,6 @@
+@matchKeywords = (item_keywords, category_keywords) ->
+    return [true, []]
+
 @refineView = (view) ->
     view.title = view.title || view.url
     view.favIcon = view.favIcon

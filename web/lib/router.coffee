@@ -51,8 +51,8 @@ Router.route('/datapost', where: 'server')
       item.web_taxonomy = item['web_taxonomy[]']
       delete item['web_taxonomy[]']
 
-    item.most_recent_open = item.open
-    item.most_recent_close = item.close
+    item.most_recent_open = parseInt item.open
+    item.most_recent_close = parseInt item.close
     delete item.open
     delete item.close
         
@@ -62,12 +62,33 @@ Router.route('/datapost', where: 'server')
     id = Items.findOne {main_image: item.main_image}
     if id?
       console.log 'Item already in database. Updating.'
-      item.total_time_open = id.total_time_open + item.close - item.open
+      if (isNaN id.total_time_open)
+        item.total_time_open = item.most_recent_close - item.most_recent_open
+      else
+        item.total_time_open = id.total_time_open + item.most_recent_close - item.most_recent_open
       Items.update id, item
+      id = id._id
     else
       console.log 'New item found. Inserting.'
       item.total_time_open = item.close - item.open
-      Items.insert item
+      id = Items.insert item
+
+    # id is now the relevant id in the databse
+    done = false # use every() instead fo this...
+    Categories.find({uid: uid}).forEach (category) ->
+      [sufficient, not_matched] = matchKeywords(item.web_taxonomy, category.keywords)
+      if sufficient and not done
+        Categories.update category, {$push: {
+                                      keywords: {$each: not_matched},
+                                      items: id}}
+        done = true
+
+    if not done
+      new_category =
+        name: item.web_taxonomy[item.web_taxonomy.length - 1]
+        keywords: item.web_taxonomy
+        uid: uid
+        items: [id]
 
     console.log "[POST] End."
     return 1

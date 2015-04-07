@@ -2,7 +2,7 @@ if Items.find().count() is 0
     items = [
         {
             name: "Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band",
-            user: 0,
+            uid: 0,
             page_title: "Amazon.com: Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band: Watches",
             url: "http://www.amazon.com/gp/product/B007X0SU4I/ref=s9_al_gw_g241_i5?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=038V0Q7KYH9HECDKM60H&pf_rd_t=36701&pf_rd_p=2054015862&pf_rd_i=desktop",
             site: "amazon.com",
@@ -26,7 +26,7 @@ if Items.find().count() is 0
         },
         {
             name: "Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band, Version 2",
-            user: 0,
+            uid: 0,
             url: "http://www.amazon.com/gp/product/B007X0SU4I/ref=s9_al_gw_g241_i5?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=038V0Q7KYH9HECDKM60H&pf_rd_t=36701&pf_rd_p=2054015862&pf_rd_i=desktop",
             classification: ["Clothing", "Shoes & Jewelry", "Men", "Watches", "Wrist Watches"],
             features: [
@@ -43,7 +43,7 @@ if Items.find().count() is 0
         },
         {
             name: "Movado Men's 0606570 Circa Stainless Steel Watch with Brown Leather Band, Version 3",
-            user: 0,
+            uid: 0,
             url: "http://www.amazon.com/gp/product/B007X0SU4I/ref=s9_al_gw_g241_i5?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=038V0Q7KYH9HECDKM60H&pf_rd_t=36701&pf_rd_p=2054015862&pf_rd_i=desktop",
             classification: ["Clothing", "Shoes & Jewelry", "Men", "Watches", "Wrist Watches"],
             features: [
@@ -66,7 +66,7 @@ if Items.find().count() is 0
 if Categories.find().count() is 0
     Categories.insert({
         name: "Wrist Watches",
-        user: 0,
+        uid: 0,
         items: ["aMphQ29K8f22jPrW8", "GyFXCZEruvY8Tehto", "K6cHT83PAy9qHeF9h"]
     })
 

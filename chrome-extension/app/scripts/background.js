@@ -89,7 +89,7 @@ chrome.tabs.onUpdated.addListener(
 
 chrome.tabs.onRemoved.addListener(
   function(tabID) {
-    tabStore[tabID].previous.end = new Date().getTime();
+    tabStore[tabID].previous.close = new Date().getTime();
     post(tabStore[tabID].previous);
     delete tabStore[tabID];
   });

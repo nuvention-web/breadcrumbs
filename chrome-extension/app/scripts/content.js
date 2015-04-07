@@ -21,7 +21,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var price = $('#priceblock_ourprice').text();
         var main_image = $('#main-image-container').find('img').attr('src');
 
-        var rating_text = $('#avgRating').children().text();
+        var rating_text = $('#avgRating').children()[0].innerText;
         var rating = rating_text.split(' ')[0];
 
         var breadcrumbs = $('#wayfinding-breadcrumbs_container').find('a');
