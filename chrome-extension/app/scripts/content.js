@@ -81,13 +81,12 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
         var web_taxonomy = [];
         $("#vi-VR-brumb-lnkLst li").each(function(){
-            web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
+            if($(this).find('a').text() != ''){
+                web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
+            }
         })
         var tax_counter = 0;
-        for(var i = 0; i < web_taxonomy.length; i+=2){
-            web_taxonomy[tax_counter] = web_taxonomy[i];
-            tax_counter++;
-        }
+
         var model = $(".itemAttr").find("h2[itemprop='model']").text();
         var main_image = $("#icImg").attr("src");
         var all_images = [];
