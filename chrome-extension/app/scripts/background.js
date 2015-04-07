@@ -1,10 +1,21 @@
 'use strict';
 
+/* POST REQUEST SETUP */
 var domain = 'http://localhost:3000';
 // var domain = 'http://breadcrumbs.meteor.com'
 var path = domain + '/datapost';
 var tabStore = {};
 
+/* HTML PARSER SETUP */
+// console.log(Tautologistics.NodeHtmlParser);
+// var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
+//   if (error)
+//     console.log(error);
+//   else
+//     console.log(dom);
+// });
+
+/* CROSS-DOMAIN POST TO SERVER */
 function post(params) {
   console.log('ATTEMPTING POST');
   chrome.storage.local.get('breadcrumbsID', function(items) {
@@ -68,11 +79,14 @@ chrome.tabs.onUpdated.addListener(
     if (changeInfo.status === 'complete') {
       // tabStore[tabID].previous.title = tab.title;
       // tabStore[tabID].previous.favIcon = tab.favIconUrl;
-      chrome.tabs.sendRequest(tabID, {method: 'getHTML'}, function (res) {
-        console.log('HTML CONTENT HERE:');
-        console.log(res);
+      chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml'}, function (res) {
 
-        // htmlparser.parseComplete(res.data);
+
+        for(var i in res.debug) {
+          console.log(res.debug[i]);
+        }
+        
+        tab.item = res.item;
       });
     }
   });

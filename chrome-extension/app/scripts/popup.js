@@ -1,12 +1,5 @@
 'use strict';
 
-require.config({
-    baseUrl: '/js',
-    paths: {
-        htmlparser: '../bower_components/node-htmlparser/lib/htmlparser'
-    }
-});
-
 require(['htmlparser'], function(htmlparser) {
   var handler = new htmlparser.DefaultHandler(function (error, dom) {
     if (error) {
