@@ -79,14 +79,27 @@ chrome.tabs.onUpdated.addListener(
     if (changeInfo.status === 'complete') {
       // tabStore[tabID].previous.title = tab.title;
       // tabStore[tabID].previous.favIcon = tab.favIconUrl;
-      chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml'}, function (res) {
 
-
+      var site = '';
+      var bracketCount = 0;
+      for(var ch in tab.url) {
+        if (site === 'www.') {
+          site = '';
+        }
+        if (tab.url[ch] === '/') {
+          bracketCount++;
+        }
+        else if (bracketCount === 2) {
+          site += tab.url[ch];
+        }
+      }
+      console.log(site);
+      chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', site: site}, function (res) {
         for(var i in res.debug) {
           console.log(res.debug[i]);
         }
-        
-        tab.item = res.item;
+        console.log(res.item);
+        // tab.item = res.item;
       });
     }
   });
