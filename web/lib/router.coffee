@@ -67,38 +67,54 @@ Router.route('/datapost', where: 'server')
       else
         item.total_time_open = id.total_time_open + item.most_recent_close - item.most_recent_open
       Items.update id, item
-      id = id._id
     else
       console.log 'New item found. Inserting.'
       item.total_time_open = item.close - item.open
       id = Items.insert item
 
-    # id is now the relevant id in the databse
-    if item.web_taxonomy?
-      done = false # use every() instead fo this...
-      Categories.find({uid: item.uid}).forEach (category) ->
-        [sufficient, not_matched] = matchKeywords(item.web_taxonomy, category.keywords)
-        if sufficient and not done
-          console.log('Matched to category ' + category.name + '.')
-          console.log(category.keywords)
-          console.log(item.web_taxonomy)
-          Categories.update category, {$push: {
-                                        keywords: {$each: not_matched},
-                                        items: id}}
-          done = true
-
-      if not done
-        new_category =
-          name: item.web_taxonomy[item.web_taxonomy.length - 1]
-          keywords: item.web_taxonomy
-          uid: item.uid
-          items: [id]
-        console.log('Creating new category: ' + new_category.name)
-        Categories.insert new_category
-      else
+      # create classification
+      if item.web_taxonomy?
         done = false
-        # Categories.find({uid: item.uid}).forEach (category) ->
-        #   if item.
+        Categories.find({uid: item.uid}).forEach (category) ->
+          [sufficient, not_matched] = matchKeywords(item.web_taxonomy, category.keywords)
+          if sufficient and not done
+            console.log('Matched to category ' + category.name + '.')
+            console.log(category.keywords)
+            console.log(item.web_taxonomy)
+            Categories.update category, {$push: {
+                                            keywords: {$each: not_matched},
+                                            items: id}}
+            done = true
+
+        if not done
+          new_category =
+            name: item.web_taxonomy[item.web_taxonomy.length - 1]
+            keywords: item.web_taxonomy
+            uid: item.uid
+            items: [id]
+          console.log('Creating new category: ' + new_category.name)
+          Categories.insert new_category
+      else
+        # no keywords
+        done = false
+        Categories.find({uid: item.uid}).forEach (category) ->
+          matched = matchSingleName(item.name, category.keywords)
+          if matched and not done
+            console.log('Matched to category ' + category.name + '.')
+            console.log(category.keywords)
+            console.log(item.name)
+            Categories.update category, {$push: {items: id}}
+            done = true
+
+        if not done
+          # this'll be complex...
+          new_category =
+            name: item.name
+            keywords: []
+            uid: item.uid
+            items: [id]
+          console.log('Creating new category: ' + new_category.name)
+          Categories.insert new_category
 
     console.log "[POST] End."
     return 1
