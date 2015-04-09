@@ -74,21 +74,31 @@ Router.route('/datapost', where: 'server')
       id = Items.insert item
 
     # id is now the relevant id in the databse
-    done = false # use every() instead fo this...
-    Categories.find({uid: uid}).forEach (category) ->
-      [sufficient, not_matched] = matchKeywords(item.web_taxonomy, category.keywords)
-      if sufficient and not done
-        Categories.update category, {$push: {
-                                      keywords: {$each: not_matched},
-                                      items: id}}
-        done = true
+    if item.web_taxonomy?
+      done = false # use every() instead fo this...
+      Categories.find({uid: item.uid}).forEach (category) ->
+        [sufficient, not_matched] = matchKeywords(item.web_taxonomy, category.keywords)
+        if sufficient and not done
+          console.log('Matched to category ' + category.name + '.')
+          console.log(category.keywords)
+          console.log(item.web_taxonomy)
+          Categories.update category, {$push: {
+                                        keywords: {$each: not_matched},
+                                        items: id}}
+          done = true
 
-    if not done
-      new_category =
-        name: item.web_taxonomy[item.web_taxonomy.length - 1]
-        keywords: item.web_taxonomy
-        uid: uid
-        items: [id]
+      if not done
+        new_category =
+          name: item.web_taxonomy[item.web_taxonomy.length - 1]
+          keywords: item.web_taxonomy
+          uid: item.uid
+          items: [id]
+        console.log('Creating new category: ' + new_category.name)
+        Categories.insert new_category
+      else
+        done = false
+        # Categories.find({uid: item.uid}).forEach (category) ->
+        #   if item.
 
     console.log "[POST] End."
     return 1

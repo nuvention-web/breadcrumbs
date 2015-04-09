@@ -1,23 +1,25 @@
 @matchKeywords = (item_keywords, category_keywords) ->
-    return [true, []]
+    max_mismatches = 1 + Math.max(0, item_keywords?.length - category_keywords?.length) #edge cases of category keywords being short
+    
+    mismatches = 0
+    mismatched = []
+    for keyword in item_keywords
+        if !matchKeyword keyword, category_keywords
+            mismatches += 1
+            mismatched.push keyword
 
-@refineView = (view) ->
-    view.title = view.title || view.url
-    view.favIcon = view.favIcon
-    view.category = chooseCategory view, view.uid
-    view.score = score view
-    view.totalTime = view.end - view.start
-    view.count = 1
-    view.visits = [[view.start, view.end]]
+    if mismatches < max_mismatches
+        return [true, mismatched]
+    else
+        return [false, mismatched]
 
-    return view
+matchKeyword = (keyword, category_keywords) ->
+    return _.some(category_keywords, (category_keyword) ->
+        match(keyword, category_keyword))
 
-@chooseCategory = (entry, uid) ->
-    returnCategory = 'Uncategorized'
-    Categories.find({user: uid}, {sort: {priority: -1}}).forEach (category) ->
-        if checkFor entry, category.keywords
-            returnCategory = category.name
-    return  returnCategory
+match = (word1, word2) ->
+    return word1 == word2 #make this better!
+
 
 @checkFor = (entry, keywords) ->
     for key in keywords
@@ -26,9 +28,6 @@
         entry.title.toLowerCase().indexOf(key.toLowerCase()) != -1
             return true
     return false
-
-@score = (entry) ->
-    return entry.end
 
 invalidPatterns = [
     "ftp://",
