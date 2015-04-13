@@ -1,4 +1,33 @@
+
+
+
+Template.dashboard.helpers({
+    items: function () {
+        return Items.find();
+    }
+});
+
+Template.dashboard.helpers({
+    hasImg: function (imgSrc) {
+        console.log(typeof(imgSrc )+ 'ASDF');
+        return this.imgSrc !==  '/';
+    }
+});
+
 Template.dashboard.rendered = function () {
+
+    $(".delayLoad li").each(function(){
+        $(this).hover(function(){
+            $( this ).fadeOut( 100 );
+            $( this ).fadeIn( 100 );
+        });
+        if( $(this).find(".img-size").width() >  $(this).find(".img-size").height()){
+             $(this).find(".img-size").width(270);
+             $(this).find(".img-size").css("height", "auto");
+        }
+
+     });    
+    
     $('.cd-filter-trigger').on('click', function() {
         triggerFilter(true);
     });
