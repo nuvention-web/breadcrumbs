@@ -20,21 +20,15 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-           {{#if hasImg items}}
-            <li class="mix color-1 check1 radio2 option3"><img class = "img-size" src= "{{main_image}}" alt="{{name}}">
-              <p class = "item-name">
-                {{name}}
-                <!-- modify name to delimit until first comma
-                 -->
-              </p>
-              <br>
-              {{price}}
+          <li class="mix color-1 check1 radio2 option3"><img class = "img-size" src= "{{main_image}}" alt="{{name}}">
+            <p class = "item-name">
+              {{name}}
+              <!-- modify name to delimit until first comma
+               -->
+            </p>
+            <br>
+            {{price}}
           </li>
-                    {{else}}
-                    <li class="mix color-1 check1 radio2 option3"><img  alt="SORRY NO NAME"><p>no name</p>
-                    </li>
-
-          {{/if}}
         {{/each}}
         <li class="gap"></li>
         <li class="gap"></li>
