@@ -23,28 +23,20 @@ MAYBE BE BEST TO PORT THIS TO A CHROME EXTENSION PAGE.
 ## Admin Interface
 To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in.
 
-#### Potential Features:
- * autocluster/buckets topics (when viewing, drag those two together)
- * create clusters based on social media
- * social media sync + stream
- * 'penny mode' flow chart of pages (every time we click a link)
- * omnipresent notepad to tag pages
- * mobile data tracker??
+#### Dev Todos:
+ * fix up / improve item design
+ * deactivate / remove items or categories
+ * make category filters work
+    * top: highest level categories
+    * on clicking top, open up side panel containing finer filters
+ * make side filters work
 
-#### Dev notes
- * domain classificaiton to page classification
- * sort pages on importance
- * integrate header into page layout
+#### Dev "Important, but not main functionality" log
+ * Extension look
+ * download page
+ * landing / info page
+ * blog
 
- * i don't like: algorithm, probabilities, predictive analytics
-
-#### Fix list
- * search within a category
- * get history display
- * get navbar working
- * more sophisticated rules
-    * multiple category classification
-        * incorporate previous pages into classification
-    * ignore 'query' urls
-    * google searches, viewing many emails
- * indicate refresh status
+#### Dev Backlog:
+ * drag categories together
+ * command click + comparison view
