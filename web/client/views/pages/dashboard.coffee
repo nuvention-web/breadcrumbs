@@ -7,6 +7,8 @@ Template.dashboard.helpers
         return Items.find()
     hasImage: (src) ->
         return src is not '/'
+    categories: () ->
+        return Categories.find()
 
 Template.dashboard.rendered = () ->
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
