@@ -11,7 +11,15 @@ Router.configure {
 
 # Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
 
-Router.route('/', { name: 'dashboard'} )
+Router.route('/', { 
+  name: 'dashboard'
+  waitOn: () ->
+    return [
+      Meteor.subscribe 'items',
+      Meteor.subscribe 'categories'
+    ]
+
+  })
 
 Router.route('/admin', ->
   if Meteor.user()?.username is 'admin'
