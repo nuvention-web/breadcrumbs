@@ -1,17 +1,31 @@
 <template name='landing'>
-  {{> analytics}}
-  <section id='landing' class='container-fluid'>
-    <form>
-      <h1 class='text-center'> Search through your life. </h1>
-      <h2 class='text-center'> Breadcrumbs records everything you do so you'll never lose anything you've seen. </h2>
-      <div class='entry text-center'>
-        <h5> Name: </h5>
-        <input type='text' name='fullname' required>
-        <h5> Email: </h5>
-        <input type='email' name='email' required>
-        <input type='submit' name='interest' value='Sign up for updates!'>
-      </div>
-      <div id='messages' style='display: none'>Your email is already on our email list, but thanks again for your interest!</div>
-    </form>
-  </section>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">breadcrumbs/</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id = "navbar-center">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">How it works</a></li>
+        <li><a href="#">Supported sites</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Download</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 </template>

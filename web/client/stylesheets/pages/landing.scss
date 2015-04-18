@@ -1,0 +1,60 @@
+@import 'bourbon/bourbon'; // http://bourbon.io/
+
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/mixins'; // custom mixins
+
+@import '../partials/layout'; // responsive grid and media queries
+
+
+@font-face {
+    font-family: PT_Sans-Web-Regular;
+    src: url(../fonts/PT_sans/PT_Sans-Web-Regular.ttf);
+}
+
+body{
+	font-family: PT_Sans-Web-Regular;
+}
+
+.navbar {
+	background-color: #210263;
+
+	.navbar-header {	
+
+		.navbar-brand {
+		    position: relative;
+		    left: 0;
+		    margin-left:20%;
+		    text-align: center;
+		    margin: auto;
+		    color: white;
+		    display: inline-block;
+		}
+		#navbar-logo {
+			position: absolute;
+	    	text-align: left;
+	    }
+	}
+
+	#navbar-center {
+		display:inline-block;
+		float:none;
+		margin-left:20%;
+		li {
+			display: inline-block;
+			a {
+				color: white;
+			}
+		}
+	}
+
+	.navbar-right {
+		li {
+			a {
+				color: white;
+			}
+		}
+	}
+}
+
+
