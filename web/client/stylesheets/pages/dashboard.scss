@@ -6,6 +6,29 @@
 
 @import '../partials/layout'; // responsive grid and media queries
 
+// CUSTOM CSS
+.item-div {
+	vertical-align: top;
+	height:300px;
+	position: relative;
+}
+
+.item-name {
+	border: 1px solid black;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	padding: 5px;
+	background-color: white;
+	z-index: 3;
+	p {
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+// end CUSTOM CSS
+
+
 /* -------------------------------- 
 
 Primary style
@@ -285,7 +308,7 @@ xgallery
 
 	li {
 		margin-bottom: 1.6em;
-		box-shadow: 0 1px 4px rgba(#000, .1);
+		// box-shadow: 0 1px 4px rgba(#000, .1);
 		display: none;
 
 		&.gap {

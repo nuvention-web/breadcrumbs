@@ -5,13 +5,11 @@ filter_tab_placeholder_text = null
 Template.dashboard.helpers
     items: () ->
         return Items.find()
-    hasImage: (src) ->
-        return src is not '/'
     categories: () ->
         return Categories.find()
 
 Template.dashboard.rendered = () ->
-    filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
+    filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
 
