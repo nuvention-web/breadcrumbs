@@ -69,8 +69,12 @@ body{
 	}
 }
 
+.row {
+	margin-bottom: 50px;
+}
+
 .jumbotron {
-	background-image: url("/images/breadcrumbs-bg.png");
+	background-image: url("/images/landing/breadcrumbs-bg.png");
 	background-size: 100%;
 	min-height:700px;
 	display: table;
@@ -133,6 +137,9 @@ body{
 	}
 	img {
 		height: 100px;
+	}
+	#supported-divider {
+		border-right: 1px solid black;
 	}
 }
 
