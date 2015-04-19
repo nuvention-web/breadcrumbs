@@ -13,7 +13,8 @@ Template.dashboard.rendered = () ->
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
 
-    console.log filter_tab_placeholder
+    Meteor.subscribe('items')
+    Meteor.subscribe('categories')
 
     $(window).on('scroll', () ->
         if not window.requestAnimationFrame
