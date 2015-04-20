@@ -1,5 +1,5 @@
-<template name='landing'>
-  <nav class="navbar navbar-default navbar-fixed-top">
+<template name = "landing">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,7 +35,11 @@
         <!-- {{#if loginClicked}} -->
           <h1>BACKTRACK YOUR BREADCRUMBS/</h1>
           <h3>Retrieve your online shopping research in seconds. Always make the right decision.</h3>
-          <button class = "bc-button">Get Breadcrumbs for Chrome</button>
+          {{#if currentUser}}
+            <a href="dashboard"><button class = "bc-button">dashboard/</button></a>
+          {{else}}
+            <button class="bc-button">Get Breadcrumbs for Chrome</button>
+          {{/if}}
         <!-- {{else}} -->
           <!-- {{>loginButtons}} -->
           <!-- {{>login}} -->
@@ -173,21 +177,4 @@
   </div><!-- /.container-fluid -->
 </nav>
 </footer>
-
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

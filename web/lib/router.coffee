@@ -12,7 +12,7 @@ Router.configure {
 # Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
 
 Router.route('/', { 
-  name: 'landing'
+  name: 'home'
   waitOn: () ->
     return [
       Meteor.subscribe('items'),
