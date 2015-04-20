@@ -1,20 +1,21 @@
 filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
+Session.setDefault('hovered' , true)
 
 Template.dashboard.helpers
     items: () ->
         return Items.find()
     categories: () ->
         return Categories.find()
+    hovered: () ->
+        return Session.get('hovered')
 
 Template.dashboard.rendered = () ->
+    console.log 'rendered'
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
-
-    Meteor.subscribe('items')
-    Meteor.subscribe('categories')
 
     $(window).on('scroll', () ->
         if not window.requestAnimationFrame
@@ -36,11 +37,26 @@ Template.dashboard.rendered = () ->
     delay()
     @matching = $()
 
+
 Template.dashboard.events
+    'mouseover #mongoItem': (e) ->
+        $(e.currentTarget).css("border", "1px solid black")   
+        Session.set('hovered', false)  
+
+    'mouseleave #mongoItem': (e) ->
+        $(e.currentTarget).css("border", "1px solid white")
+        Session.set('hovered', true)
+
+    'click #item-delete': (event) ->
+        console.log $(event.currentTarget).parent().attr('name')
+        Items.remove($(event.currentTarget).parent().attr('name'))
+
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)
+
     'click .cd-filter .cd-close': (event) ->
         triggerFilter(false)
+
     'click .cd-tab-filter li': (event) ->
         # top tab filter event
         target = $(event.target)

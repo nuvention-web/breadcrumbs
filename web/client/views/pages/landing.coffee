@@ -1,5 +1,6 @@
 Session.setDefault("loginClicked", true)
 
+
 Template.landing.helpers
   loginClicked: () ->
     return Session.get("loginClicked")

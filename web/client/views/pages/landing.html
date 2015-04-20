@@ -15,9 +15,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id = "navbar-center">
-        <li><a href="dashboard">About us</a></li>
-        <li><a href="#">How it works</a></li>
-        <li><a href="#">Supported sites</a></li>
+        <li><a href="#about-us">About us</a></li>
+        <li><a href="#howitworks">How it works</a></li>
+        <li><a href="#supportedsites">Supported sites</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a id = "login" href="#">Login</a></li>
@@ -33,7 +33,7 @@
     <div class = "layover">
       <div class = "jumbotron-header">
         {{#if loginClicked}}
-            <h1>BACKTRACK YOUR BREADCRUMBS/</h1>
+          <h1>BACKTRACK YOUR BREADCRUMBS/</h1>
           <h3>Retrieve your online shopping research in seconds. Always make the right decision.</h3>
           <button class = "bc-button">Get Breadcrumbs for Chrome</button>
         {{else}}
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-<div class = "container about-us default">
+<div id = "about-us" class = "container about-us default">
     <h2>You always have options.</h2>
 
     <div class="row">
@@ -65,7 +65,7 @@
     </div>  
 </div>
 
-<div class = "how-it-works default">
+<div id = "howitworks" class = "how-it-works default">
   <div class = "container">
     <div class = "row">
       <div class = "col-md-7">
@@ -80,7 +80,7 @@
   </div>
 </div>
 
-<div class = "container supported-sites default">
+<div id = "supportedsites" class = "container supported-sites default">
 
   <div class="row">
     <div class="col-md-1"></div>
