@@ -65,9 +65,16 @@ body{
 	.navbar-right {
 		font-size: 12px;
 		li {
-			a {
-				color: white;
-			}
+				a {
+					color: white;
+					.login-link-text {
+						color: white;
+					}
+					a{
+						color: black;
+
+					}
+				}
 		}
 	}
 }
