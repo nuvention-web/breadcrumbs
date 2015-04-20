@@ -1,3 +1,9 @@
+Session.setDefault("loginClicked", true)
+
+Template.landing.helpers
+  loginClicked: () ->
+    return Session.get("loginClicked")
+
 Template.landing.events
   'submit form': (event) ->
     event.preventDefault()
@@ -12,3 +18,11 @@ Template.landing.events
     else
       Interest.insert {name: name, email: email}
       Router.go '/thanks'
+
+  'click #login' : (e) ->
+    e.preventDefault();
+    console.log Session.get('loginClicked')
+    if Session.get("loginClicked")
+      Session.set("loginClicked", false)
+    else 
+      Session.set("loginClicked", true)
