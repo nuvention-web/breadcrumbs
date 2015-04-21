@@ -5,7 +5,7 @@
     "description": "just press play",
     "icons": {
         "16": "images/icon-16.png",
-        "128": "images/icon-128.png"
+        "96": "images/icon-96.png"
     },
     "default_locale": "en",
     "background": {
@@ -24,8 +24,8 @@
     ],
     "browser_action": {
         "default_icon": {
-            "19": "images/icon-19.png",
-            "38": "images/icon-38.png"
+            "16": "images/icon-16.png",
+            "96": "images/icon-96.png"
         },
         "default_title": "Breadcrumbs",
         "default_popup": "popup.html"

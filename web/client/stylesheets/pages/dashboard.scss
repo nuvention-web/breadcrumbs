@@ -12,12 +12,15 @@
 
 
 // END LANDING PAGE CSS
-x
+
 // CUSTOM CSS
 .item-div {
-	vertical-align: top;
-	height:300px;
+	vertical-align: bottom;
+	max-height:300px;
 	position: relative;
+	img {
+		max-height:300px;
+	}
 }
 
 .item-name {
