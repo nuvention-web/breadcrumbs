@@ -4,18 +4,21 @@ filter_tab_placeholder_text = null
 
 Template.dashboard.helpers
     items: () ->
-        return Items.find()
+        if Session.get('filter_tab') is not ''
+            return [Items.findOne({_id: i}) for i in Categories.findOne({_id: Session.get('filter_tab')}).items][0]
+        else
+            return Items.find()
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
         return Categories.find()
 
 Template.dashboard.rendered = () ->
+    Session.set('filter_tab', '')
+
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
-
-    console.log filter_tab_placeholder
 
     $(window).on('scroll', () ->
         if not window.requestAnimationFrame
@@ -63,13 +66,16 @@ Template.dashboard.events
             $('.cd-tab-filter').removeClass('is-open')
             filter_tab_placeholder.text(target.text()).data('type', selected_filter)
             filter_tab_placeholder_text = target.text()
+            Session.set('filter_tab', selected_filter)
 
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
+
     'click .cd-filter-block h4': (event) ->
         current_target = $(event.currentTarget)
         current_target.toggleClass 'closed'
         current_target.siblings('.cd-filter-content').slideToggle 300
+
     'keyup cd-filter-content input[type="search"]': (event) ->
         delay () ->
             input = $('.cd-filter-content input[type="search"]').val().toLowerCase();
@@ -86,6 +92,7 @@ Template.dashboard.events
 
 Template.dashboard.destroyed = () ->
     $('.cd-gallery ul').mixItUp 'destroy', true
+
 
 triggerFilter = ($bool) ->
     elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')])
