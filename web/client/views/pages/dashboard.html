@@ -1,6 +1,7 @@
 <template name='dashboard'>
-
+<header class = "cd-header">
 {{>nav}}
+</header>
   <main class="cd-main-content">
     <div class="cd-tab-filter-wrapper">
       <div class="cd-tab-filter">
@@ -42,27 +43,27 @@
           <h4>Search</h4>
           
           <div class="cd-filter-content">
-            <input type="search" placeholder="Try color-1...">
+            <input type="search" placeholder="Search for a product...">
           </div> <!-- cd-filter-content -->
         </div> <!-- cd-filter-block -->
 
         <div class="cd-filter-block">
-          <h4>Check boxes</h4>
+          <h4>Price Range</h4>
 
           <ul class="cd-filter-content cd-filters list">
             <li>
               <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                <label class="checkbox-label" for="checkbox1">Option 1</label>
+                <label class="checkbox-label" for="checkbox1">Under $50</label>
             </li>
 
             <li>
               <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-              <label class="checkbox-label" for="checkbox2">Option 2</label>
+              <label class="checkbox-label" for="checkbox2">$50 - $99</label>
             </li>
 
             <li>
               <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-              <label class="checkbox-label" for="checkbox3">Option 3</label>
+              <label class="checkbox-label" for="checkbox3">$99+</label>
             </li>
           </ul> <!-- cd-filter-content -->
         </div> <!-- cd-filter-block -->
@@ -84,7 +85,7 @@
         </div> <!-- cd-filter-block -->
 
         <div class="cd-filter-block">
-          <h4>Radio buttons</h4>
+          <h4>Category</h4>
 
           <ul class="cd-filter-content cd-filters list">
             <li>
@@ -94,12 +95,12 @@
 
             <li>
               <input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
-              <label class="radio-label" for="radio2">Choice 2</label>
+              <label class="radio-label" for="radio2">Electronics</label>
             </li>
 
             <li>
               <input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
-              <label class="radio-label" for="radio3">Choice 3</label>
+              <label class="radio-label" for="radio3">Clothes</label>
             </li>
           </ul> <!-- cd-filter-content -->
         </div> <!-- cd-filter-block -->
