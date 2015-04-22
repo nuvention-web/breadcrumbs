@@ -1,19 +1,19 @@
 'use strict';
 
-require(['htmlparser'], function(htmlparser) {
-  var handler = new htmlparser.DefaultHandler(function (error, dom) {
-    if (error) {
+// require(['htmlparser'], function(htmlparser) {
+//   var handler = new htmlparser.DefaultHandler(function (error, dom) {
+//     if (error) {
 
-    }
-    else {
-      // stuff
-    }
+//     }
+//     else {
+//       // stuff
+//     }
 
-  });
-  var parser = new htmlparser.Parser(handler);
-  parser.parseComplete(rawHtml);
-});
-
+//   });
+//   var parser = new htmlparser.Parser(handler);
+//   parser.parseComplete(rawHtml);
+// });
+var Asteroid = require("asteroid");
 var id;
 // var ceres = new Asteroid('breadcrumbs.meteor.com');
 var ceres = new Asteroid('localhost:3000');
