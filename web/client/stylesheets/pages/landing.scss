@@ -1,0 +1,163 @@
+@import 'bourbon/bourbon'; // http://bourbon.io/
+
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/mixins'; // custom mixins
+
+@import '../partials/layout'; // responsive grid and media queries
+
+
+@font-face {
+    font-family: PT_Sans-Web-Regular;
+    src: url(../fonts/PT_sans/PT_Sans-Web-Regular.ttf);
+}
+
+@font-face {
+    font-family: PT_Sans-Web-Bold;
+    src: url(../fonts/PT_sans/PT_Sans-Web-Bold.ttf);
+}
+
+
+body{
+	font-family: PT_Sans-Web-Regular;
+	background-color: white;
+	color: #330033;
+}
+
+.default {
+	padding-top: 100px;
+}
+.navbar {
+	background-color: #330066;
+	font-size: 16px;
+	.navbar-header {	
+
+		.navbar-brand {
+		    position: relative;
+		    left: 0;
+		    margin-left:20%;
+		    text-align: center;
+		    margin: auto;
+		    color: white;
+		    display: inline-block;
+		}
+		#navbar-logo {
+			position: absolute;
+	    	text-align: left;
+	    }
+	}
+
+	#navbar-center {
+		display:inline-block;
+		float:none;
+		margin-left:20%;
+		li {
+			display: inline-block;
+			a {
+				color: white;
+			}
+		}
+	}	
+	button {
+		font-size: 16px;
+	}
+
+	.navbar-right {
+		font-size: 12px;
+		li {
+				a {
+					color: white;
+					.login-link-text {
+						color: white;
+					}
+					a{
+						color: black;
+
+					}
+				}
+		}
+	}
+}
+
+.row {
+	margin-bottom: 50px;
+}
+
+.jumbotron {
+	background-image: url("/images/landing/breadcrumbs-bg.png");
+	background-size: 100%;
+	min-height:700px;
+	display: table;
+	width: 100%;
+	.layover{
+		height:100%;
+		// background-color: white;
+		opacity: 0.8;
+		display: table-cell;
+    	vertical-align: middle;
+    	text-align: center;
+	}
+	.jumbotron-header {
+		background-color: white;
+		padding: 5%;
+	}
+	h1 {
+		font-family: PT_Sans-Web-Bold;
+	}
+}
+.bc-button {
+	border: 1px solid black;
+  	background-color: inherit;
+  	padding: 7px;
+
+}
+
+.about-us {
+	min-height:700px;
+	display:table;
+	width:100%;
+	text-align: center;
+	img {
+		height:150px;
+	}
+	h2 {
+		margin-bottom:50px;
+	}
+}
+
+.how-it-works {
+	min-height:700px;
+	background-color: #E2E2E2;
+	img {
+		height: 250px;
+	}
+	h2 {
+		margin-bottom: 50px;
+	}
+	p {
+		margin-bottom: 80px;
+	}
+}
+
+.supported-sites {
+	min-height:700px;
+	text-align: center;
+	h3 {
+		text-align: left;
+	}
+	img {
+		height: 100px;
+	}
+	#supported-divider {
+		border-right: 1px solid black;
+	}
+}
+
+footer {
+	background-color: #E2E2E2;
+	width: 100%;
+	height:50px;
+	img {
+		height: 30px;
+	}
+}
