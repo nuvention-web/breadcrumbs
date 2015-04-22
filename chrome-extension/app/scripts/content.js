@@ -72,7 +72,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
       case 'ebay.com':
         // Ebay: Note that this is for individual items within eBay that are BUY IT NOW
-        var title = $("#itemTitle").ignore('span').text();
+        var name = $("#itemTitle").ignore('span').text();
         var price = $("#prcIsum").text();
         var brand = $(".itemAttr").find("h2[itemprop='brand']").text();
         var category = $("gh-cat option:selected").text();
@@ -95,7 +95,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         });
         var description = $("#desc_ifr").attr("src");
 
-        response.title = title;
+        response.name = name;
         response.price = price;
         response.brand = brand;
         response.web_taxonomy = web_taxonomy;

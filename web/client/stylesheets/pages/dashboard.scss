@@ -12,12 +12,23 @@
 
 
 // END LANDING PAGE CSS
-x
+
 // CUSTOM CSS
+
+.cd-header {
+	width:100%;
+	height:75px !important;
+	.navbar{
+		position:relative;
+	}
+}
 .item-div {
-	vertical-align: top;
-	height:300px;
+	vertical-align: bottom;
+	// max-height:300px;
 	position: relative;
+	img {
+		max-height:300px;
+	}
 }
 
 .item-name {

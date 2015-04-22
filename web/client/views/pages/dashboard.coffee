@@ -22,10 +22,15 @@ Template.dashboard.helpers
 
 Template.dashboard.rendered = () ->
 <<<<<<< HEAD
+<<<<<<< HEAD
     Session.set('filter_tab', '')
 
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
 =======
+=======
+    Meteor.subscribe('items')
+    Meteor.subscribe('categories')
+>>>>>>> 6c191e75cf77269cfd128c58f5b870206bac2cfc
     console.log 'rendered'
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
 >>>>>>> 649819a3705be9f9e77e21c8c65cd997ec6a7ac9
@@ -55,11 +60,11 @@ Template.dashboard.rendered = () ->
 
 Template.dashboard.events
     'mouseover #mongoItem': (e) ->
-        $(e.currentTarget).css("border", "1px solid black")   
+        # $(e.currentTarget).css("border", "1px solid black")   
         Session.set('hovered', false)  
 
     'mouseleave #mongoItem': (e) ->
-        $(e.currentTarget).css("border", "1px solid white")
+        # $(e.currentTarget).css("border", "1px solid white")
         Session.set('hovered', true)
 
     'click #item-delete': (event) ->
