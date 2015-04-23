@@ -1,5 +1,7 @@
 'use strict';
 
+// think this line is unneeded
+// var Asteroid = require("asteroid");
 var id;
 // var ceres = new Asteroid('breadcrumbs.meteor.com');
 var ceres = new Asteroid('localhost:3000');

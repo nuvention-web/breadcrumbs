@@ -5,7 +5,9 @@
     "description": "just press play",
     "icons": {
         "16": "images/icon-16.png",
-        "96": "images/icon-96.png"
+        "96": "images/favicon.png",
+        "48": "images/favicon-48.png",
+        "128": "images/favicon.png"
     },
     "default_locale": "en",
     "background": {
@@ -24,14 +26,22 @@
     ],
     "browser_action": {
         "default_icon": {
-            "16": "images/icon-16.png",
-            "96": "images/icon-96.png"
+            "16": "images/favicon.png",
+            "48": "images/favicon-48.png",
+            "96": "images/favicon.png"
         },
         "default_title": "Breadcrumbs",
         "default_popup": "popup.html"
     },
     "options_page": "options.html",
+    "oauth2": {
+        "client_id": "18995749933-ro2je15hckgp77puj49ikf4nlsed2oa8.apps.googleusercontent.com",
+        "scopes": [
+          "https://www.googleapis.com/auth/drive"
+        ]
+    },
     "permissions": [
+        "identity",
         "bookmarks",
         "clipboardRead",
         "contentSettings",

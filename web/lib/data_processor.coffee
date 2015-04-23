@@ -1,3 +1,9 @@
+# invalid chars ~ ! @ $ % ^ & * ( ) + = , . / ' ; : " ? > < [ ] \ { } | ` #
+@classify = (class_name) ->
+    fix = class_name.replace(/\s/g, '-')
+    fix = fix.replace(/&/g, '-') ## need to add others in
+    return fix
+
 @matchKeywords = (item_keywords, category_keywords) ->
     max_mismatches = 1 + Math.max(0, item_keywords.length - category_keywords.length) #edge cases of category keywords being short
     

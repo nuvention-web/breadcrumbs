@@ -5,35 +5,18 @@ Session.setDefault('hovered' , true)
 
 Template.dashboard.helpers
     items: () ->
-<<<<<<< HEAD
-        if Session.get('filter_tab') is not ''
-            return [Items.findOne({_id: i}) for i in Categories.findOne({_id: Session.get('filter_tab')}).items][0]
-        else
-            return Items.find()
+        return Items.find()
     hasImage: (src) ->
         return src is not '/'
-=======
-        return Items.find()
->>>>>>> 649819a3705be9f9e77e21c8c65cd997ec6a7ac9
     categories: () ->
         return Categories.find()
     hovered: () ->
         return Session.get('hovered')
 
 Template.dashboard.rendered = () ->
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Session.set('filter_tab', '')
-
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
-=======
-=======
-    Meteor.subscribe('items')
-    Meteor.subscribe('categories')
->>>>>>> 6c191e75cf77269cfd128c58f5b870206bac2cfc
     console.log 'rendered'
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
->>>>>>> 649819a3705be9f9e77e21c8c65cd997ec6a7ac9
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
 
@@ -98,7 +81,6 @@ Template.dashboard.events
             $('.cd-tab-filter').removeClass('is-open')
             filter_tab_placeholder.text(target.text()).data('type', selected_filter)
             filter_tab_placeholder_text = target.text()
-            Session.set('filter_tab', selected_filter)
 
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
