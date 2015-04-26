@@ -7,6 +7,8 @@ filter_tab_placeholder_text = null
 
 Template.dashboard.helpers
     items: () ->
+        if $container?.mixItUp 'isLoaded'
+            console.log 'hi'
         return Items.find()
     hasImage: (src) ->
         return src is not '/'
