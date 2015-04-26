@@ -30,6 +30,9 @@ Router.route('/admin', ->
 Router.route('/thanks', ->
   this.render 'thanks')
 
+Router.route('/download', ->
+  this.render 'download')
+
 Router.route('/history/:id', {name: 'history'} )
 
 Router.route('/register', ->

@@ -4,25 +4,37 @@
 <div class = "jumbotron container">
     <div class = "layover">
       <div class = "jumbotron-header">
-          <form class = "container">
-            <h1 class='text-center'> Always make the right decision. With breadcrumbs/register </h1>
+          <form id = "registerForm" class = "container" method = "post">
+            <h2 class='text-center'> Always make the right decision. With breadcrumbs/register </h2>
             <div class="row">
               <label> Username: </label>
-              <input type='text' name='username' required>
+              <input id = "username" placeholder = "username" type='text' name='username' required>
+            </div>
+            <div class="row">
+              <label> Email: </label>
+              <input id = "email" placeholder = "email" type='email' name='email' required>
             </div>
             <div class="row">
               <label> Password: </label>
-              <input type='password' name='password' required>
-              <input class='btn-bc btn-blue' type='submit' value='login' required>
+              <input id ="password" placeholder = "password" type='password' name='password' required>
             </div>
-             <h3>Already have an account?</h3>
-             <button class = "bc-button">Login</button>
+             <div class="row">
+              <label> Confirm Password: </label>
+              <input id ="confirmPassword" placeholder = "confirmPassword" type='confirmPassword' name='confirmPassword' required>
+            </div>
+             <input class = "bc-button" type = "submit" value = "Register">
+             <p id = "alreadyUser">Already a user? <button class="bc-button">Login</button></p>
           </form>
+<!-- 
+           <form action="/sign-up" id="signUpForm" method="post">
+        <input id="signUpEmail" name="email" placeholder="Email Address" type="text" >
+        <input id="signUpPassword" name="password" placeholder="Password" type="password">
+        <input id="signUpPasswordConfirm" name="password-confirm" placeholder="Confirm" type="password">
+        <input class="btn-submit" type="submit" value="Join Meteorites!"> -->
+    <!-- </form> -->
         </div>
     </div>
 </div>
-
-
   
   {{>footer}}
 </template>
