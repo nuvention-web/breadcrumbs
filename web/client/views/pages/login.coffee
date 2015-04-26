@@ -1,16 +1,20 @@
-Template.login.created = () ->
-  # if Meteor.user() is 'admin'
-  #   Router.go('/admin')
-
 Template.login.events
-  'submit form': (event) ->
-    event.preventDefault()
-    event.stopPropagation()
-    console.log Meteor.user()
+  'click #register': (e) ->
+    e.preventDefault()
+    Router.go '/register'
 
-    Meteor.loginWithPassword(event.target.username.value, event.target.password.value, (err) ->
-      if (err)
-        alert err
+Template.login.events 'submit #loginForm': (e, t) ->
+  e.preventDefault()
+  signInForm = $(e.currentTarget)
+  email = trimInput(signInForm.find('#email').val().toLowerCase())
+  password = signInForm.find('#password').val()
+  if isNotEmpty(email) and isEmail(email) and isNotEmpty(password) and isValidPassword(password)
+    Meteor.loginWithPassword email, password, (err) ->
+      if err
+        console.log 'These credentials are not valid.'
       else
-        Router.go('/dashboard'))
-    
+        console.log 'Welcome back Meteorite!'
+        Router.go '/dashboard'
+      return
+  false
+

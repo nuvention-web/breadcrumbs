@@ -1,3 +1,8 @@
+Template.register.events
+	'click #login': (event) ->
+		event.preventDefault()
+		Router.go '/login'
+
 Template.register.events 'submit #registerForm': (e, t) ->
   e.preventDefault()
   signUpForm = $(e.currentTarget)
@@ -24,29 +29,31 @@ Template.register.events 'submit #registerForm': (e, t) ->
 
 
 
-trimInput = (value) ->
+
+
+@trimInput = (value) ->
   value.replace /^\s*|\s*$/g, ''
 
-isNotEmpty = (value) ->
+@isNotEmpty = (value) ->
   if value and value != ''
     return true
   console.log 'Please fill in all required fields.'
   false
 
-isEmail = (value) ->
+@isEmail = (value) ->
   filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
   if filter.test(value)
     return true
   console.log 'Please enter a valid email address.'
   false
 
-isValidPassword = (password) ->
+@isValidPassword = (password) ->
   if password.length < 6
     console.log 'Your password should be 6 characters or longer.'
     return false
   true
 
-areValidPasswords = (password, confirm) ->
+@areValidPasswords = (password, confirm) ->
   if !isValidPassword(password)
     return false
   if password != confirm
