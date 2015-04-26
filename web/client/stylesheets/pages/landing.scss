@@ -22,10 +22,14 @@ body{
 	font-family: PT_Sans-Web-Regular;
 	background-color: white;
 	color: #330033;
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 .default {
 	padding-top: 100px;
+	height: 100vh;
 }
 .navbar {
 	background-color: #330066;
