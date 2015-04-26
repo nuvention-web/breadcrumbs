@@ -1,7 +1,4 @@
-Template.login.events
-  'click #register': (e) ->
-    e.preventDefault()
-    Router.go '/register'
+
 
 Template.login.events 'submit #loginForm': (e, t) ->
   e.preventDefault()
