@@ -7,11 +7,11 @@
       <div class="cd-tab-filter">
         <ul class="cd-filters">
           <li class="placeholder"> 
-            <a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+            <a data-type="all" href="#">All</a> <!-- selected option on mobile -->
           </li>
-          <li class="filter"><a class="selected" href="#0" data-type="">All</a></li>
+          <li class="filter"><a class="selected" href="#" data-type="">All</a></li>
           {{#each categories}}
-            <li class="filter" data-filter=".{{filter_name}}"><a href="#0" data-type="{{filter_name}}">{{name}}</a></li>
+            <li class="filter" data-filter=".{{filter_name}}"><a href="#" data-type="{{filter_name}}">{{name}}</a></li>
           {{/each}}
         </ul>
       </div>
@@ -107,10 +107,10 @@
         </div>
       </form>
 
-      <a href="#0" class="cd-close">Close</a>
+      <a href="#" class="cd-close">Close</a>
     </div>
 
-    <a href="#0" class="cd-filter-trigger">Filters</a>
+    <a href="#" class="cd-filter-trigger">Filters</a>
   </main>
   {{>footer}}
 </template>
