@@ -1,7 +1,6 @@
 filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
-Session.setDefault('hovered' , true)
 
 Template.dashboard.helpers
     items: () ->
@@ -10,12 +9,8 @@ Template.dashboard.helpers
         return src is not '/'
     categories: () ->
         return Categories.find()
-    hovered: () ->
-        return Session.get('hovered')
 
 Template.dashboard.rendered = () ->
-    filter_tab_placeholder = $('.cd-tab-filter .placeholder a')
-    console.log 'rendered'
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
@@ -42,15 +37,17 @@ Template.dashboard.rendered = () ->
 
 
 Template.dashboard.events
-    'mouseover #mongoItem': (e) ->
-        # $(e.currentTarget).css("border", "1px solid black")   
-        Session.set('hovered', false)  
+    'mouseover .item-div': (e) ->
+        # $(e.currentTarget).css("border", "1px solid black")
+        $(e.currentTarget).find('.item-delete').removeClass('hidden')   
+        # Session.set('hovered', false)  
 
-    'mouseleave #mongoItem': (e) ->
+    'mouseleave .item-div': (e) ->
         # $(e.currentTarget).css("border", "1px solid white")
-        Session.set('hovered', true)
+        $(e.currentTarget).find('.item-delete').addClass('hidden') # class that's hidden but still takes up whitespace
+        # Session.set('hovered', true)
 
-    'click #item-delete': (event) ->
+    'click .item-delete': (event) ->
         console.log $(event.currentTarget).parent().attr('name')
         Items.remove($(event.currentTarget).parent().attr('name'))
 
@@ -61,9 +58,15 @@ Template.dashboard.events
         triggerFilter(false)
 
     'click .cd-tab-filter li': (event) ->
+        console.log filter_tab_placeholder
+        console.log filter_tab_placeholder_text
+        console.log filter_tab_placeholder_default_value
+
         # top tab filter event
         target = $(event.target)
         selected_filter = target.data('type')
+
+        console.log selected_filter
 
         # check if placeholder
         if target.is(filter_tab_placeholder)
