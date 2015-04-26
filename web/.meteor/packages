@@ -5,7 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 mizzao:bootstrap-3
 coffeescript
@@ -15,5 +14,4 @@ accounts-ui-unstyled
 accounts-ui
 fourseven:scss@1.0.0
 underscore
-reactive-var
 wolves:bourbon
