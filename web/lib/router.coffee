@@ -114,8 +114,9 @@ Router.route('/datapost', where: 'server')
             keywords: item.web_taxonomy
             uid: item.uid
             items: [id]
+            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 1])
           console.log('Creating new category: ' + new_category.name)
-          Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
+          Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
       else
         # no keywords
@@ -137,8 +138,9 @@ Router.route('/datapost', where: 'server')
             keywords: []
             uid: item.uid
             items: [id]
+            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 1])
           console.log('Creating new category: ' + new_category.name)
-          Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
+          Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
 
     console.log "[POST] End."

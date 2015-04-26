@@ -21,7 +21,7 @@ Items.find().forEach (item) ->
         uid: item.uid
         items: [item._id]
       console.log('Creating new category: ' + new_category.name)
-      Items.update item, {$set: {category: category.name, filter_name: classify(new_category.name)}}
+      Items.update item, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
       Categories.insert new_category
   else
     # no keywords
@@ -43,7 +43,7 @@ Items.find().forEach (item) ->
         uid: item.uid
         items: [item._id]
       console.log('Creating new category: ' + new_category.name)
-      Items.update item, {$set: {category: category.name, filter_name: classify(new_category.name)}}
+      Items.update item, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
       Categories.insert new_category
 
 Categories.find().forEach (category) ->
