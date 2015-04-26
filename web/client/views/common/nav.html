@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     {{#if currentUser}}
       <ul class="nav navbar-nav navbar-right">
-          <li><a id = "login" href="#">{{>loginButtons}}</a></li>
+          <li><a id = "login" href="#">Logout</a></li>
           <li><a href="#">|</a></li>
           <li><a href="#">|</a></li>
           <!-- <li><a><button class ="bc-button">|</button></a></li> -->
@@ -28,9 +28,9 @@
         <li><a href="#supportedsites">Supported sites</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a id = "login" href="#">{{>loginButtons}}</a></li>
+        <li><a id = "login" href="#">Login</a></li>
         <li><a href="#">|</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a id = "registerNav" href="/register">Register</a></li>
         <li><a><button class ="bc-button">Download</button></a></li>
       </ul>
       {{/if}}

@@ -32,8 +32,8 @@ Router.route('/thanks', ->
 
 Router.route('/history/:id', {name: 'history'} )
 
-Router.route('/download', ->
-  this.render 'download')
+Router.route('/register', ->
+  this.render 'register')
 
 Router.route('/login', ->
   this.render  'login')
