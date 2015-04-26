@@ -39,13 +39,6 @@ Template.landing.events
       Interest.insert {name: name, email: email}
       Router.go '/thanks'
 
-  'click #login' : (e) ->
-    e.preventDefault();
-    console.log Session.get('loginClicked')
-    if Session.get("loginClicked")
-      Session.set("loginClicked", false)
-    else 
-      Session.set("loginClicked", true)
 
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
