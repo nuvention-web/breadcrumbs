@@ -42,6 +42,9 @@ Router.route('/register', ->
 Router.route('/login', ->
   this.render  'login')
 
+Router.route('/landing', ->
+  this.render  'landing')
+
 Router.route('/dashboard', { 
   name: 'dashboard'
   waitOn: () ->
