@@ -13,7 +13,7 @@
           {{#each categories}}
             <li class="filter" data-filter=".{{filter_name}}"><a href="#0" data-type="{{filter_name}}">{{name}}</a></li>
           {{/each}}
-          <!-- <li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Clothes</a></li> --> -->
+          <!-- <li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Clothes</a></li> -->
         </ul>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li name = "{{_id}}" class="mix check1 radio2 option3 item-div {{category}}">
+          <li data-id="{{_id}}" class="mix check1 radio2 option3 item-div {{category}}">
             <a href="{{url}}">
               <img class = "img-size" src= "{{main_image}}" alt="{{name}}">
               <div class = "item-name">

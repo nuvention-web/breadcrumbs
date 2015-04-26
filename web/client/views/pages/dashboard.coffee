@@ -1,3 +1,6 @@
+$container = null
+groups = []
+
 filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
@@ -21,7 +24,18 @@ Template.dashboard.rendered = () ->
         window.requestAnimationFrame(fixGallery)
     )
 
-    buttonFilter.init()
+    $filters = $('.cd-main-content')
+    $filters.find('.cd-filters').each(() ->
+        $this = $(this)
+
+        groups.push(
+            $inputs: $this.find '.filter'
+            active: ''
+            tracker: false
+        )
+    )
+    $container = $('.cd-gallery ul')
+
     $('.cd-gallery ul').mixItUp(
         controls:
             enable: false
@@ -48,8 +62,8 @@ Template.dashboard.events
         # Session.set('hovered', true)
 
     'click .item-delete': (event) ->
-        console.log $(event.currentTarget).parent().attr('name')
-        Items.remove($(event.currentTarget).parent().attr('name'))
+        console.log $(event.currentTarget).parent().attr('data-id')
+        Items.remove($(event.currentTarget).parent().attr('data-id'))
 
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)
@@ -58,15 +72,9 @@ Template.dashboard.events
         triggerFilter(false)
 
     'click .cd-tab-filter li': (event) ->
-        console.log filter_tab_placeholder
-        console.log filter_tab_placeholder_text
-        console.log filter_tab_placeholder_default_value
-
         # top tab filter event
         target = $(event.target)
         selected_filter = target.data('type')
-
-        console.log selected_filter
 
         # check if placeholder
         if target.is(filter_tab_placeholder)
@@ -87,13 +95,14 @@ Template.dashboard.events
 
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
+            parseFilters()
 
     'click .cd-filter-block h4': (event) ->
         current_target = $(event.currentTarget)
         current_target.toggleClass 'closed'
         current_target.siblings('.cd-filter-content').slideToggle 300
 
-    'keyup cd-filter-content input[type="search"]': (event) ->
+    'keyup .cd-filter-content input[type="search"]': (event) ->
         delay () ->
             input = $('.cd-filter-content input[type="search"]').val().toLowerCase();
             if input.length > 0
@@ -130,75 +139,32 @@ delay = () ->
             clearTimeout timer
             timer = setTimeout callback, ms
 
-buttonFilter = 
-
-    $filters: null
-    groups: []
-    outputArray: []
-    outputString: ''
-
-    init: () ->
-        self = this
-
-        self.$filters = $('.cd-main-content')
-        self.$container = $('.cd-gallery ul')
-
-        self.$filters.find('.cd-filters').each(() ->
+parseFilters = () ->
+    for group in groups
+        group.active = []
+        group.$inputs.each( () ->
             $this = $(this)
-
-            self.groups.push(
-                $inputs: $this.find '.filter'
-                active: ''
-                tracker: false
-            )
-        )
-
-        self.bindHandlers()
-
-    bindHandlers: () ->
-        self = this
-
-        self.$filters.on('click', 'a', (event) ->
-            self.parseFilters()
-        )
-        self.$filters.on('change', () ->
-            self.parseFilters()
-        )
-
-    parseFilters: () ->
-        self = this
-
-        for group in self.groups
-            group.active = []
-            group.$inputs.each( () ->
-                $this = $(this)
-                if $this.is('input[type="radio"]') or $this.is('input[type="checkbox"]')
-                    if $this.is ':checked'
-                        group.active.push $this.attr('data-filter')
-
-                else if $this.is('select')
-                    group.active.push $this.val()
-
-                else if $this.find('.selected').length > 0 
+            if $this.is('input[type="radio"]') or $this.is('input[type="checkbox"]')
+                if $this.is ':checked'
                     group.active.push $this.attr('data-filter')
-            )
 
-        self.concatenate()
+            else if $this.is('select')
+                group.active.push $this.val()
 
-    concatenate: () ->
-        self = this
+            else if $this.find('.selected').length > 0 
+                group.active.push $this.attr('data-filter')
+        )
 
-        self.outputString = ''
+    outputString = ''
 
-        for group in self.groups
-            self.outputString += group.active
+    for group in groups
+        outputString += group.active
 
-        if self.outputString.length is 0
-            self.outputString = 'all'
+    if outputString.length is 0
+        outputString = 'all'
 
-        if self.$container.mixItUp 'isLoaded'
-            self.$container.mixItUp 'filter', self.outputString
-
+    if $container.mixItUp 'isLoaded'
+        $container.mixItUp 'filter', outputString
 
 
 
