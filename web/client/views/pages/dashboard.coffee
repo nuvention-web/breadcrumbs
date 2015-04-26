@@ -11,7 +11,7 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find()
+        return Categories.find {'items.0': {$exists: true}}
 
 Template.dashboard.rendered = () ->
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
@@ -52,18 +52,22 @@ Template.dashboard.rendered = () ->
 
 Template.dashboard.events
     'mouseover .item-div': (e) ->
-        # $(e.currentTarget).css("border", "1px solid black")
-        $(e.currentTarget).find('.item-delete').removeClass('hidden')   
-        # Session.set('hovered', false)  
+        $(e.currentTarget).find('.item-delete').removeClass('invisible')   
 
     'mouseleave .item-div': (e) ->
-        # $(e.currentTarget).css("border", "1px solid white")
-        $(e.currentTarget).find('.item-delete').addClass('hidden') # class that's hidden but still takes up whitespace
-        # Session.set('hovered', true)
+        $(e.currentTarget).find('.item-delete').addClass('invisible') # class that's hidden but still takes up whitespace
 
     'click .item-delete': (event) ->
-        console.log $(event.currentTarget).parent().attr('data-id')
-        Items.remove($(event.currentTarget).parent().attr('data-id'))
+        id = $(event.currentTarget).parent().attr('data-id')
+        category_name = $(event.currentTarget).parent().attr('data-category')
+        
+        Items.remove(id)
+
+        category = Categories.findOne {filter_name: category_name}
+        items = category.items
+        index = items.indexOf id
+        items.splice index, 1
+        Categories.update category._id, {$set: {items: items}}
 
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)

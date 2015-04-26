@@ -9,7 +9,10 @@ Items.find().forEach (item) ->
         console.log('Matched to category ' + category.name + '.')
         console.log(category.keywords)
         console.log(item.web_taxonomy)
-        Items.update item, {$set: {category: classify(category.name)}}
+        Items.update item, {$set: {category: category.name, filter_name: classify(category.name)}}
+        # Categories.update category, {$push: {
+        #                                     keywords: {$each: not_matched},
+        #                                     items: item._id}}
         done = true
     if not done
       new_category =
@@ -18,7 +21,7 @@ Items.find().forEach (item) ->
         uid: item.uid
         items: [item._id]
       console.log('Creating new category: ' + new_category.name)
-      Items.update item, {$set: {category: classify(new_category.name)}}
+      Items.update item, {$set: {category: category.name, filter_name: classify(new_category.name)}}
       Categories.insert new_category
   else
     # no keywords
@@ -29,7 +32,8 @@ Items.find().forEach (item) ->
         console.log('Matched to category ' + category.name + '.')
         console.log(category.keywords)
         console.log(item.name)
-        Items.update item, {$set: {category: classify(category.name)}}
+        Items.update item, {$set: {category: category.name, filter_name: classify(category.name)}}
+        # Categories.update category, {$push: {items: item._id}}
         done = true
     if not done
       # this'll be complex...
@@ -39,7 +43,7 @@ Items.find().forEach (item) ->
         uid: item.uid
         items: [item._id]
       console.log('Creating new category: ' + new_category.name)
-      Items.update item, {$set: {category: classify(new_category.name)}}
+      Items.update item, {$set: {category: category.name, filter_name: classify(new_category.name)}}
       Categories.insert new_category
 
 Categories.find().forEach (category) ->

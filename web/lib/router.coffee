@@ -102,7 +102,7 @@ Router.route('/datapost', where: 'server')
             console.log('Matched to category ' + category.name + '.')
             console.log(category.keywords)
             console.log(item.web_taxonomy)
-            Items.update id, {$set: {category: category.name}}
+            Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
             Categories.update category, {$push: {
                                             keywords: {$each: not_matched},
                                             items: id}}
@@ -115,7 +115,7 @@ Router.route('/datapost', where: 'server')
             uid: item.uid
             items: [id]
           console.log('Creating new category: ' + new_category.name)
-          Items.update id, {$set: {category: new_category.name}}
+          Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
           Categories.insert new_category
       else
         # no keywords
@@ -126,7 +126,7 @@ Router.route('/datapost', where: 'server')
             console.log('Matched to category ' + category.name + '.')
             console.log(category.keywords)
             console.log(item.name)
-            Items.update id, {$set: {category: category.name}}
+            Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
             Categories.update category, {$push: {items: id}}
             done = true
 
@@ -138,7 +138,7 @@ Router.route('/datapost', where: 'server')
             uid: item.uid
             items: [id]
           console.log('Creating new category: ' + new_category.name)
-          Items.update id, {$set: {category: new_category.name}}
+          Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
           Categories.insert new_category
 
     console.log "[POST] End."
