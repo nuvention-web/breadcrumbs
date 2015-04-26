@@ -16,9 +16,6 @@ Meteor.publish 'allUserData', () ->
     else
         this.ready()
 
-
-
-
 Meteor.users.allow
     update: (userId, doc, fields, modifier) ->
         return true

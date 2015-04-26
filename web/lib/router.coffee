@@ -7,6 +7,7 @@ requireLogin = () ->
     
 Router.configure {
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
 }
 
 # Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})

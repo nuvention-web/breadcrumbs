@@ -1,7 +1,8 @@
 <template name='dashboard'>
-<header class = "cd-header">
-{{>nav}}
-</header>
+  <header class = "cd-header">
+  {{> nav}}
+  </header>
+
   <main class="cd-main-content">
     <div class="cd-tab-filter-wrapper">
       <div class="cd-tab-filter">
@@ -16,7 +17,6 @@
         </ul>
       </div>
     </div>
-
     <section class="cd-gallery">
       <ul>
         {{#each items}}
@@ -37,7 +37,6 @@
       </ul>
       <div class="cd-fail-message">No results found</div>
     </section>
-
     <div class="cd-filter">
       <form>
         <div class="cd-filter-block">
@@ -112,5 +111,5 @@
 
     <a href="#" class="cd-filter-trigger">Filters</a>
   </main>
-  {{>footer}}
+  {{> footer}}
 </template>
