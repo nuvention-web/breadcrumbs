@@ -28,8 +28,8 @@ Router.route('/admin', ->
   else
     Router.go '/login')
 
-Router.route('/thanks', ->
-  this.render 'thanks')
+Router.route('/forgotPassword', ->
+  this.render 'forgotPassword')
 
 Router.route('/download', ->
   this.render 'download')
@@ -54,6 +54,13 @@ Router.route('/dashboard', {
     ]
 
   })
+
+WebApp.connectHandlers.stack.splice 0, 0,
+  route: '/twitter'
+  handle: (req, res, next) ->
+    res.writeHead 302, 'Location': 'https://twitter.com/getbreadcrumbs'
+    res.end()
+    return
 
 # Router.route('/dashboard', ->
 #   this.render 'dashboard', {

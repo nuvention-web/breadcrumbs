@@ -7,6 +7,71 @@
 @import '../partials/layout'; // responsive grid and media queries
 
 
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/fhNmDCnjccoUYyU4ZASaLVKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/BJVWev7_auVaQ__OU8Qih1KPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/oysROHFTu1eTZ74Hcf8V-VKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/CWlc_g68BGYDSGdpJvpktgLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://fonts.gstatic.com/s/ptsans/v8/kTYfCWJhlldPf5LnG4ZnHAsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://fonts.gstatic.com/s/ptsans/v8/g46X4VH_KHOWAAa-HpnGPgsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://fonts.gstatic.com/s/ptsans/v8/hpORcvLZtemlH8gI-1S-7gsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://fonts.gstatic.com/s/ptsans/v8/0XxGQsSc1g4rdRdjJKZrNAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 @font-face {
     font-family: PT_Sans-Web-Regular;
     src: url(../fonts/PT_sans/PT_Sans-Web-Regular.ttf);
@@ -27,13 +92,32 @@ body{
 	margin: 0;
 }
 
+h1 {
+	font-weight: 700;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 700;
+	font-size: 2.5em;
+}
+
+p {
+	font-size: 1.3em;
+}
+
 .default {
 	padding-top: 100px;
 	height: 100vh;
 }
 .navbar {
+	max-height: 50px;
 	background-color: #330066;
-	font-size: 16px;
+	font-size: 1em;
 	.navbar-header {	
 
 		.navbar-brand {
@@ -44,6 +128,8 @@ body{
 		    margin: auto;
 		    color: white;
 		    display: inline-block;
+		    font-size: 1.3em;
+		    letter-spacing: .3em;
 		}
 		#navbar-logo {
 			position: absolute;
@@ -59,15 +145,16 @@ body{
 			display: inline-block;
 			a {
 				color: white;
+				font-weight: 400;
 			}
 		}
 	}	
 	button {
-		font-size: 16px;
+		font-size: 1em;
 	}
 
 	.navbar-right {
-		font-size: 12px;
+		font-size: 1em;
 		li {
 				a {
 					color: white;
@@ -79,6 +166,10 @@ body{
 
 					}
 				}
+		}
+		.bc-button {
+			border: 2px solid white;
+  			font-size: 1.3em;
 		}
 	}
 }
@@ -110,10 +201,8 @@ body{
 	}
 }
 .bc-button {
-	border: 1px solid black;
-  	background-color: inherit;
-  	padding: 7px;
-
+	font-size: 2em;
+	border: 2px solid inherit;
 }
 
 .about-us {

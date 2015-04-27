@@ -15,6 +15,7 @@
     {{#if currentUser}}
       <ul class="nav navbar-nav navbar-right">
           <li><a id="logout" href="/landing">Logout</a></li>
+          <li>Hello, {{currentUser.emails.[0].address}}</li>
      </ul>
     {{else}}
       <ul class="nav navbar-nav" id = "navbar-center">
@@ -26,7 +27,7 @@
         <li><a id = "login" href="/login">Login</a></li>
         <li><a href="#">|</a></li>
         <li><a id = "registerNav" href="/register">Register</a></li>
-        <li><a><button class ="bc-button">Download</button></a></li>
+        <li><a><button class ="bc-button">DOWNLOAD</button></a></li>
       </ul>
       {{/if}}
     </div>

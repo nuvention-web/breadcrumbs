@@ -1,19 +1,27 @@
 Session.setDefault("loginClicked", true)
 
 $ ->
- 
-  $('a[href^="#"]').on 'click.smoothscroll', (e) ->
-    console.log 'clicked'
-    e.preventDefault()
- 
-    target = @hash
-    $target = $(target)
- 
-    $('html, body').stop().animate {
-      'scrollTop': $target.offset().top
-    }, 500, 'swing', ->
-      window.location.hash = target
-  console.log 'documentreached'
+  
+  $('#about-us').bind 'click', (event) ->
+    console.log 'this'
+    $anchor = $(this)
+    $('html, body').stop().animate { scrollTop: $($anchor.attr('href')).offset().top }, 1000
+
+    ###
+    if you don't want to use the easing effects:
+    $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+                                    }, 1000);
+    ###
+
+    event.preventDefault()
+    return
+
+    # $('#about-us').click ->
+    #   console.log 'click'
+    #   $('html,body').animate { scrollTop: $('#about-us').offset().top }, 'slow'
+    # return
+    # console.log 'documentreached'
 
 Template.landing.helpers
   loginClicked: () ->

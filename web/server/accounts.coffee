@@ -6,3 +6,4 @@ Accounts.onCreateUser (options, user) ->
     return
   ), 2 * 1000
   user
+
