@@ -1,0 +1,28 @@
+<template name="contact">
+{{>nav}}
+	<div class = "jumbotron container">
+    <div class = "layover">
+      <div class = "jumbotron-header">
+          <form id = "contactUs" class = "container" method = "post">
+            <h2 class='text-center'> Questions? Bugs? Concerns? Contact us! breadcrumbs/contact </h2>
+            <div class="row">
+              <label> Name: </label>
+              <input id = "name" placeholder = "name" type='name' name='name' required>
+            </div>
+            <div class="row">
+              <label> Email: </label>
+              <input id = "email" placeholder = "email" type='email' name='email' required>
+            </div>
+            <div class="row">
+              <label> Message: </label>
+              <textarea rows = "5" cols = "50"></textarea>
+            </div>
+             <input class = "bc-button" type = "submit" value = "Send">
+             <button id = "goBack" class="bc-button">Go Back</button>
+          </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}
+</template>

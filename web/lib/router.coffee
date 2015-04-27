@@ -34,6 +34,9 @@ Router.route('/forgotPassword', ->
 Router.route('/download', ->
   this.render 'download')
 
+Router.route('/contact', ->
+  this.render 'contact')
+
 Router.route('/history/:id', {name: 'history'} )
 
 Router.route('/register', ->
