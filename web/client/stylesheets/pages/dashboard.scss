@@ -43,12 +43,15 @@
 
 .item-div {
 	vertical-align: bottom;
-	// max-height:300px;
 	position: relative;
 	.item-wrapper {
+		min-height: 300px;
 		max-height: 300px;
 		overflow: hidden;
+		position: relative;
 		img {
+			position: absolute;
+			bottom: 0;
 			width: 100%;
 		}
 	}
@@ -71,6 +74,15 @@
 .item-delete {
 	position: absolute;
 	right: 0;
+	top: 0;
+	font-size: 30px;
+}
+
+.cd-filter-block {
+	ul {
+		list-style-type: none;
+		padding-left: 10px;
+	}
 }
 // end CUSTOM CSS
 

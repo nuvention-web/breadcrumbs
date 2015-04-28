@@ -24,10 +24,10 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var rating_text = $('#avgRating').children()[0].innerText;
         var rating = rating_text.split(' ')[0];
 
-        var breadcrumbs = $('#wayfinding-breadcrumbs_container').find('a');
+        var breadcrumbs = $('#browse_feature_div').find('a');
         var web_taxonomy = [];
         for(var i=0; i < breadcrumbs.length; i++) {
-          if (breadcrumbs[i].innerText) {
+          if (breadcrumbs[i].innerText && breadcrumbs[i].innerText.indexOf('Back to search') === -1) {
             web_taxonomy.push(breadcrumbs[i].innerText);
           }
         }
@@ -81,7 +81,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
         var web_taxonomy = [];
         $("#vi-VR-brumb-lnkLst li").each(function(){
-            if($(this).find('a').text() != ''){
+            if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
                 web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
             }
         })

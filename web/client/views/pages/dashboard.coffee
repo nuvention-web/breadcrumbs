@@ -7,13 +7,24 @@ filter_tab_placeholder_text = null
 
 Template.dashboard.helpers
     items: () ->
-        return Items.find {'status': {$ne: 'inactive'}}
+        one_year_ago = new Date().getTime() - (1000 * 365 * 24 * 3600)
+        return Items.find(
+            {status: {$ne: 'inactive'}, most_recent_close: {$gte: one_year_ago}},
+            {sort: {most_recent_close: -1}}
+        )
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {'items.0': {$exists: true}, 'status': {$ne: 'inactive'}}
+        return Categories.find {'items.0': {$exists: true}, status: {$ne: 'inactive'}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
+    price_filter: (price) ->
+        is_range = price.indexOf('-') is not -1
+        if is_range
+            console.log 'range, do this'
+            return '1'
+        else
+            return determinePriceRange(parseFloat(price.substr(1)))
 
 Template.dashboard.rendered = () ->
     Session.set('categoryDeleteTarget', 0)
@@ -55,7 +66,6 @@ Template.dashboard.rendered = () ->
     delay()
     @matching = $()
 
-
 Template.dashboard.events
     'mouseover .item-div': (e) ->
         $(e.currentTarget).find('.item-delete').removeClass('invisible')   
@@ -69,11 +79,11 @@ Template.dashboard.events
         
         Items.update(id, {$set: {status: 'inactive'}})
 
-        # category = Categories.findOne {filter_name: category_name}
-        # items = category.items
-        # index = items.indexOf id
-        # items.splice index, 1
-        # Categories.update category._id, {$set: {items: items}}
+        category = Categories.findOne {filter_name: category_name}
+        items = category.items
+        index = items.indexOf id
+        items.splice index, 1
+        Categories.update category._id, {$set: {items: items}}
 
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)
@@ -106,6 +116,12 @@ Template.dashboard.events
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
             parseFilters()
+
+    'click .cd-main-content a': (event) ->
+        parseFilters()
+
+    'change .cd-main-content': (event) ->
+        parseFilters()
 
     'click .cd-tab-filter .glyphicon-remove': (event) ->
         event.stopPropagation()
@@ -141,6 +157,9 @@ Template.dashboard.events
             else
                 $('.cd-gallery ul').mixItUp 'filter', 'all'
 
+    'submit form': (event) ->
+        event.preventDefault()
+
 Template.dashboard.destroyed = () ->
     $('.cd-gallery ul').mixItUp 'destroy', true
 
@@ -165,6 +184,7 @@ delay = () ->
             timer = setTimeout callback, ms
 
 parseFilters = () ->
+    console.log 'fire'
     for group in groups
         group.active = []
         group.$inputs.each( () ->
@@ -191,11 +211,10 @@ parseFilters = () ->
     if $container.mixItUp 'isLoaded'
         $container.mixItUp 'filter', outputString
 
-
-
-
-
-
-
-
-
+determinePriceRange = (price) ->
+    if price < 50
+        return 'price1'
+    else if price <= 100
+        return 'price2'
+    else
+        return 'price3'

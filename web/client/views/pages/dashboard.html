@@ -42,17 +42,17 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li class="mix check1 radio2 option3 item-div {{filter_name}}" data-id="{{_id}}" data-category="{{filter_name}}">
-            <a href="{{url}}">
+          <li class="mix check1 radio2 option3 item-div {{filter_name}} {{price_filter price}}" data-id="{{_id}}" data-category="{{filter_name}}">
+            <a href="{{url}}" target="_blank">
               <div class="item-wrapper">
-                <img class = "img-size" src="{{main_image}}" alt="{{name}}">
+                <img class="img-size" src="{{main_image}}" alt="{{name}}">
               </div>
-              <div class = "item-name">
-                <p class = "single-line-text">{{name}}</p>
+              <div class="item-name">
+                <p class="single-line-text">{{name}}</p>
                 {{price}}
               </div>
             </a>
-            <button class="item-delete invisible">DELETE</button>
+            <span class="item-delete invisible glyphicon glyphicon-remove"></span>
           </li>
         {{/each}}
         <li class="gap"></li>
@@ -75,26 +75,27 @@
 
         <div class="cd-filter-block">
           <h4>Price Range</h4>
-
           <ul class="cd-filter-content cd-filters list">
             <li>
-              <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                <label class="checkbox-label" for="checkbox1">Under $50</label>
+              <input class="filter" data-filter="" type="radio" name="radioButton" id="price0" checked>
+              <label class="radio-label" for="price0">Any</label>
             </li>
-
             <li>
-              <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-              <label class="checkbox-label" for="checkbox2">$50 - $99</label>
+              <input class="filter" data-filter=".price1" type="radio" name="radioButton" id="price1">
+              <label class="radio-label" for="price1">under $50</label>
             </li>
-
             <li>
-              <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-              <label class="checkbox-label" for="checkbox3">$99+</label>
+              <input class="filter" data-filter=".price2" type="radio" name="radioButton" id="price2">
+              <label class="radio-label" for="price2">$50 - $99</label>
+            </li>
+            <li>
+              <input class="filter" data-filter=".price3" type="radio" name="radioButton" id="price3">
+              <label class="radio-label" for="price3">$99+</label>
             </li>
           </ul>
         </div>
 
-        <div class="cd-filter-block">
+  <!--       <div class="cd-filter-block">
           <h4>Select</h4>
           <div class="cd-filter-content">
             <div class="cd-select cd-filters">
@@ -127,7 +128,7 @@
               <label class="radio-label" for="radio3">Clothes</label>
             </li>
           </ul>
-        </div>
+        </div> -->
       </form>
 
       <a href="#" class="cd-close">Close</a>
