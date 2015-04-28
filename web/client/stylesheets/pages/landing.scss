@@ -119,6 +119,7 @@ p {
 	font-size: 1em;
 	border-style: none;
 	border-color:inherit;
+
 	.navbar-header {	
 
 		.navbar-brand {
@@ -162,11 +163,14 @@ p {
 					.login-link-text {
 						color: white;
 					}
-					a{
+					a {
 						color: black;
 
 					}
 				}
+                a:hover {
+                    color: rgba(255, 255, 255, 0.7);
+                }
 		}
 		.bc-button {
 			border: 2px solid;
@@ -174,7 +178,13 @@ p {
   			margin-top: -5px;
   			line-height: 1.3em;
 		}
+        .bc-button:hover {
+            color: #330066;
+            background-color: white;
+        }
 	}
+
+
 }
 
 .row {
@@ -203,10 +213,17 @@ p {
 		}
 	}
 }
+
 .bc-button {
 	font-size: 2em;
 	border: 2px solid;
 	background-color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.bc-button:hover {
+    color: white;
+    background-color: black;
 }
 
 .about-us {
