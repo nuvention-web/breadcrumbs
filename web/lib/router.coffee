@@ -31,13 +31,11 @@ Router.route('/admin', ->
 Router.route('/forgotPassword', ->
   this.render 'forgotPassword')
 
-Router.route('/download', ->
-  this.render 'download')
+# Router.route('/download', ->
+#   this.render 'download')
 
 Router.route('/contact', ->
   this.render 'contact')
-
-Router.route('/history/:id', {name: 'history'} )
 
 Router.route('/register', ->
   this.render 'register')
@@ -57,14 +55,6 @@ Router.route('/dashboard', {
     ]
 
   })
-
-# Router.route('/dashboard', ->
-#   this.render 'dashboard', {
-#     name: 'dashboard',
-#     })
-
-Router.route('/account/create', ->
-  this.render('accountCreate'))
 
 #### DATA POST ROUTE BELOW ####
 
