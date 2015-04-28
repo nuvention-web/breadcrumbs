@@ -2,7 +2,7 @@
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
-    // debugger;
+    debugger;
     var response = request.page;
 
     //ignore function for ebay's title issue
@@ -38,6 +38,20 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.main_image = main_image;
         response.rating = rating;
         response.web_taxonomy = web_taxonomy;
+
+        if ($('body').hasClass('book')) {
+            response.web_taxonomy = ['Books'];
+            var price_elements = $('#tmmSwatches').find('.a-color-secondary');
+            if (price_elements) {
+                response.price = $(price_elements[0]).children()[0].innerText;
+            }
+            // prices = [];
+            // for (i=0; i < price_elements.length; i++)  {
+            //     if (price_elements[i].innerText) {
+            //         prices.push(price_elements[i].innerText);
+            //     }
+            // }
+        }
 
         var details  = $('#descriptionAndDetails').find('.a-text-bold');
         for(i=0; i < details.length; i++) {
