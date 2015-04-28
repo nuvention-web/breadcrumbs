@@ -8,7 +8,7 @@
         return 'undefined' #????
 
 @matchKeywords = (item_keywords, category_keywords) ->
-    max_mismatches = 2 + Math.max(0, item_keywords.length - category_keywords.length) #edge cases of category keywords being short
+    max_mismatches = 1 + Math.max(0, item_keywords.length - category_keywords.length) #edge cases of category keywords being short
     
     mismatches = 0
     mismatched = []

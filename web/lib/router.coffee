@@ -68,16 +68,20 @@ Router.route('/datapost', where: 'server')
       delete item['description[]']
 
     if item['web_taxonomy[]']?
-      item.web_taxonomy = item['web_taxonomy[]']
+      item.web_taxonomy = item['web_taxonomy[]'] or []
+      if typeof item.web_taxonomy is 'string'
+        item.web_taxonomy = [item.web_taxonomy]
       delete item['web_taxonomy[]']
 
-    if item.web_taxonomy.indexOf('Back to search') is not -1
+    if item.web_taxonomy?.indexOf('Back to search') is not -1
       delete item.web_taxonomy
 
     item.most_recent_open = parseInt item.open
     item.most_recent_close = parseInt item.close
     delete item.open
     delete item.close
+
+    item.status = 'active'
         
     console.log "[POST] Request created."
     console.log item
@@ -112,11 +116,11 @@ Router.route('/datapost', where: 'server')
 
         if not done
           new_category =
-            name: item.web_taxonomy[item.web_taxonomy.length - 2]
+            name: item.web_taxonomy[Math.max(item.web_taxonomy.length - 2, 0)]
             keywords: item.web_taxonomy
             uid: item.uid
             items: [id]
-            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 2])
+            filter_name: classify(item.web_taxonomy[Math.max(item.web_taxonomy.length - 2)])
           console.log('Creating new category: ' + new_category.name)
           Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
@@ -140,7 +144,7 @@ Router.route('/datapost', where: 'server')
             keywords: []
             uid: item.uid
             items: [id]
-            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 2])
+            filter_name: classify(item.web_taxonomy[Math.max(item.web_taxonomy.length - 2)])
           console.log('Creating new category: ' + new_category.name)
           Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
