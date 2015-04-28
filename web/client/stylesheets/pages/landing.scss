@@ -84,7 +84,7 @@
 
 
 body{
-	font-family: PT_Sans-Web-Regular;
+	font-family: 'PT Sans';
 	background-color: white;
 	color: #330033;
 	min-height: 100%;
@@ -199,9 +199,6 @@ p {
 		background-color: white;
 		padding: 5%;
 	}
-	h1 {
-		font-family: PT_Sans-Web-Bold;
-	}
 }
 .bc-button {
 	font-size: 2em;
@@ -246,6 +243,7 @@ p {
 	}
 	img {
 		height: 100px;
+		margin-top: 25px;
 	}
 	#supported-divider {
 		border-right: 1px solid black;
