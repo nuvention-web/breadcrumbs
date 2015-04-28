@@ -1,8 +1,7 @@
 {
-  "public": {
-  	"ga": {
-      "account":"UA-62367716-1",
-      "debug":true
+    "public": {
+        "ga": {
+            "id": "UA-62367716-1"
+        }
     }
-  }
 }
