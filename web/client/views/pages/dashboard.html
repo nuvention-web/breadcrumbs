@@ -4,6 +4,8 @@
   </header>
 
   <main class="cd-main-content">
+
+    <!-- Tabs across the top -->
     <div class="cd-tab-filter-wrapper">
       <div class="cd-tab-filter">
         <ul class="cd-filters">
@@ -12,11 +14,31 @@
           </li>
           <li class="filter"><a class="selected" href="#" data-type="">All</a></li>
           {{#each categories}}
-            <li class="filter" data-filter=".{{filter_name}}"><a href="#" data-type="{{filter_name}}">{{name}}</a></li>
+            <li class="filter" data-filter=".{{filter_name}}">
+              <a href="#" data-type="{{filter_name}}">{{name}}</a>
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </li>
           {{/each}}
         </ul>
       </div>
     </div>
+
+    <!-- Deletion Confirmation Modal -->
+    <div id="confirm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            Are you sure you want to remove the category "{{categoryDeleteTarget}}"?
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary" id="categoryDelete">Delete</button>
+            <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item Gallery -->
     <section class="cd-gallery">
       <ul>
         {{#each items}}
@@ -37,6 +59,8 @@
       </ul>
       <div class="cd-fail-message">No results found</div>
     </section>
+
+    <!-- Side Filters -->
     <div class="cd-filter">
       <form>
         <div class="cd-filter-block">
@@ -70,7 +94,6 @@
 
         <div class="cd-filter-block">
           <h4>Select</h4>
-          
           <div class="cd-filter-content">
             <div class="cd-select cd-filters">
               <select class="filter" name="selectThis" id="selectThis">
@@ -86,7 +109,6 @@
 
         <div class="cd-filter-block">
           <h4>Category</h4>
-
           <ul class="cd-filter-content cd-filters list">
             <li>
               <input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
