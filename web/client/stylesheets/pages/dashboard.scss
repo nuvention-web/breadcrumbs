@@ -45,8 +45,12 @@
 	vertical-align: bottom;
 	// max-height:300px;
 	position: relative;
-	img {
-		max-height:300px;
+	.item-wrapper {
+		max-height: 300px;
+		overflow: hidden;
+		img {
+			width: 100%;
+		}
 	}
 }
 
@@ -60,6 +64,7 @@
 	p {
 		white-space: nowrap;
 		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 

@@ -44,7 +44,9 @@
         {{#each items}}
           <li class="mix check1 radio2 option3 item-div {{filter_name}}" data-id="{{_id}}" data-category="{{filter_name}}">
             <a href="{{url}}">
-              <img class = "img-size" src= "{{main_image}}" alt="{{name}}">
+              <div class="item-wrapper">
+                <img class = "img-size" src="{{main_image}}" alt="{{name}}">
+              </div>
               <div class = "item-name">
                 <p class = "single-line-text">{{name}}</p>
                 {{price}}
