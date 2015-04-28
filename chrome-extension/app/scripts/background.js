@@ -1,8 +1,8 @@
 'use strict';
 
 /* POST REQUEST SETUP */
-var domain = 'http://localhost:3000';
-// var domain = 'http://breadcrumbs.meteor.com'
+// var domain = 'http://localhost:3000';
+var domain = 'http://breadcrumbs.ninja';
 var path = domain + '/datapost';
 var tabStore = {};
 
