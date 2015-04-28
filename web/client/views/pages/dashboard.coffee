@@ -132,7 +132,7 @@ triggerFilter = ($bool) ->
         $(this).toggleClass 'filter-is-visible', $bool)
 
 fixGallery = () ->
-    offsetTop = $('.cd-main-content').offset().top
+    # offsetTop = $('.cd-main-content').offset().top
     scrollTop = $(window).scrollTop()
     if scrollTop >= offsetTop
         $('.cd-main-content').addClass 'is-fixed'
