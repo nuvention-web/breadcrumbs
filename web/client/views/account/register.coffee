@@ -23,7 +23,7 @@ Template.register.events 'submit #registerForm': (e, t) ->
           console.log 'We are sorry but something went wrong.'
       else
         console.log 'Congrats new Meteorite, you\'re in!'
-        Router.go '/download'
+        Router.go '/'
       return
   false
 
