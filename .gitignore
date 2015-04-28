@@ -8,3 +8,5 @@ chrome-extension/.sass-cache
 chrome-extension/app/bower_components
 chrome-extension/test/bower_components
 chrome-extension/package
+
+web/server/smtp.js

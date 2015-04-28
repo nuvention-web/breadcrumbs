@@ -6,13 +6,11 @@ Template.register.events
 Template.register.events 'submit #registerForm': (e, t) ->
   e.preventDefault()
   signUpForm = $(e.currentTarget)
-  username = trimInput(signUpForm.find('#username').val().toLowerCase())
   email = trimInput(signUpForm.find('#email').val().toLowerCase())
   password = signUpForm.find('#password').val()
   passwordConfirm = signUpForm.find('#confirmPassword').val()
-  if isNotEmpty(username) and isNotEmpty(email) and isNotEmpty(password) and isEmail(email) and areValidPasswords(password, passwordConfirm)
+  if isNotEmpty(email) and isNotEmpty(password) and isEmail(email) and areValidPasswords(password, passwordConfirm)
     Accounts.createUser {
-      username: username
       email: email
       password: password
     }, (err) ->
