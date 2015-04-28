@@ -11,24 +11,38 @@
         <!-- endbuild -->
     </head>
     <body>
-        <form id='login'>
-            <div class='text-input'>
-              <h4> Email: </h4>
-              <input type='text' name='username' required>
-            </div>
-            <div class='text-input'>
-              <h4> Password: </h4>
-              <input type='password' name='password' required>
-            </div>
-            <input class='btn btn-green' type='submit' value='login' required>
-        </form>
-        <div id='error'>
-            <h3> incorrect username or password </h3>
-        </div>
-        <div id='logout'>
-            <h3> You're now tracking data. </h3>
-            <div id='logout-btn' class='btn btn-green'> logout </div>
-        </div>
+        <img src="images/breadcrumbs-bg.png" height="300" width="400">
+        <section id='login'>
+            <h1> START TRACKING YOUR BREADCRUMBS/ </h1>
+            <form>
+                <div class='text-input'>
+                    <span class='left'>
+                        <h3> email </h3>
+                    </span>
+                    <span class='right'>
+                        <input type='text' name='username' required>
+                    </span>
+                </div>
+                <div class='text-input'>
+                    <span class='left'>
+                        <h3> password </h3>
+                    </span>
+                    <span class='right'>
+                        <input type='password' name='password' required>
+                    </span>
+                </div>
+                <input class='bc-button' type='submit' value='LOGIN' required>
+                <span id='error'> incorrect username or password</span>
+            </form>
+            <span id='register'> Don't have an account yet? <a href='https://breadcrumbs.ninja/register' target='_blank'> Register here. </a> </span>
+        </section>
+        <section id='logout'>
+            <h1> YOUR BREADCRUMBS/ IS NOW LOGGING DATA </h1>
+            <a href='https://breadcrumbs.ninja/dashboard' target='_blank'>
+                <button class='bc-button'> go to your dashboard </button>
+            </a>
+            <button id='logout-btn' class='bc-button'> logout </button>
+        </section>
 
         <!-- build:js scripts/popup.js -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
