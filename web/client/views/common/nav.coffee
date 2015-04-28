@@ -6,3 +6,8 @@ Template.nav.events
         	Router.go '/landing'
         console.log 'Bye Meteorite! Come back whenever you want!'
         
+$(document).ready ->
+  $('.navbar-right .bc-button').hover ->
+    console.log 'HOVERED'
+    return
+  return

@@ -14,8 +14,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     {{#if currentUser}}
       <ul class="nav navbar-nav navbar-right">
+          <li><a href="">HELLO, {{currentUser.emails.[0].address}}</a></li>
+          <li><a href="">|</a></li>
           <li><a id="logout" href="/landing">Logout</a></li>
-          <li>Hello, {{currentUser.emails.[0].address}}</li>
      </ul>
     {{else}}
       <ul class="nav navbar-nav" id = "navbar-center">
