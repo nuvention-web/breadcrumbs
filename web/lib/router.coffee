@@ -1,16 +1,15 @@
 requireLogin = () ->
-  # if not Meteor.user()
-  #   this.render 'login'
-  # else
-  #   this.next()
-  this.next()
+  if not Meteor.user()
+    this.render 'login'
+  else
+    this.next()
     
 Router.configure {
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
 }
 
-# Router.onBeforeAction(requireLogin, {only: ['dashboard', 'history', 'categories']})
+Router.onBeforeAction(requireLogin, {only: ['dashboard']})
 
 Router.route('/', { 
   name: 'home'
@@ -110,11 +109,11 @@ Router.route('/datapost', where: 'server')
 
         if not done
           new_category =
-            name: item.web_taxonomy[item.web_taxonomy.length - 1]
+            name: item.web_taxonomy[item.web_taxonomy.length - 2]
             keywords: item.web_taxonomy
             uid: item.uid
             items: [id]
-            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 1])
+            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 2])
           console.log('Creating new category: ' + new_category.name)
           Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
@@ -138,7 +137,7 @@ Router.route('/datapost', where: 'server')
             keywords: []
             uid: item.uid
             items: [id]
-            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 1])
+            filter_name: classify(item.web_taxonomy[item.web_taxonomy.length - 2])
           console.log('Creating new category: ' + new_category.name)
           Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
           Categories.insert new_category
