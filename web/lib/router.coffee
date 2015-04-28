@@ -71,6 +71,9 @@ Router.route('/datapost', where: 'server')
       item.web_taxonomy = item['web_taxonomy[]']
       delete item['web_taxonomy[]']
 
+    if item.web_taxonomy.indexOf('Back to search') is not -1
+      delete item.web_taxonomy
+
     item.most_recent_open = parseInt item.open
     item.most_recent_close = parseInt item.close
     delete item.open
