@@ -10,3 +10,4 @@ chrome-extension/test/bower_components
 chrome-extension/package
 
 web/server/smtp.js
+web/mup.json
