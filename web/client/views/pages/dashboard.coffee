@@ -7,18 +7,16 @@ filter_tab_placeholder_text = null
 
 Template.dashboard.helpers
     items: () ->
-        if $container?.mixItUp 'isLoaded'
-            console.log 'hi'
-        return Items.find()
+        return Items.find {'status': {$ne: 'inactive'}}
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
         return Categories.find {'items.0': {$exists: true}, 'status': {$ne: 'inactive'}}
     categoryDeleteTarget: () ->
-        return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name
+        return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
 
 Template.dashboard.rendered = () ->
-    Session.setDefault('categoryDeleteTarget', 0)
+    Session.set('categoryDeleteTarget', 0)
 
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
     filter_tab_placeholder_default_value = 'Select'
@@ -69,13 +67,13 @@ Template.dashboard.events
         id = $(event.currentTarget).parent().attr('data-id')
         category_name = $(event.currentTarget).parent().attr('data-category')
         
-        Items.remove(id)
+        Items.update(id, {$set: {status: 'inactive'}})
 
-        category = Categories.findOne {filter_name: category_name}
-        items = category.items
-        index = items.indexOf id
-        items.splice index, 1
-        Categories.update category._id, {$set: {items: items}}
+        # category = Categories.findOne {filter_name: category_name}
+        # items = category.items
+        # index = items.indexOf id
+        # items.splice index, 1
+        # Categories.update category._id, {$set: {items: items}}
 
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)

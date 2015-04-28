@@ -58,13 +58,6 @@ Router.route('/dashboard', {
 
   })
 
-WebApp.connectHandlers.stack.splice 0, 0,
-  route: '/twitter'
-  handle: (req, res, next) ->
-    res.writeHead 302, 'Location': 'https://twitter.com/getbreadcrumbs'
-    res.end()
-    return
-
 # Router.route('/dashboard', ->
 #   this.render 'dashboard', {
 #     name: 'dashboard',
