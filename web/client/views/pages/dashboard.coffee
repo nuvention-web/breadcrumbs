@@ -13,9 +13,13 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {'items.0': {$exists: true}}
+        return Categories.find {'items.0': {$exists: true}, 'status': {$ne: 'inactive'}}
+    categoryDeleteTarget: () ->
+        return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name
 
 Template.dashboard.rendered = () ->
+    Session.setDefault('categoryDeleteTarget', 0)
+
     filter_tab_placeholder = $('.cd-tab-filter .placeholder a') #get category name
     filter_tab_placeholder_default_value = 'Select'
     filter_tab_placeholder_text = filter_tab_placeholder.text()
@@ -47,6 +51,8 @@ Template.dashboard.rendered = () ->
             onMixFail: ()->
                 $('.cd-fail-message').fadeIn 200
     )
+
+    $('#confirm').modal({show: false})
 
     delay()
     @matching = $()
@@ -102,6 +108,21 @@ Template.dashboard.events
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
             parseFilters()
+
+    'click .cd-tab-filter .glyphicon-remove': (event) ->
+        event.stopPropagation()
+        Session.set 'categoryDeleteTarget', $(event.target).parent().attr('data-filter').substr(1)
+        $('#confirm').modal('show')
+    
+    'click #confirm #categoryDelete': (event) ->
+        id = Categories.findOne(filter_name: Session.get('categoryDeleteTarget'))._id
+        Categories.update(
+            id,
+            {$set: 
+                status: 'inactive'
+                deactivate_time: new Date().getTime()
+            }
+        )
 
     'click .cd-filter-block h4': (event) ->
         current_target = $(event.currentTarget)

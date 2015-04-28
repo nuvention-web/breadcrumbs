@@ -16,12 +16,31 @@
 // CUSTOM CSS
 
 .cd-header {
-	width:100%;
-	height:75px !important;
-	.navbar{
-		position:relative;
+	width: 100%;
+	height: 75px !important;
+	.navbar {
+		position: relative;
 	}
 }
+
+.filter {
+	position: relative;
+	.glyphicon-remove {
+		color: #9a9a9a;
+		font-size: 14px;
+		position: absolute;
+		top: 5px;
+		right: 0px;
+		display: none;
+	}
+
+	&:hover {
+		.glyphicon-remove {
+			display: block;
+		}
+	}
+}
+
 .item-div {
 	vertical-align: bottom;
 	// max-height:300px;
