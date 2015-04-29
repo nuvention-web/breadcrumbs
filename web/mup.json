@@ -4,9 +4,9 @@
     {
       "host": "104.131.106.243",
       "username": "ed",
-      "password": "edward"
+      // "password": "edward"
       // or pem file (ssh based authentication)
-      // "pem": "~/.ssh/id_rsa"
+      "pem": "~/.ssh/id_rsa"
     }
   ],
 
@@ -26,7 +26,7 @@
   "appName": "Breadcrumbs",
 
   // Location of app (local directory)
-  "app": "/Users/aspin/Breadcrumbs/web",
+  "app": "/Users/edwardhu/Documents/github/breadcrumbs/web",
 
   // Configure environment
   "env": {
