@@ -96,10 +96,14 @@ Router.route('/datapost', where: 'server')
       Items.update id, item
     else
       console.log 'New item found. Inserting.'
-      item.total_time_open = item.close - item.open
+      item.total_time_open = item.most_recent_close - item.most_recent_open
       id = Items.insert item
 
       # create classification
+
+      # TODO: only pick and implement top-level category, like Nacho discussed
+      #       move lower categories to filters...
+      #       will need some restructuring
       if item.web_taxonomy?
         done = false
         Categories.find({uid: item.uid}).forEach (category) ->
