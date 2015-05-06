@@ -1,4 +1,5 @@
 $container = null
+$matching = $()
 groups = []
 
 filter_tab_placeholder = null
@@ -64,7 +65,6 @@ Template.dashboard.rendered = () ->
     $('#confirm').modal({show: false})
 
     delay()
-    @matching = $()
 
 Template.dashboard.events
     'mouseover .item-div': (e) ->
@@ -144,18 +144,19 @@ Template.dashboard.events
         current_target.siblings('.cd-filter-content').slideToggle 300
 
     'keyup .cd-filter-content input[type="search"]': (event) ->
-        delay () ->
-            input = $('.cd-filter-content input[type="search"]').val().toLowerCase();
-            if input.length > 0
-                $('.mix').each () ->
-                    $this = $(this)
-                    if $this.attr('class').toLowerCase().match input
-                        $matching = $matching.add this
-                    else
-                        $matching = $matching.not this
-                $('.cd-gallery ul').mixItUp 'filter', $matching
-            else
-                $('.cd-gallery ul').mixItUp 'filter', 'all'
+        console.log 'hi'
+        # delay () ->
+        input = $('.cd-filter-content input[type="search"]').val().toLowerCase();
+        if input.length > 0
+            $('.mix').each () ->
+                $this = $(this)
+                if $this.attr('class').toLowerCase().match input
+                    $matching = $matching.add this
+                else
+                    $matching = $matching.not this
+            $('.cd-gallery ul').mixItUp 'filter', $matching
+        else
+            $('.cd-gallery ul').mixItUp 'filter', 'all'
 
     'submit form': (event) ->
         event.preventDefault()
