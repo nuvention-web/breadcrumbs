@@ -26,7 +26,11 @@ Template.dashboard.helpers
             return '1'
         else
             return determinePriceRange(parseFloat(price.substr(1)))
-    product_origin : (site) ->
+    sites: () ->
+        return Sites.find()
+    product_origin_name : (name) ->
+        return name.substring(0, name.indexOf('.'))
+    product_origin_image : (site) ->
         site_logo = site.substring(0, site.indexOf('.'))
         return "/images/logos/on-" + site_logo + ".png"
 

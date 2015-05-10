@@ -42,8 +42,8 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li class="mix check1 radio2 option3 item-div {{filter_name}} {{price_filter price}}" data-id="{{_id}}" data-category="{{filter_name}}">
-            <img class = "product-origin" src="{{product_origin site}}">
+          <li class="mix check1 radio2 option3 item-div {{filter_name}} {{price_filter price}} {{product_origin_name site}}" data-id="{{_id}}" data-category="{{filter_name}}">
+            <img class = "product-origin" src="{{product_origin_image site}}">
             <a href="{{url}}" target="_blank">
               <div class="item-wrapper">
                 <img class="img-size" src="{{main_image}}" alt="{{name}}">
@@ -96,7 +96,19 @@
           </ul>
         </div>
 
-  <!--       <div class="cd-filter-block">
+        <div class = "cd-filter-block">
+          <h4>Site</h4>
+          <ul class = "cd-filter-content cd-filters list">
+            {{#each sites}}
+            <li>
+              <input class = "filter" data-filter = "{{product_origin_name name}}" type = "checkbox" value = "{{product_origin_name name}}" id = "{{product_origin_name name}}" name = "{{product_origin_name name}}">
+              <label class = "checkbox-label" for = "{{product_origin_name name}}">{{product_origin_name name}}</label>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+
+<!--         <div class="cd-filter-block">
           <h4>Select</h4>
           <div class="cd-filter-content">
             <div class="cd-select cd-filters">
@@ -109,9 +121,9 @@
               </select>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="cd-filter-block">
+    <!--     <div class="cd-filter-block">
           <h4>Category</h4>
           <ul class="cd-filter-content cd-filters list">
             <li>
