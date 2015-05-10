@@ -50,7 +50,8 @@ Router.route('/dashboard', {
   waitOn: () ->
     return [
       Meteor.subscribe('items'),
-      Meteor.subscribe('categories')
+      Meteor.subscribe('categories'),
+      Meteor.subscribe('sites')
     ]
 
   })
