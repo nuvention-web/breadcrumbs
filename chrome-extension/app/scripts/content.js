@@ -164,28 +164,52 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.description = description;
         break;
 
+      case 'store.nike.com':
+        var name = $('.exp-product-title').text();
+        var price = $(".exp-pdp-local-price").text();
+        var brand = "Nike";
+        var category = $(".exp-product-subtitle").text();
+        var web_taxonomy = [];
+        var model = "";
+        var main_image = $(".exp-pdp-hero-image").attr("src");
+        var all_images = [];
+        $(".exp-pdp-alt-images-carouselli").each(function(){
+            all_images.push($(this).find('img').attr("src"));
+        });
+        var description = $(".colorText").text();
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+        break;
+
       // case 'ruvilla.com':
       //   var name = $(".product-name").ignore('span').text();
       //   var price = $(".price").text();
       //   var brand = $(".brand")text();
-      //   // var category = $("gh-cat option:selected").text();
-      //   // if (category == ""){
-      //   //     category = $(".scnd").text();
-      //   // }
-      //   // var web_taxonomy = [];
-      //   // $("#vi-VR-brumb-lnkLst li").each(function(){
-      //   //     if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
-      //   //         web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
-      //   //     }
-      //   // })
+      //   var category = $("gh-cat option:selected").text();
+      //   if (category == ""){
+      //       category = $(".scnd").text();
+      //   }
+      //   var web_taxonomy = [];
+      //   $("#vi-VR-brumb-lnkLst li").each(function(){
+      //       if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
+      //           web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
+      //       }
+      //   })
       //   var tax_counter = 0;
 
-      //   // var model = $(".itemAttr").find("h2[itemprop='model']").text();
+      //   var model = $(".itemAttr").find("h2[itemprop='model']").text();
       //   var main_image = $(".MagicZoomPlus").attr("href");
-      //   // var all_images = [];
-      //   // $("#vi_main_img_fs_slider li").each(function(){
-      //   //     all_images.push($(this).find('img').attr("src"));
-      //   // });
+      //   var all_images = [];
+      //   $("#vi_main_img_fs_slider li").each(function(){
+      //       all_images.push($(this).find('img').attr("src"));
+      //   });
       //   var description = $("#desc_ifr").attr("src");
 
       //   response.name = name;
