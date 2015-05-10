@@ -1,4 +1,11 @@
 
+# 4/10/2015 Comment this all out after you've restarted the server once!
+
+Items.find().forEach (item) ->
+    if not Sites.findOne {name: item.site}
+      Sites.insert({name: item.site, uid: item.uid})
+
+
 # # 4/2/2015
 # Items.find().forEach (item) ->
 #   if item.web_taxonomy?

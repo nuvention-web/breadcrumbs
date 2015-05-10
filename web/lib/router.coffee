@@ -91,6 +91,9 @@ Router.route('/datapost', where: 'server')
     console.log "[POST] Request created."
     console.log item
 
+    if not Sites.findOne {name: item.site}
+      Sites.insert({name: item.site, uid: item.uid})
+
     id = Items.findOne {main_image: item.main_image}
     if id?
       console.log 'Item already in database. Updating.'
