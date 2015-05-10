@@ -26,6 +26,10 @@ Template.dashboard.helpers
             return '1'
         else
             return determinePriceRange(parseFloat(price.substr(1)))
+    product_origin : (site) ->
+        site_logo = site.substring(0, site.indexOf('.'))
+        return "/images/logos/on-" + site_logo + ".png"
+
 
 Template.dashboard.rendered = () ->
     Session.set('categoryDeleteTarget', 0)
