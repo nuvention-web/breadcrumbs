@@ -16,7 +16,9 @@ Router.route('/', {
   waitOn: () ->
     return [
       Meteor.subscribe('items'),
-      Meteor.subscribe('categories')
+      Meteor.subscribe('categories'),
+      Meteor.subscribe('sites'),
+      Meteor.subscribe('subcategories')
     ]
 
   })

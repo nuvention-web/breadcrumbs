@@ -1,16 +1,16 @@
 
 # 4/10/2015 Comment this all out after you've restarted the server once!
 
-Items.find().forEach (item) ->
-    web_taxonomy = item.web_taxonomy[1..] if item.web_taxonomy
-    if web_taxonomy
-        for subcat in web_taxonomy
-            if not Subcategories.findOne { super_category: item.category, name: subcat, uid: item.uid }
-                Subcategories.insert { super_category: item.category, uid: item.uid, name: subcat, filter_name: classify(subcat) }
+# Items.find().forEach (item) ->
+#     web_taxonomy = item.web_taxonomy[1..] if item.web_taxonomy
+#     if web_taxonomy
+#         for subcat in web_taxonomy
+#             if not Subcategories.findOne { super_category: item.category, name: subcat, uid: item.uid }
+#                 Subcategories.insert { super_category: item.category, uid: item.uid, name: subcat, filter_name: classify(subcat) }
 
-        subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
+#         subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
 
-        Items.update item, {$set: {subcategories: subcategories}}
+#         Items.update item, {$set: {subcategories: subcategories}}
 
 
 # Items.find().forEach (item) ->
