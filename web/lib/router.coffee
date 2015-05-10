@@ -87,12 +87,12 @@ Router.route('/datapost', where: 'server')
     if item.web_taxonomy?
       item.category = item.web_taxonomy[0]
       item.filter_name = classify item.category
-      item.subcategories = item.web_taxonomy[..]
+      item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
     
     console.log "[POST] Request created."
     console.log item
 
-    if not Sites.findOne {name: item.site}
+    if not Sites.findOne {name: item.site, uid: item.uid}
       Sites.insert({name: item.site, uid: item.uid})
 
     id = Items.findOne {main_image: item.main_image}
@@ -114,6 +114,12 @@ Router.route('/datapost', where: 'server')
         Categories.find({uid: item.uid}).forEach (category) ->
           if not done and category.name is item.category
             Categories.update category, {$push: { items: id }}
+
+            web_taxonomy = item.web_taxonomy[1..]
+            for subcat in web_taxonomy
+              if not Subcategories.findOne { super_category: item.category, name: subcat, uid: item.uid }
+                Subcategories.insert { super_category: item.category, uid: item.uid, name: subcat, filter_name: classify(subcat)}
+
             done = true
 
         if not done
@@ -124,6 +130,11 @@ Router.route('/datapost', where: 'server')
             filter_name: item.filter_name
           console.log('Creating new category: ' + new_category.name)
           Categories.insert new_category
+
+          web_taxonomy = item.web_taxonomy[1..]
+          for subcat in web_taxonomy
+            if not Subcategories.findOne { super_category: new_category, name: subcat, uid: item.uid }
+              Subcategories.insert { super_category: new_category, uid: item.uid, name: subcat, filter_name: classify(subcat)}
 
       else
         # do nothing for now

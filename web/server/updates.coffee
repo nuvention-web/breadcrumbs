@@ -2,10 +2,22 @@
 # 4/10/2015 Comment this all out after you've restarted the server once!
 
 Items.find().forEach (item) ->
-    if not Sites.findOne {name: item.site}
-      Sites.insert({name: item.site, uid: item.uid})
+    web_taxonomy = item.web_taxonomy[1..] if item.web_taxonomy
+    if web_taxonomy
+        for subcat in web_taxonomy
+            if not Subcategories.findOne { super_category: item.category, name: subcat, uid: item.uid }
+                Subcategories.insert { super_category: item.category, uid: item.uid, name: subcat, filter_name: classify(subcat) }
+
+        subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
+
+        Items.update item, {$set: {subcategories: subcategories}}
 
 
+# Items.find().forEach (item) ->
+#     if not Sites.findOne {name: item.site}
+#       Sites.insert({name: item.site, uid: item.uid})
+#
+#
 # # 4/2/2015
 # Items.find().forEach (item) ->
 #   if item.web_taxonomy?
@@ -52,6 +64,6 @@ Items.find().forEach (item) ->
 #       console.log('Creating new category: ' + new_category.name)
 #       Items.update item, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
 #       Categories.insert new_category
-
+#
 # Categories.find().forEach (category) ->
 #   Categories.update category, {$set: {filter_name: classify(category.name)}}

@@ -1,0 +1,9 @@
+@Subcategories = new Mongo.Collection 'subcategories'
+
+# Subcategories.allow
+#     insert: (userId, doc) ->
+#         # ...
+#     update: (userId, doc, fields, modifier) ->
+#         # ...
+#     remove: (userId, doc) ->
+#         # ...
