@@ -2,7 +2,7 @@
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
-    // debugger;
+    debugger;
     var response = request.page;
 
     //ignore function for ebay's title issue
@@ -22,37 +22,81 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var price = $('#priceblock_ourprice').text();
         var main_image = $('#main-image-container').find('img').attr('src');
 
-        var rating_text = $('#avgRating').children()[0].innerText;
+        var rating_text = $('#acrPopover').attr('title');
         var rating = rating_text.split(' ')[0];
 
-        var breadcrumbs = $('#browse_feature_div').find('a');
+        var breadcrumbs = $('#wayfinding-breadcrumbs_container').find('a');
         var web_taxonomy = [];
         for(var i=0; i < breadcrumbs.length; i++) {
-          if (breadcrumbs[i].innerText && breadcrumbs[i].innerText.indexOf('Back to search') === -1) {
+          if (breadcrumbs[i].innerText) {
             web_taxonomy.push(breadcrumbs[i].innerText);
           }
         }
-        
+
+        try {
+          if (web_taxonomy.length === 0 || web_taxonomy[0].indexOf('Back to search results') !== -1) {
+            breadcrumbs = $('#browse_feature_div').find('a');
+            web_taxonomy = [];
+            for(i=0; i < breadcrumbs.length; i++) {
+              if (breadcrumbs[i].innerText) {
+                web_taxonomy.push(breadcrumbs[i].innerText);
+              }
+            }
+          }
+        }
+        catch (err) {
+          // do nothing
+        }
+
+        try {
+          if (web_taxonomy.length === 0 || web_taxonomy[0].indexOf('Back to search results') !== -1) {
+            breadcrumbs = $('.zg_hrsr_ladder').first().find('a');
+            web_taxonomy = [];
+            for(i=0; i < breadcrumbs.length; i++) {
+              if (breadcrumbs[i].innerText) {
+                web_taxonomy.push(breadcrumbs[i].innerText);
+              }
+            }
+          }
+        }
+        catch (err) {
+          // do nothing
+        }
+
+        // fallback
+        try {
+          if (web_taxonomy.length === 0 || web_taxonomy[0].indexOf('Back to search results') !== -1) {
+            breadcrumbs = $('meta[name=title]').attr('content');
+            breadcrumbs = breadcrumbs.split(': ');
+            web_taxonomy = [breadcrumbs[breadcrumbs.length - 1]];
+          }
+        }
+        catch (err) {
+          // do nothing!
+        }
+
+        if ($('body').hasClass('book')) {
+          web_taxonomy = ['Books'];
+          var price_elements = $('#tmmSwatches').find('.a-color-secondary');
+          if (price_elements) {
+              price = $(price_elements[0]).children()[0].innerText;
+          }
+        }
+
+        if ($('body').hasClass('amazon_tablets')) {
+          web_taxonomy = ['Tablets'];
+        }
+
+        if ($('body').hasClass('amazon_ereaders')) {
+          web_taxonomy = ['E-Readers'];
+        }
+
         response.name = name;
         response.brand = brand;
         response.price = price;
         response.main_image = main_image;
         response.rating = rating;
         response.web_taxonomy = web_taxonomy;
-
-        if ($('body').hasClass('book')) {
-            response.web_taxonomy = ['Books'];
-            var price_elements = $('#tmmSwatches').find('.a-color-secondary');
-            if (price_elements) {
-                response.price = $(price_elements[0]).children()[0].innerText;
-            }
-            // prices = [];
-            // for (i=0; i < price_elements.length; i++)  {
-            //     if (price_elements[i].innerText) {
-            //         prices.push(price_elements[i].innerText);
-            //     }
-            // }
-        }
 
         var details  = $('#descriptionAndDetails').find('.a-text-bold');
         for(i=0; i < details.length; i++) {

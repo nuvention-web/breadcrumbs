@@ -2,7 +2,7 @@
 @classify = (class_name) ->
     if class_name
         fix = class_name.replace(/\s/g, '-')
-        fix = fix.replace(/&|@,./g, '-') ## need to add others in
+        fix = fix.replace(/&|@|,|./g, '-') ## need to add others in
         return fix.toLowerCase() # to lower case
     else
         return 'undefined' #????
