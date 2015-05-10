@@ -16,6 +16,12 @@ Meteor.publish 'sites', () ->
     else
         this.ready()
 
+Meteor.publish 'subcategories', () ->
+    if this.userId
+        return Subcategories.find {uid: this.userId}
+    else
+        this.ready()
+
 Meteor.publish 'allUserData', () ->
     if this.userId
         return Meteor.users.find {}, {fields: {'categories': 1, 'name': 1, 'email': 1}}

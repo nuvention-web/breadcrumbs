@@ -51,7 +51,8 @@ Router.route('/dashboard', {
     return [
       Meteor.subscribe('items'),
       Meteor.subscribe('categories'),
-      Meteor.subscribe('sites')
+      Meteor.subscribe('sites'),
+      Meteor.subscribe('subcategories')
     ]
 
   })
