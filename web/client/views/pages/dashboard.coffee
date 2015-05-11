@@ -158,7 +158,7 @@ Template.dashboard.events
         if input.length > 0
             $('.mix').each () ->
                 $this = $(this)
-                if $this.attr('class').toLowerCase().match input
+                if (($this.attr('class').toLowerCase().match input) or ($this.find('.single-line-name').text().toLowerCase().match input))
                     $matching = $matching.add this
                 else
                     $matching = $matching.not this
