@@ -171,6 +171,9 @@ p {
                 a:hover {
                     color: rgba(255, 255, 255, 0.7);
                 }
+                a:active {
+                	border-style: none;
+                }
 		}
 		.bc-button {
 			border: 2px solid;
@@ -194,12 +197,10 @@ p {
 .jumbotron {
 	background-image: url("/images/landing/breadcrumbs-bg.png");
 	background-size: 100%;
-	min-height:700px;
 	display: table;
 	width: 100%;
+	height: 100vh;
 	.layover{
-		height:100%;
-		// background-color: white;
 		opacity: 0.8;
 		display: table-cell;
     	vertical-align: middle;

@@ -1,12 +1,12 @@
 'use strict';
 
-/* POST REQUEST SETUP */
+// post request setup
 // var domain = 'http://localhost:3000';
 var domain = 'http://breadcrumbs.ninja';
 var path = domain + '/datapost';
 var tabStore = {};
 
-/* CROSS-DOMAIN POST TO SERVER */
+// cross-domain post to server
 function post(params) {
   console.log('ATTEMPTING POST');
   console.log(params);
@@ -82,6 +82,8 @@ chrome.tabs.onUpdated.addListener(
       chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', page: newPage}, function (res) {
         if (res && res.price) {
           tabStore[tabID].previous = res;
+          res.close = res.open;
+          post(res);
         }
       });
     }
