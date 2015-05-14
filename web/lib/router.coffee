@@ -98,7 +98,7 @@ Router.route('/datapost', where: 'server')
     if not Sites.findOne {name: item.site, uid: item.uid}
       Sites.insert({name: item.site, uid: item.uid})
 
-    id = Items.findOne {main_image: item.main_image}
+    id = Items.findOne {name: item.name, site: item.site}
     if id?
       console.log 'Item already in database. Updating.'
       if (isNaN id.total_time_open)
