@@ -1,17 +1,20 @@
 
 reClassify = () ->
-    Items.find().forEach(item) ->
+    Items.find().forEach (item) ->
         item.filter_name = classify item.category
-        for index in [0...item.subcategories.length]
-            item.subcategories[index] = classify item.subcategories[index]
+        if item.subcategories
+            for index in [0...item.subcategories[0].length]
+                item.subcategories[0][index] = classify(item.subcategories[0][index])
+            item.subcategories = item.subcategories[0]
         Items.update item._id, item
 
-    Categories.find().forEach(category) ->
+    Categories.find().forEach (category) ->
         Categories.update category, {$set: { filter_name: classify(category.filter_name) }}
 
-    Subcategories.find().forEach(category) ->
+    Subcategories.find().forEach (category) ->
         Subcategories.update category, {$set: { filter_name: classify(category.filter_name) }}
 
+reClassify()
 
 # 4/10/2015 Comment this all out after you've restarted the server once!
 
