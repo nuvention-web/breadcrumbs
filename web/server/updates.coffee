@@ -1,5 +1,21 @@
 
+reClassify = () ->
+    Items.find().forEach(item) ->
+        item.filter_name = classify item.category
+        for index in [0...item.subcategories.length]
+            item.subcategories[index] = classify item.subcategories[index]
+        Items.update item._id, item
+
+    Categories.find().forEach(category) ->
+        Categories.update category, {$set: { filter_name: classify(category.filter_name) }}
+
+    Subcategories.find().forEach(category) ->
+        Subcategories.update category, {$set: { filter_name: classify(category.filter_name) }}
+
+
 # 4/10/2015 Comment this all out after you've restarted the server once!
+
+# Categories.remove({})
 
 # Items.find().forEach (item) ->
 #     web_taxonomy = item.web_taxonomy[1..] if item.web_taxonomy
@@ -10,12 +26,26 @@
 
 #         subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
 
-#         Items.update item, {$set: {subcategories: subcategories}}
+#         category = item.web_taxonomy[0]
+#         filter_name = classify item.category
+#         Items.update item, {$set: {subcategories: subcategories, category: category, filter_name: filter_name}}
+
+#         category = Categories.findOne {uid: item.uid, name: item.category}
+#         if category
+#             Categories.update category, {$push: { items: item._id }}
+#         else
+#             new_category = 
+#                 name: item.category
+#                 uid: item.uid
+#                 items: [item._id]
+#                 filter_name: item.filter_name
+#             Categories.insert new_category
+
+    # if not Sites.findOne {name: item.site, uid: item.uid}
+    #     Sites.insert({name: item.site, uid: item.uid})
 
 
 # Items.find().forEach (item) ->
-#     if not Sites.findOne {name: item.site}
-#       Sites.insert({name: item.site, uid: item.uid})
 #
 #
 # # 4/2/2015
