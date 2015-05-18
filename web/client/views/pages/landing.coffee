@@ -14,16 +14,28 @@ Template.landing.events
   'submit form': (event) ->
     event.preventDefault()
     event.stopPropagation()
-    $('#messages').hide()
 
-    name = event.target.fullname.value
+    name = event.target.name.value
     email = event.target.email.value
+    message = event.target.message.value
 
-    if Interest.findOne {email: email}
-      $('#messages').show()
-    else
-      Interest.insert {name: name, email: email}
-      Router.go '/thanks'
+# to, from, subject, msg
+    Meteor.call('sendEmail',
+            email,
+            'contact@breadcrumbs.ninja',
+            'Hello from Meteor!',
+            'Thank you for your feedback! We will be in touch shortly :)')
+    Meteor.call('sendEmail',
+            'contact@breadcrumbs.ninja',
+            email,
+            'Feedback Receieved. Please Read. From:' +  email,
+            message)
+
+    # if Interest.findOne {email: email}
+    #   $('#messages').show()
+    # else
+    #   Interest.insert {name: name, email: email}
+    #   Router.go '/thanks'
 
 
 Accounts.ui.config({
