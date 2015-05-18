@@ -157,15 +157,30 @@
 
 <!-- Contact -->
   <div id = "sec5" class = "contact default">
-    <div class = "container row">
-      <div class = "col-xs-9">
-        <p>We are in an early phase of developing this product and your feedback would be valuable to our growth. Let us know what you think, how we can improve, and any concerns you may have! We will respond as soon as possible.</p>
-      </div>
+    <div class = "container">
+      <div class = "row ">
+        <div class = "col-xs-9">
+          <h3>We are in an early phase of developing this product and your feedback would be valuable to our growth. Let us know what you think, how we can improve, and any concerns you may have! We will respond as soon as possible.</h3>
+        </div>
     </div>
     <div class = "row">
-      <form>
-        <label name = "name"></label>
-      </form>
+      <form id = "contactUs" class = "container" method = "post">
+            <div class="row">
+              <label> Name: </label>
+              <input id = "name" placeholder = "name" type='name' name='name' required>
+            </div>
+            <div class="row">
+              <label> Email: </label>
+              <input id = "email" placeholder = "email" type='email' name='email' required>
+            </div>
+            <div class="row">
+              <label> Message: </label>
+              <textarea rows = "5" cols = "50"></textarea>
+            </div>
+             <input class = "bc-button" type = "submit" value = "Send">
+             <button id = "goBack" class="bc-button">Go Back</button>
+          </form>
+    </div>
     </div>
   </div>
 <!-- END CONTACT -->

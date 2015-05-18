@@ -4,6 +4,12 @@ Accounts.onCreateUser (options, user) ->
   Meteor.setTimeout (->
     Accounts.sendVerificationEmail user._id
     return
-  ), 2 * 1000
+  ), 2 * 750
   user
 
+Accounts.validateLoginAttempt (attempt) ->
+  if attempt.user and attempt.user.emails and !attempt.user.emails[0].verified
+    console.log 'email not verified'
+    return false
+    # the login is aborted
+  true
