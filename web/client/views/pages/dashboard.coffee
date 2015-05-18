@@ -177,6 +177,7 @@ triggerFilter = ($bool) ->
     elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')])
     elementsToTrigger.each(() ->
         $(this).toggleClass 'filter-is-visible', $bool)
+        
 
 fixGallery = () ->
     # offsetTop = $('.cd-main-content').offset().top

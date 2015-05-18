@@ -21,8 +21,6 @@ a:visited{
 	text-decoration:none;
 }
 .cd-header {
-	width: 100%;
-	height: 75px !important;
 	.navbar {
 		position: relative;
 	}
@@ -149,10 +147,10 @@ Main Components
 -------------------------------- */
 
 .cd-header {
-	position: relative;
-	height: 150px;
-	background-color: $color-1;
-
+	// margin-bottom: 0;
+	.navbar {
+		margin-bottom: 0;
+	}
 	h1 {
 		color: $color-3;
 		line-height: 150px;
@@ -162,7 +160,7 @@ Main Components
 	}
 
 	@include MQ(L) {
-		height: 180px;
+		// height: 180px;
 
 		h1 {
 			line-height: 180px;
