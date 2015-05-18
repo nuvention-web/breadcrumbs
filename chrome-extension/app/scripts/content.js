@@ -2,7 +2,7 @@
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
-    debugger;
+    // debugger;
     var response = request.page;
 
     //ignore function for ebay's title issue
