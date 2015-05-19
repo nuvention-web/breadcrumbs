@@ -24,7 +24,7 @@ Template.landing.events
             email,
             'contact@breadcrumbs.ninja',
             'Hello from Meteor!',
-            'Thank you ' + email + ' for your feedback! We will be in touch shortly :) \n' + 'Your message: ' + message)
+            'Thank you ' + name + " " + email + ' for your feedback! We will be in touch shortly :) \n' + 'Your message: ' + message)
     Meteor.call('sendEmail',
             'contact@breadcrumbs.ninja',
             email,
