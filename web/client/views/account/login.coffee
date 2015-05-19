@@ -18,7 +18,7 @@ Template.login.events 'submit #loginForm': (e, t) ->
     Meteor.loginWithPassword email, password, (err) ->
       if err
         console.log 'These credentials are not valid.'
-        alert 'Please verify your email!'
+        alert 'These credentials are not valid.'
       else
         console.log 'Welcome back Meteorite!'
         Router.go '/dashboard'
