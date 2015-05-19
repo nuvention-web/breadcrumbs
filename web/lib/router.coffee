@@ -32,6 +32,8 @@ Router.route('/admin', ->
 Router.route('/forgotPassword', ->
   this.render 'forgotPassword')
 
+Router.route('/thankyou', ->
+  this.render 'thankyou')
 
 Router.route('/contact', ->
   this.render 'contact')

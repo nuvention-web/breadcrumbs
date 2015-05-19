@@ -20,6 +20,8 @@ Template.register.events 'submit #registerForm': (e, t) ->
           console.log 'We are sorry but this email is already used.'
         else
           console.log 'We are sorry but something went wrong.'
+          Session.set('currentRegisterEmail', email)
+          Router.go '/thankyou'
       else
         console.log 'Congrats new Meteorite, you\'re in!'
         Router.go '/'
