@@ -10,7 +10,6 @@
     "default_locale": "en",
     "background": {
         "scripts": [
-            "bower_components/node-htmlparser/lib/htmlparser.js",
             "bower_components/jquery/dist/jquery.js",
             "scripts/chromereload.js",
             "scripts/background.js"
@@ -38,18 +37,8 @@
         ]
     },
     "permissions": [
-        "identity",
-        "bookmarks",
-        "clipboardRead",
-        "contentSettings",
-        "contextMenus",
         "tabs",
-        "webNavigation",
-        "webRequest",
-        "history",
         "storage",
-        "geolocation",
-        "http://*/",
-        "https://*/"
+        "<all_urls>"
     ]
 }
