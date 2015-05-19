@@ -622,6 +622,7 @@ xcustom form elements
 
 	input[type='search'],
 	input[type='text'],
+	input[type='number'],
 	select {
 		width: 100%;
 		padding: .8em;
@@ -647,6 +648,12 @@ xcustom form elements
 		display: none;
 	}
 
+	input[type='number'] {
+		border-color: transparent;
+		background-color: darken($color-3, 10%);
+		font-size: 1.6rem !important;
+		margin-bottom: 5px;
+	}
 	.cd-select {
 		/* select element wrapper */
 		position: relative;

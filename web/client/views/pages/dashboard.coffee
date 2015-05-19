@@ -2,6 +2,11 @@ $container = null
 $matching = $()
 groups = []
 
+search_filter = ''
+price_filter = [0, Infinity]
+category_filter = ''
+site_filter = []
+
 filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
@@ -19,13 +24,6 @@ Template.dashboard.helpers
         return Categories.find {'items.0': {$exists: true}, status: {$ne: 'inactive'}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
-    price_filter: (price) ->
-        is_range = price.indexOf('-') is not -1
-        if is_range
-            console.log 'range, do this'
-            return '1'
-        else
-            return determinePriceRange(parseFloat(price.substr(1)))
     sites: () ->
         return Sites.find()
     product_origin_name : (name) ->
@@ -33,7 +31,6 @@ Template.dashboard.helpers
     product_origin_image : (site) ->
         site_logo = site.substring(0, site.indexOf('.'))
         return "/images/logos/on-" + site_logo + ".png"
-
 
 Template.dashboard.rendered = () ->
     Session.set('categoryDeleteTarget', 0)
@@ -123,13 +120,23 @@ Template.dashboard.events
 
             $('.cd-tab-filter .selected').removeClass 'selected'
             target.addClass 'selected'
+            category_filter = selected_filter
             parseFilters()
 
-    'click .cd-main-content a': (event) ->
+    'click #site-filters input': (event) ->
+        $sites = $('#site-filters ul').find('input')
+        site_filter = []
+        for site in $sites
+            if site.checked
+                site_filter.push site.getAttribute('id')
         parseFilters()
 
-    'change .cd-main-content': (event) ->
-        parseFilters()
+    'keyup #price-filters input': (event) ->
+        event.stopPropagation()
+        update_price_filter(event.target.name, event.target.value)
+
+    'change #price-filters input': (event) ->
+        update_price_filter(event.target.name, event.target.value)
 
     'click .cd-tab-filter .glyphicon-remove': (event) ->
         event.stopPropagation()
@@ -152,20 +159,9 @@ Template.dashboard.events
         current_target.siblings('.cd-filter-content').slideToggle 300
 
     'keyup .cd-filter-content input[type="search"]': (event) ->
-        console.log 'hi'
-        # delay () ->
-        input = $('.cd-filter-content input[type="search"]').val().toLowerCase();
-        if input.length > 0
-            $('.mix').each () ->
-                $this = $(this)
-                if (($this.attr('class').toLowerCase().match input) or ($this.find('.single-line-name').text().toLowerCase().match input))
-                    $matching = $matching.add this
-                else
-                    $matching = $matching.not this
-            $('.cd-gallery ul').mixItUp 'filter', $matching
-        else
-            $('.cd-gallery ul').mixItUp 'filter', 'all'
-
+        search_filter = $('.cd-filter-content input[type="search"]').val().toLowerCase();
+        parseFilters()
+        
     'submit form': (event) ->
         event.preventDefault()
 
@@ -178,7 +174,6 @@ triggerFilter = ($bool) ->
     elementsToTrigger.each(() ->
         $(this).toggleClass 'filter-is-visible', $bool)
         
-
 fixGallery = () ->
     offsetTop = $('.cd-main-content').offset().top
     scrollTop = $(window).scrollTop()
@@ -193,38 +188,76 @@ delay = () ->
             clearTimeout timer
             timer = setTimeout callback, ms
 
-parseFilters = () ->
-    console.log 'fire'
-    for group in groups
-        group.active = []
-        group.$inputs.each( () ->
-          if $this.is('input[type="radio"]') or $this.is('input[type="checkbox"]')
-            $this = $(this)
-            if $this.is ':checked'
-                group.active.push $this.attr('data-filter')
-
-            else if $this.is('select')
-                group.active.push $this.val()
-
-            else if $this.find('.selected').length > 0 
-                group.active.push $this.attr('data-filter')
-        )
-
-    outputString = ''
-
-    for group in groups
-        outputString += group.active
-
-    if outputString.length is 0
-        outputString = 'all'
-
-    if $container.mixItUp 'isLoaded'
-        $container.mixItUp 'filter', outputString
-
-determinePriceRange = (price) ->
-    if price < 50
-        return 'price1'
-    else if price <= 100
-        return 'price2'
+update_price_filter = (name, value) ->
+    if name is 'min-price'
+        index = 0
     else
-        return 'price3'
+        index = 1
+    
+    if value
+        price_filter[index] = Number(value)
+    else
+        if index is 0
+            price_filter[0] = 0
+        else
+            price_filter[1] = Infinity
+
+    console.log price_filter
+    parseFilters()
+
+parseFilters = () ->
+    $('.mix').each () ->
+        $this = $(this)
+        if passes_search_filter($this) and passes_category_filter($this) and passes_price_filter($this) and passes_site_filter($this)
+            $matching = $matching.add this
+        else
+            $matching = $matching.not this
+
+    $('.cd-gallery ul').mixItUp 'filter', $matching
+
+passes_search_filter = (item) ->
+    if search_filter.length > 0
+        $item = $(item)
+        if (($item.attr('class').toLowerCase().match search_filter) or ($item.find('.single-line-name').text().toLowerCase().match search_filter))
+            return true
+        else
+            return false
+    else
+        return true
+
+passes_site_filter = (item) ->
+    $item = $(item)
+    $item.data('site')
+    if site_filter.length == 0 or $item.data('site') in site_filter
+        return true
+    else
+        return false
+
+passes_price_filter = (item) ->
+    $item = $(item)
+    price = $item.data 'price'
+
+    is_range = price.indexOf('-') is not -1
+    if is_range
+        # needs to be implemented
+        min_price = 0
+        max_price = 1
+        if (min_price >= price_filter[0] and min_price <= price_filter[1]) or (max_price >= price_filter[0] and max_price <= price_filter[1])
+            return true
+        else
+            return false
+    else
+        price = parseFloat(price.substr(1))
+        if price >= price_filter[0] and price <= price_filter[1]
+            return true
+        else
+            return false
+
+
+passes_category_filter = (item) ->
+    $item = $(item)
+    category_filter = '' if category_filter == 'all'
+    if category_filter == '' or $item.data('category') == category_filter
+        return true
+    else
+        return false
