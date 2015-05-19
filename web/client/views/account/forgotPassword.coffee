@@ -1,4 +1,3 @@
-console.log 'here'
 Template.forgotPassword.events 
   'submit #forgotPasswordForm': (e, t) ->
     e.preventDefault()

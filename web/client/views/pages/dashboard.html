@@ -14,7 +14,7 @@
           </li>
           <li class="filter"><a class="selected" href="#" data-type="">All</a></li>
           {{#each categories}}
-            <li class="filter" data-filter=".{{filter_name}}">
+            <li class="filter">
               <a href="#" data-type="{{filter_name}}">{{name}}</a>
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </li>
@@ -42,7 +42,7 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li class="mix check1 radio2 option3 item-div {{filter_name}} {{price_filter price}} {{product_origin_name site}}" data-id="{{_id}}" data-category="{{filter_name}}">
+          <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{product_origin_name site}}">
             <img class = "product-origin" src="{{product_origin_image site}}">
             <a href="{{url}}" target="_blank">
               <div class="item-wrapper">
@@ -75,35 +75,21 @@
           </div>
         </div>
 
-        <div class="cd-filter-block">
+        <div class="cd-filter-block" id="price-filters">
           <h4>Price Range</h4>
-          <ul class="cd-filter-content cd-filters list">
-            <li>
-              <input class="filter" data-filter="" type="radio" name="radioButton" id="price0" checked>
-              <label class="radio-label" for="price0">Any</label>
-            </li>
-            <li>
-              <input class="filter" data-filter=".price1" type="radio" name="radioButton" id="price1">
-              <label class="radio-label" for="price1">under $50</label>
-            </li>
-            <li>
-              <input class="filter" data-filter=".price2" type="radio" name="radioButton" id="price2">
-              <label class="radio-label" for="price2">$50 - $99</label>
-            </li>
-            <li>
-              <input class="filter" data-filter=".price3" type="radio" name="radioButton" id="price3">
-              <label class="radio-label" for="price3">$99+</label>
-            </li>
-          </ul>
+          <div class="cd-filter-content">
+            <input name="min-price" type="number" placeholder="Minimum price" min="0">
+            <input name="max-price" type="number" placeholder="Maximum price" min="0">
+          </div>
         </div>
 
-        <div class = "cd-filter-block">
+        <div class = "cd-filter-block" id="site-filters">
           <h4>Site</h4>
           <ul class = "cd-filter-content cd-filters list">
             {{#each sites}}
             <li>
-              <input class = "filter" data-filter = ".{{product_origin_name name}}" type = "checkbox" value = "{{product_origin_name name}}" id = "{{product_origin_name name}}" name = "{{product_origin_name name}}">
-              <label class = "checkbox-label" for = "{{product_origin_name name}}">{{product_origin_name name}}</label>
+              <input class="filter" type="checkbox" id = "{{product_origin_name name}}">
+              <label class="checkbox-label" for="{{product_origin_name name}}">{{product_origin_name name}}</label>
             </li>
             {{/each}}
           </ul>

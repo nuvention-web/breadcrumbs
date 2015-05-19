@@ -22,20 +22,17 @@ Template.landing.events
 # to, from, subject, msg
     Meteor.call('sendEmail',
             email,
-            'contact@breadcrumbs.ninja',
+            'hi@breadcrumbs.ninja',
             'Hello from Meteor!',
-            'Thank you ' + email + ' for your feedback! We will be in touch shortly :) \n' + 'Your message: ' + message)
+            'Thank you ' + name + " " + email + ' for your feedback! We will be in touch shortly :) \n' + 'Your message: ' + message)
     Meteor.call('sendEmail',
-            'contact@breadcrumbs.ninja',
+            'hi@breadcrumbs.ninja',
             email,
             'Feedback Receieved. Please Read. From:' +  email,
             message)
 
-    # if Interest.findOne {email: email}
-    #   $('#messages').show()
-    # else
-    #   Interest.insert {name: name, email: email}
-    #   Router.go '/thanks'
+
+
 
 
 Accounts.ui.config({
