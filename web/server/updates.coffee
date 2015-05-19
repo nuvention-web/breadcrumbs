@@ -1,7 +1,7 @@
 
-Subcategories.find().forEach (category) ->
-    if category.super_category.name?
-        Subcategories.update category, {$set: { super_category: category.super_category.name }}
+# Subcategories.find().forEach (category) ->
+#     if category.super_category.name?
+#         Subcategories.update category, {$set: { super_category: category.super_category.name }}
 
 reClassify = () ->
     Items.find().forEach (item) ->

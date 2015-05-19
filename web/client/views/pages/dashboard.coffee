@@ -259,9 +259,9 @@ passes_price_filter = (item) ->
 
     is_range = price.indexOf('-') is not -1
     if is_range
-        # needs to be implemented
-        min_price = 0
-        max_price = 1
+        prices = price.split('-')
+        min_price = parseFloat(prices[0].replace(/[^\d\.]/g, ''))
+        max_price = parseFloat(prices[1].replace(/[^\d\.]/g, ''))
         if (min_price >= price_filter[0] and min_price <= price_filter[1]) or (max_price >= price_filter[0] and max_price <= price_filter[1])
             return true
         else
