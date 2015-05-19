@@ -1,10 +1,14 @@
 
+Subcategories.find().forEach (category) ->
+    if category.super_category.name?
+        Subcategories.update category, {$set: { super_category: category.super_category.name }}
+
 reClassify = () ->
     Items.find().forEach (item) ->
-        item.filter_name = classify item.category
+        # item.filter_name = classify item.category
         if item.subcategories
-            for index in [0...item.subcategories.length]
-                item.subcategories[index] = classify(item.subcategories[index])
+            # for index in [0...item.subcategories.length]
+                # item.subcategories[index] = classify(item.subcategories[index])
             item.subcategories = item.subcategories
         Items.update item._id, item
 

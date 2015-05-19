@@ -90,7 +90,7 @@ Router.route('/datapost', where: 'server')
     if item.web_taxonomy?
       item.category = item.web_taxonomy[0]
       item.filter_name = classify item.category
-      item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]]
+      item.subcategories = classify(subcat) for subcat in item.web_taxonomy[1..]
     
     console.log "[POST] Request created."
     console.log item
@@ -136,8 +136,8 @@ Router.route('/datapost', where: 'server')
 
           web_taxonomy = item.web_taxonomy[1..]
           for subcat in web_taxonomy
-            if not Subcategories.findOne { super_category: new_category, name: subcat, uid: item.uid }
-              Subcategories.insert { super_category: new_category, uid: item.uid, name: subcat, filter_name: classify(subcat)}
+            if not Subcategories.findOne { super_category: new_category.name, name: subcat, uid: item.uid }
+              Subcategories.insert { super_category: new_category.name, uid: item.uid, name: subcat, filter_name: classify(subcat)}
 
       else
         # do nothing for now

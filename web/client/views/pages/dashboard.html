@@ -15,7 +15,7 @@
           <li class="filter"><a class="selected" href="#" data-type="">All</a></li>
           {{#each categories}}
             <li class="filter">
-              <a href="#" data-type="{{filter_name}}">{{name}}</a>
+              <a href="#" data-name="{{name}}" data-type="{{filter_name}}">{{name}}</a>
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </li>
           {{/each}}
@@ -42,7 +42,7 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{product_origin_name site}}">
+          <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{product_origin_name site}}" data-subcategories="{{parseSubcategories subcategories}}">
             <img class = "product-origin" src="{{product_origin_image site}}">
             <a href="{{url}}" target="_blank">
               <div class="item-wrapper">
@@ -91,6 +91,24 @@
               <input class="filter" type="checkbox" id = "{{product_origin_name name}}">
               <label class="checkbox-label" for="{{product_origin_name name}}">{{product_origin_name name}}</label>
             </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <div class = "cd-filter-block" id="subcategory-filters">
+          <h4>Subcategories</h4>
+          <ul class = "cd-filter-content cd-filters list">
+            {{#each subcategories_db}}
+              {{#if nothing}}
+              <li>
+                <label class="checkbox-label">Select a category first!</label>
+              </li>
+              {{else}}
+              <li>
+                <input class="filter" type="checkbox" id="{{filter_name}}">
+                <label class="checkbox-label" for="{{filter_name}}">{{name}}</label>
+              </li>
+              {{/if}}
             {{/each}}
           </ul>
         </div>
