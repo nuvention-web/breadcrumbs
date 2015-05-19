@@ -136,8 +136,8 @@ Router.route('/datapost', where: 'server')
 
           web_taxonomy = item.web_taxonomy[1..]
           for subcat in web_taxonomy
-            if not Subcategories.findOne { super_category: new_category, name: subcat, uid: item.uid }
-              Subcategories.insert { super_category: new_category, uid: item.uid, name: subcat, filter_name: classify(subcat)}
+            if not Subcategories.findOne { super_category: new_category.name, name: subcat, uid: item.uid }
+              Subcategories.insert { super_category: new_category.name, uid: item.uid, name: subcat, filter_name: classify(subcat)}
 
       else
         # do nothing for now
