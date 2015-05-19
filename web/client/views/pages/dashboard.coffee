@@ -198,8 +198,8 @@ parseFilters = () ->
     for group in groups
         group.active = []
         group.$inputs.each( () ->
-            $this = $(this)
-            if $this.is('input[type="radio"]') or $this.is('input[type="checkbox"]')
+          if $this.is('input[type="radio"]') or $this.is('input[type="checkbox"]')
+          $this = $(this)
                 if $this.is ':checked'
                     group.active.push $this.attr('data-filter')
 
