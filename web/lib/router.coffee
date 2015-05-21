@@ -90,7 +90,7 @@ Router.route('/datapost', where: 'server')
     if item.web_taxonomy?
       item.category = item.web_taxonomy[0]
       item.filter_name = classify item.category
-      item.subcategories = classify(subcat) for subcat in item.web_taxonomy[1..]
+      item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
     
     console.log "[POST] Request created."
     console.log item
