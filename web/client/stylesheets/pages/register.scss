@@ -15,10 +15,23 @@ input {
 	margin-bottom: 0;
 }
 
-#alreadyUser{
-	display: inline-block;
-}
+// #alreadyUser{
+// 	display: inline-block;
+// }
 
 .row {
 	margin-bottom: 20px;
+}
+
+#registerForm {
+		label {
+			margin: 2px 0;
+		}
+		input {
+			margin: 2px 0;
+			width:100%;
+		}
+		#registerInput {
+			width: 50%;
+		}
 }
