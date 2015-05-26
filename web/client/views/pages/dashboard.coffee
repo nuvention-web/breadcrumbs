@@ -14,12 +14,6 @@ filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
 
 Template.dashboard.helpers
-    brands: () ->
-        filter = Session.get('category_filter')
-        if filter == 'all' or not filter
-            return [{nothing: true}]
-        else
-            return Brands.find { super_category: filter }
     items: () ->
         one_year_ago = new Date().getTime() - (1000 * 365 * 24 * 3600)
         return Items.find(
@@ -47,6 +41,18 @@ Template.dashboard.helpers
             return [{nothing: true}]
         else
             return Subcategories.find { super_category: filter }
+    brands: () ->
+        filter = Session.get('category_filter')
+        if filter == 'all' or not filter
+            return [{nothing: true}]
+        else
+            return Brands.find { super_category: filter }
+    category_filter_set: () ->
+        filter = Session.get('category_filter')
+        if filter == 'all' or not filter
+            return false
+        else
+            return true
 
 Template.dashboard.rendered = () ->
     Session.set('category_filter', 'all')
