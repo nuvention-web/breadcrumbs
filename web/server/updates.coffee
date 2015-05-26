@@ -10,7 +10,6 @@ Items.find().forEach (item) ->
         subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
         Items.update item, {$set: {subcategories: subcategories, filter_brand: classify(item.brand)}}
         main_subcategory = item.web_taxonomy[1]
-        console.log main_subcategory
         if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
             Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
                 
