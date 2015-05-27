@@ -1,4 +1,4 @@
-<template name = "navLanding">
+<template name = "navTeamContact">
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -8,23 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="scroll navbar-brand" href="#breadcrumbs">breadcrumbs/</a><img class = "beta-logo" src="/images/landing/beta.png">
+      <a class="scroll navbar-brand" href="/">breadcrumbs/</a><img class = "beta-logo" src="/images/landing/beta.png">
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    {{#if currentUser}}
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href="">HELLO, {{currentUser.emails.[0].address}}</a></li>
-          <li><a href="">|</a></li>
-          <li><a id="logout" href="landing">Logout</a></li>
-     </ul>
-    {{else}}
       <ul class="nav navbar-nav" id = "navbar-center">
-        <li><a class="scroll" href="#sec1">About</a></li>
-        <li><a class="scroll" href="#sec2">Using breadcrumbs</a></li>
-        <li><a class="scroll" href="#sec3">Supported sites</a></li>
-        <li><a class="" href="/team">Team</a></li>
-        <li><a class="" href="/contact">Contact</a></li>
+        <li><a class="scroll" href="/">About</a></li>
+        <li><a class="scroll" href="/">Using breadcrumbs</a></li>
+        <li><a class="scroll" href="/">Supported sites</a></li>
+        <li><a class="scroll" href="/team">Team</a></li>
+        <li><a class="scroll" href="/contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a id="login" href="/login">Login</a></li>
@@ -32,7 +25,6 @@
         <li><a id="registerNav" href="/register">Register</a></li>
         <!-- <li><a href = "/downloads/breadcrumbs.zip"><button class ="bc-button">DOWNLOAD</button></a></li> -->
       </ul>
-      {{/if}}
     </div>
   </div>
 </nav>
