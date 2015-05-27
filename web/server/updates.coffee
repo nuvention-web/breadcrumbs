@@ -1,35 +1,50 @@
+# smtp =
+#     username: 'no-reply@breadcrumbs.ninja'
+#     password: 'brown2town'
+#     server:   'smtp.gmail.com'
+#     port: 25
+
+# process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;    
+
+# Email.send
+#     from: 'no-reply@breadcrumbs.ninja'
+#     to: 'tsunami70875@gmail.com'
+#     subject: 'this is a test'
+#     text: 'testing'
+
+
 
 # Subcategories.find().forEach (category) ->
 #     if category.super_category.name?
 #         Subcategories.update category, {$set: { super_category: category.super_category.name }}
 
-Subcategories.remove({})
-Brands.remove({})
-Items.find().forEach (item) ->
-    if item.web_taxonomy
-        subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
-        Items.update item, {$set: {subcategories: subcategories, filter_brand: classify(item.brand)}}
-        main_subcategory = item.web_taxonomy[1]
-        if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-            Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
+# Subcategories.remove({})
+# Brands.remove({})
+# Items.find().forEach (item) ->
+#     if item.web_taxonomy
+#         subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
+#         Items.update item, {$set: {subcategories: subcategories, filter_brand: classify(item.brand)}}
+#         main_subcategory = item.web_taxonomy[1]
+#         if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+#             Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
                 
-    if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
-        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+#     if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+#         Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
 
-reClassify = () ->
-    Items.find().forEach (item) ->
-        # item.filter_name = classify item.category
-        if item.subcategories
-            # for index in [0...item.subcategories.length]
-                # item.subcategories[index] = classify(item.subcategories[index])
-            item.subcategories = item.subcategories
-        Items.update item._id, item
+# reClassify = () ->
+#     Items.find().forEach (item) ->
+#         # item.filter_name = classify item.category
+#         if item.subcategories
+#             # for index in [0...item.subcategories.length]
+#                 # item.subcategories[index] = classify(item.subcategories[index])
+#             item.subcategories = item.subcategories
+#         Items.update item._id, item
 
-    Categories.find().forEach (category) ->
-        Categories.update category, {$set: { filter_name: classify(category.filter_name) }}
+#     Categories.find().forEach (category) ->
+#         Categories.update category, {$set: { filter_name: classify(category.filter_name) }}
 
-    Subcategories.find().forEach (category) ->
-        Subcategories.update category, {$set: { filter_name: classify(category.filter_name) }}
+#     Subcategories.find().forEach (category) ->
+#         Subcategories.update category, {$set: { filter_name: classify(category.filter_name) }}
 
 # reClassify()
 
