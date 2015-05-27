@@ -1,10 +1,14 @@
 <template name="contact">
-{{>nav}}
-	<div class = "jumbotron container">
-    <div class = "layover">
-      <div class = "jumbotron-header">
-          <form id = "contactUs" class = "container" method = "post">
-            <h2 class='text-center'> Questions? Bugs? Concerns? Contact us! breadcrumbs/contact </h2>
+{{>navLanding}}
+	<div id = "sec5" class = "contact default">
+    <div class = "container">
+      <div class = "row ">
+        <div class = "col-xs-9">
+          <h3>We are in an early phase of developing this product and your feedback would be valuable to our growth. Let us know what you think, how we can improve, and any concerns you may have! We will respond as soon as possible.</h3>
+        </div>
+    </div>
+    <div class = "row">
+      <form id = "contactUs" class = "container" method = "post">
             <div class="row">
               <label> Name: </label>
               <input id = "name" placeholder = "name" type='name' name='name' required>
@@ -15,14 +19,13 @@
             </div>
             <div class="row">
               <label> Message: </label>
-              <textarea rows = "5" cols = "50"></textarea>
+              <textarea rows = "5" cols = "50" id = "message" name = "message"></textarea>
             </div>
              <input class = "bc-button" type = "submit" value = "Send">
-             <button id = "goBack" class="bc-button">Go Back</button>
-          </form>
-        </div>
+      </form>
     </div>
-</div>
+    </div>
+  </div>
 
 {{>footer}}
 </template>
