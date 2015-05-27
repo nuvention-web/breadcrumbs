@@ -2,7 +2,7 @@
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
-    // debugger;
+    debugger;
     var response = request.page;
 
     //ignore function for ebay's title issue
@@ -13,13 +13,16 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     // AMAZON
     switch(request.page.site) {
       case 'amazon.com':
-        console.log ('amazon')
+        console.log ('Amazon page detected.');
         var name = $('#productTitle').text();
         if (!name) {
             break;
         }
         var brand = $('#brand').text();
         var price = $('#priceblock_ourprice').text();
+        if (!price) {
+          price = $('#priceblock_saleprice').text();
+        }
         var main_image = $('#main-image-container').find('img').attr('src');
 
         var rating_text = $('#acrPopover').attr('title');
