@@ -7,7 +7,7 @@ Items.find().forEach (item) ->
         Items.update item, {$set: {site: 'Amazon'}}
     if item.site is 'ebay.com'
         Items.update item, {$set: {site: 'ebay'}}
-    if item.site is 'store.nike.amazon.com'
+    if item.site is 'store.nike.com'
         Items.update item, {$set: {site: 'Nike Store'}}
 
 Sites.find().forEach (site) ->
