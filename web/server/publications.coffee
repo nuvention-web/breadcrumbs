@@ -1,10 +1,14 @@
+Meteor.publish 'brands', () ->
+    if this.userId
+        return Brands.find {uid: this.userId}
+    else
+        this.ready()
 
 Meteor.publish 'items', () ->
     if this.userId
         return Items.find {uid: this.userId}
     else
         this.ready()
-
 
 Meteor.publish 'categories', () ->
     if this.userId

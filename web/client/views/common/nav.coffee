@@ -3,5 +3,5 @@ Template.nav.events
         e.preventDefault()
         e.stopPropagation()
         Meteor.logout ->
-        	Router.go '/landing'
+        	Router.go '/'
         console.log 'Bye Meteorite! Come back whenever you want!'

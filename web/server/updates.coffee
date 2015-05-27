@@ -3,6 +3,19 @@
 #     if category.super_category.name?
 #         Subcategories.update category, {$set: { super_category: category.super_category.name }}
 
+Subcategories.remove({})
+Brands.remove({})
+Items.find().forEach (item) ->
+    if item.web_taxonomy
+        subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
+        Items.update item, {$set: {subcategories: subcategories, filter_brand: classify(item.brand)}}
+        main_subcategory = item.web_taxonomy[1]
+        if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+            Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
+                
+    if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+
 reClassify = () ->
     Items.find().forEach (item) ->
         # item.filter_name = classify item.category

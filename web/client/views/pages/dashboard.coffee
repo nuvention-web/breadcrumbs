@@ -7,6 +7,7 @@ price_filter = [0, Infinity]
 category_filter = ''
 site_filter = []
 subcategory_filter = []
+brand_filter = []
 
 filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
@@ -33,16 +34,25 @@ Template.dashboard.helpers
         site_logo = site.substring(0, site.indexOf('.'))
         return "/images/logos/on-" + site_logo + ".png"
     parseSubcategories: (subcategories) ->
-        console.log subcategories
         return subcategories.toString()
-
     subcategories_db: () ->
         filter = Session.get('category_filter')
-        console.log filter
         if filter == 'all' or not filter
             return [{nothing: true}]
         else
             return Subcategories.find { super_category: filter }
+    brands: () ->
+        filter = Session.get('category_filter')
+        if filter == 'all' or not filter
+            return [{nothing: true}]
+        else
+            return Brands.find { super_category: filter }
+    category_filter_set: () ->
+        filter = Session.get('category_filter')
+        if filter == 'all' or not filter
+            return false
+        else
+            return true
 
 Template.dashboard.rendered = () ->
     Session.set('category_filter', 'all')
@@ -160,6 +170,15 @@ Template.dashboard.events
                 subcategory_filter.push subcat.getAttribute('id')
         parseFilters()
 
+    'click #brand-filters': (event) ->
+        $brands = $('#brand-filters ul').find('input')
+        brand_filter = []
+        for brand in $brands
+            if brand.checked
+                brand_filter.push brand.getAttribute('id')
+        console.log brand_filter
+        parseFilters()
+
     'click .cd-tab-filter .glyphicon-remove': (event) ->
         event.stopPropagation()
         Session.set 'categoryDeleteTarget', $(event.target).parent().attr('data-filter').substr(1)
@@ -229,7 +248,7 @@ update_price_filter = (name, value) ->
 parseFilters = () ->
     $('.mix').each () ->
         $this = $(this)
-        if passes_search_filter($this) and passes_category_filter($this) and passes_price_filter($this) and passes_site_filter($this) and passes_subcategory_filter($this)
+        if passes_search_filter($this) and passes_category_filter($this) and passes_price_filter($this) and passes_site_filter($this) and passes_subcategory_filter($this) and passes_brand_filter($this)
             $matching = $matching.add this
         else
             $matching = $matching.not this
@@ -286,7 +305,15 @@ passes_subcategory_filter = (item) ->
     matchers = $item.data('subcategories').split(',')
     if subcategory_filter.length == 0
         return true
+    console.log matchers
     for matcher in matchers
         if matcher in subcategory_filter
             return true
     return false
+
+passes_brand_filter = (item) ->
+    $item = $(item)
+    if brand_filter.length == 0 or $item.data('brand') in brand_filter
+        return true
+    else
+        return false

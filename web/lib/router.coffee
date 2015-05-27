@@ -19,6 +19,7 @@ Router.route('/', {
       Meteor.subscribe('categories'),
       Meteor.subscribe('sites'),
       Meteor.subscribe('subcategories')
+      Meteor.subscribe('brands')
     ]
 
   })
@@ -55,6 +56,7 @@ Router.route('/dashboard', {
       Meteor.subscribe('categories'),
       Meteor.subscribe('sites'),
       Meteor.subscribe('subcategories')
+      Meteor.subscribe('brands')
     ]
 
   })
@@ -91,7 +93,13 @@ Router.route('/datapost', where: 'server')
       item.category = item.web_taxonomy[0]
       item.filter_name = classify item.category
       item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
+
+      if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_band: classify(item.brand) }
+        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_band: classify(item.brand) }
     
+    if item.brand
+      item.filter_band = classify item.brand
+
     console.log "[POST] Request created."
     console.log item
 
@@ -118,10 +126,9 @@ Router.route('/datapost', where: 'server')
           if not done and category.name is item.category
             Categories.update category, {$push: { items: id }}
 
-            web_taxonomy = item.web_taxonomy[1..]
-            for subcat in web_taxonomy
-              if not Subcategories.findOne { super_category: item.category, name: subcat, uid: item.uid }
-                Subcategories.insert { super_category: item.category, uid: item.uid, name: subcat, filter_name: classify(subcat)}
+            main_subcategory = item.web_taxonomy[1]
+            if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+              Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
 
             done = true
 
@@ -131,14 +138,13 @@ Router.route('/datapost', where: 'server')
             uid: item.uid
             items: [id]
             filter_name: item.filter_name
+            
           console.log('Creating new category: ' + new_category.name)
           Categories.insert new_category
 
-          web_taxonomy = item.web_taxonomy[1..]
-          for subcat in web_taxonomy
-            if not Subcategories.findOne { super_category: new_category.name, name: subcat, uid: item.uid }
-              Subcategories.insert { super_category: new_category.name, uid: item.uid, name: subcat, filter_name: classify(subcat)}
-
+          main_subcategory = item.web_taxonomy[1]
+          if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+            Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}
       else
         # do nothing for now
         
