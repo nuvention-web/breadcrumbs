@@ -273,8 +273,10 @@ p {
 	display: table;
 	width:100%;
 	text-align: center;
-	padding-left: 70px;
-	padding-right: 70px;
+	.container {
+		padding-left: 70px;
+		padding-right: 70px;
+	}
 	img {
 		height:150px;
 	}
@@ -284,6 +286,10 @@ p {
 }
 
 .how-it-works {
+	.container {
+		padding-left: 70px;
+		padding-right: 70px;
+	}
 	min-height:700px;
 	background-color: #E2E2E2;
 	img {
@@ -310,10 +316,19 @@ p {
 	#supported-divider {
 		border-right: 1px solid black;
 	}
+	#logos-row {
+		margin-top:30px;
+		margin-bottom:30px;
+	}
+	.container {
+		padding-left: 70px;
+		padding-right: 70px;
+	}
 }
 
 // Team related stuff
 .team {
+	padding-top: 150px;
 	background-image: url("/images/theTeam/contact-and-team-bg.png");
 	background-size: 100%;
 	display: table;
@@ -326,6 +341,7 @@ p {
 
 // Contact
 .contact {
+	padding-top: 150px;	
 	background-image: url("/images/theTeam/contact-and-team-bg.png");
 	background-size: 100%;
 	display: table;
