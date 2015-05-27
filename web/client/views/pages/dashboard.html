@@ -42,7 +42,7 @@
     <section class="cd-gallery">
       <ul>
         {{#each items}}
-          <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{product_origin_name site}}" data-subcategories="{{parseSubcategories subcategories}}" data-brand="{{filter_brand}}">
+          <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{site}}" data-subcategories="{{parseSubcategories subcategories}}" data-brand="{{filter_brand}}">
             <img class = "product-origin" src="{{product_origin_image site}}">
             <a href="{{url}}" target="_blank">
               <div class="item-wrapper">
@@ -88,8 +88,8 @@
           <ul class = "cd-filter-content cd-filters list">
             {{#each sites}}
             <li>
-              <input class="filter" type="checkbox" id = "{{product_origin_name name}}">
-              <label class="checkbox-label" for="{{product_origin_name name}}">{{product_origin_name name}}</label>
+              <input class="filter" type="checkbox" id = "{{name}}">
+              <label class="checkbox-label" for="{{name}}">{{name}}</label>
             </li>
             {{/each}}
           </ul>

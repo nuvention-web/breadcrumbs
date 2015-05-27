@@ -28,10 +28,8 @@ Template.dashboard.helpers
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
     sites: () ->
         return Sites.find()
-    product_origin_name : (name) ->
-        return name.substring(0, name.indexOf('.'))
     product_origin_image : (site) ->
-        site_logo = site.substring(0, site.indexOf('.'))
+        site_logo = site.toLowerCase().replace(/\s/g, '-')
         return "/images/logos/on-" + site_logo + ".png"
     parseSubcategories: (subcategories) ->
         return subcategories.toString()
