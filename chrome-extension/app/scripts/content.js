@@ -1,5 +1,20 @@
 'use strict';
 
+/* WHEN MAKING A NEW SITE:
+
+  Mandatory fields:
+    response.price = 'PRICE'
+    response.site = 'SITENAME'
+
+  e.g. This would count as valid but totally suck.
+
+  case 'example.example:':
+    response.price
+    response.site = 'Example'
+    break;
+*/ 
+
+
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
     debugger;
@@ -10,7 +25,6 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         return this.clone().find(sel||">*").remove().end();
     };
 
-    // AMAZON
     switch(request.page.site) {
       case 'amazon.com':
         console.log ('Amazon page detected.');
@@ -122,6 +136,8 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
         response.description = description;
 
+        response.site = 'Amazon'
+
         // var features_bullets = $('#feature-bullets').find('li');
         // var features = [];
         // var text;
@@ -165,21 +181,23 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.main_image = main_image;
         response.all_images = all_images;
         response.description = description;
+
+        response.site = 'ebay'
         break;
 
       case 'store.nike.com':
         var name = $('.exp-product-title').text();
-        var price = $(".exp-pdp-local-price").text();
-        var brand = "Nike";
-        var category = $(".exp-product-subtitle").text();
-        var web_taxonomy = [];
-        var model = "";
-        var main_image = $(".exp-pdp-hero-image").attr("src");
+        var price = $('.exp-pdp-local-price').first().text();
+        var brand = 'Nike';
+        var category = 'Clothing, Shoes & Jewelry';
+        var web_taxonomy = [category, $('.exp-product-subtitle').text()];
+        var model = '';
+        var main_image = $('.exp-pdp-hero-image').attr('src');
         var all_images = [];
-        $(".exp-pdp-alt-images-carouselli").each(function(){
-            all_images.push($(this).find('img').attr("src"));
+        $('.exp-pdp-alt-images-carousel li').each(function(){
+            all_images.push($(this).find('img').attr('src'));
         });
-        var description = $(".colorText").text();
+        var description = $('.colorText').text();
 
         response.name = name;
         response.price = price;
@@ -189,7 +207,41 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.main_image = main_image;
         response.all_images = all_images;
         response.description = description;
+
+        response.site = 'Nike Store'
         break;
+
+      case 'express.com':
+        var name = $('[itemprop=name]').first().text();
+        var price = $('[itemprop=price]').first().text();
+        var brand = 'Express';
+        var category = 'Clothing, Shoes & Jewelry';
+        var web_taxonomy = [category]; // this is somewhat lacking right now...
+        var model = ''
+        var main_image = $('#product-detail-flyout-container').find('img').first().attr('data-src');
+        if (main_image[0] = '/') {
+          main_image = 'http' + main_image;
+        }
+        var colors = []
+        $('#express-view-colors li label').each(function() {
+          colors.push($(this).attr('title'));
+        }
+        var description = $('.product-description p').text();
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.colors = colors;
+        response.description = description;
+
+        response.site = 'Express'
+        break;
+
+
+
 
       // case 'ruvilla.com':
       //   var name = $(".product-name").ignore('span').text();
@@ -236,3 +288,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     callback(response);
   }
 });
+
+function clothingClassifier(name) {
+
+}
