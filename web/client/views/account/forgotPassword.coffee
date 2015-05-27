@@ -13,7 +13,7 @@ Template.forgotPassword.events
           else
             console.log 'We are sorry but something went wrong.'
         else
-          console.log 'Email Sent. Check your mailbox.'
+          alert 'Email Sent. Check your mailbox.'
     false
 
 if Accounts._resetPasswordToken

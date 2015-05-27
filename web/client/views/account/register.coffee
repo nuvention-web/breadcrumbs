@@ -17,7 +17,7 @@ Template.register.events 'submit #registerForm': (e, t) ->
       if err
         # alert err
         if err.message == 'Email already exists. [403]'
-          console.log 'We are sorry but this email is already used.'
+          alert 'We are sorry but this email is already used.'
         else
           console.log 'We are sorry but something went wrong.'
           Session.set('currentRegisterEmail', email)
@@ -38,19 +38,19 @@ Template.register.events 'submit #registerForm': (e, t) ->
 @isNotEmpty = (value) ->
   if value and value != ''
     return true
-  console.log 'Please fill in all required fields.'
+  alert 'Please fill in all required fields.'
   false
 
 @isEmail = (value) ->
   filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
   if filter.test(value)
     return true
-  console.log 'Please enter a valid email address.'
+  alert 'Please enter a valid email address.'
   false
 
 @isValidPassword = (password) ->
   if password.length < 6
-    console.log 'Your password should be 6 characters or longer.'
+    alert 'Your password should be 6 characters or longer.'
     return false
   true
 
@@ -58,6 +58,6 @@ Template.register.events 'submit #registerForm': (e, t) ->
   if !isValidPassword(password)
     return false
   if password != confirm
-    console.log 'Your two passwords are not equivalent.'
+    alert 'Your two passwords are not equivalent.'
     return false
   true
