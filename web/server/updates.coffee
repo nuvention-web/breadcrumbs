@@ -1,3 +1,13 @@
+#comment here
+
+Items.find().forEach (item) ->
+    if item.filter_band
+        Items.update item, {$set: {filter_brand: item.filter_band, filter_band: undefined}}
+
+Sites.find().forEach (site) ->
+    if Items.find({site: site.name, uid: site.uid}).count() is 0
+        Sites.remove site
+
 # smtp =
 #     username: 'no-reply@breadcrumbs.ninja'
 #     password: 'brown2town'

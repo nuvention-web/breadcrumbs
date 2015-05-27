@@ -94,11 +94,11 @@ Router.route('/datapost', where: 'server')
       item.filter_name = classify item.category
       item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
 
-      if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_band: classify(item.brand) }
-        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_band: classify(item.brand) }
+      if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
     
     if item.brand
-      item.filter_band = classify item.brand
+      item.filter_brand = classify item.brand
 
     console.log "[POST] Request created."
     console.log item
@@ -121,30 +121,17 @@ Router.route('/datapost', where: 'server')
 
       if item.web_taxonomy?
 
-        done = false
-        Categories.find({uid: item.uid}).forEach (category) ->
-          if not done and category.name is item.category
-            Categories.update category, {$push: { items: id }}
-
-            main_subcategory = item.web_taxonomy[1]
-            if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-              Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
-
-            done = true
-
-        if not done
+        if not Categories.findOne {uid: item.uid, name: item.category}
           new_category =
             name: item.category
             uid: item.uid
-            items: [id]
             filter_name: item.filter_name
-            
-          console.log('Creating new category: ' + new_category.name)
           Categories.insert new_category
 
-          main_subcategory = item.web_taxonomy[1]
-          if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-            Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}
+        main_subcategory = item.web_taxonomy[1]
+        if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+          Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
+
       else
         # do nothing for now
         
