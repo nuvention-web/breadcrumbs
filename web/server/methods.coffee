@@ -26,3 +26,6 @@ Meteor.methods
         text: text
       return
 
+    # sendAllUsersEmail: (to, from, subject, text) ->
+      
+
