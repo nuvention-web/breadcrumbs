@@ -4,7 +4,7 @@ Web commponent currently living at [https://breadcrumbs.ninja](https://breadcrum
 
 ## Roles
  * Kevin: development and design
- * Edward: development
+ * Edward: development and design
  * Penny: design, content strategy
  * Nacho: product management
 
@@ -20,7 +20,7 @@ Web commponent currently living at [https://breadcrumbs.ninja](https://breadcrum
 To access the admin interface, navigate to our [admin portal](https://breadcrumbs.ninja/login) and log in.
 
 ##User components and instructions
-* Chrome extension - available on http://breadcrumbs.ninja/download 
+* Chrome extension - available on http://breadcrumbs.ninja 
   * Follow instructions on the page
   * Remember to register before downloading!
   * Once the extension is installed, remember to click on the icon on the top-right of your Chrome browser and login using your credentials

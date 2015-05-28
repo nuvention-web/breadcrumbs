@@ -225,7 +225,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var colors = []
         $('#express-view-colors li label').each(function() {
           colors.push($(this).attr('title'));
-        }
+        })
         var description = $('.product-description p').text();
 
         response.name = name;
