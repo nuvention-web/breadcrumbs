@@ -6,9 +6,9 @@ smtp =
 
 process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port
 
-Accounts.emailTemplates.from = 'breadcrumbs/ <no-reply@breadcrumbs.ninja>'
+Accounts.emailTemplates.from = 'no-reply <no-reply@breadcrumbs.ninja>'
 
-Accounts.emailTemplates.siteName = 'breadcrumbs/ ninja'
+Accounts.emailTemplates.siteName = 'breadcrumbs.ninja'
 
 Accounts.emailTemplates.verifyEmail.subject = (user) ->
   return 'breadcrumbs/ Confirm Your Email Address'

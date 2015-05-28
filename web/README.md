@@ -4,8 +4,8 @@ Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.
 
 ## Roles
  * Kevin: development and design
+ * Edward: development and design
  * Penny: design, content strategy, awesome journalist
- * Florent: content strategy
  * Nacho: product management
 
 ## Technology Stack

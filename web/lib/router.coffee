@@ -1,3 +1,4 @@
+# requires a login. If user, login template. else skip
 requireLogin = () ->
   if not Meteor.user()
     this.render 'login'
