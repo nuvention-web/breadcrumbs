@@ -20,7 +20,6 @@ Template.login.events 'submit #loginForm': (e, t) ->
         console.log 'These credentials are not valid.'
         alert 'These credentials are not valid.'
       else
-        console.log 'Welcome back Meteorite!'
         Router.go '/dashboard'
       return
   false
