@@ -179,7 +179,7 @@ Template.dashboard.events
 
     'click .cd-tab-filter .glyphicon-remove': (event) ->
         event.stopPropagation()
-        Session.set 'categoryDeleteTarget', $(event.target).parent().attr('data-filter').substr(1)
+        Session.set 'categoryDeleteTarget', $(event.target).data('type')
         $('#confirm').modal('show')
     
     'click #confirm #categoryDelete': (event) ->
