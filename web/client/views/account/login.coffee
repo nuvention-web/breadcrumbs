@@ -16,7 +16,10 @@ Template.login.events 'submit #loginForm': (e, t) ->
   password = signInForm.find('#password').val()
   if isNotEmpty(email) and isEmail(email) and isNotEmpty(password) and isValidPassword(password)
     Meteor.loginWithPassword email, password, (err) ->
-      if err
+      if err.reason is "Login forbidden"
+        Router.go '/verify'
+      else if err
+        console.log err
         console.log 'These credentials are not valid.'
         alert 'These credentials are not valid.'
       else

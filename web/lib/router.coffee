@@ -46,6 +46,9 @@ Router.route('/register', ->
 Router.route('/login', ->
   this.render  'login')
 
+Router.route('/verify', ->
+  this.render 'waitVerification')
+
 Router.route('/landing', ->
   this.render  'landing')
 
