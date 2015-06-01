@@ -16,7 +16,7 @@
           {{#each categories}}
             <li class="filter">
               <a href="#" data-name="{{name}}" data-type="{{filter_name}}">{{name}}</a>
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-remove" data-type="{{filter_name}}" aria-hidden="true"></span>
             </li>
           {{/each}}
         </ul>
