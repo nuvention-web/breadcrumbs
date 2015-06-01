@@ -1,22 +1,24 @@
 #comment here
 
-Items.find().forEach (item) ->
-    if item.filter_band
-        Items.update item, {$set: {filter_brand: item.filter_band, filter_band: undefined}}
-    if item.site is 'amazon.com'
-        Items.update item, {$set: {site: 'Amazon'}}
-    if item.site is 'ebay.com'
-        Items.update item, {$set: {site: 'ebay'}}
-    if item.site is 'store.nike.com'
-        Items.update item, {$set: {site: 'Nike Store'}}
+# Items.find().forEach (item) ->
+#     if item.filter_band
+#         Items.update item, {$set: {filter_brand: item.filter_band, filter_band: undefined}}
+#     if item.site is 'amazon.com'
+#         Items.update item, {$set: {site: 'Amazon'}}
+#     if item.site is 'ebay.com'
+#         Items.update item, {$set: {site: 'ebay'}}
+#     if item.site is 'store.nike.com'
+#         Items.update item, {$set: {site: 'Nike Store'}}
+#     if item.site and not Sites.findOne({name: item.site, uid: item.uid})
+#         Sites.insert({name: item.site, uid: item.uid})
 
-Sites.find().forEach (site) ->
-    if site.name is 'amazon.com'
-        Sites.update site, {$set: {name: 'Amazon'}}
-    if site.name is 'ebay.com'
-        Sites.update site, {$set: {name: 'ebay'}}
-    if site.name is 'store.nike.com'
-        Sites.update site, {$set: {name: 'Nike Store'}}
+# Sites.find().forEach (site) ->
+#     if site.name is 'amazon.com'
+#         Sites.update site, {$set: {name: 'Amazon'}}
+#     if site.name is 'ebay.com'
+#         Sites.update site, {$set: {name: 'ebay'}}
+#     if site.name is 'store.nike.com'
+#         Sites.update site, {$set: {name: 'Nike Store'}}
 
 
 # smtp =
