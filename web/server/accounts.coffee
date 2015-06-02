@@ -7,7 +7,7 @@ Accounts.onCreateUser (options, user) ->
     console.log 'verification email sent'
     return
   ), 2 * 750
-  
+  console.log 'returned'
   user
 
 Accounts.validateLoginAttempt (attempt) ->
