@@ -39,8 +39,13 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
         var main_image = $('#main-image-container').find('img').attr('src');
 
-        var rating_text = $('#acrPopover').attr('title');
-        var rating = rating_text.split(' ')[0];
+        try {
+          var rating_text = $('#acrPopover').attr('title');
+          var rating = rating_text.split(' ')[0];
+        }
+        catch (err) {
+          var rating = '0.0'
+        }
 
         var breadcrumbs = $('#wayfinding-breadcrumbs_container').find('a');
         var web_taxonomy = [];

@@ -1,8 +1,8 @@
 'use strict';
 
 // post request setup
-// var domain = 'http://localhost:3000';
-var domain = 'http://breadcrumbs.ninja';
+var domain = 'http://localhost:3000';
+// var domain = 'http://breadcrumbs.ninja';
 var path = domain + '/datapost';
 var tabStore = {};
 
@@ -45,6 +45,8 @@ function post(params) {
   });
 }
 
+var flag = false;
+
 chrome.tabs.onUpdated.addListener(
   function(tabID, changeInfo, tab) {
     if (tabStore[tabID] === undefined) {
@@ -56,6 +58,14 @@ chrome.tabs.onUpdated.addListener(
         tabStore[tabID].previous.close = new Date().getTime();
         post(tabStore[tabID].previous);
         delete tabStore[tabID].previous;
+      }
+
+      if (changeInfo.url.match(new RegExp('https?://breadcrumbs.ninja/#/verify-email/.*'))) {
+        chrome.storage.local.get('breadcrumbsID', function(items) {
+          if (!items.breadcrumbsID || items.breadcrumbsID === 0) {
+            chrome.notifications.create(undefined, {'type': 'basic', 'title': 'Please be sure to login to the extension!', 'message': 'Click the extension icon and enter your username and password.', iconUrl: '../images/96.png'});
+          }
+        });
       }
     }
     // second iteration of tab loaded

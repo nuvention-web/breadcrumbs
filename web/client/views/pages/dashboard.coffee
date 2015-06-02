@@ -13,6 +13,8 @@ filter_tab_placeholder = null
 filter_tab_placeholder_default_value = null
 filter_tab_placeholder_text = null
 
+timer = null
+
 Template.dashboard.helpers
     items: () ->
         one_year_ago = new Date().getTime() - (1000 * 365 * 24 * 3600)
@@ -23,7 +25,7 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {'items.0': {$exists: true}, status: {$ne: 'inactive'}}
+        return Categories.find {status: {$ne: 'inactive'}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
     sites: () ->
@@ -198,8 +200,10 @@ Template.dashboard.events
         current_target.siblings('.cd-filter-content').slideToggle 300
 
     'keyup .cd-filter-content input[type="search"]': (event) ->
-        search_filter = $('.cd-filter-content input[type="search"]').val().toLowerCase();
-        parseFilters()
+        delay(() ->
+            search_filter = $('.cd-filter-content input[type="search"]').val().toLowerCase();
+            parseFilters()
+        , 200)
         
     'submit form': (event) ->
         event.preventDefault()
@@ -221,11 +225,9 @@ fixGallery = () ->
     else
         $('.cd-main-content').removeClass 'is-fixed'
 
-delay = () ->
-        timer = 0
-        return (callback, ms) ->
-            clearTimeout timer
-            timer = setTimeout callback, ms
+delay = (fn, ms) ->
+    clearTimeout timer
+    timer = setTimeout fn, ms
 
 update_price_filter = (name, value) ->
     if name is 'min-price'
