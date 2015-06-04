@@ -26,6 +26,19 @@ Meteor.methods
         text: text
       return
 
+    getUserId: (email) ->
+      return Meteor.users.findOne({'emails.address' : email})
+
+    sendVerificationEmail: (user,email) ->
+      process.env.MAIL_URL = 'smtp://no-reply%40breadcrumbs.ninja:brown2town@smtp.gmail.com:465/' 
+      if user == null
+        user = Meteor.call('getUserId', email)
+      Meteor.setTimeout (->
+        Accounts.sendVerificationEmail user._id
+        console.log 'verification email sent'
+        return
+      ), 2 * 750
+      user
     # sendAllUsersEmail: (to, from, subject, text) ->
       
 
