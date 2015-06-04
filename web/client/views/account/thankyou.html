@@ -5,8 +5,13 @@
     <div class = "layover">
       <div class = "jumbotron-header">
           <div class = "row">
+          {{#if fromContact}}
+            <h2>Thank you! We value your feedback. </h2>
+            <h4>A copy of your message has also been sent to {{contactEmail}}. <br/> Be sure to check your spam folder if you do not see an email in your inbox.</h4>
+          {{else}}
           	<h2>Thank you for registering.</h2>
           	<h4>A verification email has been sent to {{email}}. Please verify your email before logging in! <br/> Be sure to check your spam folder if you do not see an email in your inbox.</h4>
+          {{/if}}
           </div>
         </div>
     </div>
