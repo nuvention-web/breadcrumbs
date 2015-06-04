@@ -1,3 +1,4 @@
+Session.setDefault('contactFormSubmit', false)
 Template.contact.events
   'submit form': (event) ->
     event.preventDefault()
@@ -22,3 +23,6 @@ Template.contact.events
                 email,
                 'Feedback Receieved. Please Read. From:' +  email,
                 'Name: ' + name + '\n Email: ' + email + '\n\n Comments: ' + message)
+    Session.set('contactFormSubmit', true)
+    Session.set('contactFormEmail', email)
+    Router.go '/thankyou'

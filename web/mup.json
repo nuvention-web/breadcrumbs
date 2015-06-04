@@ -26,7 +26,7 @@
   "appName": "Breadcrumbs",
 
   // Location of app (local directory)
-  "app": "/Users/aspin/breadcrumbs/web",
+  "app": "/Users/edwardhu/Documents/github/breadcrumbs/web",
 
   // Configure environment
   "env": {
