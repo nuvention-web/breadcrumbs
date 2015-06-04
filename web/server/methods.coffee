@@ -8,8 +8,8 @@ Meteor.methods
         return '[PONG]'
 
     sendEmail: (to, from, subject, text) ->
-      process.env.MAIL_URL = 'smtp://hi%40breadcrumbs.ninja:brown2town2@smtp.gmail.com:465/'
-      console.log 'sendEmail'
+      process.env.MAIL_URL = 'smtp://hi%40breadcrumbs.ninja:brown2town@smtp.gmail.com:465/'
+      console.log 'contact e-mail sent!'
       check [
         to
         from
