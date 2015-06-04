@@ -1,3 +1,4 @@
+Session.setDefault('unverifiedEmail', 'unverifiedEmail')
 Template.login.created = ->
   if Accounts._verifyEmailToken
     Accounts.verifyEmail Accounts._verifyEmailToken, (err) ->
@@ -14,9 +15,11 @@ Template.login.events 'submit #loginForm': (e, t) ->
   signInForm = $(e.currentTarget)
   email = trimInput(signInForm.find('#email').val().toLowerCase())
   password = signInForm.find('#password').val()
+  Session.set('unverifiedEmail', email)
   if isNotEmpty(email) and isEmail(email) and isNotEmpty(password) and isValidPassword(password)
     Meteor.loginWithPassword email, password, (err) ->
       if err?.reason is "Login forbidden"
+        console.log Session.get('unverifiedEmail')
         Router.go '/verify'
       else if err
         console.log err
