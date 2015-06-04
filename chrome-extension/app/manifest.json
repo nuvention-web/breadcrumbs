@@ -1,8 +1,8 @@
 {
-    "name": "Breadcrumbs",
-    "version": "0.1.0",
+    "name": "Breadcrumbs/ for online shopping",
+    "version": "0.1.1",
     "manifest_version": 2,
-    "description": "Breadcrumbs/ for online shopping [AMAZON EBAY and MORE]",
+    "description": "Breadcrumbs/ is a tool that helps you track and organize products you’ve seen while online shopping",
     "icons": {
         "96": "images/96.png",
         "48": "images/48.png"
