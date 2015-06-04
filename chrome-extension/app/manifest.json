@@ -1,8 +1,8 @@
 {
     "name": "Breadcrumbs",
-    "version": "0.0.8",
+    "version": "0.1.0",
     "manifest_version": 2,
-    "description": "breadcrumbs/ Northwestern University",
+    "description": "Breadcrumbs/ for online shopping [AMAZON EBAY and MORE]",
     "icons": {
         "96": "images/96.png",
         "48": "images/48.png"
