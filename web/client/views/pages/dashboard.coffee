@@ -25,7 +25,7 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {'items.0': {$exists: true}, status: {$ne: 'inactive'}}
+        return Categories.find {status: {$ne: 'inactive'}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
     sites: () ->
