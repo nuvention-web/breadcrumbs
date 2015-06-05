@@ -25,7 +25,7 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {status: {$ne: 'inactive'}}
+        return Categories.find {status: {$ne: 'inactive'}}, {sort: {name: 1}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
     sites: () ->
@@ -293,6 +293,7 @@ passes_price_filter = (item) ->
             return false
 
 passes_category_filter = (item) ->
+    console.log(item)
     $item = $(item)
     category_filter = '' if category_filter == 'all'
     if category_filter == '' or $item.data('category') == category_filter

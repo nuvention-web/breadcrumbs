@@ -7,7 +7,7 @@
 
     <!-- Tabs across the top -->
     <div class="cd-tab-filter-wrapper">
-      <div class="cd-tab-filter">
+      <div class="cd-tab-filter filter-is-visible">
         <ul class="cd-filters">
           <li class="placeholder"> 
             <a data-type="all" href="#">All</a> <!-- selected option on mobile -->
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Item Gallery -->
-    <section class="cd-gallery">
+    <section class="cd-gallery filter-is-visible">
       <ul>
         {{#each items}}
           <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{site}}" data-subcategories="{{parseSubcategories subcategories}}" data-brand="{{filter_brand}}">
@@ -65,7 +65,7 @@
     </section>
 
     <!-- Side Filters -->
-    <div class="cd-filter filter-bar">
+    <div class="cd-filter filter-bar filter-is-visible">
       <form>
         <div class="cd-filter-block">
           <h4>Search</h4>
@@ -172,7 +172,7 @@
       <a href="#" class="cd-close">Close</a>
     </div>
 
-    <a href="#" class="cd-filter-trigger">Filters</a>
+    <a href="#" class="cd-filter-trigger filter-is-visible">Filters</a>
   </main>
   {{> footer}}
 </template>
