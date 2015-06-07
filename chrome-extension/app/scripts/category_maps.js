@@ -1,6 +1,10 @@
+'use strict';
+
+console.log('Category maps loaded!');
+
 // CATEGORIES //
 
-BREADCRUMBS_CATEGORIES = [
+var BREADCRUMBS_CATEGORIES = [
   'Clothes & Accessories',
   'Kids & Toys',
   'Electronics',
@@ -11,7 +15,7 @@ BREADCRUMBS_CATEGORIES = [
   'Other'
 ];
 
-AMAZON_TOP_MAP = {
+var AMAZON_TOP_MAP = {
   // NEEDS MOVIES / INSTANT
 
   // NEED MUSIC
@@ -28,7 +32,7 @@ AMAZON_TOP_MAP = {
 
   'Books & Audible': 'Music & Media',
   'Books': 'Music & Media',
-  'Magazine Subscriptions', 'Music & Media',
+  'Magazine Subscriptions': 'Music & Media',
 
   'Movies, Music & Games': 'Music & Media',
   'Movies & TV': 'Music & Media',
@@ -38,8 +42,10 @@ AMAZON_TOP_MAP = {
   'Digital Music': 'Music & Media',
   'Musical Instruments': 'Music & Media',
   'Video Games': 'Music & Media',
+  'Musical Instruments': 'Music & Media',
 
   'Electronics & Computers': 'Electronics',
+  'Computers': 'Electronics',
   'Electronics': 'Electronics',
   'TV & Video': 'Electronics',
   'Home Audio & Theater': 'Electronics',
@@ -48,7 +54,6 @@ AMAZON_TOP_MAP = {
   'Video Games': 'Electronics',
   'Portable Audio & Accessories': 'Electronics',
   'Car Electronics & GPS': 'Electronics',
-  'Musical Instruments': 'Electronics',
   'Electronics Accessories': 'Electronics',
   'Wearable Technology': 'Electronics',
   'Laptops & Tablets': 'Electronics',
@@ -57,8 +62,9 @@ AMAZON_TOP_MAP = {
   'Computer Parts & Components': 'Electronics',
   'Software': 'Electronics',
   'Printers & Ink': 'Electronics',
-  'Office & School Supplies': 'Electronics',
 
+  'Office & School Supplies': 'Home & Office',
+  'Office Products': 'Home & Office',
   'Home, Garden & Tools': 'Home & Office',
   'Home': 'Home & Office',
   'Kitchen & Dining': 'Home & Office',
@@ -76,6 +82,11 @@ AMAZON_TOP_MAP = {
   'Kitchen & Bath Fixtures': 'Home & Office',
   'Hardware': 'Home & Office',
   'Home Automation': 'Home & Office',
+  'Applicances': 'Home & Office',
+  'Arts, Crafts & Sewing': 'Home & Office',
+  'Collectibles & Fine Art': 'Home & Office',
+  'Home & Kitchen': 'Home & Office',
+  'Tools & Home Improvement': 'Home & Office',
 
   'Beauty, Health & Grocery': 'Food & Health',
   'All Beauty': 'Food & Health',
@@ -89,6 +100,9 @@ AMAZON_TOP_MAP = {
   'Subscribe & Save': 'Food & Health',
   'Prime Pantry': 'Food & Health',
   'Amazon Elements': 'Food & Health',
+  'Health & Personal Care': 'Food & Health',
+  'Beauty': 'Food & Health',
+  'Luxury Beauty': 'Food & Health',
 
   'Toys, Kids & Baby': 'Kids & Toys',
   'Toys & Games': 'Kids & Toys',
@@ -100,6 +114,7 @@ AMAZON_TOP_MAP = {
   'For Girls': 'Kids & Toys',
   'For Boys': 'Kids & Toys',
   'For Baby': 'Kids & Toys',
+  'Baby': 'Kids & Toys',
 
   'Clothing, Shoes & Jewelry': 'Clothes & Accessories',
   'Women': 'Clothes & Accessories',
@@ -108,6 +123,7 @@ AMAZON_TOP_MAP = {
   'Boys': 'Clothes & Accessories',
   'Baby': 'Clothes & Accessories',
   'Luggage': 'Clothes & Accessories',
+  'Luggage & Travel Gear': 'Clothes & Accessories',
 
   'Sports & Outdoors': 'Sports & Outdoors',
   'Athletic Clothing': 'Sports & Outdoors',
@@ -129,6 +145,7 @@ AMAZON_TOP_MAP = {
   'Accessories': 'Sports & Outdoors',
   'All Outdoor Recreation': 'Sports & Outdoors',
 
+  'Automotive': 'Other',
   'Automotive & Industrial': 'Other',
   'Automotive Parts & Accessories': 'Other',
   'Automotive Tools & Equipment': 'Other',
@@ -139,11 +156,12 @@ AMAZON_TOP_MAP = {
   'Lab & Scientific': 'Other',
   'Janitorial': 'Other',
   'Safety': 'Other',
+  'Industrial & Scientific': 'Other',
 
   'Gift Cards': 'Other',
 }
 
-EBAY_TOP_MAP = {
+var EBAY_TOP_MAP = {
   'Antiques': 'Home & Office',
   'Art': 'Home & Office',
   'Baby': 'Kids & Toys',
