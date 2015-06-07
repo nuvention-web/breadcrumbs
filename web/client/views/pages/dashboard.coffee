@@ -92,6 +92,11 @@ Template.dashboard.rendered = () ->
 
     $('#confirm').modal({show: false})
 
+    # forces a reload everytime we find a new item in the database
+    Items.find().observeChanges 
+        added: (id, fields) ->
+            parseFilters()
+
 Template.dashboard.events
     'mouseover .item-div': (e) ->
         $(e.currentTarget).find('.item-delete').removeClass('invisible')   
@@ -207,6 +212,7 @@ Template.dashboard.events
     'submit form': (event) ->
         event.preventDefault()
 
+
 Template.dashboard.destroyed = () ->
     $('.cd-gallery ul').mixItUp 'destroy', true
 
@@ -240,9 +246,13 @@ update_price_filter = (name, value) ->
         if index is 0
             price_filter[0] = 0
         else
-            price_filter[1] = Infinity
+            price_filter[1] = InfinityobserveChanges 
 
     parseFilters()
+
+        
+    
+    
 
 parseFilters = () ->
     $('.mix').each () ->
