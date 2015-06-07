@@ -214,5 +214,3 @@ function classify(web_taxonomy, site) {
     return 'Other';
   }
 }
-
-window.classify = classify;
