@@ -259,6 +259,37 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.site = 'Express'
         break;
 
+      // case 'shop.nordstrom.com':
+      //   var name = $('h1[itemprop="name"').text();
+      //   var price = $('.sale-price').first().text();
+      //   if (price == ""){
+      //     price = $('.item-price').find('span').first().text();
+      //   }
+      //   var brand = $('#brand-title').find('a').first().text();
+      //   // nordstrom categories is NOT all clothes & accessories
+      //   var category = 'Clothes & Accessories';
+      //   var web_taxonomy = [category, $('.exp-product-subtitle').text()];
+      //   var model = '';
+      //   var main_image = $('.exp-pdp-hero-image').attr('src');
+      //   var all_images = [];
+      //   $('.exp-pdp-alt-images-carousel li').each(function(){
+      //       all_images.push($(this).find('img').attr('src'));
+      //   });
+      //   var description = $('.colorText').text();
+
+      //   response.name = name;
+      //   response.price = price;
+      //   response.brand = brand;
+      //   response.web_taxonomy = web_taxonomy;
+      //   response.category = category;
+      //   response.model = model;
+      //   response.main_image = main_image;
+      //   response.all_images = all_images;
+      //   response.description = description;
+
+      //   response.site = 'Nike Store'
+      //   break;
+
       // case 'ruvilla.com':
       //   var name = $(".product-name").ignore('span').text();
       //   var price = $(".price").text();
