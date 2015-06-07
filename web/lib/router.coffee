@@ -15,13 +15,16 @@ Router.onBeforeAction(requireLogin, {only: ['dashboard']})
 Router.route('/', { 
   name: 'home'
   waitOn: () ->
-    return [
-      Meteor.subscribe('items'),
-      Meteor.subscribe('categories'),
-      Meteor.subscribe('sites'),
-      Meteor.subscribe('subcategories')
-      Meteor.subscribe('brands')
-    ]
+    if Meteor.user()
+      return [
+        Meteor.subscribe('items'),
+        Meteor.subscribe('categories'),
+        Meteor.subscribe('sites'),
+        Meteor.subscribe('subcategories')
+        Meteor.subscribe('brands')
+      ]
+    else
+      return
 
   })
 
