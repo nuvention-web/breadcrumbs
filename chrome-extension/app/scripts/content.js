@@ -246,6 +246,17 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         })
         var description = $('.product-description p').text();
 
+        // seems to be no real description on the page...but previous pages have info in URL
+        if document.referrer.match(new RegExp('https?://express.com/clothing/')) {
+          var referrer = document.referrer;
+          if (referrer.indexOf('women') !== -1) {
+            web_taxonomy.append('Women');
+          }
+          else if (referrer.indexOf('men') !== -1) {
+            web_taxonomy.append('Men');
+          }
+        }
+
         response.name = name;
         response.price = price;
         response.brand = brand;

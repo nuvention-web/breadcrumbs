@@ -90,6 +90,7 @@ chrome.tabs.onUpdated.addListener(
         }
       }
       newPage.site = site;
+      console.log(tab);
 
       console.log('The tab has been loaded. Parsing...');
 

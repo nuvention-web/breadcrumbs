@@ -21,6 +21,8 @@ chrome.storage.local.get('breadcrumbsID', function(items) {
 
 function authenticate(event) {
   event.preventDefault();
+
+  console.log('hi');
   var loginRes = ceres.loginWithPassword(event.target.username.value, event.target.password.value);
   loginRes.then(function(uid) {
     id = uid;
