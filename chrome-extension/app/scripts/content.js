@@ -14,7 +14,6 @@
     break;
 */ 
 
-
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
     // debugger;
@@ -27,7 +26,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
     switch(request.page.site) {
       case 'amazon.com':
-        debugger;
+        // debugger;
         console.log ('Amazon page detected.');
         var name = $('#productTitle').text() || $('#btAsinTitle').text();
         if (!name) {
@@ -120,7 +119,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
 
         if (!category) {
-          category = classify(web_taxonomy, 'amazon');
+          category = window.classify(web_taxonomy, 'amazon');
         }
 
         response.name = name;
@@ -188,7 +187,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
             all_images.push($(this).find('img').attr("src"));
         });
         var description = $("#desc_ifr").attr("src");
-        var category = classify(web_taxonomy, 'ebay');
+        var category = window.classify(web_taxonomy, 'ebay');
 
         response.name = name;
         response.price = price;
@@ -301,7 +300,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     }
 
 
-
+    console.log('Finished parsing with no errors. Returning');
     callback(response);
   }
 });
