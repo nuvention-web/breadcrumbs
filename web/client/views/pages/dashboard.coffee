@@ -25,7 +25,7 @@ Template.dashboard.helpers
     hasImage: (src) ->
         return src is not '/'
     categories: () ->
-        return Categories.find {status: {$ne: 'inactive'}}, {sort: {name: 1}}
+        return Categories.find { count: {$gt: 0} }, {sort: {name: 1}}
     categoryDeleteTarget: () ->
         return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
     sites: () ->
@@ -40,7 +40,7 @@ Template.dashboard.helpers
         if filter == 'all' or not filter
             return [{nothing: true}]
         else
-            return Subcategories.find { super_category: filter }
+            return Subcategories.find { super_category: filter, count: {$gt: 0} }
     brands: () ->
         filter = Session.get('category_filter')
         if filter == 'all' or not filter
@@ -92,8 +92,6 @@ Template.dashboard.rendered = () ->
 
     $('#confirm').modal({show: false})
 
-    delay()
-
 Template.dashboard.events
     'mouseover .item-div': (e) ->
         $(e.currentTarget).find('.item-delete').removeClass('invisible')   
@@ -104,14 +102,18 @@ Template.dashboard.events
     'click .item-delete': (event) ->
         id = $(event.currentTarget).parent().attr('data-id')
         category_name = $(event.currentTarget).parent().attr('data-category')
-        
-        Items.update(id, {$set: {status: 'inactive'}})
+        subcategories = $(event.currentTarget).parent().attr('data-subcategories').split(',')
 
-        category = Categories.findOne {filter_name: category_name}
-        items = category.items
-        index = items.indexOf id
-        items.splice index, 1
-        Categories.update category._id, {$set: {items: items}}
+        
+        Items.remove id
+
+        if category_name
+            category_id = (Categories.findOne {filter_name: category_name})._id
+            Categories.update category_id, {$inc: {count: -1}}
+
+        if subcategories
+            subcategories_id = (Subcategories.findOne {filter_name: subcategories[0]})._id
+            Subcategories.update subcategories_id, {$inc: {count: -1}}
 
     'click .cd-filter-trigger': (event) ->
         triggerFilter(true)
@@ -123,6 +125,9 @@ Template.dashboard.events
         # top tab filter event
         target = $(event.target)
         selected_filter = target.data('type')
+
+        subcategory_filter = []
+        brand_filter = []
 
         # check if placeholder
         if target.is(filter_tab_placeholder)
@@ -185,14 +190,8 @@ Template.dashboard.events
         $('#confirm').modal('show')
     
     'click #confirm #categoryDelete': (event) ->
-        id = Categories.findOne(filter_name: Session.get('categoryDeleteTarget'))._id
-        Categories.update(
-            id,
-            {$set: 
-                status: 'inactive'
-                deactivate_time: new Date().getTime()
-            }
-        )
+        category = Categories.findOne(filter_name: Session.get('categoryDeleteTarget'))
+        Meteor.call 'deactivateCategory', category, Meteor.userId()
 
     'click .cd-filter-block h4': (event) ->
         current_target = $(event.currentTarget)

@@ -130,7 +130,7 @@ Router.route('/datapost', where: 'server')
         Categories.insert {
             name: item.category
             uid: item.uid
-            filter_name: classify(category)
+            filter_name: classify(item.category)
             count: 1
         }
       else
