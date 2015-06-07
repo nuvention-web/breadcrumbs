@@ -1,4 +1,10 @@
 Meteor.methods
+
+    deactivateCategory: (category, uid) ->
+      Categories.remove category
+      Subcategories.remove { super_category: category.name, uid: uid }
+      Items.remove { category: category.name }
+
     makeUser: (user) ->
         Accounts.createUser user
 

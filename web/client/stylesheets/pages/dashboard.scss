@@ -102,7 +102,7 @@ a:visited{
   top: 0;
   left: 0;
   width: 15% !important;
-  z-index: 2;
+  z-index: 3;
 }
 // end CUSTOM CSS
 
@@ -223,7 +223,7 @@ xtab-filter
 .cd-tab-filter-wrapper {
 	background-color: $color-3;
 	box-shadow: 0 1px 1px rgba(#000, .08);
-	z-index: 1;
+	z-index: 4;
 	@include clearfix;
 }
 
@@ -233,7 +233,7 @@ xtab-filter
 	height: $tab-filter-height;
 	width: 140px;
 	margin: 0 auto;
-	z-index: 1;
+	z-index: 4;
 
 	&::after { 
 		/* small arrow icon */
@@ -450,7 +450,7 @@ xfilter
 	height: 100%;
 	background: $color-3;
 	box-shadow: 4px 4px 20px rgba(#000, 0);
-	z-index: 2;
+	z-index: 4;
 
 	/* Force Hardware Acceleration in WebKit */
 	@include transform(translateZ(0));
@@ -532,7 +532,7 @@ xfilter
 	white-space: nowrap;
 	background: transparent url('../img/cd-icon-filter.svg') no-repeat center center;
 
-	z-index: 3;
+	z-index: 5;
 
 	&.filter-is-visible {
 		pointer-events: none;
