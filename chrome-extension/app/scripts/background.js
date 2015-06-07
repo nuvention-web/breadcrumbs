@@ -1,8 +1,8 @@
 'use strict';
 
 // post request setup
-// var domain = 'http://localhost:3000';
-var domain = 'http://breadcrumbs.ninja';
+var domain = 'http://localhost:3000';
+// var domain = 'http://breadcrumbs.ninja';
 var path = domain + '/datapost';
 var tabStore = {};
 
@@ -90,6 +90,7 @@ chrome.tabs.onUpdated.addListener(
         }
       }
       newPage.site = site;
+      console.log(tab);
 
       console.log('The tab has been loaded. Parsing...');
 

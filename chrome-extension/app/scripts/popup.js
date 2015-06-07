@@ -2,8 +2,8 @@
 
 var id;
 
-// var ceres = new Asteroid('localhost:3000');
-var ceres = new Asteroid('breadcrumbs.ninja');
+var ceres = new Asteroid('localhost:3000');
+// var ceres = new Asteroid('breadcrumbs.ninja');
 
 // on start, check if authenticated
 chrome.storage.local.get('breadcrumbsID', function(items) {
@@ -21,6 +21,8 @@ chrome.storage.local.get('breadcrumbsID', function(items) {
 
 function authenticate(event) {
   event.preventDefault();
+
+  console.log('hi');
   var loginRes = ceres.loginWithPassword(event.target.username.value, event.target.password.value);
   loginRes.then(function(uid) {
     id = uid;
