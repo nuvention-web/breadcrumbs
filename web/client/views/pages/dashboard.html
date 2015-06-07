@@ -7,7 +7,7 @@
 
     <!-- Tabs across the top -->
     <div class="cd-tab-filter-wrapper">
-      <div class="cd-tab-filter">
+      <div class="cd-tab-filter filter-is-visible">
         <ul class="cd-filters">
           <li class="placeholder"> 
             <a data-type="all" href="#">All</a> <!-- selected option on mobile -->
@@ -28,7 +28,7 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-body">
-            Are you sure you want to remove the category "{{categoryDeleteTarget}}"?
+            Are you sure you want to remove the category "{{categoryDeleteTarget}}" and all related items?
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-primary" id="categoryDelete">Delete</button>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Item Gallery -->
-    <section class="cd-gallery">
+    <section class="cd-gallery filter-is-visible">
       <ul>
         {{#each items}}
           <li class="mix check1 radio2 option3 item-div" data-id="{{_id}}" data-category="{{filter_name}}" data-price="{{price}}" data-site="{{site}}" data-subcategories="{{parseSubcategories subcategories}}" data-brand="{{filter_brand}}">
@@ -65,7 +65,7 @@
     </section>
 
     <!-- Side Filters -->
-    <div class="cd-filter filter-bar">
+    <div class="cd-filter filter-bar filter-is-visible">
       <form>
         <div class="cd-filter-block">
           <h4>Search</h4>
@@ -74,6 +74,44 @@
             <input type="search" placeholder="Search for a product...">
           </div>
         </div>
+
+        {{#if category_filter_set}}
+          <div class = "cd-filter-block" id="subcategory-filters">
+            <h4>Subcategories</h4>
+            <ul class = "cd-filter-content cd-filters list">
+              {{#each subcategories_db}}
+                {{#if nothing}}
+                <li>
+                  <label class="checkbox-label">Select a category first!</label>
+                </li>
+                {{else}}
+                <li>
+                  <input class="filter" type="checkbox" id="{{filter_name}}">
+                  <label class="checkbox-label" for="{{filter_name}}">{{name}}</label>
+                </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+          
+          <div class = "cd-filter-block" id="brand-filters">
+            <h4>Brands</h4>
+            <ul class = "cd-filter-content cd-filters list">
+              {{#each brands}}
+                {{#if nothing}}
+                <li>
+                  <label class="checkbox-label">Select a category first!</label>
+                </li>
+                {{else}}
+                <li>
+                  <input class="filter" type="checkbox" id = "{{filter_brand}}">
+                  <label class="checkbox-label" for="{{filter_brand}}">{{brand}}</label>
+                </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+        {{/if}}
 
         <div class="cd-filter-block" id="price-filters">
           <h4>Price Range</h4>
@@ -94,44 +132,6 @@
             {{/each}}
           </ul>
         </div>
-
-        {{#if category_filter_set}}
-          <div class = "cd-filter-block" id="brand-filters">
-            <h4>Brands</h4>
-            <ul class = "cd-filter-content cd-filters list">
-              {{#each brands}}
-                {{#if nothing}}
-                <li>
-                  <label class="checkbox-label">Select a category first!</label>
-                </li>
-                {{else}}
-                <li>
-                  <input class="filter" type="checkbox" id = "{{filter_brand}}">
-                  <label class="checkbox-label" for="{{filter_brand}}">{{brand}}</label>
-                </li>
-                {{/if}}
-              {{/each}}
-            </ul>
-          </div>
-
-          <div class = "cd-filter-block" id="subcategory-filters">
-            <h4>Subcategories</h4>
-            <ul class = "cd-filter-content cd-filters list">
-              {{#each subcategories_db}}
-                {{#if nothing}}
-                <li>
-                  <label class="checkbox-label">Select a category first!</label>
-                </li>
-                {{else}}
-                <li>
-                  <input class="filter" type="checkbox" id="{{filter_name}}">
-                  <label class="checkbox-label" for="{{filter_name}}">{{name}}</label>
-                </li>
-                {{/if}}
-              {{/each}}
-            </ul>
-          </div>
-        {{/if}}
 
 <!--         <div class="cd-filter-block">
           <h4>Select</h4>
@@ -172,7 +172,7 @@
       <a href="#" class="cd-close">Close</a>
     </div>
 
-    <a href="#" class="cd-filter-trigger">Filters</a>
+    <a href="#" class="cd-filter-trigger filter-is-visible">Filters</a>
   </main>
   {{> footer}}
 </template>

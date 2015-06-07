@@ -11,7 +11,7 @@
     "default_locale": "en",
     "background": {
         "scripts": [
-            "bower_components/jquery/dist/jquery.js",
+            "bower_components/jquery/dist/jquery.min.js",
             "scripts/chromereload.js",
             "scripts/background.js"
         ]
@@ -19,7 +19,7 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["bower_components/jquery/dist/jquery.js", "scripts/content.js"]
+            "js": ["bower_components/jquery/dist/jquery.min.js", "scripts/category_maps.js", "scripts/content.js"]
         }
     ],
     "browser_action": {

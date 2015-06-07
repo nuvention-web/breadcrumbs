@@ -14,7 +14,6 @@
     break;
 */ 
 
-
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
     // debugger;
@@ -27,8 +26,9 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
     switch(request.page.site) {
       case 'amazon.com':
+        // debugger;
         console.log ('Amazon page detected.');
-        var name = $('#productTitle').text();
+        var name = $('#productTitle').text() || $('#btAsinTitle').text();
         if (!name) {
             break;
         }
@@ -97,8 +97,11 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
           // do nothing!
         }
 
+        var category;
+
         if ($('body').hasClass('book')) {
-          web_taxonomy = ['Books'];
+          web_taxonomy = ['Music & Media'];
+          category = web_taxonomy[0];
           var price_elements = $('#tmmSwatches').find('.a-color-secondary');
           if (price_elements) {
               price = $(price_elements[0]).children()[0].innerText;
@@ -106,11 +109,17 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
 
         if ($('body').hasClass('amazon_tablets')) {
-          web_taxonomy = ['Tablets'];
+          web_taxonomy = ['Electronics'];
+          category = web_taxonomy[0];
         }
 
         if ($('body').hasClass('amazon_ereaders')) {
-          web_taxonomy = ['E-Readers'];
+          web_taxonomy = ['Electronics'];
+          category = web_taxonomy[0];
+        }
+
+        if (!category) {
+          category = window.classify(web_taxonomy, 'amazon');
         }
 
         response.name = name;
@@ -118,6 +127,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.price = price;
         response.main_image = main_image;
         response.rating = rating;
+        response.category = category;
         response.web_taxonomy = web_taxonomy;
 
         var details  = $('#descriptionAndDetails').find('.a-text-bold');
@@ -177,6 +187,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
             all_images.push($(this).find('img').attr("src"));
         });
         var description = $("#desc_ifr").attr("src");
+        var category = window.classify(web_taxonomy, 'ebay');
 
         response.name = name;
         response.price = price;
@@ -186,6 +197,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.main_image = main_image;
         response.all_images = all_images;
         response.description = description;
+        response.category = category;
 
         response.site = 'ebay'
         break;
@@ -194,7 +206,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var name = $('.exp-product-title').text();
         var price = $('.exp-pdp-local-price').first().text();
         var brand = 'Nike';
-        var category = 'Clothing, Shoes & Jewelry';
+        var category = 'Clothes & Accessories';
         var web_taxonomy = [category, $('.exp-product-subtitle').text()];
         var model = '';
         var main_image = $('.exp-pdp-hero-image').attr('src');
@@ -208,6 +220,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.price = price;
         response.brand = brand;
         response.web_taxonomy = web_taxonomy;
+        response.category = category;
         response.model = model;
         response.main_image = main_image;
         response.all_images = all_images;
@@ -220,7 +233,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var name = $('[itemprop=name]').first().text();
         var price = $('[itemprop=price]').first().text();
         var brand = 'Express';
-        var category = 'Clothing, Shoes & Jewelry';
+        var category = 'Clothes & Accessories';
         var web_taxonomy = [category]; // this is somewhat lacking right now...
         var model = ''
         var main_image = $('#product-detail-flyout-container').find('img').first().attr('data-src');
@@ -236,6 +249,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.name = name;
         response.price = price;
         response.brand = brand;
+        response.category = category;
         response.web_taxonomy = web_taxonomy;
         response.model = model;
         response.main_image = main_image;
@@ -244,9 +258,6 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
         response.site = 'Express'
         break;
-
-
-
 
       // case 'ruvilla.com':
       //   var name = $(".product-name").ignore('span').text();
@@ -289,11 +300,8 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     }
 
 
-
+    console.log('Finished parsing with no errors. Returning');
     callback(response);
   }
 });
 
-function clothingClassifier(name) {
-
-}

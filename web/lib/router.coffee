@@ -95,10 +95,9 @@ Router.route('/datapost', where: 'server')
     delete item.close
 
     item.status = 'active'
+    item.filter_name = classify item.category
 
     if item.web_taxonomy?
-      item.category = item.web_taxonomy[0]
-      item.filter_name = classify item.category
       item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
 
       if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
@@ -126,45 +125,29 @@ Router.route('/datapost', where: 'server')
       item.total_time_open = item.most_recent_close - item.most_recent_open
       id = Items.insert item
 
-      if item.web_taxonomy?
-
-        if not Categories.findOne {uid: item.uid, name: item.category}
-          new_category =
+      category_id = Categories.findOne {uid: item.uid, name: item.category}
+      if not category_id
+        Categories.insert {
             name: item.category
             uid: item.uid
-            filter_name: item.filter_name
-          Categories.insert new_category
-
-        main_subcategory = item.web_taxonomy[1]
-        if not Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-          Subcategories.insert { super_category: item.category, uid: item.uid, name: main_subcategory, filter_name: classify(main_subcategory)}                
-
+            filter_name: classify(item.category)
+            count: 1
+        }
       else
-        # do nothing for now
-        
-        # # no keywords
-        # done = false
-        # Categories.find({uid: item.uid}).forEach (category) ->
-        #   matched = matchSingleName(item.name, category.name)
-        #   if matched and not done
-        #     console.log('Matched to category ' + category.name + '.')
-        #     console.log(category.keywords)
-        #     console.log(item.name)
-        #     Items.update id, {$set: {category: category.name, filter_name: classify(category.name)}}
-        #     Categories.update category, {$push: {items: id}}
-        #     done = true
+        Categories.update category_id, {$inc: {count: 1}}
 
-        # if not done
-        #   # this'll be complex...
-        #   new_category =
-        #     name: item.name
-        #     keywords: []
-        #     uid: item.uid
-        #     items: [id]
-        #     filter_name: classify(item.web_taxonomy[Math.max(item.web_taxonomy.length - 2)])
-        #   console.log('Creating new category: ' + new_category.name)
-        #   Items.update id, {$set: {category: new_category.name, filter_name: classify(new_category.name)}}
-        #   Categories.insert new_category
+      subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+      if not subcat_id
+        main_subcategory = item.web_taxonomy[1]
+        Subcategories.insert {
+            super_category: item.category
+            uid: item.uid
+            name: main_subcategory
+            filter_name: classify(main_subcategory)
+            count: 1
+        }
+      else
+        Subcategories.update subcat_id, {$inc: {count: 1}}
 
     console.log "[POST] End."
     return 1
