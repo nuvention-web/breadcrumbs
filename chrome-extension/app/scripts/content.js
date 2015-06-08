@@ -270,36 +270,67 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.site = 'Express'
         break;
 
-      // case 'shop.nordstrom.com':
-      //   var name = $('h1[itemprop="name"').text();
-      //   var price = $('.sale-price').first().text();
-      //   if (price == ""){
-      //     price = $('.item-price').find('span').first().text();
-      //   }
-      //   var brand = $('#brand-title').find('a').first().text();
-      //   // nordstrom categories is NOT all clothes & accessories
-      //   var category = 'Clothes & Accessories';
-      //   var web_taxonomy = [category, $('.exp-product-subtitle').text()];
-      //   var model = '';
-      //   var main_image = $('.exp-pdp-hero-image').attr('src');
-      //   var all_images = [];
-      //   $('.exp-pdp-alt-images-carousel li').each(function(){
-      //       all_images.push($(this).find('img').attr('src'));
-      //   });
-      //   var description = $('.colorText').text();
+      case 'shop.nordstrom.com':
+        var name = $('h1[itemprop="name"').text();
+        var price = $('.sale-price').first().text();
+        if (price == ""){
+          price = $('.item-price').find('span').first().text();
+        }
+        var brand = $('#brand-title').find('a').first().text();
+        // nordstrom categories is NOT all clothes & accessories
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('.zoom-window').css('background-image');
+        main_image = main_image.replace('url(','').replace(')','');
+        var all_images = [];
+        $('.image-thumb').each(function(){
+            all_images.push($(this).find('button').find('img').attr('src'));
+        });
+        var description = $('.accordion-content').find('p:first-child').text();
 
-      //   response.name = name;
-      //   response.price = price;
-      //   response.brand = brand;
-      //   response.web_taxonomy = web_taxonomy;
-      //   response.category = category;
-      //   response.model = model;
-      //   response.main_image = main_image;
-      //   response.all_images = all_images;
-      //   response.description = description;
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
 
-      //   response.site = 'Nike Store'
-      //   break;
+        response.site = 'Nordstrom'
+        break;
+
+      case 'bloomingdales.com':
+        var name = $('#productTitle').text();
+        var price = $('.singleTierPrice').first().text();
+        // brand is not accurate lmao
+        var brand = 'Bloomingdales'
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('#productImage').attr('src');
+        main_image = main_image.replace('url(','').replace(')','');
+        var all_images = [];
+        $('.bl_pdp_thumb').each(function(){
+            all_images.push($(this).find('img').attr('src'));
+        });
+        var description = $('.pdp_longDescription').text();
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+
+        response.site = 'Bloomingdales'
+        break;
+      
 
       // case 'ruvilla.com':
       //   var name = $(".product-name").ignore('span').text();
