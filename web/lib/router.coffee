@@ -12,8 +12,13 @@ Router.configure {
 
 Router.onBeforeAction(requireLogin, {only: ['dashboard']})
 
-Router.route('/', { 
-  name: 'home'
+Router.route('/', (->
+  if Meteor.user()
+    Router.go 'dashboard'
+  else
+    this.render 'landing')
+  ,
+  { 
   waitOn: () ->
     if Meteor.user()
       return [
@@ -23,8 +28,6 @@ Router.route('/', {
         Meteor.subscribe('subcategories')
         Meteor.subscribe('brands')
       ]
-    else
-      return
 
   })
 
