@@ -1,6 +1,12 @@
 'use strict';
 
-/* WHEN MAKING A NEW SITE:
+// Individual parsing implementations, done per site in each switch case.
+// Captures item data from the site as needed.
+
+/* 
+  DEV NOTES: 
+
+  WHEN MAKING A NEW SITE:
 
   Mandatory fields:
     response.price = 'PRICE'
@@ -19,7 +25,6 @@
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
   if (request.method === 'getAndParseHtml') {
-    // debugger;
     var response = request.page;
 
     //ignore function for ebay's title issue
@@ -27,12 +32,9 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         return this.clone().find(sel||">*").remove().end();
     };
 
-    console.log(request.page.site);
-
     switch(request.page.site) {
       case 'amazon.com':
-        // debugger;
-        console.log ('Amazon page detected.');
+        // console.log ('Amazon page detected.');
         var name = $('#productTitle').text() || $('#btAsinTitle').text();
         if (!name) {
             break;
@@ -240,7 +242,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var price = $('[itemprop=price]').first().text();
         var brand = 'Express';
         var category = 'Clothes & Accessories';
-        var web_taxonomy = [category]; // this is somewhat lacking right now...
+        var web_taxonomy = [category];
         var model = ''
         var main_image = $('#product-detail-flyout-container').find('img').first().attr('data-src');
         if (main_image[0] = '/') {
@@ -311,7 +313,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
       case 'bloomingdales.com':
         var name = $('#productTitle').text();
         var price = $('.singleTierPrice').first().text();
-        // brand is not accurate lmao
+        // brand is not accurate
         var brand = 'Bloomingdales'
         var category = 'Clothes & Accessories';
         var web_taxonomy = [category];
@@ -397,7 +399,6 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.main_image = main_image;
         response.all_images = all_images;
         response.description = description;
-        console.log(name + price);
         break;
 
       case 'macys.com':
@@ -453,7 +454,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     }
 
 
-    console.log('Finished parsing with no errors. Returning');
+    // console.log('Finished parsing with no errors. Returning');
     callback(response);
   }
 });

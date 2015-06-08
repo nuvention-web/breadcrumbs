@@ -2,46 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css styles/main.css -->
         <link href="styles/main.css" rel="stylesheet">
-        <!-- endbuild -->
     </head>
     <body>
         <img src="images/breadcrumbs-bg.png" height="300" width="400">
-        <section id='login'>
+        <section id="login">
             <h1> START TRACKING YOUR BREADCRUMBS/ </h1>
             <form>
-                <div class='text-input'>
-                    <span class='left'>
+                <div class="text-input">
+                    <span class="left">
                         <h3> email </h3>
                     </span>
-                    <span class='right'>
-                        <input type='text' name='username' required>
+                    <span class="right">
+                        <input type="text" name="username" required>
                     </span>
                 </div>
-                <div class='text-input'>
-                    <span class='left'>
+                <div class="text-input">
+                    <span class="left">
                         <h3> password </h3>
                     </span>
-                    <span class='right'>
-                        <input type='password' name='password' required>
+                    <span class="right">
+                        <input type="password" name="password" required>
                     </span>
                 </div>
-                <input class='bc-button' type='submit' value='LOGIN' required>
-                <span id='error'> incorrect username or password</span>
+                <input class="bc-button" type="submit" value="LOGIN" required>
+                <span id="error"> incorrect username or password</span>
             </form>
-            <span id='register'> Don't have an account yet? <a href='https://breadcrumbs.ninja/register' target='_blank'> Register here. </a> </span>
+            <span id="register"> Don"t have an account yet? <a href="https://breadcrumbs.ninja/register" target="_blank"> Register here. </a> </span>
         </section>
-        <section id='logout'>
+        <section id="logout">
             <h1> YOUR BREADCRUMBS/ IS NOW LOGGING DATA </h1>
-            <a href='https://breadcrumbs.ninja/dashboard' target='_blank'>
-                <button class='bc-button'> go to your dashboard </button>
+            <a href="https://breadcrumbs.ninja/dashboard" target="_blank">
+                <button class="bc-button"> go to your dashboard </button>
             </a>
-            <button id='logout-btn' class='bc-button'> logout </button>
+            <button id="logout-btn" class="bc-button"> logout </button>
         </section>
 
         <!-- build:js scripts/popup.js -->

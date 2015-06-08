@@ -1,8 +1,10 @@
 'use strict';
 
-console.log('Category maps loaded!');
+// Category mapping from various website hierarchies
+// to the Breadcrumbs categorization.
 
-// CATEGORIES //
+// Some sites only have one categorization (e.g. Express)
+// while other require fairly extensive mapping (Amazon).
 
 var BREADCRUMBS_CATEGORIES = [
   'Clothes & Accessories',
@@ -16,7 +18,7 @@ var BREADCRUMBS_CATEGORIES = [
 ];
 
 var AMAZON_TOP_MAP = {
-  // NEEDS MOVIES / INSTANT
+  // NEEDS MOVIES / INSTANT VIDEO
 
   // NEED MUSIC
 
@@ -213,8 +215,8 @@ var MACYS_TOP_MAP = {
   'WATCHES': 'Clothes & Accessories',
 }
 
-// FUNCTIONS //
-
+// Returns a categorization from the above maps
+// given teh web taxonomy.
 function classify(web_taxonomy, site) {
   var sites = {
     'amazon': AMAZON_TOP_MAP,
