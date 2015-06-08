@@ -6,8 +6,6 @@ Template.landing.helpers
     return Session.get("loginClicked")
   loggedIn: () ->
     user = Meteor.users.findOne(this.userId)
-    console.log Meteor.userId
-    console.log Meteor.user() != undefined
     return Meteor.user() != undefined
 
 

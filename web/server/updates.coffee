@@ -1,4 +1,4 @@
-#comment here
+#for running server updates.
 
 AMAZON_TOP_MAP = {
 

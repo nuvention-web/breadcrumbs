@@ -7,9 +7,6 @@ Template.contact.events
     name = event.target.name.value
     email = event.target.email.value
     message = event.target.message.value
-    console.log name
-    console.log email
-    console.log message
 
     if isNotEmpty(email) and isNotEmpty(name) and isNotEmpty(message) and isEmail(email)
     # to, from, subject, msg
