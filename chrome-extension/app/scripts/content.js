@@ -232,6 +232,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         break;
 
       case 'express.com':
+        debugger;
         var name = $('[itemprop=name]').first().text();
         var price = $('[itemprop=price]').first().text();
         var brand = 'Express';
@@ -240,7 +241,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var model = ''
         var main_image = $('#product-detail-flyout-container').find('img').first().attr('data-src');
         if (main_image[0] = '/') {
-          main_image = 'http' + main_image;
+          main_image = 'http:' + main_image;
         }
         var colors = []
         $('#express-view-colors li label').each(function() {
@@ -249,7 +250,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var description = $('.product-description p').text();
 
         // seems to be no real description on the page...but previous pages have info in URL
-        if (document.referrer.match(new RegExp('https?://express.com/clothing/'))) {
+        if (document.referrer.match(new RegExp('https?://(www\.)?express.com/clothing/'))) {
           var referrer = document.referrer;
           if (referrer.indexOf('women') !== -1) {
             web_taxonomy.push('Women');
@@ -307,7 +308,6 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
       //   console.log(name + price);
       //   break;
       case 'macys.com':
-        debugger;
         var name = $('#productTitle').text();
 
         var price_block = $('#priceInfo .standardProdPricingGroup');
