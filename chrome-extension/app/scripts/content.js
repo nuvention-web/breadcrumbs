@@ -12,6 +12,9 @@
     response.price
     response.site = 'Example'
     break;
+
+  this is for easy debugging on the site itself. includes jquery 
+  var script = document.createElement('script');script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js";document.getElementsByTagName('head')[0].appendChild(script);
 */ 
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
@@ -334,41 +337,69 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.site = 'Bloomingdales'
         break;
       
+      case 'uniqlo.com':
+        var name = $(".pdp-title-rating").find("h1[itemprop='name']").text();
+        var price = $('.pdp-price-current').first().text();
+        var brand = 'Uniqlo'
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('.pdp-image-main-media').find('img').attr('src');
+        main_image = main_image.substring(2);
+        var all_images = [];
+        $('.pdp-image-thumb').each(function(){
+            all_images.push($(this).find('img').attr('src').substring(2));
+        });
+        var description = $('.pdp-description-text').text();
 
-      // case 'ruvilla.com':
-      //   var name = $(".product-name").ignore('span').text();
-      //   var price = $(".price").text();
-      //   var brand = $(".brand")text();
-      //   var category = $("gh-cat option:selected").text();
-      //   if (category == ""){
-      //       category = $(".scnd").text();
-      //   }
-      //   var web_taxonomy = [];
-      //   $("#vi-VR-brumb-lnkLst li").each(function(){
-      //       if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
-      //           web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
-      //       }
-      //   })
-      //   var tax_counter = 0;
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
 
-      //   var model = $(".itemAttr").find("h2[itemprop='model']").text();
-      //   var main_image = $(".MagicZoomPlus").attr("href");
-      //   var all_images = [];
-      //   $("#vi_main_img_fs_slider li").each(function(){
-      //       all_images.push($(this).find('img').attr("src"));
-      //   });
-      //   var description = $("#desc_ifr").attr("src");
+        response.site = 'Uniqlo'
+        break;
 
-      //   response.name = name;
-      //   response.price = price;
-      //   response.brand = brand;
-      //   response.web_taxonomy = web_taxonomy;
-      //   response.model = model;
-      //   response.main_image = main_image;
-      //   response.all_images = all_images;
-      //   response.description = description;
-      //   console.log(name + price);
-      //   break;
+      case 'ruvilla.com':
+        var name = $(".product-name").find('h1').text();
+        var price = $(".price").text();
+        var brand = $(".brand")text();
+        var category = $("gh-cat option:selected").text();
+        if (category == ""){
+            category = $(".scnd").text();
+        }
+        var web_taxonomy = [];
+        $("#vi-VR-brumb-lnkLst li").each(function(){
+            if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
+                web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
+            }
+        })
+        var tax_counter = 0;
+
+        var model = $(".itemAttr").find("h2[itemprop='model']").text();
+        var main_image = $(".MagicZoomPlus").attr("href");
+        var all_images = [];
+        $("#vi_main_img_fs_slider li").each(function(){
+            all_images.push($(this).find('img').attr("src"));
+        });
+        var description = $("#desc_ifr").attr("src");
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+        console.log(name + price);
+        break;
+
       case 'macys.com':
         var name = $('#productTitle').text();
 
