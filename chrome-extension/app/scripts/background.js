@@ -79,7 +79,7 @@ chrome.tabs.onUpdated.addListener(
       var site = '';
       var bracketCount = 0;
       for(var ch in tab.url) {
-        if (site === 'www.') {
+        if (site === 'www.' || site === 'www1.') {
           site = '';
         }
         if (tab.url[ch] === '/') {
@@ -96,6 +96,7 @@ chrome.tabs.onUpdated.addListener(
 
       chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', page: newPage}, function (res) {
         if (res && res.price) {
+          console.log('Parsing complete.');
           tabStore[tabID].previous = res;
           res.close = res.open;
           post(res);

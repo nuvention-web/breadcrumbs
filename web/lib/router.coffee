@@ -12,8 +12,13 @@ Router.configure {
 
 Router.onBeforeAction(requireLogin, {only: ['dashboard']})
 
-Router.route('/', { 
-  name: 'home'
+Router.route('/', (->
+  if Meteor.user()
+    Router.go 'dashboard'
+  else
+    this.render 'landing')
+  ,
+  { 
   waitOn: () ->
     if Meteor.user()
       return [
@@ -23,8 +28,6 @@ Router.route('/', {
         Meteor.subscribe('subcategories')
         Meteor.subscribe('brands')
       ]
-    else
-      return
 
   })
 
@@ -116,6 +119,12 @@ Router.route('/datapost', where: 'server')
       Sites.insert({name: item.site, uid: item.uid})
 
     id = Items.findOne {name: item.name, site: item.site}
+
+    # Classification info could be parsed different on separate runs. Make sure to take the best one each time.
+    if id and id.web_taxonomy and ((not item.web_taxonomy) or (id.web_taxonomy.length > item.web_taxonomy))
+      item.web_taxonomy = id.web_taxonomy
+      item.subcategories = id.subcategories
+
     if id?
       console.log 'Item already in database. Updating.'
       if (isNaN id.total_time_open)

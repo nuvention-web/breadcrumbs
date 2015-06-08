@@ -27,7 +27,7 @@ Template.dashboard.helpers
     categories: () ->
         return Categories.find { count: {$gt: 0} }, {sort: {name: 1}}
     categoryDeleteTarget: () ->
-        return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'}).name if Session.get 'categoryDeleteTarget'
+        return Categories.findOne({filter_name: Session.get 'categoryDeleteTarget'})?.name if Session.get 'categoryDeleteTarget'
     sites: () ->
         return Sites.find()
     product_origin_image : (site) ->
@@ -302,7 +302,6 @@ passes_price_filter = (item) ->
             return false
 
 passes_category_filter = (item) ->
-    console.log(item)
     $item = $(item)
     category_filter = '' if category_filter == 'all'
     if category_filter == '' or $item.data('category') == category_filter
