@@ -1,12 +1,12 @@
 'use strict';
 
-// post request setup
+// Set domain for either testing or deployment.
 var domain = 'http://localhost:3000';
 // var domain = 'http://breadcrumbs.ninja';
 var path = domain + '/datapost';
 var tabStore = {};
 
-// cross-domain post to server
+// Ajax POST request to server containing item information.
 function post(params) {
   console.log('Making post request...');
   console.log(params);
@@ -21,21 +21,21 @@ function post(params) {
         success: function (result) {
           switch (result) {
             case true:
-              console.log('Post was successful.');
+              // console.log('Post was successful.');
               break;
             default:
-              console.log('Post was unsuccessful.');
-              console.log(result);
+              // console.log('Post was unsuccessful.');
+              // console.log(result);
           }
         },
         error: function (xhr, ajaxOptions, thrownError) {
           console.log('An error was thrown. The server\'s probably unavailable.');
-          console.log('XHR Object: ');
-          console.log(xhr);
-          console.log('AjaxOptions: ');
-          console.log(ajaxOptions);
-          console.log('Thrown Error: ');
-          console.log(thrownError);
+          // console.log('XHR Object: ');
+          // console.log(xhr);
+          // console.log('AjaxOptions: ');
+          // console.log(ajaxOptions);
+          // console.log('Thrown Error: ');
+          // console.log(thrownError);
         }
       });
     }
@@ -45,14 +45,14 @@ function post(params) {
   });
 }
 
-var flag = false;
-
+// Catches each navigation change and sends command to content
+// script to parse page and POST data to server.
 chrome.tabs.onUpdated.addListener(
   function(tabID, changeInfo, tab) {
     if (tabStore[tabID] === undefined) {
       tabStore[tabID] = tab;
     }
-    // navigating to different url
+    // On navigation to a new URL
     if (changeInfo.url !== undefined) {
       if (tabStore[tabID].previous) {
         tabStore[tabID].previous.close = new Date().getTime();
@@ -60,6 +60,7 @@ chrome.tabs.onUpdated.addListener(
         delete tabStore[tabID].previous;
       }
 
+      // Create an alert to remind user to log into extension on email verification
       if (changeInfo.url.match(new RegExp('https?://breadcrumbs.ninja/#/verify-email/.*'))) {
         chrome.storage.local.get('breadcrumbsID', function(items) {
           if (!items.breadcrumbsID || items.breadcrumbsID === 0) {
@@ -68,7 +69,7 @@ chrome.tabs.onUpdated.addListener(
         });
       }
     }
-    // second iteration of tab loaded
+    // On tab fully loaded. Collect some data and send to content script for full parsing.
     if (changeInfo.status === 'complete' && tab.url.substring(0, 6) !== 'chrome') {
       var newPage = {};
       newPage.page_title = tab.title;
@@ -90,13 +91,11 @@ chrome.tabs.onUpdated.addListener(
         }
       }
       newPage.site = site;
-      console.log(tab);
 
-      console.log('The tab has been loaded. Parsing...');
-
+      // console.log('The tab has been loaded. Parsing...');
       chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', page: newPage}, function (res) {
         if (res && res.price) {
-          console.log('Parsing complete.');
+          // console.log('Parsing complete.');
           tabStore[tabID].previous = res;
           res.close = res.open;
           post(res);
@@ -105,6 +104,8 @@ chrome.tabs.onUpdated.addListener(
     }
   });
 
+// Two-fold POST: once on load and once on exiting page
+// to log time spent on page.
 chrome.tabs.onRemoved.addListener(
   function(tabID) {
     if (tabStore[tabID] && tabStore[tabID].previous) {

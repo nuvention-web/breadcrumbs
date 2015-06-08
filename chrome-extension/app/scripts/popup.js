@@ -1,7 +1,9 @@
 'use strict';
 
-var id;
+// Authenticates extension through browser action to make posts.
+// Sets an extension variable that propogates back to the background script.
 
+var id;
 var ceres = new Asteroid('localhost:3000');
 // var ceres = new Asteroid('breadcrumbs.ninja');
 
@@ -16,13 +18,11 @@ chrome.storage.local.get('breadcrumbsID', function(items) {
   else {
     id = 0;
   }
-  console.log(id);
 });
 
 function authenticate(event) {
   event.preventDefault();
 
-  console.log('hi');
   var loginRes = ceres.loginWithPassword(event.target.username.value, event.target.password.value);
   loginRes.then(function(uid) {
     id = uid;

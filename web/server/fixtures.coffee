@@ -1,4 +1,5 @@
 # for loading canned data if needed
+# (but it's not needed right now)
 
 # if Items.find().count() is 0
 #     items = []
