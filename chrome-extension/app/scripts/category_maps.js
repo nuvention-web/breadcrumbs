@@ -221,6 +221,7 @@ function classify(web_taxonomy, site) {
     'ebay': EBAY_TOP_MAP,
     'macys': MACYS_TOP_MAP
   }
+
   var category = web_taxonomy[0];
   if (sites[site][category]) {
     return sites[site][category];
