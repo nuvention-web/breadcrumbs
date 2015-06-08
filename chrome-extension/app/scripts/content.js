@@ -311,7 +311,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var name = $('#productTitle').text();
 
         var price_block = $('#priceInfo .standardProdPricingGroup');
-        if (price_block.find('.priceSale')) {
+        if (price_block.find('.priceSale').length > 0) {
           var price = price_block.find('.priceSale').text();
           price = price.slice(price.indexOf('$'));
         }
@@ -336,7 +336,9 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         });
 
         $('#breadCrumbsDiv').find('.bcElement').each(function () {
-          web_taxonomy.push($(this).text());
+          if ($(this).text().indexOf('Shop all') === -1) {
+            web_taxonomy.push($(this).text());
+          }
         });
 
         response.name = name;

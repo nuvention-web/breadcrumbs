@@ -96,6 +96,7 @@ chrome.tabs.onUpdated.addListener(
 
       chrome.tabs.sendRequest(tabID, {method: 'getAndParseHtml', page: newPage}, function (res) {
         if (res && res.price) {
+          console.log('Parsing complete.');
           tabStore[tabID].previous = res;
           res.close = res.open;
           post(res);
