@@ -225,6 +225,21 @@ Items.find().forEach (item) ->
         Items.update(item, {$set: {category: category, filter_name: filter_name}})
     else
         console.log item
+
+    if item.main_image.substring(0,6) == "uniqlo"
+      http = 'http://'
+      item.main_image = http + item.main_image
+      Items.update(item._id, {$set: {main_image: item.main_image}})
+
+
+
+
+
+
+
+
+
+
     
 
 # Categories.find().forEach (category) ->
