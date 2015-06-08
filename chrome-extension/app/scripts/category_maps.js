@@ -199,12 +199,27 @@ var EBAY_TOP_MAP = {
   'Everything Else': 'Other'
 }
 
+var MACYS_TOP_MAP = {
+  'HOME': 'Home & Office',
+  'BED & BATH': 'Home & Office',
+  'WOMEN': 'Clothes & Accessories',
+  'MEN': 'Clothes & Accessories',
+  'JUNIORS': 'Clothes & Accessories',
+  'KIDS': 'Clothes & Accessories',
+  'BEAUTY': 'Clothes & Accessories',
+  'SHOES': 'Clothes & Accessories',
+  'HANDBAGS & ACCESSORIES': 'Clothes & Accessories',
+  'JEWELRY': 'Clothes & Accessories',
+  'WATCHES': 'Clothes & Accessories',
+}
+
 // FUNCTIONS //
 
 function classify(web_taxonomy, site) {
   var sites = {
     'amazon': AMAZON_TOP_MAP,
-    'ebay': EBAY_TOP_MAP
+    'ebay': EBAY_TOP_MAP,
+    'macys': MACYS_TOP_MAP
   }
   var category = web_taxonomy[0];
   if (sites[site][category]) {

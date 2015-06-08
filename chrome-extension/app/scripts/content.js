@@ -24,6 +24,8 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         return this.clone().find(sel||">*").remove().end();
     };
 
+    console.log(request.page.site);
+
     switch(request.page.site) {
       case 'amazon.com':
         // debugger;
@@ -119,7 +121,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         }
 
         if (!category) {
-          category = window.classify(web_taxonomy, 'amazon');
+          category = classify(web_taxonomy, 'amazon');
         }
 
         response.name = name;
@@ -187,7 +189,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
             all_images.push($(this).find('img').attr("src"));
         });
         var description = $("#desc_ifr").attr("src");
-        var category = window.classify(web_taxonomy, 'ebay');
+        var category = classify(web_taxonomy, 'ebay');
 
         response.name = name;
         response.price = price;
@@ -247,13 +249,13 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         var description = $('.product-description p').text();
 
         // seems to be no real description on the page...but previous pages have info in URL
-        if document.referrer.match(new RegExp('https?://express.com/clothing/')) {
+        if (document.referrer.match(new RegExp('https?://express.com/clothing/'))) {
           var referrer = document.referrer;
           if (referrer.indexOf('women') !== -1) {
-            web_taxonomy.append('Women');
+            web_taxonomy.push('Women');
           }
           else if (referrer.indexOf('men') !== -1) {
-            web_taxonomy.append('Men');
+            web_taxonomy.push('Men');
           }
         }
 
@@ -304,6 +306,51 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
       //   response.description = description;
       //   console.log(name + price);
       //   break;
+      case 'macys.com':
+        debugger;
+        var name = $('#productTitle').text();
+
+        var price_block = $('#priceInfo .standardProdPricingGroup');
+        if (price_block.find('.priceSale')) {
+          var price = price_block.find('.priceSale').text();
+          price = price.slice(price.indexOf('$'));
+        }
+        else {
+          var price = price_block.find('span').text();
+        }
+        var brand = 'Macys'; // but not actually though
+
+        var category = $('#globalMastheadCategoryMenu').find('.globalMastheadCategorySelected').children().text();
+        var category = classify([category], 'macys');
+        var web_taxonomy = [category];
+
+        var model_text = $('#bullets').find('.productID').text();
+        var model = model_text.slice(model_text.indexOf(': ') + 2);
+        var main_image = $('#mainView_1').attr('src');
+
+        var description = '';
+        $('#bullets').find('li').each(function() {
+          if (!$(this).hasClass('productID')) {
+            description += $(this).text() + '\n';
+          }
+        });
+
+        $('#breadCrumbsDiv').find('.bcElement').each(function () {
+          web_taxonomy.push($(this).text());
+        });
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.category = category;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.colors = colors;
+        response.description = description;
+
+        response.site = 'Macys';
+        break;
 
       default:
         break;

@@ -79,7 +79,7 @@ chrome.tabs.onUpdated.addListener(
       var site = '';
       var bracketCount = 0;
       for(var ch in tab.url) {
-        if (site === 'www.') {
+        if (site === 'www.' || site === 'www1.') {
           site = '';
         }
         if (tab.url[ch] === '/') {
