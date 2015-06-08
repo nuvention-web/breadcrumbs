@@ -4,9 +4,7 @@ Template.forgotPassword.events
     forgotPasswordForm = $(e.currentTarget)
     email = trimInput(forgotPasswordForm.find('#forgotPasswordEmail').val().toLowerCase())
     if isNotEmpty(email) and isEmail(email)
-      console.log 'clicked1'
       Accounts.forgotPassword { email: email }, (err) ->
-        console.log 'clicked'
         if err
           if err.message == 'User not found [403]'
             console.log 'This email does not exist.'

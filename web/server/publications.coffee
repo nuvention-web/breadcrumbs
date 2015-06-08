@@ -1,3 +1,4 @@
+# publish from mongo database
 Meteor.publish 'brands', () ->
     if this.userId
         return Brands.find {uid: this.userId}
@@ -28,7 +29,6 @@ Meteor.publish 'subcategories', () ->
     else
         this.ready()
 
-# what does this do??? comment below pls
 Meteor.publish 'allUserData', () ->
     if this.userId
         return Meteor.users.find {}, {fields: {'categories': 1, 'name': 1, 'email': 1}}

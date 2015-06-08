@@ -12,6 +12,9 @@
     response.price
     response.site = 'Example'
     break;
+
+  this is for easy debugging on the site itself. includes jquery 
+  var script = document.createElement('script');script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js";document.getElementsByTagName('head')[0].appendChild(script);
 */ 
 
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
@@ -273,40 +276,130 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         response.site = 'Express'
         break;
 
-      // case 'ruvilla.com':
-      //   var name = $(".product-name").ignore('span').text();
-      //   var price = $(".price").text();
-      //   var brand = $(".brand")text();
-      //   var category = $("gh-cat option:selected").text();
-      //   if (category == ""){
-      //       category = $(".scnd").text();
-      //   }
-      //   var web_taxonomy = [];
-      //   $("#vi-VR-brumb-lnkLst li").each(function(){
-      //       if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
-      //           web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
-      //       }
-      //   })
-      //   var tax_counter = 0;
+      case 'shop.nordstrom.com':
+        var name = $('h1[itemprop="name"').text();
+        var price = $('.sale-price').first().text();
+        if (price == ""){
+          price = $('.item-price').find('span').first().text();
+        }
+        var brand = $('#brand-title').find('a').first().text();
+        // nordstrom categories is NOT all clothes & accessories
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('.zoom-window').css('background-image');
+        main_image = main_image.replace('url(','').replace(')','');
+        var all_images = [];
+        $('.image-thumb').each(function(){
+            all_images.push($(this).find('button').find('img').attr('src'));
+        });
+        var description = $('.accordion-content').find('p:first-child').text();
 
-      //   var model = $(".itemAttr").find("h2[itemprop='model']").text();
-      //   var main_image = $(".MagicZoomPlus").attr("href");
-      //   var all_images = [];
-      //   $("#vi_main_img_fs_slider li").each(function(){
-      //       all_images.push($(this).find('img').attr("src"));
-      //   });
-      //   var description = $("#desc_ifr").attr("src");
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
 
-      //   response.name = name;
-      //   response.price = price;
-      //   response.brand = brand;
-      //   response.web_taxonomy = web_taxonomy;
-      //   response.model = model;
-      //   response.main_image = main_image;
-      //   response.all_images = all_images;
-      //   response.description = description;
-      //   console.log(name + price);
-      //   break;
+        response.site = 'Nordstrom'
+        break;
+
+      case 'bloomingdales.com':
+        var name = $('#productTitle').text();
+        var price = $('.singleTierPrice').first().text();
+        // brand is not accurate lmao
+        var brand = 'Bloomingdales'
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('#productImage').attr('src');
+        main_image = main_image.replace('url(','').replace(')','');
+        var all_images = [];
+        $('.bl_pdp_thumb').each(function(){
+            all_images.push($(this).find('img').attr('src'));
+        });
+        var description = $('.pdp_longDescription').text();
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+
+        response.site = 'Bloomingdales'
+        break;
+      
+      case 'uniqlo.com':
+        var name = $(".pdp-title-rating").find("h1[itemprop='name']").text();
+        var price = $('.pdp-price-current').first().text();
+        var brand = 'Uniqlo'
+        var category = 'Clothes & Accessories';
+        var web_taxonomy = [category];
+        var model = '';
+        var main_image = $('.pdp-image-main-media').find('img').attr('src');
+        main_image = main_image.substring(2);
+        var all_images = [];
+        $('.pdp-image-thumb').each(function(){
+            all_images.push($(this).find('img').attr('src').substring(2));
+        });
+        var description = $('.pdp-description-text').text();
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.category = category;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+
+        response.site = 'Uniqlo'
+        break;
+
+      case 'ruvilla.com':
+        var name = $(".product-name").find('h1').text();
+        var price = $(".price").text();
+        var brand = $(".brand")text();
+        var category = $("gh-cat option:selected").text();
+        if (category == ""){
+            category = $(".scnd").text();
+        }
+        var web_taxonomy = [];
+        $("#vi-VR-brumb-lnkLst li").each(function(){
+            if($(this).find('a').text() != '' && $(this).find('a').text().indexOf('Back to search') === -1){
+                web_taxonomy.push($(this).find('a').text()); //iterate through even items in array to get names
+            }
+        })
+        var tax_counter = 0;
+
+        var model = $(".itemAttr").find("h2[itemprop='model']").text();
+        var main_image = $(".MagicZoomPlus").attr("href");
+        var all_images = [];
+        $("#vi_main_img_fs_slider li").each(function(){
+            all_images.push($(this).find('img').attr("src"));
+        });
+        var description = $("#desc_ifr").attr("src");
+
+        response.name = name;
+        response.price = price;
+        response.brand = brand;
+        response.web_taxonomy = web_taxonomy;
+        response.model = model;
+        response.main_image = main_image;
+        response.all_images = all_images;
+        response.description = description;
+        console.log(name + price);
+        break;
+
       case 'macys.com':
         var name = $('#productTitle').text();
 

@@ -1,5 +1,6 @@
+# Meteor.call methods
 Meteor.methods
-
+  
     deactivateCategory: (category, uid) ->
       Categories.remove category
       Subcategories.remove { super_category: category.name, uid: uid }

@@ -1,6 +1,6 @@
 Breadcrumbs Web
 =========
-Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.com). Or check out the [repository](https://github.com/nuvention-web/breadcrumbs).
+Currently living at [https://breadcrumbs.ninja](https://breadcrumbs.ninja). Or check out the [repository](https://github.com/nuvention-web/breadcrumbs).
 
 ## Roles
  * Kevin: development and design
@@ -16,22 +16,13 @@ Currently living at [https://breadcrumbs.meteor.com](https://breadcrumbs.meteor.
  * Styles: [SCSS](http://sass-lang.com)
  * Testing: [Velocity + Mocha + Chai](http://velocity.meteor.com)
 
-## Admin Interface
-To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in.
+<!-- ## Admin Interface
+To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in. -->
 
 #### Dev Todos:
- * fix up / improve item design
- * deactivate / remove items or categories
- * make category filters work
-    * top: highest level categories
-    * on clicking top, open up side panel containing finer filters
- * make side filters work
+ * clean up code
 
 #### Dev "Important, but not main functionality" log
- * Extension look
- * download page
- * landing / info page
- * blog
 
 #### Dev Backlog:
  * drag categories together
