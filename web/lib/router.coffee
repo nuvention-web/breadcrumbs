@@ -106,10 +106,8 @@ Router.route('/datapost', where: 'server')
     if item.web_taxonomy?
       item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
 
-      if item.brand and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
-        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
-    
-    if item.brand
+    if item.brand and item.category not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+      Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
       item.filter_brand = classify item.brand
 
     console.log "[POST] Request created."
@@ -150,18 +148,18 @@ Router.route('/datapost', where: 'server')
           Categories.update category_id, {$inc: {count: 1}}
 
         if item.subcategories
-        main_subcategory = item.subcategories[0]
-        subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-        if not subcat_id
-          Subcategories.insert {
-              super_category: item.category
-              uid: item.uid
-              name: main_subcategory
-              filter_name: classify(main_subcategory)
-              count: 1
-          }
-        else
-          Subcategories.update subcat_id, {$inc: {count: 1}}
+          main_subcategory = item.subcategories[0]
+          subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+          if not subcat_id
+            Subcategories.insert {
+                super_category: item.category
+                uid: item.uid
+                name: main_subcategory
+                filter_name: classify(main_subcategory)
+                count: 1
+            }
+          else
+            Subcategories.update subcat_id, {$inc: {count: 1}}
 
     console.log "[POST] End."
     return 1

@@ -1,3 +1,20 @@
+Subcategories.remove({})
+Items.find().forEach (item) ->
+    if item.subcategories
+        id2 = Subcategories.findOne {name: item.subcategories[0], uid: item.uid}
+        if not id2
+            Subcategories.insert {
+                super_category: item.category
+                uid: item.uid
+                name: item.web_taxonomy[1]
+                filter_name: classify(item.web_taxonomy[1])
+                count: 1
+            }
+        else
+            Subcategories.update id2, {$inc: {count: 2}}
+    else
+        console.log item
+
 # for running server updates.
 
 # AMAZON_TOP_MAP = {
