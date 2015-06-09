@@ -1,4 +1,7 @@
+Brands.remove({})
 Subcategories.remove({})
+
+
 Items.find().forEach (item) ->
     if item.subcategories
         id2 = Subcategories.findOne {name: item.subcategories[0], uid: item.uid}
@@ -12,8 +15,12 @@ Items.find().forEach (item) ->
             }
         else
             Subcategories.update id2, {$inc: {count: 2}}
-    else
-        console.log item
+
+    if item.brand and item.category and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+        Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+        filter_brand = classify item.brand
+        Items.update(item, {$set: {filter_brand: filter_brand}})
+
 
 # for running server updates.
 

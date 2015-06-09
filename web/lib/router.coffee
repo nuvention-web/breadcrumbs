@@ -106,7 +106,7 @@ Router.route('/datapost', where: 'server')
     if item.web_taxonomy?
       item.subcategories = [classify(subcat) for subcat in item.web_taxonomy[1..]][0]
 
-    if item.brand and item.category not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
+    if item.brand and item.category and not Brands.findOne { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
       Brands.insert { brand: item.brand, super_category: item.category, uid: item.uid, filter_brand: classify(item.brand) }
       item.filter_brand = classify item.brand
 
