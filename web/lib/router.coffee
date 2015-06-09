@@ -137,29 +137,31 @@ Router.route('/datapost', where: 'server')
       item.total_time_open = item.most_recent_close - item.most_recent_open
       id = Items.insert item
 
-      category_id = Categories.findOne {uid: item.uid, name: item.category}
-      if not category_id
-        Categories.insert {
-            name: item.category
-            uid: item.uid
-            filter_name: classify(item.category)
-            count: 1
-        }
-      else
-        Categories.update category_id, {$inc: {count: 1}}
+      if item.web_taxonomy
+        category_id = Categories.findOne {uid: item.uid, name: item.category}
+        if not category_id
+          Categories.insert {
+              name: item.category
+              uid: item.uid
+              filter_name: classify(item.category)
+              count: 1
+          }
+        else
+          Categories.update category_id, {$inc: {count: 1}}
 
-      subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
-      if not subcat_id
-        main_subcategory = item.web_taxonomy[1]
-        Subcategories.insert {
-            super_category: item.category
-            uid: item.uid
-            name: main_subcategory
-            filter_name: classify(main_subcategory)
-            count: 1
-        }
-      else
-        Subcategories.update subcat_id, {$inc: {count: 1}}
+        if item.subcategories
+        main_subcategory = item.subcategories[0]
+        subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
+        if not subcat_id
+          Subcategories.insert {
+              super_category: item.category
+              uid: item.uid
+              name: main_subcategory
+              filter_name: classify(main_subcategory)
+              count: 1
+          }
+        else
+          Subcategories.update subcat_id, {$inc: {count: 1}}
 
     console.log "[POST] End."
     return 1
