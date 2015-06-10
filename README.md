@@ -16,9 +16,6 @@ Web commponent currently living at [https://breadcrumbs.ninja](https://breadcrum
  * Styles: [SCSS](http://sass-lang.com)
  * Testing: [Velocity + Mocha + Chai](http://velocity.meteor.com)
 
-## Admin Interface
-To access the admin interface, navigate to our [admin portal](https://breadcrumbs.ninja/login) and log in.
-
 ##User components and instructions
 * Chrome extension - available on http://breadcrumbs.ninja 
   * Follow instructions on the page

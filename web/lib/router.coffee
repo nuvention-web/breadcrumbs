@@ -147,8 +147,8 @@ Router.route('/datapost', where: 'server')
         else
           Categories.update category_id, {$inc: {count: 1}}
 
-        if item.subcategories
-          main_subcategory = item.subcategories[0]
+        if item.web_taxonomy[1]
+          main_subcategory = item.web_taxonomy[1]
           subcat_id = Subcategories.findOne { super_category: item.category, name: main_subcategory, uid: item.uid }
           if not subcat_id
             Subcategories.insert {

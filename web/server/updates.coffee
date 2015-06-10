@@ -3,8 +3,8 @@ Subcategories.remove({})
 
 
 Items.find().forEach (item) ->
-    if item.subcategories
-        id2 = Subcategories.findOne {name: item.subcategories[0], uid: item.uid}
+    if item.web_taxonomy and item.web_taxonomy[1]
+        id2 = Subcategories.findOne {name: item.web_taxonomy[1], uid: item.uid}
         if not id2
             Subcategories.insert {
                 super_category: item.category

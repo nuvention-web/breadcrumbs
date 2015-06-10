@@ -15,15 +15,3 @@ Currently living at [https://breadcrumbs.ninja](https://breadcrumbs.ninja). Or c
  * Scripting: [Coffeescript](http://coffeescript.org)
  * Styles: [SCSS](http://sass-lang.com)
  * Testing: [Velocity + Mocha + Chai](http://velocity.meteor.com)
-
-<!-- ## Admin Interface
-To access the list of captured emails, navigate to our [admin portal](https://breadcrumbs.meteor.com/login) and log in. -->
-
-#### Dev Todos:
- * clean up code
-
-#### Dev "Important, but not main functionality" log
-
-#### Dev Backlog:
- * drag categories together
- * command click + comparison view
