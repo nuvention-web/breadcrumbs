@@ -4,8 +4,8 @@
 // Sets an extension variable that propogates back to the background script.
 
 var id;
-var ceres = new Asteroid('localhost:3000');
-// var ceres = new Asteroid('breadcrumbs.ninja');
+// var ceres = new Asteroid('localhost:3000');
+var ceres = new Asteroid('breadcrumbs.ninja');
 
 // on start, check if authenticated
 chrome.storage.local.get('breadcrumbsID', function(items) {
