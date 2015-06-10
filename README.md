@@ -1,4 +1,4 @@
-![Breadcrumbs](https://breadcrumbs.ninja/images/favicon-32.png "Breadcrumbs")Breadcrumbs
+![Breadcrumbs](https://breadcrumbs.ninja/images/favicon-32.png) Breadcrumbs
 ==================================================================
 Web commponent currently living at [https://breadcrumbs.ninja](https://breadcrumbs.ninja). Or check out the [repository](https://github.com/nuvention-web/breadcrumbs).
 
